@@ -120,7 +120,7 @@
 						</div>
 					</div>
 					<div class="col-lg-6 col-sm-12 col-12">
-						<div class="content">
+						<!-- <div class="content">
 							<h3>Buy Book</h3>
 							<h2>Different Knowledge</h2>
 							<p class="mt--20 mb--20">Claritas est etiam processus dynamicus, qui sequitur mutationem
@@ -131,6 +131,107 @@
 							<strong>London Address</strong>
 							<p>34 Parer Place via Musk Avenue Kelvin Grove, QLD, 4059</p>
 						</div>
+
+						<div class="content">
+							<h3>Buy Book</h3>
+							<h2>Different Knowledge</h2>
+							<p class="mt--20 mb--20">Claritas est etiam processus dynamicus, qui sequitur mutationem
+								consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum
+								claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta
+								decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in
+								futurum.</p>
+							<strong>London Address</strong>
+							<p>34 Parer Place via Musk Avenue Kelvin Grove, QLD, 4059</p>
+						</div> -->
+
+						<section class="wn__faq__area bg--white pt--80 pb--60">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="wn__accordeion__content">
+							<h2>ABOUT US</h2>
+							<p>You are Welcome to Newton Books
+Thank you so much for visiting and searching our online inventory.<br>
+We look forward to serving you and helping you find the best books you're looking for and even help you discover more!</p>
+						</div>
+						<div id="accordion" class="wn_accordion" role="tablist">
+							<div class="card">
+								<div class="acc-header" role="tab" id="headingOne">
+									<h5>
+										<a data-toggle="collapse" href="#collapseOne" role="button" aria-expanded="true"
+											aria-controls="collapseOne">Our Story</a>
+									</h5>
+								</div>
+								<div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne"
+									data-parent="#accordion">
+									<div class="card-body">Newton Books was founded on the passion and love for great and best selling books by the top minds in business and finance, leadership, self-development and help, religion, biography and autobiography, philosophy, psychology, and entrepreneurship categories by the founder.<br> Unfortunately, access to such good books was always the problem because of his geography. He was always on amazon searching, he would visit gates notes to know his recommended books, he would visit the websites of all the known best authors in all the categories mentioned earlier; the likes of Robert Kiyosaki, Tonny Robbins, Malcolm Gladwell, T.D. Jakes, Joyce Meyer, Simon Sinek to mention but few to find out the books they would be releasing or have released. <br>When he finally solved that problem of not having access to the books he would love to read, he decided to help the hundreds and thousands of people who have the same problem and that was when NEWTON BOOKS was born.</div>
+								</div>
+							</div>
+							<div class="card">
+								<div class="acc-header" role="tab" id="headingTwo">
+									<h5>
+										<a class="collapsed" data-toggle="collapse" href="#collapseTwo" role="button"
+											aria-expanded="false" aria-controls="collapseTwo">
+											 OUR PHILOSOPHY
+										</a>
+									</h5>
+								</div>
+								<div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo"
+									data-parent="#accordion">
+									<div class="card-body"><br><b>If Knowledge Is Power, Reading Is Your Superpower!</b><br>
+										<br>
+										This simple philosophy has set us on a course to eradicate illiteracy in every form by saving books and making them accessible for individuals who are willing to make meaning with their lives by the power of information to read, which intend shapes their minds, share them a story, give them a bit of wisdom. Also, initiate literacy programs that make the individual whole.  <br> is said that "If you are not in the know, you can't be in the flow" and we believe that you cannot be in the flow if you are not in the known and you cannot be in the know if you do not read whether by watching a video program, listening to podcast or any audio program or by reading a book.  </div>
+								</div>
+							</div>
+							<div class="card">
+								<div class="acc-header" role="tab" id="headingThree">
+									<h5>
+										<a class="collapsed" data-toggle="collapse" href="#collapseThree" role="button"
+											aria-expanded="false" aria-controls="collapseThree">
+											Best For Less</a>
+									</h5>
+								</div>
+								<div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree"
+									data-parent="#accordion">
+									<div class="card-body">Book enthusiasts want to be informed, inspired, instructed, enriched, educated- a critical asset to improving one’s life, entertained-an occasional escape to fantastic worlds inhabited by interesting characters, and above all empowered. With a wide variety and diverse taste, there is one thing we all love and that is good bargains. Newton Books offers its clients fantastic prices of its books in new condition.
+										<br><b>Newton Books - If Knowledge Is Power, Reading Is Your Superpower.</b></div>
+								</div>
+							</div>
+							<div class="card">
+								<div class="acc-header" role="tab" id="headingFour">
+									<h5>
+										<a class="collapsed" data-toggle="collapse" href="#collapseFour" role="button"
+											aria-expanded="false" aria-controls="collapseFour">
+											Our Mission</a>
+									</h5>
+								</div>
+								<div id="collapseFour" class="collapse" role="tabpanel" aria-labelledby="headingFour"
+									data-parent="#accordion">
+									<div class="card-body"><b>Hosea 4:6a</b>
+										<br>
+									To build and establish a community of readers, books enthusiasts, who love to be in the know not for the excitement of it but to bring that knowledge to bear on issues that border on their communities, nations, and the world at large.
+									<br>
+									<br>
+									That is, we commit to making available to members of the community great books that have the potential to inform, inspire, instruct, enrich, educate, entertain, and above all empower.
+									</div>
+								</div>
+							</div>
+							
+								<!-- <div id="collapseEight" class="collapse" role="tabpanel" aria-labelledby="headingEight"
+									data-parent="#accordion">
+									<div class="card-body">Donec mattis finibus elit ut tristique. Nullam tempus nunc
+										eget arcu vulputate, eu porttitor tellus commodo. Aliquam erat volutpat. Aliquam
+										consectetur lorem eu viverra lobortis. Morbi gravida, nisi id fringilla
+										ultricies, elit lorem eleifend lorem</div>
+								</div> -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
 					</div>
 				</div>
 			</div>

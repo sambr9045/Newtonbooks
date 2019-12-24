@@ -54,6 +54,10 @@
 									
 								</li>
 								<li><a href="contact-us">Contact</a></li>
+
+								<li class="drop"><a href="Faq">Faq</a>
+								
+								</li>
 							</ul>
 						</nav>
 					</div>
@@ -77,7 +81,7 @@
 											<span>$66.00</span>
 										</div>
 										<div class="mini_action checkout">
-											<a class="checkout__btn" href="cart.html">Go to Checkout</a>
+											<a class="checkout__btn" href="checkout">Go to Checkout</a>
 										</div>
 										<div class="single__items">
 											<div class="miniproduct">
@@ -144,7 +148,7 @@
 											</div>
 										</div>
 										<div class="mini_action cart">
-											<a class="cart__btn" href="cart.html">View and edit cart</a>
+											<a class="cart__btn" href="cart">View and edit cart</a>
 										</div>
 									</div>
 								</div>
@@ -245,7 +249,7 @@
 											</ul>
 										</li>
 										<li><a href="my-account.html">My Account</a></li>
-										<li><a href="cart.html">Cart Page</a></li>
+										<li><a href="cart">Cart Page</a></li>
 										<li><a href="checkout.html">Checkout Page</a></li>
 										<li><a href="wishlist.html">Wishlist Page</a></li>
 										<li><a href="error404.html">404 Page</a></li>
