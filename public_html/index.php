@@ -32,9 +32,7 @@
 </head>
 
 <body>
-	<!--[if lte IE 9]>
-		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-	<![endif]-->
+
 
 	<!-- Main wrapper -->
 	<div class="wrapper" id="wrapper">
@@ -347,7 +345,7 @@
 						<div class="col-lg-12">
 							<div class="slider__content">
 								<div class="contentbox">
-									<h3>Boighor_</h3>
+									<h3>Newtonbooks_</h3>
 									<h2>The Best <span>Online</span></h2>
 									<h2 class="another">book <span>shop </span></h2>
 									<p>Boighor specifically created for authors and writes to present and sell their
