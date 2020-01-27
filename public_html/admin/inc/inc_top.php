@@ -1,7 +1,7 @@
 <?php require_once("../../private/initialized.php") ?>
 <!DOCTYPE html>
 <html>
-<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<!-- <meta http-equiv="content-type" content="text/html;charset=UTF-8" /> -->
 
 <head>
     <title>Dashboard</title>
@@ -62,6 +62,7 @@
     <link href="assets/css/fontawesome.css" rel="stylesheet">
     <link href="assets/css/brands.css" rel="stylesheet">
     <link href="assets/css/solid.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body class="app">

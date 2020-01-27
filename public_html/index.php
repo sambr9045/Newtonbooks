@@ -1,3 +1,7 @@
+<?php
+
+include("../private/load.php") ;
+?>
 <!doctype html>
 <html class="no-js" lang="zxx">
 
@@ -42,7 +46,7 @@
 				<div class="row">
 					<div class="col-md-6 col-sm-6 col-6 col-lg-2">
 						<div class="logo">
-							<a href="index.html">
+							<a href="index">
 								<img src="assets/images/logo/logo.png" alt="logo images">
 							</a>
 						</div>
@@ -345,12 +349,11 @@
 						<div class="col-lg-12">
 							<div class="slider__content">
 								<div class="contentbox">
-									<h3>Newtonbooks_</h3>
-									<h2>The Best <span>Online</span></h2>
-									<h2 class="another">book <span>shop </span></h2>
-									<p>Boighor specifically created for authors and writes to present and sell their
-										books online Soufflé tart sweet. </p>
-									<a class="shopbtn" href="#">shop now</a>
+									<h3>Newtonbooks</h3>
+									<h2>The more  you <span>Learn</span></h2>
+									<h2 class="another">The more you <span>Earn </span></h2>
+									<p>Get the best books from the best minds in business, Leadership, Enterpreneurship, Academia, Communication and Marketing to make your life better </p>
+									<a class="shopbtn" href="shop"><button class="btn btn-primary"> <i class="fas fa-shopping-cart"></i>  Shop now </button></a>
 								</div>
 							</div>
 						</div>
@@ -366,11 +369,10 @@
 							<div class="slider__content">
 								<div class="contentbox">
 									<h3>Boighor_</h3>
-									<h2>The Best <span>Online</span></h2>
-									<h2 class="another">book <span>shop </span></h2>
-									<p>Boighor specifically created for authors and writes to present and sell their
-										books online Soufflé tart sweet. </p>
-									<a class="shopbtn" href="#">shop now</a>
+									<h2>The more  you <span>Learn</span></h2>
+									<h2 class="another">The more you <span>Earn </span></h2>
+									<p>Get the best books from the best minds in business, Leadership, Enterpreneurship, Academia, Communication and Marketing to make your life better </p>
+									<a class="shopbtn" href="shop"><button class="btn btn-primary">Shop now </button></a>
 								</div>
 							</div>
 						</div>
@@ -394,70 +396,46 @@
 				</div>
 				<!-- Start Single Tab Content -->
 				<div class="furniture--4 border--round arrows_style owl-carousel owl-theme mt--50">
+						<?php
+						 $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+								$SQL = $db->Fetch("SELECT * FROM books ORDER BY id DESC LIMIT 6", null);
+								foreach($SQL as $value){
+									$img = json_decode($value['images']);
+									$url = [];
+									if(count($img) == 1){
+										 $url[]= $img[0];
+										 $url[]= $img[0];
+									}else{
+										$url = [];
+										$url[] = $img[0];
+										$url[]= $img[1];
+										
+									}
+								// 	var_dump($url);
+								// var_dump($url[0]);
+									?>
+									
 					<!-- Start Single Product -->
 					<div class="product product__style--3">
 						<div class="product__thumb">
-							<a class="first__img" href="single-product.html"><img src="assets/images/books/1.jpg"
-									alt="product image"></a>
-							<a class="second__img animation1" href="single-product.html"><img
-									src="assets/images/books/2.jpg" alt="product image"></a>
-							<div class="hot__box">
-								<span class="hot-label">BEST SALLER</span>
-							</div>
-						</div>
-						<div class="product__content content--center">
-							<h4><a href="single-product.html">robin parrish</a></h4>
-							<ul class="prize d-flex">
-								<li>$35.00</li>
-								<li class="old_prize">$35.00</li>
-							</ul>
-							<div class="action">
-								<div class="actions_inner">
-									<ul class="add_to_links">
-										<li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a>
-										</li>
-										<li><a class="wishlist" href="wishlist.html"><i
-													class="bi bi-shopping-cart-full"></i></a></li>
-										<li><a class="compare" href="#"><i class="bi bi-heart-beat"></i></a></li>
-										<li><a data-toggle="modal" title="Quick View"
-												class="quickview modal-view detail-link" href="#productmodal"><i
-													class="bi bi-search"></i></a></li>
-									</ul>
-								</div>
-							</div>
-							<div class="product__hover--content">
-								<ul class="rating d-flex">
-									<li class="on"><i class="fa fa-star-o"></i></li>
-									<li class="on"><i class="fa fa-star-o"></i></li>
-									<li class="on"><i class="fa fa-star-o"></i></li>
-									<li><i class="fa fa-star-o"></i></li>
-									<li><i class="fa fa-star-o"></i></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<!-- Start Single Product -->
-					<!-- Start Single Product -->
-					<div class="product product__style--3">
-						<div class="product__thumb">
-							<a class="first__img" href="single-product.html"><img src="assets/images/books/3.jpg"
-									alt="product image"></a>
-							<a class="second__img animation1" href="single-product.html"><img
-									src="assets/images/books/4.jpg" alt="product image"></a>
+							<a class="first__img" href="detail?t=<?=$value['title']?>&id=<?=$value['id']?>"><img src="<?="../private/uploades/".$url[0]?>"
+									width="304" height="384" alt="product image"></a>
+							<a class="second__img animation1" href="detail?t=<?=$value['title']?>&id=<?=$value['id']?>"><img
+									src="<?="../private/uploades/".$url[1]?>" width="304" height="384" alt="product image"></a>
 							<div class="hot__box color--2">
 								<span class="hot-label">HOT</span>
 							</div>
 						</div>
 						<div class="product__content content--center">
-							<h4><a href="single-product.html">The Remainng</a></h4>
+							<h4><a href="detail?t=<?=$value['title']?>&id=<?=$value['id']?>"><?=$value['title']?></a></h4>
 							<ul class="prize d-flex">
-								<li>$35.00</li>
-								<li class="old_prize">$35.00</li>
+								<li><?=$value['price']?> GHS</li>
+								<li class="old_prize"><?=$value['price']+10?> GHS</li>
 							</ul>
 							<div class="action">
 								<div class="actions_inner">
 									<ul class="add_to_links">
-										<li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a>
+										<li><a class="cart" href="cart"><i class="bi bi-shopping-bag4"></i></a>
 										</li>
 										<li><a class="wishlist" href="wishlist.html"><i
 													class="bi bi-shopping-cart-full"></i></a></li>
@@ -480,177 +458,11 @@
 						</div>
 					</div>
 					<!-- Start Single Product -->
-					<!-- Start Single Product -->
-					<div class="product product__style--3">
-						<div class="product__thumb">
-							<a class="first__img" href="single-product.html"><img src="assets/images/books/5.jpg"
-									alt="product image"></a>
-							<a class="second__img animation1" href="single-product.html"><img
-									src="assets/images/books/6.jpg" alt="product image"></a>
-							<div class="hot__box">
-								<span class="hot-label">BEST SALLER</span>
-							</div>
-						</div>
-						<div class="product__content content--center">
-							<h4><a href="single-product.html">Bowen Greenwood</a></h4>
-							<ul class="prize d-flex">
-								<li>$40.00</li>
-								<li class="old_prize">$35.00</li>
-							</ul>
-							<div class="action">
-								<div class="actions_inner">
-									<ul class="add_to_links">
-										<li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a>
-										</li>
-										<li><a class="wishlist" href="wishlist.html"><i
-													class="bi bi-shopping-cart-full"></i></a></li>
-										<li><a class="compare" href="#"><i class="bi bi-heart-beat"></i></a></li>
-										<li><a data-toggle="modal" title="Quick View"
-												class="quickview modal-view detail-link" href="#productmodal"><i
-													class="bi bi-search"></i></a></li>
-									</ul>
-								</div>
-							</div>
-							<div class="product__hover--content">
-								<ul class="rating d-flex">
-									<li class="on"><i class="fa fa-star-o"></i></li>
-									<li class="on"><i class="fa fa-star-o"></i></li>
-									<li class="on"><i class="fa fa-star-o"></i></li>
-									<li><i class="fa fa-star-o"></i></li>
-									<li><i class="fa fa-star-o"></i></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<!-- Start Single Product -->
-					<!-- Start Single Product -->
-					<div class="product product__style--3">
-						<div class="product__thumb">
-							<a class="first__img" href="single-product.html"><img src="assets/images/books/7.jpg"
-									alt="product image"></a>
-							<a class="second__img animation1" href="single-product.html"><img
-									src="assets/images/books/8.jpg" alt="product image"></a>
-							<div class="hot__box">
-								<span class="hot-label">HOT</span>
-							</div>
-						</div>
-						<div class="product__content content--center">
-							<h4><a href="single-product.html">Lando</a></h4>
-							<ul class="prize d-flex">
-								<li>$35.00</li>
-								<li class="old_prize">$50.00</li>
-							</ul>
-							<div class="action">
-								<div class="actions_inner">
-									<ul class="add_to_links">
-										<li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a>
-										</li>
-										<li><a class="wishlist" href="wishlist.html"><i
-													class="bi bi-shopping-cart-full"></i></a></li>
-										<li><a class="compare" href="#"><i class="bi bi-heart-beat"></i></a></li>
-										<li><a data-toggle="modal" title="Quick View"
-												class="quickview modal-view detail-link" href="#productmodal"><i
-													class="bi bi-search"></i></a></li>
-									</ul>
-								</div>
-							</div>
-							<div class="product__hover--content">
-								<ul class="rating d-flex">
-									<li class="on"><i class="fa fa-star-o"></i></li>
-									<li class="on"><i class="fa fa-star-o"></i></li>
-									<li class="on"><i class="fa fa-star-o"></i></li>
-									<li><i class="fa fa-star-o"></i></li>
-									<li><i class="fa fa-star-o"></i></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<!-- Start Single Product -->
-					<!-- Start Single Product -->
-					<div class="product product__style--3">
-						<div class="product__thumb">
-							<a class="first__img" href="single-product.html"><img src="assets/images/books/9.jpg"
-									alt="product image"></a>
-							<a class="second__img animation1" href="single-product.html"><img
-									src="assets/images/books/10.jpg" alt="product image"></a>
-							<div class="hot__box">
-								<span class="hot-label">HOT</span>
-							</div>
-						</div>
-						<div class="product__content content--center">
-							<h4><a href="single-product.html">Doctor Wldo</a></h4>
-							<ul class="prize d-flex">
-								<li>$35.00</li>
-								<li class="old_prize">$35.00</li>
-							</ul>
-							<div class="action">
-								<div class="actions_inner">
-									<ul class="add_to_links">
-										<li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a>
-										</li>
-										<li><a class="wishlist" href="wishlist.html"><i
-													class="bi bi-shopping-cart-full"></i></a></li>
-										<li><a class="compare" href="#"><i class="bi bi-heart-beat"></i></a></li>
-										<li><a data-toggle="modal" title="Quick View"
-												class="quickview modal-view detail-link" href="#productmodal"><i
-													class="bi bi-search"></i></a></li>
-									</ul>
-								</div>
-							</div>
-							<div class="product__hover--content">
-								<ul class="rating d-flex">
-									<li class="on"><i class="fa fa-star-o"></i></li>
-									<li class="on"><i class="fa fa-star-o"></i></li>
-									<li class="on"><i class="fa fa-star-o"></i></li>
-									<li><i class="fa fa-star-o"></i></li>
-									<li><i class="fa fa-star-o"></i></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<!-- Start Single Product -->
-					<!-- Start Single Product -->
-					<div class="product product__style--3">
-						<div class="product__thumb">
-							<a class="first__img" href="single-product.html"><img src="assets/images/books/11.jpg"
-									alt="product image"></a>
-							<a class="second__img animation1" href="single-product.html"><img
-									src="assets/images/books/2.jpg" alt="product image"></a>
-							<div class="hot__box">
-								<span class="hot-label">BEST SALER</span>
-							</div>
-						</div>
-						<div class="product__content content--center content--center">
-							<h4><a href="single-product.html">Ghost</a></h4>
-							<ul class="prize d-flex">
-								<li>$50.00</li>
-								<li class="old_prize">$35.00</li>
-							</ul>
-							<div class="action">
-								<div class="actions_inner">
-									<ul class="add_to_links">
-										<li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a>
-										</li>
-										<li><a class="wishlist" href="wishlist.html"><i
-													class="bi bi-shopping-cart-full"></i></a></li>
-										<li><a class="compare" href="#"><i class="bi bi-heart-beat"></i></a></li>
-										<li><a data-toggle="modal" title="Quick View"
-												class="quickview modal-view detail-link" href="#productmodal"><i
-													class="bi bi-search"></i></a></li>
-									</ul>
-								</div>
-							</div>
-							<div class="product__hover--content">
-								<ul class="rating d-flex">
-									<li class="on"><i class="fa fa-star-o"></i></li>
-									<li class="on"><i class="fa fa-star-o"></i></li>
-									<li class="on"><i class="fa fa-star-o"></i></li>
-									<li><i class="fa fa-star-o"></i></li>
-									<li><i class="fa fa-star-o"></i></li>
-								</ul>
-							</div>
-						</div>
-						<!-- Start Single Product -->
+									<?php
+								}
+						?>
+					
+					
 					</div>
 				</div>
 				<!-- End Single Tab Content -->
@@ -749,32 +561,53 @@
 				<div class="tab__container mt--60">
 					<!-- Start Single Tab Content -->
 					<div class="row single__tab tab-pane fade show active" id="nav-all" role="tabpanel">
+
 						<div class="product__indicator--4 arrows_style owl-carousel owl-theme">
+							
+							<?php
+								$db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+								$allprouct = $db->Fetch("SELECT * FROM books ORDER BY id ASC LIMIT 5", null);
+								
+								foreach($allprouct as $value){
+									$img2 = json_decode($value['images']);
+									$url2 = [];
+									if(count($img2) == 1){
+										 $url2[]= $img2[0];
+										 $url2[]= $img2[0];
+									}else{
+										$url2= [];
+										$url2[] = $img2[0];
+										$url2[]= $img2[1];
+
+										
+									}
+									
+									?>
 							<div class="single__product">
-								<!-- Start Single Product -->
+									<!-- Start Single Product -->
 								<div class="col-lg-3 col-md-4 col-sm-6 col-12">
 									<div class="product product__style--3">
 										<div class="product__thumb">
 											<a class="first__img" href="single-product.html"><img
-													src="assets/images/books/1.jpg" alt="product image"></a>
+													src="<?="../private/uploades/".$url2[0]?>" width="304" height="384" alt="product image"></a>
 											<a class="second__img animation1" href="single-product.html"><img
-													src="assets/images/books/2.jpg" alt="product image"></a>
+													src="<?="../private/uploades/".$url2[1]?>" width="304" height="384" alt="product image"></a>
 											<div class="hot__box">
-												<span class="hot-label">BEST SALER</span>
-											</div>
+												<span class="hot-label">BEST SALLER</span>
+										    </div>
 										</div>
-										<div class="product__content content--center content--center">
-											<h4><a href="single-product.html">Ghost</a></h4>
+										<div class="product__content content--center">
+											<h4><a href="single-product.html"><?=$value['title']?></a></h4>
 											<ul class="prize d-flex">
-												<li>$50.00</li>
-												<li class="old_prize">$35.00</li>
+												<li><?=$value['price']?> GHS</li>
+												<li class="old_prize"><?=$value['price']+10?> GHS</li>
 											</ul>
 											<div class="action">
 												<div class="actions_inner">
 													<ul class="add_to_links">
-														<li><a class="cart" href="cart.html"><i
+														<li><a class="cart" href="cart"><i
 																	class="bi bi-shopping-bag4"></i></a></li>
-														<li><a class="wishlist" href="wishlist.html"><i
+														<li><a class="wishlist" href="wishlist"><i
 																	class="bi bi-shopping-cart-full"></i></a></li>
 														<li><a class="compare" href="#"><i
 																	class="bi bi-heart-beat"></i></a></li>
@@ -797,272 +630,64 @@
 										</div>
 									</div>
 								</div>
-								<!-- Start Single Product -->
-								<!-- Start Single Product -->
-								<div class="col-lg-3 col-md-4 col-sm-6 col-12">
-									<div class="product product__style--3">
-										<div class="product__thumb">
-											<a class="first__img" href="single-product.html"><img
-													src="assets/images/books/3.jpg" alt="product image"></a>
-											<a class="second__img animation1" href="single-product.html"><img
-													src="assets/images/books/9.jpg" alt="product image"></a>
-											<div class="hot__box">
-												<span class="hot-label">BEST SALER</span>
-											</div>
-										</div>
-										<div class="product__content content--center content--center">
-											<h4><a href="single-product.html">Ghost</a></h4>
-											<ul class="prize d-flex">
-												<li>$50.00</li>
-												<li class="old_prize">$35.00</li>
-											</ul>
-											<div class="action">
-												<div class="actions_inner">
-													<ul class="add_to_links">
-														<li><a class="cart" href="cart.html"><i
-																	class="bi bi-shopping-bag4"></i></a></li>
-														<li><a class="wishlist" href="wishlist.html"><i
-																	class="bi bi-shopping-cart-full"></i></a></li>
-														<li><a class="compare" href="#"><i
-																	class="bi bi-heart-beat"></i></a></li>
-														<li><a data-toggle="modal" title="Quick View"
-																class="quickview modal-view detail-link"
-																href="#productmodal"><i class="bi bi-search"></i></a>
-														</li>
-													</ul>
-												</div>
-											</div>
-											<div class="product__hover--content">
-												<ul class="rating d-flex">
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-												</ul>
-											</div>
-										</div>
-									</div>
-								</div>
-								<!-- Start Single Product -->
 							</div>
-							<div class="single__product">
-								<!-- Start Single Product -->
-								<div class="col-lg-3 col-md-4 col-sm-6 col-12">
-									<div class="product product__style--3">
-										<div class="product__thumb">
-											<a class="first__img" href="single-product.html"><img
-													src="assets/images/books/5.jpg" alt="product image"></a>
-											<a class="second__img animation1" href="single-product.html"><img
-													src="assets/images/books/6.jpg" alt="product image"></a>
-											<div class="hot__box">
-												<span class="hot-label">HOT</span>
-											</div>
-										</div>
-										<div class="product__content content--center">
-											<h4><a href="single-product.html">Doctor Wldo</a></h4>
-											<ul class="prize d-flex">
-												<li>$35.00</li>
-												<li class="old_prize">$35.00</li>
-											</ul>
-											<div class="action">
-												<div class="actions_inner">
-													<ul class="add_to_links">
-														<li><a class="cart" href="cart.html"><i
-																	class="bi bi-shopping-bag4"></i></a></li>
-														<li><a class="wishlist" href="wishlist.html"><i
-																	class="bi bi-shopping-cart-full"></i></a></li>
-														<li><a class="compare" href="#"><i
-																	class="bi bi-heart-beat"></i></a></li>
-														<li><a data-toggle="modal" title="Quick View"
-																class="quickview modal-view detail-link"
-																href="#productmodal"><i class="bi bi-search"></i></a>
-														</li>
-													</ul>
-												</div>
-											</div>
-											<div class="product__hover--content">
-												<ul class="rating d-flex">
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-												</ul>
-											</div>
-										</div>
-									</div>
-								</div>
-								<!-- Start Single Product -->
-								<!-- Start Single Product -->
-								<div class="col-lg-3 col-md-4 col-sm-6 col-12">
-									<div class="product product__style--3">
-										<div class="product__thumb">
-											<a class="first__img" href="single-product.html"><img
-													src="assets/images/books/7.jpg" alt="product image"></a>
-											<a class="second__img animation1" href="single-product.html"><img
-													src="assets/images/books/8.jpg" alt="product image"></a>
-											<div class="hot__box">
-												<span class="hot-label">HOT</span>
-											</div>
-										</div>
-										<div class="product__content content--center">
-											<h4><a href="single-product.html">Doctor Wldo</a></h4>
-											<ul class="prize d-flex">
-												<li>$35.00</li>
-												<li class="old_prize">$35.00</li>
-											</ul>
-											<div class="action">
-												<div class="actions_inner">
-													<ul class="add_to_links">
-														<li><a class="cart" href="cart.html"><i
-																	class="bi bi-shopping-bag4"></i></a></li>
-														<li><a class="wishlist" href="wishlist.html"><i
-																	class="bi bi-shopping-cart-full"></i></a></li>
-														<li><a class="compare" href="#"><i
-																	class="bi bi-heart-beat"></i></a></li>
-														<li><a data-toggle="modal" title="Quick View"
-																class="quickview modal-view detail-link"
-																href="#productmodal"><i class="bi bi-search"></i></a>
-														</li>
-													</ul>
-												</div>
-											</div>
-											<div class="product__hover--content">
-												<ul class="rating d-flex">
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-												</ul>
-											</div>
-										</div>
-									</div>
-								</div>
-								<!-- Start Single Product -->
+									<?php
+								}
+					?>
+
+					
+							
+					
+							
 							</div>
-							<div class="single__product">
-								<!-- Start Single Product -->
+						
+<!-- Second row  -->
+						<div class="product__indicator--4 arrows_style owl-carousel owl-theme">
+							
+							<?php
+								$db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+								$allprouct = $db->Fetch("SELECT * FROM books ORDER BY id ASC LIMIT 5, 10", null);
+								
+								foreach($allprouct as $value){
+									$img2 = json_decode($value['images']);
+									$url2 = [];
+									if(count($img2) == 1){
+										 $url2[]= $img2[0];
+										 $url2[]= $img2[0];
+									}else{
+										$url2= [];
+										$url2[] = $img2[0];
+										$url2[]= $img2[1];
+
+										
+									}
+									
+									?>
+									<div class="single__product">
+									<!-- Start Single Product -->
 								<div class="col-lg-3 col-md-4 col-sm-6 col-12">
 									<div class="product product__style--3">
 										<div class="product__thumb">
 											<a class="first__img" href="single-product.html"><img
-													src="assets/images/books/9.jpg" alt="product image"></a>
+													src="<?="../private/uploades/".$url2[0]?>" width="304" height="384" alt="product image"></a>
 											<a class="second__img animation1" href="single-product.html"><img
-													src="assets/images/books/7.jpg" alt="product image"></a>
-											<div class="hot__box">
-												<span class="hot-label">HOT</span>
-											</div>
-										</div>
-										<div class="product__content content--center">
-											<h4><a href="single-product.html">Lando</a></h4>
-											<ul class="prize d-flex">
-												<li>$35.00</li>
-												<li class="old_prize">$50.00</li>
-											</ul>
-											<div class="action">
-												<div class="actions_inner">
-													<ul class="add_to_links">
-														<li><a class="cart" href="cart.html"><i
-																	class="bi bi-shopping-bag4"></i></a></li>
-														<li><a class="wishlist" href="wishlist.html"><i
-																	class="bi bi-shopping-cart-full"></i></a></li>
-														<li><a class="compare" href="#"><i
-																	class="bi bi-heart-beat"></i></a></li>
-														<li><a data-toggle="modal" title="Quick View"
-																class="quickview modal-view detail-link"
-																href="#productmodal"><i class="bi bi-search"></i></a>
-														</li>
-													</ul>
-												</div>
-											</div>
-											<div class="product__hover--content">
-												<ul class="rating d-flex">
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-												</ul>
-											</div>
-										</div>
-									</div>
-								</div>
-								<!-- Start Single Product -->
-								<!-- Start Single Product -->
-								<div class="col-lg-3 col-md-4 col-sm-6 col-12">
-									<div class="product product__style--3">
-										<div class="product__thumb">
-											<a class="first__img" href="single-product.html"><img
-													src="assets/images/books/11.jpg" alt="product image"></a>
-											<a class="second__img animation1" href="single-product.html"><img
-													src="assets/images/books/5.jpg" alt="product image"></a>
-											<div class="hot__box">
-												<span class="hot-label">HOT</span>
-											</div>
-										</div>
-										<div class="product__content content--center">
-											<h4><a href="single-product.html">Lando</a></h4>
-											<ul class="prize d-flex">
-												<li>$35.00</li>
-												<li class="old_prize">$50.00</li>
-											</ul>
-											<div class="action">
-												<div class="actions_inner">
-													<ul class="add_to_links">
-														<li><a class="cart" href="cart.html"><i
-																	class="bi bi-shopping-bag4"></i></a></li>
-														<li><a class="wishlist" href="wishlist.html"><i
-																	class="bi bi-shopping-cart-full"></i></a></li>
-														<li><a class="compare" href="#"><i
-																	class="bi bi-heart-beat"></i></a></li>
-														<li><a data-toggle="modal" title="Quick View"
-																class="quickview modal-view detail-link"
-																href="#productmodal"><i class="bi bi-search"></i></a>
-														</li>
-													</ul>
-												</div>
-											</div>
-											<div class="product__hover--content">
-												<ul class="rating d-flex">
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-												</ul>
-											</div>
-										</div>
-									</div>
-								</div>
-								<!-- Start Single Product -->
-							</div>
-							<div class="single__product">
-								<!-- Start Single Product -->
-								<div class="col-lg-3 col-md-4 col-sm-6 col-12">
-									<div class="product product__style--3">
-										<div class="product__thumb">
-											<a class="first__img" href="single-product.html"><img
-													src="assets/images/books/8.jpg" alt="product image"></a>
-											<a class="second__img animation1" href="single-product.html"><img
-													src="assets/images/books/4.jpg" alt="product image"></a>
+													src="<?="../private/uploades/".$url2[1]?>" width="304" height="384" alt="product image"></a>
 											<div class="hot__box">
 												<span class="hot-label">BEST SALLER</span>
 											</div>
 										</div>
 										<div class="product__content content--center">
-											<h4><a href="single-product.html">Bowen Greenwood</a></h4>
+											<h4><a href="single-product.html"><?=$value['title']?></a></h4>
 											<ul class="prize d-flex">
-												<li>$40.00</li>
-												<li class="old_prize">$35.00</li>
+												<li><?=$value['price']?> GHS</li>
+												<li class="old_prize"><?=$value['price']+10?> GHS</li>
 											</ul>
 											<div class="action">
 												<div class="actions_inner">
 													<ul class="add_to_links">
-														<li><a class="cart" href="cart.html"><i
+														<li><a class="cart" href="cart"><i
 																	class="bi bi-shopping-bag4"></i></a></li>
-														<li><a class="wishlist" href="wishlist.html"><i
+														<li><a class="wishlist" href="wishlist"><i
 																	class="bi bi-shopping-cart-full"></i></a></li>
 														<li><a class="compare" href="#"><i
 																	class="bi bi-heart-beat"></i></a></li>
@@ -1085,153 +710,20 @@
 										</div>
 									</div>
 								</div>
-								<!-- Start Single Product -->
-								<!-- Start Single Product -->
-								<div class="col-lg-3 col-md-4 col-sm-6 col-12">
-									<div class="product product__style--3">
-										<div class="product__thumb">
-											<a class="first__img" href="single-product.html"><img
-													src="assets/images/books/12.jpg" alt="product image"></a>
-											<a class="second__img animation1" href="single-product.html"><img
-													src="assets/images/books/7.jpg" alt="product image"></a>
-											<div class="hot__box">
-												<span class="hot-label">BEST SALLER</span>
-											</div>
-										</div>
-										<div class="product__content content--center">
-											<h4><a href="single-product.html">Bowen Greenwood</a></h4>
-											<ul class="prize d-flex">
-												<li>$40.00</li>
-												<li class="old_prize">$35.00</li>
-											</ul>
-											<div class="action">
-												<div class="actions_inner">
-													<ul class="add_to_links">
-														<li><a class="cart" href="cart.html"><i
-																	class="bi bi-shopping-bag4"></i></a></li>
-														<li><a class="wishlist" href="wishlist.html"><i
-																	class="bi bi-shopping-cart-full"></i></a></li>
-														<li><a class="compare" href="#"><i
-																	class="bi bi-heart-beat"></i></a></li>
-														<li><a data-toggle="modal" title="Quick View"
-																class="quickview modal-view detail-link"
-																href="#productmodal"><i class="bi bi-search"></i></a>
-														</li>
-													</ul>
-												</div>
-											</div>
-											<div class="product__hover--content">
-												<ul class="rating d-flex">
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-												</ul>
-											</div>
-										</div>
 									</div>
-								</div>
-								<!-- Start Single Product -->
-							</div>
-							<div class="single__product">
-								<!-- Start Single Product -->
-								<div class="col-lg-3 col-md-4 col-sm-6 col-12">
-									<div class="product product__style--3">
-										<div class="product__thumb">
-											<a class="first__img" href="single-product.html"><img
-													src="assets/images/books/3.jpg" alt="product image"></a>
-											<a class="second__img animation1" href="single-product.html"><img
-													src="assets/images/books/5.jpg" alt="product image"></a>
-											<div class="hot__box">
-												<span class="hot-label">BEST SALLER</span>
-											</div>
-										</div>
-										<div class="product__content content--center">
-											<h4><a href="single-product.html">Bowen Greenwood</a></h4>
-											<ul class="prize d-flex">
-												<li>$40.00</li>
-												<li class="old_prize">$35.00</li>
-											</ul>
-											<div class="action">
-												<div class="actions_inner">
-													<ul class="add_to_links">
-														<li><a class="cart" href="cart.html"><i
-																	class="bi bi-shopping-bag4"></i></a></li>
-														<li><a class="wishlist" href="wishlist.html"><i
-																	class="bi bi-shopping-cart-full"></i></a></li>
-														<li><a class="compare" href="#"><i
-																	class="bi bi-heart-beat"></i></a></li>
-														<li><a data-toggle="modal" title="Quick View"
-																class="quickview modal-view detail-link"
-																href="#productmodal"><i class="bi bi-search"></i></a>
-														</li>
-													</ul>
-												</div>
-											</div>
-											<div class="product__hover--content">
-												<ul class="rating d-flex">
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-												</ul>
-											</div>
-										</div>
-									</div>
-								</div>
-								<!-- Start Single Product -->
-								<!-- Start Single Product -->
-								<div class="col-lg-3 col-md-4 col-sm-6 col-12">
-									<div class="product product__style--3">
-										<div class="product__thumb">
-											<a class="first__img" href="single-product.html"><img
-													src="assets/images/books/2.jpg" alt="product image"></a>
-											<a class="second__img animation1" href="single-product.html"><img
-													src="assets/images/books/7.jpg" alt="product image"></a>
-											<div class="hot__box">
-												<span class="hot-label">BEST SALLER</span>
-											</div>
-										</div>
-										<div class="product__content content--center">
-											<h4><a href="single-product.html">Bowen Greenwood</a></h4>
-											<ul class="prize d-flex">
-												<li>$40.00</li>
-												<li class="old_prize">$35.00</li>
-											</ul>
-											<div class="action">
-												<div class="actions_inner">
-													<ul class="add_to_links">
-														<li><a class="cart" href="cart.html"><i
-																	class="bi bi-shopping-bag4"></i></a></li>
-														<li><a class="wishlist" href="wishlist.html"><i
-																	class="bi bi-shopping-cart-full"></i></a></li>
-														<li><a class="compare" href="#"><i
-																	class="bi bi-heart-beat"></i></a></li>
-														<li><a data-toggle="modal" title="Quick View"
-																class="quickview modal-view detail-link"
-																href="#productmodal"><i class="bi bi-search"></i></a>
-														</li>
-													</ul>
-												</div>
-											</div>
-											<div class="product__hover--content">
-												<ul class="rating d-flex">
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-												</ul>
-											</div>
-										</div>
-									</div>
-								</div>
-								<!-- Start Single Product -->
-							</div>
+								
+									<?php
+								}
+					?>
+							
 						</div>
-					</div>
+
+							</div>
+					
+						
+					
+						
+					
 					<!-- End Single Tab Content -->
 					<!-- Start Single Tab Content -->
 					<div class="row single__tab tab-pane fade" id="nav-biographic" role="tabpanel">

@@ -128,6 +128,19 @@
                 echo "Error:".$e->getMessage();
             }
          }
+
+         public function Delete($sql){
+            try{
+                if($this->db == null){
+                    $this->db = $this->getConnestion($this->hostname, $this->hostusername, $this->hostpassword, $this->dbname);
+                }
+
+                $SQL = $this->db->prepare($sql);
+                return $SQL->execute();
+            }catch(PDOException $e){
+                echo "Error:".$e->getMessage();
+            }
+        }
         //  public function __destruct()
         //  {
         //      $this->db = null;

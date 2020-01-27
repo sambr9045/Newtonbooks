@@ -59,6 +59,12 @@
                         </div>
                     </div>
                     <br>
+                              <div class="alert alert-success alert-dismissible fade bts" role="alert" >
+                                        <strong>Success !</strong> Book Deleted Succesfully.
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        </div>
                     <?php 
                     
                             if(isset($success)){
@@ -143,7 +149,7 @@
                                                 <td><?=$values['price']?></td>
                                                 <td><?=$values['quantity']?></td>
                                                 <td><?=$values['created_at']?></td>
-                                                <td class="text-center"><button class="btn btn-danger mR-2 deleteBook" bookid="<?=$values['id']?>"><small>Del</small></button> <button class="btn btn-info"><small>Edit</small></button></td>
+                                                <td class="text-center"><button style="cursor: pointer;"class="btn btn-danger mR-2 deleteBook" bookid="<?=$values['id']?>" data-toggle="modal" data-target="#exampleModal"><small>Delete</small></button> </td>
                                             </tr>
                                             <?php
                                         }
@@ -155,5 +161,31 @@
                         </div>
                     </div>
                 </div>
+
+<!-- Modal -->
+<div class="modal fade bookmodal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Confirm Delete</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+         <div class="card-body">
+         You are about to delete This Book from the Database, this procedure is irreversible.,<br>
+         Do you want to proceed ?
+         </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default closes" data-dismiss="modal" style="cursor: pointer">No</button>
+        <button type="button" class="btn btn-danger btn-ok" style="cursor: pointer;">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
             </main>
+
+            
 <?php include("inc/inc_down.php") ?>

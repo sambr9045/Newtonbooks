@@ -42,7 +42,7 @@
             </div>
             <div class="form-group col-md-2" >
                 <label for="inputPassword4">Price</label>
-                <input type="number" class="form-control" id="inputPassword4" placeholder="$" name="price" required>
+                <input type="number" class="form-control" id="inputPassword4" placeholder="GHS" name="price" required>
             </div>
         </div>
 
@@ -74,6 +74,14 @@
                     <option>POLITICAL ECONOMICS</option>
                     <option>FICTION</option>
                     <option>BUSINESS</option>
+                    <option>PROPHETIC</option>
+                    <option>CHURCH GROWTH</option>
+                    <option>MARRIAGE AND RELATIONSHIP</option>
+                    <option>BIBLES</option>
+                    <option>eBOOKS</option>
+                    <option>STUDY BIBLES</option>
+                    <option>BIBLES DICTIONARIE</option>
+                    <option>BIBLES COMMENTARIES</option>
                 </select>
             </div>
         </div>

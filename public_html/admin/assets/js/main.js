@@ -40,25 +40,43 @@ $(document).ready(function () {
         }
         })
     });
+/**
+ * ============================
+ * Add new book
+ * ===========================
+ */
 
-    $(".addnewbook").click(function (e) { 
-        e.preventDefault();
-       var bookDetailes =  $("#form").serialize();
-        console.log(bookDetailes);
-        console.log("hello")
-    });
+
+    // $(".addnewbook").click(function (e) { 
+    //     e.preventDefault();
+    //    var bookDetailes =  $("#form").serialize();
+    // });
 
     $(".deleteBook").click(function(e){
             e.preventDefault();
             let bookid = $(this).attr("bookid");
-            $.post({
-                url:'',
-                data:'&bookid='+bookid,
-                dataType:'html',
-                success:function(result){
-                    console.log(result);
-                }
+            $(".btn-ok").click(function(e){
+                e.preventDefault();
+                $.post({
+                    url:'../../private/admin_be.php',
+                    data:'&bookid='+bookid,
+                    dataType:'html',
+                    success:function(result){
+                        if(result == "1"){
+                            $(".bookmodal .closes").click();
+                            $(".bts").addClass("show");
+                        }
+                    }
+                })
+    
             })
-
+           
     })
+
+/**
+ * ============================
+ * Add new blog post
+ * ===========================
+ */
+
 });

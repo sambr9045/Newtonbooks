@@ -57,14 +57,41 @@
                         </div>
                         
 
-                            <!-- Table section -->
-                                    <div>
-                                        
-                                    </div>
-                            <!-- End of table section -->
-                                   
                     </div>
                 </div>
+
+                <?php 
+                    
+                            if(isset($blogpost_success)){
+                                foreach($blogpost_success as $value){
+
+                                    ?>
+                                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                        <strong>Success !</strong> <?=$value?>
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        </div>
+                                        <?php
+                                }
+                            }
+                    ?>
+                     <?php 
+                    
+                    if(isset($blogpost_error)){
+                        foreach($blogpost_error as $value){
+                            
+                            ?>
+                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <strong>Warning !</strong> <?=$value?>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                                </div>
+                                <?php
+                           }
+                        }
+                     ?>
                 <div class="container-fluid">
                         <button class="btn btn-primary mT-20 mB-30 blognewpost"> + Add New Post</button>
                         <button class="btn btn-danger mT-20 mB-30 mL-2  backbs" style="display:none;">Back</button>
