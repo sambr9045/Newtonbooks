@@ -132,7 +132,7 @@ include("../private/load.php") ;
 												title="Qty" type="number">
 
 											<input type="hidden" name="bookid" value="<?=$id?>">
-											<input type="hidden" name="image" value="<?=$url[0]?>">
+											<input type="hidden" name="image" value="<?=$img[0]?>">
 											<input type="hidden" name="booktitle" value="<?=$title?>" id="bookname">
 											<input type="hidden" name="bookprice" value="<?=$price?>">
 											<div class="addtocart__actions">

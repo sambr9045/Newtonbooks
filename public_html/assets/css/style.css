@@ -1957,7 +1957,7 @@ Header Styles
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 .header__area .header__sidebar__right > li.setting__bar__icon > a {
-    background: transparent url("../images/icons/icon_setting_white.png") no-repeat scroll left center;
+    /* background: transparent url("../images/icons/icon_setting_white.png") no-repeat scroll left center; */
     cursor: pointer;
     font-size: 0;
     height: 35px;

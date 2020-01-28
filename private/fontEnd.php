@@ -5,12 +5,15 @@
 
   if(isset($_POST['bookid'])){
       
-      $data =[];
+     $data =[];
      $data[] =$_POST;
      $value = json_encode($data);
      
      if(!isset($_COOKIE["cartinfo"]) && !isset($_SESSION['user'])){
-         setcookie("cartinfo", $value, time() +2592000, '/');
+         if(setcookie("cartinfo", $value, time() +2592000, '/')){
+           echo "1";
+         }
+       
      }else if(isset($_COOKIE["cartinfo"])){
          $value = $_COOKIE["cartinfo"];
          $r = json_decode($value);

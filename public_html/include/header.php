@@ -65,24 +65,24 @@
 		<ul class="header__sidebar__right d-flex justify-content-end align-items-center">
 			<li class="shop_search"><a class="search__active" href="#"></a></li>
 			<li class="wishlist"><a href="#"></a></li>
-			<li class="shopcart allcart" ><a class="cartbox_active" href="#" id="allcart"><span
+			<li class="shopcart" ><a  href="cart" ><span
 						class="product_qun">
 					
 						<?php
 							if(isset($_COOKIE['cartinfo'])){
 								$cartItem = $_COOKIE["cartinfo"];
-								if(count(json_decode($cartItem)) == 0){
-									echo 0;
-								}else{
+								
 									echo count(json_decode($cartItem));
-								}
+								
+							}else{
+								echo "0";
 							}
 						?>
 					
 					</span></a>
-				<div class=" block-minicart minicart__active loadhtmlCart">
+				<!-- <div class=" block-minicart minicart__active loadhtmlCart">
 
-				</div>
+				</div> -->
 			</li>
 			<li class="setting__bar__icon"><a class="setting__active" href="#"></a>
 				<div class="searchbar__content setting__block">
