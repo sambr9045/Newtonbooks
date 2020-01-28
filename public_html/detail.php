@@ -76,7 +76,7 @@ include("../private/load.php") ;
 		<!-- End Bradcaump area -->
 		<br>
 		<br>
-		<div class="addtocart_error" role="alert">
+		<div class="addtocart_error" role="alert" style="margin: 0 auto; margin-left:6%;margin-right:6%; width:88%!important;box-sizing:border-box;">
 
 			<strong id="strong"></strong> <span id="mgs"></span>
 			<button type="button" class="close" data-dismiss="alert" aria-label="Close">

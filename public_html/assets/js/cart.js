@@ -1,6 +1,5 @@
 $(document).ready(function () {
 
-        
   $(".book_qty").change(function (e) { 
       e.preventDefault();
       var current_value = this.defaultValue < this.value
@@ -22,9 +21,7 @@ $(document).ready(function () {
              tot += b_p * qty;
         });
 
-        $(".total-class").empty().append(tot+" GHS");
-
-        
+        $(".total-class").empty().append(tot);
 
   
       }else{
@@ -43,7 +40,7 @@ $(document).ready(function () {
              var qty = $(this).closest("tr").find(".book_qty").attr("value");
              tot += b_p * qty;
         });
-        $(".total-class").empty().append(tot+" GHS")
+        $(".total-class").empty().append(tot)
       }
      
 
@@ -52,15 +49,28 @@ $(document).ready(function () {
 
     $(".product-remove").click(function (e) { 
         e.preventDefault();
+        var thevalue = $(".product_qun").html();
+        let updat_price = $(".total-class").html();
+        let subtotle = $(this).closest("tr").find('.theallbookprice').html();
+        $(".product_qun").empty().append(Number(thevalue)-1);
         let id = $(this).attr("id");
+        let retur = false;
+        let fad = $(this).closest("tr");
         $.post({
-            url:'../../private/fontEnd.php',
+            url:'../private/fontEnd.php',
             data:"&remove_product="+id,
             dataType:'html',
             success:function(result){
-                console.log(result);
+               if(result == "2"){
+                    retur = true;
+                    $(".total-class").empty().append(updat_price - subtotle);
+                    $(this).closest("tr").fadeOut("slow");
+        
+                    fad.fadeOut("slow");
+               }
             }
         })
+      
     });
 
 });

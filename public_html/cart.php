@@ -3,9 +3,6 @@
 ?>
 <!doctype html>
 <html class="no-js" lang="zxx">
-
-
-
 <head>
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -17,9 +14,9 @@
 </head>
 
 <body class="bg-light">
+	
 <!-- Main wrapper -->
 <div class="wrapper" id="wrapper">
-
 
 <header id="wn__header" class="header__area header__absolute sticky__header">
 			<div class="container-fluid">
@@ -88,10 +85,8 @@
 									
 										<?php
 										if(isset($_COOKIE['cartinfo'])){
-											$cartItem = $_COOKIE["cartinfo"];
-											
-											
-												echo count(json_decode($cartItem));
+											$cartItem = DataType($_COOKIE["cartinfo"]);
+										echo count($cartItem);
 											
 										}else{
 											echo "0";
@@ -103,6 +98,7 @@
 								
 								<!-- End Shopping Cart -->
 							</li>
+							
 							<li class="setting__bar__icon" ><a class="setting__active " style="color:black!important;" href="#" ></a>
 								<div class="searchbar__content setting__block">
 									<div class="content-inner">
@@ -260,7 +256,7 @@
 <div class="container mt-20"  >	
 	<?php
 
-		if(isset($_COOKIE['cartinfo'])){
+		if(isset($_COOKIE['cartinfo']) ){
 			$cartitem = $_COOKIE['cartinfo'];
 			
 			?>
@@ -283,6 +279,7 @@
 						<tbody>
 							<?php
 								if(isset($cartitem)){
+								// echo count(json_decode($cartitem));
 									$subtotal=0;
 									$qt =0;
 									$total=0;
@@ -296,22 +293,20 @@
 											<tr>
 								<td class="product-thumbnail"><a href="#"><img
 								src="<?="../private/uploades/".$cartcontent->image;?>" alt="product img"></a></td>
-								<td class="product-name"><a href="#"><?=$cartcontent->booktitle?></a></td>
+								<td class="product-name"><a href="detail?t=<?=$cartcontent->booktitle?>&id=<?=$cartcontent->bookid?>"><?=$cartcontent->booktitle?></a></td>
 								<td class="product-price the_book_real_price" amount="<?=$cartcontent->bookprice?>" ><span class="amount"><?=$cartcontent->bookprice?> GHS</span></td>
 								<td class=""><input type="number" min="1" value="<?=$cartcontent->qty?>"  class="book_qty"></td>
 								<td class="product-subtotal theproductsubtotal"><span class="theallbookprice"><?=$cartcontent->qty * $cartcontent->bookprice?></span>  GHS</td>
-								<td class="product-remove" id="<?=$cartcontent->id?>"><a href="#">X</a></td>
+								<td class="product-remove" id="<?=$cartcontent->bookid?>"><a href="#">X</a></td>
 							</tr>
 										<?php
 									}
 
 									
 									$total = array_sum($subtotal_array);
-								
+
 							}
 							?>
-						
-						
 						</tbody>
 					</table>
 				</div>
@@ -336,13 +331,13 @@
 						<li>Sub Total</li>
 					</ul>
 					<ul class="cart__total__tk">
-						<li ><?php echo (isset($subtotal))?  $subtotal : "0"; ?> GHS</li>
-						<li class="total-class"><?php echo (isset($total))? $total : "0";?> GHS</li>
+						<li ><span class="total-class"><?php echo (isset($subtotal))?  $subtotal : "0"; ?></span> GHS</li>
+						<li ><span class="total-class"><?php echo (isset($total))? $total : "0";?></span> GHS</li>
 					</ul>
 				</div>
 				<div class="cart__total__amount">
 					<span>Grand Total</span>
-					<span class="total-class"><?php  echo (isset($total))? $total : "0";?> GHS</span>
+					<span class="total-class tt-class"><span class="total-class"><?php  echo (isset($total))? $total : "0";?></span> GHS</span>
 				</div>
 			</div>
 		</div>

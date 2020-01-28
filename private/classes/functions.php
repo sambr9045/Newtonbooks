@@ -1,5 +1,18 @@
 <?php
 
+
+    // function to detect data type
+    function DataType($content){
+        // $assigned_value ="";
+
+        if(is_array(json_decode($content))){
+           return  $assigned_value = json_decode($content);
+        }else{
+          return  $assigned_value = get_object_vars(json_decode($content));
+        }
+
+        return $assigned_value;
+    }
     // Check if email exist
     function CheckEmail($db, $email){
         $data = array('email' => $email);

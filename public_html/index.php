@@ -108,9 +108,9 @@ include("../private/load.php") ;
 									
 										<?php
 										if(isset($_COOKIE['cartinfo'])){
-											$cartItem = $_COOKIE["cartinfo"];
+											$cartItem = DataType($_COOKIE["cartinfo"]);
+											echo count($cartItem);
 											
-												echo count(json_decode($cartItem));
 											
 										}else{
 											echo "0";

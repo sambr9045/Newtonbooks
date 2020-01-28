@@ -69,15 +69,15 @@
 						class="product_qun">
 					
 						<?php
-							if(isset($_COOKIE['cartinfo'])){
-								$cartItem = $_COOKIE["cartinfo"];
-								
-									echo count(json_decode($cartItem));
-								
-							}else{
-								echo "0";
-							}
-						?>
+										if(isset($_COOKIE['cartinfo'])){
+											$cartItem = DataType($_COOKIE["cartinfo"]);
+											echo count($cartItem);
+											
+											
+										}else{
+											echo "0";
+										}
+										?>
 					
 					</span></a>
 				<!-- <div class=" block-minicart minicart__active loadhtmlCart">

@@ -13,10 +13,12 @@ $(document).ready(function(){
                 if(response == "1"){
                     $(".product_qun").empty().append(Number(thevalue)+1);
                     $(".addtocart_error").removeClass("alert alert-warning alert-dismissible fade show")
-                   $(".addtocart_error").addClass("alert alert-success alert-dismissible fade show")
+                   $(".addtocart_error").addClass("alert alert-success alert-dismissible fade show ")
                    $(".addtocart_error").find("strong").empty().append("Success !:")
-                   $(".addtocart_error").find("#mgs").empty().append(bookname+" Added to your Shopping Cart Successfuly");
-                   $("html, body").animate({scrollTop: 0}, 1000);
+                   $(".addtocart_error").find("#mgs").empty().append(bookname+" Added to  Cart ");
+                //    $("html, body").animate({scrollTop: 0}, 100);
+                   var offTop = $('html,body').offset().top - 43;
+                    $('html, body').scrollTop(offTop);
                 }else{
                     $(".addtocart_error").removeClass("alert alert-success alert-dismissible fade show");
                     $(".addtocart_error").addClass("alert alert-warning alert-dismissible fade show")
