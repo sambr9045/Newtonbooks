@@ -1,5 +1,5 @@
 ﻿<?php
-	include("../private/load.php") ;
+	 include("../private/load.php") ;
 ?>
 <!doctype html>
 <html class="no-js" lang="zxx">
@@ -14,7 +14,7 @@
 </head>
 
 <body class="bg-light">
-	
+
 <!-- Main wrapper -->
 <div class="wrapper" id="wrapper">
 
@@ -231,25 +231,7 @@
 				<!-- Mobile Menu -->
 			</div>
 		</header>
-<!-- Start Bradcaump area -->
-<!-- <div class="ht__bradcaump__area bg-image--6">
-<div class="container">
-	<div class="row">
-		<div class="col-lg-12">
-			<div class="bradcaump__inner text-center">
-				<h2 class="bradcaump-title">Shopping Cart</h2>
-				<nav class="bradcaump-content">
-					<a class="breadcrumb_item" href="index.html">Home</a>
-					<span class="brd-separetor">/</span>
-					<span class="breadcrumb_item active">Shopping Cart</span>
-				</nav>
-			</div>
-		</div>
-	</div>
-</div>
-</div> -->
-<!-- End Bradcaump area -->
-<!-- cart-main-area start -->
+	
 
 <div class="cart-main-area section-padding--lg bg--white">
 	<br><br>

@@ -2,6 +2,7 @@ $(document).ready(function () {
 
   $(".book_qty").change(function (e) { 
       e.preventDefault();
+
       var current_value = this.defaultValue < this.value
       this.defaultValue  = this.value;
 
@@ -42,9 +43,6 @@ $(document).ready(function () {
         });
         $(".total-class").empty().append(tot)
       }
-     
-
-     
   });
 
     $(".product-remove").click(function (e) { 
