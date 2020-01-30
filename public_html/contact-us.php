@@ -1,4 +1,7 @@
-﻿<!doctype html>
+﻿<?php
+	 include("../private/load.php") ;
+?>
+<!doctype html>
 <html class="no-js" lang="zxx">
 
 <head>
