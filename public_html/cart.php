@@ -296,10 +296,8 @@
 			<div class="cartbox__btn">
 				<ul
 					class="cart__btn__list d-flex flex-wrap flex-md-nowrap flex-lg-nowrap justify-content-between">
-					<li><a href="#">Coupon Code</a></li>
-					<li><a href="#">Apply Code</a></li>
-					<li><a href="#">Update Cart</a></li>
-					<li><a href="#">Check Out</a></li>
+					
+					<li class="text-right"><a href="#" class="btn btn-primary">Check Out</a></li>
 				</ul>
 			</div>
 		</div>
@@ -319,7 +317,7 @@
 				</div>
 				<div class="cart__total__amount">
 					<span>Grand Total</span>
-					<span class="total-class tt-class"><span class="total-class"><?php  echo (isset($total))? $total : "0";?></span> GHS</span>
+					<span ><span class="total-class"><?php  echo (isset($total))? $total : "0";?></span> GHS</span>
 				</div>
 			</div>
 		</div>

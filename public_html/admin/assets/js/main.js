@@ -73,6 +73,26 @@ $(document).ready(function () {
            
     })
 
+    $(".delete_blog").click(function(e){
+        e.preventDefault();
+        let blogid = $(this).attr("blogid");
+        $(".btn-k").click(function(e){
+            e.preventDefault();
+            $.post({
+                url:'../../private/admin_be.php',
+                data:'&blogid='+blogid,
+                dataType:'html',
+                success:function(result){
+                    if(result == "1"){
+                        $(".bookmodal .closes").click();
+                        $(".bts").addClass("show");
+                    }
+                }
+            })
+
+        })
+    })
+
 /**
  * ============================
  * Add new blog post

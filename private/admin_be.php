@@ -12,13 +12,13 @@ if(isset($_POST['addnewblogpost'])){
 
     if(isset($_FILES['file'])){
         $acceptable_files = ["image/jpg", "image/png", "image/jpeg"];
-
+    
         $directory = __DIR__."/uploades/";
       
 
-        $filename = $_FILES['file']['name'][$i];
-        $filetype = $_FILES['file']['type'][$i];
-        $filetmp_name = $_FILES['file']['tmp_name'][$i];
+        $filename = $_FILES['file']['name'];
+        $filetype = $_FILES['file']['type'];
+        $filetmp_name = $_FILES['file']['tmp_name'];
         $name = md5($filename).time().$filename;
         
         $upload_file = $name;
@@ -28,7 +28,7 @@ if(isset($_POST['addnewblogpost'])){
          }
 
         if(move_uploaded_file($filetmp_name, $directory."$name")){
-        $imagepath= $directory.$name;
+        $imagepath= $name;
         }else{
             $blogpost_error[]="Something went wrong Please try again later";
         }
@@ -38,7 +38,7 @@ if(isset($_POST['addnewblogpost'])){
             
             $insert = $db->saving('blog', "title, article,img", "?,?,?", $data);
             if($insert){
-                echo"success";
+                $blopost_success[] = "New Post added";
             }
         }
     }
@@ -105,6 +105,17 @@ if(isset($_POST['bookid'])){
     $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
 
     $del = $db->Delete("DELETE FROM books WHERE id = '$bookid'", null);
+
+    if($del){
+        echo "1";
+    }
+}
+
+if(isset($_POST['blogid'])){
+    extract($_POST);
+    $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+
+    $del = $db->Delete("DELETE FROM blog WHERE id = '$blogid'", null);
 
     if($del){
         echo "1";

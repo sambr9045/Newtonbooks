@@ -60,7 +60,7 @@
                     </div>
                     <br>
                               <div class="alert alert-success alert-dismissible fade bts" role="alert" >
-                                        <strong>Success !</strong> Book Deleted Succesfully.
+                                        <strong>Success !</strong> Book Deleted 
                                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                         </button>
