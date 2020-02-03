@@ -55,7 +55,9 @@ $(document).ready(function () {
     $(".deleteBook").click(function(e){
             e.preventDefault();
             let bookid = $(this).attr("bookid");
-            $(".btn-ok").click(function(e){
+            console.log('this is working')
+            $("#book-ok").click(function(e){
+                console.log("this is clcike")
                 e.preventDefault();
                 $.post({
                     url:'../../private/admin_be.php',

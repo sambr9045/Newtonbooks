@@ -1,4 +1,8 @@
-
+<?php include("../../private/admin.php");
+if(!$_SESSION['username']){
+    header("location:login");
+}
+?>
 <?php include("inc/inc_top.php") ?>
 <main class="main-content bgc-grey-100">
                 <div id="mainContent">

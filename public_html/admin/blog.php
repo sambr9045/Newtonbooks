@@ -1,5 +1,11 @@
+<?php include("../../private/admin.php");
+if(!$_SESSION['username']){
+    header("location:login");
+}
+?>
 <?php include("inc/inc_top.php") ?>
 <?php
+
      $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
      $blog = $db->Fetch("SELECT * FROM blog ORDER BY id DESC", null);
      $likes =0;

@@ -96,7 +96,7 @@ include("../private/load.php") ;
 											<?php 
 												foreach($img as $image){
 													?>
-														<a href="2.jpg"><img src="<?="../private/uploades/".$image?>" alt=""></a>
+														<a href="2.jpg"><img src="<?="uploades/".$image?>" alt=""></a>
 													<?php
 												}
 											?>
@@ -326,9 +326,9 @@ include("../private/load.php") ;
 									<div class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
 										<div class="product__thumb">
 											<a class="first__img" href="detail?t=<?=$selated['title']?>&id=<?=$selated['id']?>"><img
-													src="<?="../private/uploades/".$url[0]?>" width="304" height="384" alt="product image"></a>
+													src="<?="uploades/".$url[0]?>" width="304" height="384" alt="product image"></a>
 											<a class="second__img animation1" href="detail?t=<?=$selated['title']?>&id=<?=$selated['id']?>"><img
-													src="<?="../private/uploades/".$url[1]?>" width="304" height="384" alt="product image"></a>
+													src="<?="uploades/".$url[1]?>" width="304" height="384" alt="product image"></a>
 											<div class="hot__box">
 												<span class="hot-label">BEST SALLER</span>
 											</div>

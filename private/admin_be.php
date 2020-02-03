@@ -13,7 +13,7 @@ if(isset($_POST['addnewblogpost'])){
     if(isset($_FILES['file'])){
         $acceptable_files = ["image/jpg", "image/png", "image/jpeg"];
     
-        $directory = __DIR__."/uploades/";
+        $directory = __DIR__.'/../public_html/uploades/';
       
 
         $filename = $_FILES['file']['name'];
@@ -60,7 +60,8 @@ if(isset($_POST['addnewbook'])){
       
        $acceptable_files = ["image/jpg", "image/png", "image/jpeg"];
 
-       $directory = __DIR__."/uploades/";
+       $directory = __DIR__.'/../public_html/uploades/';
+       
         $imagepath = [];
 
        for($i=0; $i< $total; $i++){

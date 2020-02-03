@@ -1,4 +1,10 @@
+<?php include("../../private/admin.php");
+if(!$_SESSION['username']){
+    header("location:login");
+}
+?>
 <?php include("inc/inc_top.php") ?>
+
 <main class="main-content bgc-grey-100">
                 <div id="mainContent">
                     <div class="row gap-20 masonry pos-r">
@@ -149,7 +155,7 @@
                                                 <td><?=$values['price']?></td>
                                                 <td><?=$values['quantity']?></td>
                                                 <td><?=$values['created_at']?></td>
-                                                <td class="text-center"><button style="cursor: pointer;"class="btn btn-danger mR-2 deleteBook" bookid="<?=$values['id']?>" data-toggle="modal" data-target="#exampleModal"><small>Delete</small></button> </td>
+                                                <td class="text-center"><button style="cursor: pointer;"class="btn btn-danger mR-2 deleteBook" bookid="<?=$values['id']?>" data-toggle="modal" data-target="#exampleModal1"><small>Delete</small></button> </td>
                                             </tr>
                                             <?php
                                         }
@@ -163,7 +169,7 @@
                 </div>
 
 <!-- Modal -->
-<div class="modal fade bookmodal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade bookmodal" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -180,7 +186,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default closes" data-dismiss="modal" style="cursor: pointer">No</button>
-        <button type="button" class="btn btn-danger btn-ok" style="cursor: pointer;">Yes</button>
+        <button type="button" class="btn btn-danger " id="book-ok" style="cursor: pointer;">Yes</button>
       </div>
     </div>
   </div>

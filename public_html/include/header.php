@@ -12,7 +12,7 @@
 	<div class="col-lg-8 d-none d-lg-block">
 	<nav class="mainmenu__nav">
 			<ul class="meninmenu d-flex justify-content-start">
-				<li class="drop with--one--item"><a href="index">Home</a>
+				<li class="drop with--one--item"><a href="/">Home</a>
 					
 				</li>
 				<li class="drop"><a href="shop">Shop</a>

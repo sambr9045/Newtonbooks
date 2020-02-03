@@ -5,30 +5,32 @@
 <div class="mT-30">
     <form id="form" method="post" action="../admin/books.php" enctype="multipart/form-data">
         <div class="form-row">
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-4">
                 <label for="inputEmail4">Book Title</label>
                 <input type="text" class="form-control" id="inputEmail4" placeholder="Title" name="title" required>
             </div>
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-2">
                 <label for="inputPassword4">Author</label>
                 <input type="text" class="form-control" id="inputPassword4" placeholder="Author" name="Author" required>
             </div>
-        </div>
-        
-        <div class="form-row">
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-2">
                 <label for="inputEmail4">ISBN</label>
                 <input type="text" class="form-control" id="inputEmail4" placeholder="ISBN" name="ISBN">
             </div>
+        <div class="form-group col-md-2">
+                        <label for="inputPassword4">Product Dimensions</label>
+                        <input type="text" class="form-control" id="inputPassword4" placeholder=" 6.4 x 1.2 x 9.3 inches " name="dimensions">
+                    </div>
+        </div>
+        
+        <!-- <div class="form-row">
+            
             <div class="form-group col-md-4">
                 <label for="inputPassword4">Binding</label>
                 <input type="text" class="form-control" id="inputPassword4" placeholder="Binding" name="Binding">
             </div>
-            <div class="form-group col-md-2">
-                <label for="inputPassword4">Product Dimensions</label>
-                <input type="text" class="form-control" id="inputPassword4" placeholder=" 6.4 x 1.2 x 9.3 inches " name="dimensions">
-            </div>
-        </div>
+           
+        </div> -->
        
 
         <div class="form-row">
