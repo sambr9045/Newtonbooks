@@ -22,34 +22,17 @@
                         <input type="text" class="form-control" id="inputPassword4" placeholder=" 6.4 x 1.2 x 9.3 inches " name="dimensions">
                     </div>
         </div>
-        
-        <!-- <div class="form-row">
-            
-            <div class="form-group col-md-4">
-                <label for="inputPassword4">Binding</label>
-                <input type="text" class="form-control" id="inputPassword4" placeholder="Binding" name="Binding">
-            </div>
-           
-        </div> -->
-       
 
         <div class="form-row">
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-2">
                 <label for="inputEmail5">Published</label>
                 <input type="date" class="form-control" id="inputEmail5" placeholder="Published" name="published">
             </div>
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-2">
                 <label for="inputPassword4">Publisher</label>
-                <input type="text" class="form-control" id="inputPassword4" placeholder="Publisher" name="Publisher">
+                <input type="text" class="form-control" id="inputPassword4" placeholder="Publisher" name="publisher">
             </div>
-            <div class="form-group col-md-2" >
-                <label for="inputPassword4">Price</label>
-                <input type="number" class="form-control" id="inputPassword4" placeholder="GHS" name="price" required>
-            </div>
-        </div>
-
-        <div class="form-row">
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-2">
                 <label for="inputCity">Pages</label>
                 <input type="text" class="form-control" id="inputCity" placeholder="Pages" name="pages">
             </div>
@@ -57,7 +40,7 @@
                 <label for="inputCity">Qt</label>
                 <input type="number" class="form-control" id="inputCity" placeholder="Qt" name="Qt">
             </div>
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-2">
                 <label for="inputState">Categorie</label>
                 <select id="inputState" class="form-control" name="categories" required>
                     <option selected="selected">Choose...</option>
@@ -86,17 +69,50 @@
                     <option>BIBLES COMMENTARIES</option>
                 </select>
             </div>
+            
+        </div>
+
+        <div class="form-row">
+        <div class="form-group col-md-2" >
+                <label for="inputPassword4">Full Price</label>
+                <input type="number" class="form-control" id="inputPassword4" placeholder="GHS" name="full_price" required min="1">
+                
+        </div>
+        <div class="form-group col-md-2" >
+                <label for="inputPassword4">Discount Price</label>
+                <input type="number" class="form-control" id="inputPassword4" placeholder="GHS" name="discount_price" required>
+        </div>
+
+        <div class="form-group col-md-2" >
+                <label for="inputPassword4">Hardcover Price</label>
+                <input type="number" class="form-control" id="inputPassword4" placeholder="GHS" name="hardcover_price" required min="1">
+        </div>
+        <div class="form-group col-md-2" >
+                <label for="inputPassword4">Paperbag Price</label>
+                <input type="number" class="form-control" id="inputPassword4" placeholder="GHS" name="paperbag_price" required min="1">
+        </div>
+        <div class="form-group col-md-2" >
+                <label for="inputPassword4">Electronic Price</label>
+                <input type="number" class="form-control" id="inputPassword4" placeholder="GHS" name="electronic_price" required min="1">
+        </div>
+
         </div>
        <div class="form-row">
        <div class="form-group col-md-10">
             <label for="exampleFormControlTextarea1">Description</label>
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="10" placeholder="type your Description here" name="description" required></textarea>
         </div>
-
+     
         <div class="form-group">
                 <label for="exampleFormControlFile1">Add book images</label>
                 <input type="file" class="form-control-file" id="exampleFormControlFile1" name="file[]"  multiple="multiple">
+        </div>
+
+        <div class="form-group">
+                <label for="exampleFormControlFile1">Electronic File</label>
+                <input type="file" class="form-control-file"  name="electronicfile"  required>
             </div>
+        
         
        </div>
             

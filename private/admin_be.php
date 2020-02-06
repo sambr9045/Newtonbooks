@@ -84,14 +84,32 @@ if(isset($_POST['addnewbook'])){
            }
        }
        
-      
+      if(isset($_FILES['electronicfile'])){
+
+          $electronicfile_name = $_FILES['electronicfile']['name'];
+          $electro_name = md5($electronicfile_name).time().$electronicfile_name;
+          $electronic_tmp_name = $_FILES['electronicfile']['tmp_name'];
+          $electronic_type = $_FILES['electronicfile']['type'];
+
+          if(in_array($electronic_type, $acceptable_files)){
+            $error [] ="Only PDF file accepted for electronics books";
+          }
+
+          if(move_uploaded_file($electronic_tmp_name, $directory."$electro_name")){
+              $electronic_path = $electro_name;
+          }else{
+              $error[]= "Something went wrong please try again later";
+          }
+
+      }
        
         if(count($error) == 0){
     
             array_pop($data);
             $data[]=json_encode($description);
             $data[]= json_encode($imagepath);
-            $insert = $db->saving("books", "title, author,isbn,binding,dimension,published, publisher,price,pages,quantity,categorie,description,images", "?,?,?,?,?,?,?,?,?,?,?,?,?", $data);
+            $data[]=$electronic_path;
+            $insert = $db->saving("books", "title, author,isbn,dimensions,published, publisher,pages,quantity,categorie,full_price,discount_price,hardcover_price,paperbag_price,electronic_price,description,images,electronic_file", "?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?", $data);
             if($insert > 0){
                 
                 $success[] ="Book Added to database";

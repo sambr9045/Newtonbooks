@@ -152,7 +152,7 @@ if(!$_SESSION['username']){
                                                 <td><?=$values['publisher']?></td>
                                                 <td><?=$values['published']?></td>
                                                 <td><?=$values['categorie']?></td>
-                                                <td><?=$values['price']?></td>
+                                                <td><?=$values['discount_price']?></td>
                                                 <td><?=$values['quantity']?></td>
                                                 <td><?=$values['created_at']?></td>
                                                 <td class="text-center"><button style="cursor: pointer;"class="btn btn-danger mR-2 deleteBook" bookid="<?=$values['id']?>" data-toggle="modal" data-target="#exampleModal1"><small>Delete</small></button> </td>
