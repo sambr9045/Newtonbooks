@@ -88,7 +88,7 @@
                 <input type="number" class="form-control" id="inputPassword4" placeholder="GHS" name="hardcover_price" required min="1">
         </div>
         <div class="form-group col-md-2" >
-                <label for="inputPassword4">Paperbag Price</label>
+                <label for="inputPassword4">Paperback Price</label>
                 <input type="number" class="form-control" id="inputPassword4" placeholder="GHS" name="paperbag_price" required min="1">
         </div>
         <div class="form-group col-md-2" >

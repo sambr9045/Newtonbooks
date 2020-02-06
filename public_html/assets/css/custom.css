@@ -1,8 +1,17 @@
-/*********************************************************************************
 
-	Template Name: Boighor Books Library eCommerce Store  
-	Description: Template description
-	Version: 1.0
-	Note: This is custom css. All custom styles (user styles) declare here.
+.active_book_type{
+	background-color: #f8d7da;
+	border:1px solid red!important;
 
-**********************************************************************************/
+}
+.active_book_type .first{
+	color: black;
+}
+
+.active_book_type .second{
+	color: red;
+}
+.lst{
+	border: 1px solid lightgray ; 
+	cursor: pointer;
+}

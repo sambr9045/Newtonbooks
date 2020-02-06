@@ -192,8 +192,8 @@
 										<div class="product__content content--center">
 											<h4><a href="detail?t=<?=$val['title']?>&id=<?=$val['id']?>"><?=$val['title']?></a></h4>
 											<ul class="prize d-flex">
-												<li style="color:#0058AB;font-weight:bold;"><?=$val['price']?> GHS </li>&nbsp;
-												<li class="old_prize text-secondary b"> &nbsp;<del><?=$val['price']+10?> GHS</del></li>
+												<li style="color:#0058AB;font-weight:bold;"><?=$val['discount_price']?> GHS </li>&nbsp;
+												<li class="old_prize text-secondary b"> &nbsp;<del><?=$val['full_price']?> GHS</del></li>
 											</ul>
 											<div class="action">
 												<div class="actions_inner">

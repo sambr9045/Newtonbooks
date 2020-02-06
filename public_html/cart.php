@@ -268,17 +268,17 @@
 									$subtotal_array =[];
 									foreach(json_decode($cartitem) as $cartcontent){
 
-										$subtotal +=$cartcontent->bookprice;
-										$subtotal_array[]= $cartcontent->bookprice *$cartcontent->qty;
+										$subtotal +=$cartcontent->book_type_price;
+										$subtotal_array[]= $cartcontent->book_type_price *$cartcontent->qty;
 
 										?>
 											<tr>
 								<td class="product-thumbnail"><a href="#"><img
-								src="<?="../private/uploades/".$cartcontent->image;?>" alt="product img"></a></td>
+								src="<?="uploades/".$cartcontent->image;?>" alt="product img"></a></td>
 								<td class="product-name"><a href="detail?t=<?=$cartcontent->booktitle?>&id=<?=$cartcontent->bookid?>"><?=$cartcontent->booktitle?></a></td>
-								<td class="product-price the_book_real_price" amount="<?=$cartcontent->bookprice?>" ><span class="amount"><?=$cartcontent->bookprice?> GHS</span></td>
+								<td class="product-price the_book_real_price" amount="<?=$cartcontent->book_type_price?>" ><span class="amount"><?=$cartcontent->book_type_price?> GHS</span></td>
 								<td class=""><input type="number" min="1" value="<?=$cartcontent->qty?>"  class="book_qty"></td>
-								<td class="product-subtotal theproductsubtotal"><span class="theallbookprice"><?=$cartcontent->qty * $cartcontent->bookprice?></span>  GHS</td>
+								<td class="product-subtotal theproductsubtotal"><span class="theallbookprice"><?=$cartcontent->qty * $cartcontent->book_type_price?></span>  GHS</td>
 								<td class="product-remove" id="<?=$cartcontent->bookid?>"><a href="#">X</a></td>
 							</tr>
 										<?php

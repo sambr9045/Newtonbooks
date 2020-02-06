@@ -359,8 +359,8 @@ include("../private/load.php") ;
 						<div class="product__content content--center">
 							<h4><a href="detail?t=<?=$value['title']?>&id=<?=$value['id']?>"><?=$value['title']?></a></h4>
 							<ul class="prize d-flex">
-								<li><?=$value['price']?> GHS</li>
-								<li class="old_prize"><?=$value['price']+10?> GHS</li>
+								<li><?=$value['discount_price']?> GHS</li>
+								<li class="old_prize"><?=$value['full_price']?> GHS</li>
 							</ul>
 							<div class="action">
 								<div class="actions_inner">
@@ -529,8 +529,8 @@ include("../private/load.php") ;
 										<div class="product__content content--center">
 											<h4><a href="detail?t=<?=$value['title']?>&id=<?=$value['id']?>"><?=$value['title']?></a></h4>
 											<ul class="prize d-flex">
-												<li><?=$value['price']?> GHS</li>
-												<li class="old_prize"><?=$value['price']+10?> GHS</li>
+												<li><?=$value['discount_price']?> GHS</li>
+												<li class="old_prize"><?=$value['full_price']+10?> GHS</li>
 											</ul>
 											<div class="action">
 												<div class="actions_inner">
@@ -609,8 +609,8 @@ include("../private/load.php") ;
 										<div class="product__content content--center">
 											<h4><a href="detail?t=<?=$value['title']?>&id=<?=$value['id']?>"><?=$value['title']?></a></h4>
 											<ul class="prize d-flex">
-												<li><?=$value['price']?> GHS</li>
-												<li class="old_prize"><?=$value['price']+10?> GHS</li>
+												<li><?=$value['discount_price']?> GHS</li>
+												<li class="old_prize"><?=$value['full_price']+10?> GHS</li>
 											</ul>
 											<div class="action">
 												<div class="actions_inner">
@@ -693,8 +693,8 @@ include("../private/load.php") ;
 										<div class="product__content content--center">
 											<h4><a href="detail?t=<?=$value['title']?>&id=<?=$value['id']?>"><?=$value['title']?></a></h4>
 											<ul class="prize d-flex">
-												<li><?=$value['price']?> GHS</li>
-												<li class="old_prize"><?=$value['price']+10?> GHS</li>
+												<li><?=$value['discount_price']?> GHS</li>
+												<li class="old_prize"><?=$value['full_price']+10?> GHS</li>
 											</ul>
 											<div class="action">
 												<div class="actions_inner">
@@ -773,8 +773,8 @@ include("../private/load.php") ;
 										<div class="product__content content--center">
 											<h4><a href="detail?t=<?=$value['title']?>&id=<?=$value['id']?>"><?=$value['title']?></a></h4>
 											<ul class="prize d-flex">
-												<li><?=$value['price']?> GHS</li>
-												<li class="old_prize"><?=$value['price']+10?> GHS</li>
+												<li><?=$value['discount_price']?> GHS</li>
+												<li class="old_prize"><?=$value['full_price']+10?> GHS</li>
 											</ul>
 											<div class="action">
 												<div class="actions_inner">
@@ -850,8 +850,8 @@ include("../private/load.php") ;
 										<div class="product__content content--center">
 											<h4><a href="detail?t=<?=$value['title']?>&id=<?=$value['id']?>"><?=$value['title']?></a></h4>
 											<ul class="prize d-flex">
-												<li><?=$value['price']?> GHS</li>
-												<li class="old_prize"><?=$value['price']+10?> GHS</li>
+												<li><?=$value['discount_price']?> GHS</li>
+												<li class="old_prize"><?=$value['full_price']+10?> GHS</li>
 											</ul>
 											<div class="action">
 												<div class="actions_inner">
@@ -930,8 +930,8 @@ include("../private/load.php") ;
 										<div class="product__content content--center">
 											<h4><a href="details?t=<?=$value['title']?>&id=<?=$value['id']?>"><?=$value['title']?></a></h4>
 											<ul class="prize d-flex">
-												<li><?=$value['price']?> GHS</li>
-												<li class="old_prize"><?=$value['price']+10?> GHS</li>
+												<li><?=$value['discount_price']?> GHS</li>
+												<li class="old_prize"><?=$value['full_price']+10?> GHS</li>
 											</ul>
 											<div class="action">
 												<div class="actions_inner">
@@ -1007,8 +1007,8 @@ include("../private/load.php") ;
 										<div class="product__content content--center">
 											<h4><a href="detail?t=<?=$value['title']?>&id=<?=$value['id']?>"><?=$value['title']?></a></h4>
 											<ul class="prize d-flex">
-												<li><?=$value['price']?> GHS</li>
-												<li class="old_prize"><?=$value['price']+10?> GHS</li>
+												<li><?=$value['discount_price']?> GHS</li>
+												<li class="old_prize"><?=$value['full_price']+10?> GHS</li>
 											</ul>
 											<div class="action">
 												<div class="actions_inner">
@@ -1087,8 +1087,8 @@ include("../private/load.php") ;
 										<div class="product__content content--center">
 											<h4><a href="details?t=<?=$value['title']?>&id=<?=$value['id']?>"><?=$value['title']?></a></h4>
 											<ul class="prize d-flex">
-												<li><?=$value['price']?> GHS</li>
-												<li class="old_prize"><?=$value['price']+10?> GHS</li>
+												<li><?=$value['discount_price']?> GHS</li>
+												<li class="old_prize"><?=$value['full_price']+10?> GHS</li>
 											</ul>
 											<div class="action">
 												<div class="actions_inner">
@@ -1164,8 +1164,8 @@ include("../private/load.php") ;
 										<div class="product__content content--center">
 											<h4><a href="detail?t=<?=$value['title']?>&id=<?=$value['id']?>"><?=$value['title']?></a></h4>
 											<ul class="prize d-flex">
-												<li><?=$value['price']?> GHS</li>
-												<li class="old_prize"><?=$value['price']+10?> GHS</li>
+												<li><?=$value['discount_price']?> GHS</li>
+												<li class="old_prize"><?=$value['full_price']+10?> GHS</li>
 											</ul>
 											<div class="action">
 												<div class="actions_inner">
@@ -1244,8 +1244,8 @@ include("../private/load.php") ;
 										<div class="product__content content--center">
 											<h4><a href="details?t=<?=$value['title']?>&id=<?=$value['id']?>"><?=$value['title']?></a></h4>
 											<ul class="prize d-flex">
-												<li><?=$value['price']?> GHS</li>
-												<li class="old_prize"><?=$value['price']+10?> GHS</li>
+												<li><?=$value['discount_price']?> GHS</li>
+												<li class="old_prize"><?=$value['full_price']+10?> GHS</li>
 											</ul>
 											<div class="action">
 												<div class="actions_inner">

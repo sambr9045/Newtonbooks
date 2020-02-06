@@ -78,7 +78,7 @@ include("../private/load.php") ;
 		<br>
 		<div class="addtocart_error" role="alert" style="margin: 0 auto; margin-left:6%;margin-right:6%; width:88%!important;box-sizing:border-box;">
 
-			<strong id="strong"></strong> <span id="mgs"></span>
+			 <span id="mgs"></span>
 			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 				<span aria-hidden="true">&times;</span>
 			</button>
@@ -106,6 +106,7 @@ include("../private/load.php") ;
 								<div class="col-lg-6 col-12">
 									<div class="product__info__main">
 										<h1><?=$title?></h1>
+										<p class="text-primary"><span class="text-dark">By</span> <?=$author?></p>
 										<div class="product-reviews-summary d-flex">
 											<ul class="rating-summary d-flex">
 												<li><i class="zmdi zmdi-star-outline"></i></li>
@@ -116,8 +117,37 @@ include("../private/load.php") ;
 											</ul>
 										</div>
 										<div class="price-box">
-											<span><?=$price?> GHS</span>
+											<span><label class="the_price"><?=$discount_price?></label> GHS</span>
+
+											<div class="row mt-3 mtrow">
+													<div class="col-sm-4 hardcover">
+														<div class="book_type lst rounded p-1 pl-2 active_book_type">
+															<p class=" b"><small class="first">Hard cover</small> 
+														
+														</p>
+															<p style="margin-top: -5px;"><small class="second"><?=$hardcover_price?> </small>GHS</p>
+														</div>
+													</div>
+													<div class="col-sm-4 paperbag">
+														<div class=" book_type  rounded p-1 pl-2 lst">
+															<p class="b"><small class="first">Paperback</small> 
+														
+														</p>
+															<p style="margin-top: -5px;"><small class="second"> <?=$paperbag_price?> </small>GHS</p>
+														</div>
+													</div>
+
+													<div class="col-sm-4 electronic">
+														<div class="book_type rounded p-1 pl-2 lst">
+															<p class=" b"><small class="first">Electronic</small> 
+														
+														</p>
+															<p style="margin-top: -5px;"><small class="second"><?=$electronic_price?> </small>GHS</p>
+														</div>
+													</div>
+											</div>
 										</div>
+
 										<div class="product__overview">
 											<?php 
 												echo nl2br(substr(json_decode($description), 0 , 400))."....";
@@ -134,7 +164,8 @@ include("../private/load.php") ;
 											<input type="hidden" name="bookid" value="<?=$id?>">
 											<input type="hidden" name="image" value="<?=$img[0]?>">
 											<input type="hidden" name="booktitle" value="<?=$title?>" id="bookname">
-											<input type="hidden" name="bookprice" value="<?=$price?>">
+											<input type="hidden" name="booktype" value="" id="booktype">
+											<input type="hidden" name="book_type_price" value="" id="book_type_price">
 											<div class="addtocart__actions">
 												<button class="tocart" type="submit" title="Add to Cart" id="addtocard">Add to
 													Cart</button>
@@ -336,8 +367,8 @@ include("../private/load.php") ;
 										<div class="product__content content--center">
 											<h4><a href="detail?t=<?=$selated['title']?>&id=<?=$selated['id']?>"><?=$selated['title']?></a></h4>
 											<ul class="prize d-flex">
-												<li><?=$selated['price'] ?> GHS</li>
-												<li class="old_prize"><?=$selated['price']+10?> GHS</li>
+												<li><?=$selated['discount_price'] ?> GHS</li>
+												<li class="old_prize"><?=$selated['full_price']+10?> GHS</li>
 											</ul>
 											<div class="action">
 												<div class="actions_inner">
