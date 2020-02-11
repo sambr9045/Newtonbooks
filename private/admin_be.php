@@ -141,4 +141,20 @@ if(isset($_POST['blogid'])){
     }
 }
 
+if(isset($_POST['blog_comment'])){
+    $data =array_values($_POST);
+    if(isset($_POST['email'])){
+        if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
+            die("Invalide Email address");
+        }
+    }
+
+    $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+    $comment = $db->saving("comment", "comment, name, email, post_id", "?,?,?,?", $data);
+
+    if($comment){
+        echo "1";
+    }
+}
+
 ?>

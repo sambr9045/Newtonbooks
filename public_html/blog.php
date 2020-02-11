@@ -1,10 +1,8 @@
 ﻿<?php
 	 include("../private/load.php") ;
-?>
+?>	
 <!doctype html>
 <html class="no-js" lang="zxx">
-
-
 <head>
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -65,19 +63,21 @@
 							<ul>
 								<?php
 
-									for($i=0; $i<=5; $i++){
+									if(count($posts) >= 5){
+										for($i=0; $i<=5; $i++){
 
-										?>
-											<li>
-											<div class="post-wrapper d-flex">
-											
-												<div class="content">
-													<h4><a style="color:#0058ab;font-weight:bold; line-height:1em!important;font-size:13px;" href="blog-details?wp=<?=$posts[$i]['title']?>&dw=<?=$posts[$i]['id']?>"><?=$posts[$i]['title']?></a></h4>
-													<p>	<?=$posts[$i]['created_at']?></p>
-												</div>
-									</div>
-								</li>
-										<?php
+											?>
+												<li>
+												<div class="post-wrapper d-flex">
+												
+													<div class="content">
+														<h4><a style="color:#0058ab;font-weight:bold; line-height:1em!important;font-size:13px;" href="blog-details?wp=<?=$posts[$i]['title']?>&wip=<?=$posts[$i]['id']?>"><?=$posts[$i]['title']?></a></h4>
+														<p>	<?=$posts[$i]['created_at']?></p>
+													</div>
+										</div>
+									</li>
+											<?php
+										}
 									}
 
 								?>
@@ -106,7 +106,7 @@
 							</a>
 						</div>
 						<div class="content pt-2 bg-light">
-							<h4><a href="blog-details?wp=<?=$Poste['title']?>&dw=<?=$Poste['id']?>"><?=htmlspecialchars($Poste['title'])?></a></h4>
+							<h4><a href="blog-details?wp=<?=$Poste['title']?>&wip=<?=$Poste['id']?>"><?=htmlspecialchars($Poste['title'])?></a></h4>
 							<ul class="post__meta">
 								<li>Posts by : <a href="#">Admin</a></li>
 								<li class="post_separator">/</li>

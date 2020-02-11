@@ -85,15 +85,15 @@
 
         <div class="form-group col-md-2" >
                 <label for="inputPassword4">Hardcover Price</label>
-                <input type="number" class="form-control" id="inputPassword4" placeholder="GHS" name="hardcover_price" required min="1">
+                <input type="number" class="form-control" id="inputPassword4" placeholder="GHS" name="hardcover_price" required min="0">
         </div>
         <div class="form-group col-md-2" >
                 <label for="inputPassword4">Paperback Price</label>
-                <input type="number" class="form-control" id="inputPassword4" placeholder="GHS" name="paperbag_price" required min="1">
+                <input type="number" class="form-control" id="inputPassword4" placeholder="GHS" name="paperbag_price" required min="0">
         </div>
         <div class="form-group col-md-2" >
                 <label for="inputPassword4">Electronic Price</label>
-                <input type="number" class="form-control" id="inputPassword4" placeholder="GHS" name="electronic_price" required min="1">
+                <input type="number" class="form-control" id="inputPassword4" placeholder="GHS" name="electronic_price" required min="0">
         </div>
 
         </div>
