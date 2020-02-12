@@ -120,7 +120,13 @@ include("../private/load.php") ;
 											<span><label class="the_price"><?=$discount_price?></label> GHS</span>
 
 											<div class="row mt-3 mtrow">
-													<div class="col-sm-4 hardcover">
+													
+
+													<?php 
+
+													if($hardcover_price > 0){
+														?>
+															<div class="col-sm-4 hardcover">
 														<div class="book_type lst rounded p-1 pl-2 active_book_type">
 															<p class=" b"><small class="first">Hard cover</small> 
 														
@@ -128,7 +134,14 @@ include("../private/load.php") ;
 															<p style="margin-top: -5px;"><small class="second"><?=$hardcover_price?> </small>GHS</p>
 														</div>
 													</div>
-													<div class="col-sm-4 paperbag">
+														<?php
+													}
+														?>
+
+													<?php
+														if($paperbag_price > 0){
+															?>
+															<div class="col-sm-4 paperbag">
 														<div class=" book_type  rounded p-1 pl-2 lst">
 															<p class="b"><small class="first">Paperback</small> 
 														
@@ -136,8 +149,14 @@ include("../private/load.php") ;
 															<p style="margin-top: -5px;"><small class="second"> <?=$paperbag_price?> </small>GHS</p>
 														</div>
 													</div>
+															<?php
+														}
+													?>
 
-													<div class="col-sm-4 electronic">
+													<?php
+													if($electronic_price > 0){
+														?>
+														<div class="col-sm-4 electronic">
 														<div class="book_type rounded p-1 pl-2 lst">
 															<p class=" b"><small class="first">Electronic</small> 
 														
@@ -145,6 +164,10 @@ include("../private/load.php") ;
 															<p style="margin-top: -5px;"><small class="second"><?=$electronic_price?> </small>GHS</p>
 														</div>
 													</div>
+														<?php
+													}
+
+													?>
 											</div>
 										</div>
 
@@ -164,8 +187,8 @@ include("../private/load.php") ;
 											<input type="hidden" name="bookid" value="<?=$id?>">
 											<input type="hidden" name="image" value="<?=$img[0]?>">
 											<input type="hidden" name="booktitle" value="<?=$title?>" id="bookname">
-											<input type="hidden" name="booktype" value="" id="booktype">
-											<input type="hidden" name="book_type_price" value="" id="book_type_price">
+											<input type="hidden" name="booktype" value="default" id="booktype">
+											<input type="hidden" name="book_type_price" value="<?=$discount_price?>"  id="book_type_price">
 											<div class="addtocart__actions">
 												<button class="tocart" type="submit" title="Add to Cart" id="addtocard">Add to
 													Cart</button>

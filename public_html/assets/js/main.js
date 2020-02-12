@@ -26,8 +26,12 @@ $(document).ready(function(){
         e.preventDefault();
         var book_type = $(".mtrow").find(".active_book_type .first").html();
         var  book_type_price = $(".mtrow").find(".active_book_type .second").html();
-        $("#booktype").attr("value",book_type);
-        $("#book_type_price").attr("value", Number(book_type_price));
+
+        if($.isNumeric(book_type_price)){
+            $("#booktype").attr("value",book_type);
+            $("#book_type_price").attr("value", Number(book_type_price));
+        }
+       
 
         var bookDetails = $("#addtocardformid").serialize();
         var bookname = $("#bookname").val();

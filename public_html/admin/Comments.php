@@ -1,9 +1,8 @@
 <?php include("../../private/admin.php");
+
 if(!$_SESSION['username']){
     header("location:login");
-    
 }
-
 ?>
 <?php include("inc/inc_top.php") ?>
 
@@ -17,7 +16,7 @@ if(!$_SESSION['username']){
                                     <div class="layers bd bgc-white p-20">
                                         <div class="layer w-100 mB-10">
                                         
-                                            <h6 class="lh-1">Total Books</h6></div>
+                                            <h6 class="lh-1">Total book Reviews</h6></div>
 
                                         <div class="layer w-100">
                                             <div class="peers ai-sb fxw-nw">
@@ -32,11 +31,17 @@ if(!$_SESSION['username']){
                                 <div class="col-md-3">
                                     <div class="layers bd bgc-white p-20">
                                         <div class="layer w-100 mB-10">
-                                            <h6 class="lh-1">Total Books Sold</h6></div>
+                                            <h6 class="lh-1">Total blog Comment</h6></div>
                                         <div class="layer w-100">
                                             <div class="peers ai-sb fxw-nw">
                                                 <div class="peer peer-greed"><span id="sparklinedash2"></span></div>
-                                                <div class="peer"><span class="d-ib lh-0 va-m fw-600 bdrs-10em pX-15 pY-15 bgc-red-50 c-red-500">0</span></div>
+                                                <div class="peer"><span class="d-ib lh-0 va-m fw-600 bdrs-10em pX-15 pY-15 bgc-red-50 c-red-500">
+
+                                                <?php 
+                                                $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+                                               echo count($db->Fetch("SELECT * FROM comment ", null))?>
+
+                                                </span></div>
                                             </div>
                                         </div>
                                     </div>
@@ -44,7 +49,7 @@ if(!$_SESSION['username']){
                                 <div class="col-md-3">
                                     <div class="layers bd bgc-white p-20">
                                         <div class="layer w-100 mB-10">
-                                            <h6 class="lh-1">Total Books View</h6></div>
+                                            <h6 class="lh-1">Total positive Reviews</h6></div>
                                         <div class="layer w-100">
                                             <div class="peers ai-sb fxw-nw">
                                                 <div class="peer peer-greed"><span id="sparklinedash3"></span></div>
@@ -56,7 +61,7 @@ if(!$_SESSION['username']){
                                 <div class="col-md-3">
                                     <div class="layers bd bgc-white p-20">
                                         <div class="layer w-100 mB-10">
-                                            <h6 class="lh-1">Total available Books</h6></div>
+                                            <h6 class="lh-1">total negative Reviews</h6></div>
                                         <div class="layer w-100">
                                             <div class="peers ai-sb fxw-nw">
                                                 <div class="peer peer-greed"><span id="sparklinedash4"></span></div>
@@ -75,49 +80,62 @@ if(!$_SESSION['username']){
                                         <span aria-hidden="true">&times;</span>
                                         </button>
                                         </div>
-                    <?php 
-                    
-                            if(isset($success)){
-                                foreach($success as $value){
+<?php 
 
-                                    ?>
-                                        <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                        <strong>Success !</strong> <?=$value?>
-                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                        </button>
-                                        </div>
-                                        <?php
-                                }
-                            }
-                    ?>
-                     <?php 
-                    
-                    if(isset($error)){
-                        foreach($error as $value){
-                            
-                            ?>
-                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                <strong>Warning !</strong> <?=$value?>
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                                </button>
-                                </div>
-                                <?php
-                           }
-                        }
-                     ?>
+if(isset($success)){
+foreach($success as $value){
+
+?>
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+<strong>Success !</strong> <?=$value?>
+<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<?php
+}
+}
+?>
+<?php 
+
+if(isset($error)){
+
+foreach($error as $value){
+
+?>
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+<strong>Warning !</strong> <?=$value?>
+<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<?php
+}
+}
+?>
+
                     <div class="container-fluid">
-                        <button class="btn btn-danger mT-20 mB-30 booknewpost"> + Add New Book</button>
-                        <button class="btn btn-danger mT-20 mB-30 mL-2  backbs" style="display:none;">Back</button>
+                       <select name="select" id="choose_review" class="w-50 form-control">
+                           <option value="comment" selected>COMMENTS</option>
+                           <option value="reviews">BOOKS REVIEW</option>
+                       </select>
+                       <br>
+                      
                         <div id="loader_html" class="fadeOut">
                             <div class="spinner_htmlload"></div>
                         </div>
                         <div class="row book_row_replace">
                         
-                            <div class="col-md-12">
+                           <?php 
+                           
+                            if(isset($_GET['wp']) && $_GET['wp'] == "reviews"){
+                                ?>
+                                <?php
+                            }else{
+                                ?>
+                                     <div class="col-md-12">
                                 <div class="bgc-white bd bdrs-3 p-20 mB-20">
-                                    <h4 class="c-grey-900 mB-20">Available books</h4>
+                                    <h4 class="c-grey-900 mB-20">Blog comments</h4>
                                     <table id="dataTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
                                         <thead>
                                             <tr>
@@ -133,16 +151,7 @@ if(!$_SESSION['username']){
                                                 <th class="text-center">Action</th>
                                             </tr>
                                         </thead>
-                                        <!-- <tfoot>
-                                            <tr>
-                                                <th>Name</th>
-                                                <th>Position</th>
-                                                <th>Office</th>
-                                                <th>Age</th>
-                                                <th>Start date</th>
-                                                <th>Salary</th>
-                                            </tr>
-                                        </tfoot> -->
+                                       
                                         <tbody>
                                         <?php 
                                         $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
@@ -168,6 +177,10 @@ if(!$_SESSION['username']){
                                     </table>
                                 </div>
                             </div>
+                                <?php
+                            }
+                           
+                           ?>
                         </div>
                     </div>
                 </div>

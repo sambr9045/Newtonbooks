@@ -11,7 +11,7 @@
 
 		 $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
 
-		 $comments = $db->Fetch("SELECT * FROM comment WHERE post_id = '$blog_id' ORDER BY id ASC", null);
+		 $comments = $db->Fetch("SELECT * FROM comment WHERE post_id = '$blog_id' AND status = '1' ORDER BY id ASC", null);
 		
 		 if(!empty($comments)){
 			$count_comment = count($comments);

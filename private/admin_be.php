@@ -142,6 +142,7 @@ if(isset($_POST['blogid'])){
 }
 
 if(isset($_POST['blog_comment'])){
+    extract($_POST);
     $data =array_values($_POST);
     if(isset($_POST['email'])){
         if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
@@ -150,10 +151,15 @@ if(isset($_POST['blog_comment'])){
     }
 
     $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+
     $comment = $db->saving("comment", "comment, name, email, post_id", "?,?,?,?", $data);
 
     if($comment){
-        echo "1";
+        $not= ["comment","<span class='fw-500'>{$name}</span> <span class='c-grey-600'>commented <span class='text-dark'> on a Blog post</span>", $post_id];
+        $notification = $db->saving("notifications", "type, message, type_id", "?,?,?", $not);
+        if($notification){
+            echo "1";
+        }
     }
 }
 
