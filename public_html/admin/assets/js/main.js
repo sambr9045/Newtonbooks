@@ -95,6 +95,41 @@ $(document).ready(function () {
         })
     })
 
+
+    $(".approve_commet").click(function(){
+        $comment_id = $(this).attr("commetn_id");
+        console.log($comment_id);
+        $.post({
+            url:'../../private/admin_be.php',
+            data:'&comment_id='+$comment_id,
+            dataType:'html',
+            success:function(response){
+                if(response == "121"){
+                    window.location.reload();
+                }
+            }
+        })
+    })
+
+
+    $(".ti-bell").click(function (e) { 
+        e.preventDefault();
+     Ajax("../../private/admin_be.php", "notificatio_update="+"notifcation");
+   
+    });
+
+console.log($(".thenotifi").hasClass("show"))
+
+    function Ajax(url, data){
+        $.post({
+            url:url,
+            data:data,
+            dataType:'html',
+            success:function(response){
+                return response;
+            }
+        })
+    }
 /**
  * ============================
  * Add new blog post

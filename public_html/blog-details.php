@@ -167,6 +167,8 @@
 											<input type="email" placeholder="email*" required name="email">
 										</div>
 										<input type="hidden" name="post_id" value="<?=$id?>">
+
+										<input type="hidden" name="post_title" value="<?=$title?>">
 										<!-- <div class="input__box website one--third">
 											<input type="text" placeholder="website">
 										</div> -->

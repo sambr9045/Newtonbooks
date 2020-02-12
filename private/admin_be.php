@@ -143,6 +143,7 @@ if(isset($_POST['blogid'])){
 
 if(isset($_POST['blog_comment'])){
     extract($_POST);
+
     $data =array_values($_POST);
     if(isset($_POST['email'])){
         if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
@@ -152,15 +153,33 @@ if(isset($_POST['blog_comment'])){
 
     $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
 
-    $comment = $db->saving("comment", "comment, name, email, post_id", "?,?,?,?", $data);
+    $comment = $db->saving("comment", "comment, name, email, post_id, post_title", "?,?,?,?,?", $data);
 
     if($comment){
-        $not= ["comment","<span class='fw-500'>{$name}</span> <span class='c-grey-600'>commented <span class='text-dark'> on a Blog post</span>", $post_id];
-        $notification = $db->saving("notifications", "type, message, type_id", "?,?,?", $not);
+        $not= ["comment","<span class='fw-500'>{$name}</span> <span class='c-grey-600'>commented <span class='text-dark'> on a Blog post</span>", $post_id, $post_title];
+        
+        $notification = $db->saving("notifications", "type, message, type_id, type_title", "?,?,?,?", $not);
         if($notification){
             echo "1";
         }
     }
+}
+
+if(isset($_POST['comment_id'])){
+    extract($_POST);
+    $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+     $data = ['1',$comment_id];
+    $commet_update_status = $db->Update("UPDATE comment SET status = '1' WHERE id='$comment_id' ", null);
+    if($commet_update_status){
+        echo "121";
+    }
+}
+
+if(isset($_POST['notificatio_update'])){
+    $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+
+    $notification_updaate = $db->Update("UPDATE notifications SET status = '1'", null);
+   
 }
 
 ?>

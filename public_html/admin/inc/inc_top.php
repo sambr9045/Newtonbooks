@@ -170,10 +170,10 @@
                     ?>
                     <ul class="nav-right">
                         <li class="notifications dropdown"><span class="counter bgc-red"><?=$all_notificato?></span> <a href="#" class="dropdown-toggle no-after" data-toggle="dropdown"><i class="ti-bell"></i></a>
-                            <ul class="dropdown-menu">
-                                <li class="pX-20 pY-15 bdB"><i class="ti-bell pR-10"></i> <span class="fsz-sm fw-600 c-grey-900">Notifications</span></li>
+                            <ul class="dropdown-menu thenotifi">
+                                <li class="pX-20 pY-15 bdB thenotify"><i class="ti-bell pR-10"></i> <span class="fsz-sm fw-600 c-grey-900">Notifications</span></li>
                                 <li>
-                                    <ul class="ovY-a pos-r scrollable lis-n p-0 m-0 fsz-sm">
+                                    <ul class="ovY-a pos-r scrollable lis-n p-0 m-0 fsz-sm" style="overflow: scroll; height:350px;">
                                        <?php 
                                         foreach($notifi as $notifi){
                                             $url = "";

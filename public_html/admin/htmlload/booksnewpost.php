@@ -17,10 +17,10 @@
                 <label for="inputEmail4">ISBN</label>
                 <input type="text" class="form-control" id="inputEmail4" placeholder="ISBN" name="ISBN">
             </div>
-        <div class="form-group col-md-2">
+            <div class="form-group col-md-2">
                         <label for="inputPassword4">Product Dimensions</label>
                         <input type="text" class="form-control" id="inputPassword4" placeholder=" 6.4 x 1.2 x 9.3 inches " name="dimensions">
-                    </div>
+            </div>
         </div>
 
         <div class="form-row">
