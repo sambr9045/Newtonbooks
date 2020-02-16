@@ -180,6 +180,8 @@ if(isset($_POST['notificatio_update'])){
 
     $notification_updaate = $db->Update("UPDATE notifications SET status = '1'", null);
    
+
+   
 }
 
 ?>

@@ -15,3 +15,7 @@
 	border: 1px solid lightgray ; 
 	cursor: pointer;
 }
+.cssallview:hover
+{
+	color:black!important;
+}

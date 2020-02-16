@@ -23,6 +23,9 @@ include("../private/load.php") ;
 		rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
 
+	<script src="https://use.fontawesome.com/16fe135af5.js"></script>
+
+
 	<!-- Stylesheets -->
 	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="assets/css/plugins.css">

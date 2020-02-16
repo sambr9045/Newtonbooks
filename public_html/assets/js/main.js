@@ -66,4 +66,10 @@ $(document).ready(function(){
             }
         })
     });
+    // $(".quickview").click(function (e) { 
+    //     e.preventDefault();
+    //     console.log("shamsu")
+    //     alert("it is working properly")
+    // });
+
 })
