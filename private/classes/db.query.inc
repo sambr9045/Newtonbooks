@@ -109,7 +109,7 @@
              }
          }
 
-         /**
+         /** 
           * Update function
           *@param $sql
           *reponse boolean
@@ -145,6 +145,6 @@
         //  {
         //      $this->db = null;
         //  }
-
+// new data
     }
 ?>
