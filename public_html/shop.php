@@ -201,16 +201,19 @@
 											</ul>
 											<div class="action">
 												<div class="actions_inner">
-													<ul class="add_to_links">
-														<li><a class="cart cssallview" href="cart.html"><i
+													<ul class="add_to_links text-center">
+														<!-- <li><a class="cart cssallview" href="cart.html"><i
 																	class="bi bi-shopping-bag4"></i></a></li>
 														<li><a class="wishlist cssallview" href="wishlist.html"><i
-																	class="bi bi-shopping-cart-full"></i></a></li>
-														<li><a class="compare cssallview" href="#"><i
-																	class="bi bi-heart-beat"></i></a></li>
+																	class="bi bi-shopping-cart-full"></i></a></li> -->
+														<li id="<?=$val['id']?>">
+															<a class="compare cssallview" title ="add to wishlist" name="add_to_wish_list" href="#"><i
+																	class="bi bi-heart-beat"></i></a>
+																</li>
+
 														<li id="<?=$val['id']?>"><a data-toggle="modal" title="Quick View"
-																class=" modal-view detail-link cssallview"
-																href="#productmodal"><i class="fa fa-eye quickview"></i></a>
+																class=" modal-view detail-link cssallview view_quick_click"
+																href="#productmodal"><i class="fa fa-eye "></i></a>
 														</li>
 													</ul>
 												</div>
@@ -274,7 +277,7 @@
 <?php include("include/footer.php") ?>
 
 <script >
-	    $(".quickview").click(function (e) { 
+	    $(".view_quick_click").click(function (e) { 
         e.preventDefault();
 		let id = $(this).closest("li").attr("id");
 
@@ -286,6 +289,20 @@
 				
 			}
 		})
+
+		$(".add_to_wish_list").click(function (e) { 
+			e.preventDefault();
+			let wishlist_id = $(this).closest("li").attr("id");
+			$.post({
+				url:'../private/',
+				data:'&wishlist_id='+wishlist_id,
+				success:function(result){
+					$(".modal-body").html(result);
+					
+				}
+			})
+			
+		});
        
     });
     
