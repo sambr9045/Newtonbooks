@@ -7,6 +7,12 @@ html {
     font-family: "Poppins", sans-serif;
     height: 100vh;
   }
+  .the_focuse{
+    border-bottom: 2px solid red!important ;
+  }
+  .the_focuse:focus{
+      background-color: #f8d7da!important;
+  }
   
   a {
     color: #92badd;

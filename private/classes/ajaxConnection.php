@@ -21,7 +21,6 @@ if(isset($_POST['bookDetailes'])){
   }
 
   $files = array_pop($_POST);
-  var_dump($files);
-  echo $files->;
+
 }
 ?>

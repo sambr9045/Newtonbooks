@@ -537,16 +537,16 @@ include("../private/load.php") ;
 											</ul>
 											<div class="action">
 												<div class="actions_inner">
-													<ul class="add_to_links">
-														<li><a class="cart" href="cart"><i
+													<ul class="add_to_links text-center">
+														<!-- <li><a class="cart" href="cart"><i
 																	class="bi bi-shopping-bag4"></i></a></li>
 														<li><a class="wishlist" href="wishlist"><i
-																	class="bi bi-shopping-cart-full"></i></a></li>
-														<li><a class="compare" href="#"><i
+																	class="bi bi-shopping-cart-full"></i></a></li> -->
+																	<li id="<?=$value['id']?>"><a class="compare cssallview" href="#"><i
 																	class="bi bi-heart-beat"></i></a></li>
-														<li><a data-toggle="modal" title="Quick View"
-																class="quickview modal-view detail-link"
-																href="#productmodal"><i class="bi bi-search"></i></a>
+														<li id="<?=$value['id']?>"><a data-toggle="modal" title="Quick View"
+																class="quickview modal-view detail-link cssallview view_quick_click"
+																href="#productmodal"><i class="fa fa-eye"></i></a>
 														</li>
 													</ul>
 												</div>
@@ -617,16 +617,16 @@ include("../private/load.php") ;
 											</ul>
 											<div class="action">
 												<div class="actions_inner">
-													<ul class="add_to_links">
-														<li><a class="cart" href="cart"><i
+													<ul class="add_to_links text-center">
+														<!-- <li><a class="cart" href="cart"><i
 																	class="bi bi-shopping-bag4"></i></a></li>
 														<li><a class="wishlist" href="wishlist"><i
-																	class="bi bi-shopping-cart-full"></i></a></li>
-														<li><a class="compare" href="#"><i
+																	class="bi bi-shopping-cart-full"></i></a></li> -->
+														<li id="<?=$value['id']?>"><a class="compare cssallview" href="#"><i
 																	class="bi bi-heart-beat"></i></a></li>
-														<li><a data-toggle="modal" title="Quick View"
-																class="quickview modal-view detail-link"
-																href="#productmodal"><i class="bi bi-search"></i></a>
+														<li id="<?=$value['id']?>"><a data-toggle="modal" title="Quick View"
+																class="quickview modal-view detail-link cssallview view_quick_click"
+																href="#productmodal"><i class="fa fa-eye"></i></a>
 														</li>
 													</ul>
 												</div>
@@ -701,16 +701,16 @@ include("../private/load.php") ;
 											</ul>
 											<div class="action">
 												<div class="actions_inner">
-													<ul class="add_to_links">
-														<li><a class="cart" href="cart"><i
+													<ul class="add_to_links text-center">
+														<!-- <li><a class="cart" href="cart"><i
 																	class="bi bi-shopping-bag4"></i></a></li>
 														<li><a class="wishlist" href="wishlist"><i
-																	class="bi bi-shopping-cart-full"></i></a></li>
-														<li><a class="compare" href="#"><i
+																	class="bi bi-shopping-cart-full"></i></a></li> -->
+														<li><a class="compare cssallview" href="#"><i
 																	class="bi bi-heart-beat"></i></a></li>
-														<li><a data-toggle="modal" title="Quick View"
-																class="quickview modal-view detail-link"
-																href="#productmodal"><i class="bi bi-search"></i></a>
+														<li><a data-toggle="modal " title="Quick View"
+																class="quickview modal-view detail-link view_quick_click"
+																href="#productmodal cssallview"><i class="bi bi-search"></i></a>
 														</li>
 													</ul>
 												</div>

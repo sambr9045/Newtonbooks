@@ -34,7 +34,7 @@ class email{
 
     public function new_mail_instance(){
 
-      $swift_mail = Swift_Message::newInstance()
+      $swift_mail = (new Swift_Message())
         ->setSubject($this->subject)
         ->setFrom($this->from)
         ->setTo($this->to)
@@ -70,11 +70,11 @@ class email{
 
     public function transport(){
 
-      $transport = Swift_SmtpTransport::newInstance($this->stmt_host, $this->stmt_port)
+      $transport = ( new Swift_SmtpTransport($this->stmt_host, $this->stmt_port))
             ->setUsername($this->stmt_usernames)
             ->setPassword($this->stmt_password);
 
-      return Swift_Mailer::newInstance($transport);
+      return new Swift_Mailer($transport);
 
     }
 
