@@ -91,13 +91,11 @@
 <input type="submit" class="fadeIn fourth" name="signup" value="Sign Up">
     </form>
     <div id="formFooter">
-      <a class="underlineHover" href="#">Forgot Password?</a>
+      <span>Already have an account ?</span><a class="underlineHover" href="login">login </a>
     </div>
 
   </div>
-  <div class="bottom">
-      <p>already have account ? <a href="login">login</a></p>
-  </div>
+
 </div>
 </body>
 </html>

@@ -53,7 +53,7 @@
                 <p>Greetings {$Full_name},
                 </p>
                 <p >We need to verify your email address before activating your  account.</p>
-                <a style='padding:10px;background-color:blue;color:white;' href='https:newtonbooksonline.com/verify?token={$token}'>Verify </a>
+                <a style='padding:10px;background-color:blue;color:white;' href='http://localhost/projects/Newtonbooks/public_html/account?verification={$token}'>Verify </a>
                 </div>
                 
                 ";
@@ -66,7 +66,8 @@
 
                 $result = $sendEmail->sendEmail();
                 if($result > 0){
-                        $_SESSION['user_id'] = $generated_id;
+                        $_SESSION["user_id"] = $generated_id;
+                        header("location:account");
                          
                 }
                 }
@@ -74,5 +75,15 @@
             }
         }
     }
+
+                if(isset($_POST['resend_verification_link'])){
+
+                }
+
+
+                if(isset($_GET['logout'])){
+                    session_destroy();
+                    header("location:login");
+                }
 
 ?>
