@@ -4,18 +4,18 @@
     require_once('initialized.php');
     require_once('vendor/autoload.php');
 
-    
 
     if(isset($_POST["signup"])){
     $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
 
         $full_name_error = [];
-    $email_error=[];
-    $password_error =[];
-    $confrim_password = [];
+        $email_error=[];
+        $password_error =[];
+        $confrim_password = [];
 
         array_pop($_POST);
         $expecting = ['Full_name', 'email', 'password', 'confirm_password' ];
+
         if(expecting_data($expecting, $_POST)){
             extract($_POST);
 
@@ -33,8 +33,13 @@
             }elseif($password != $confirm_password){
                 $confrim_password[] = "Password do not match";
             }
+            $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
 
-            if(count($full_name_error)==0 || count($email_error )==0 || count($password_error) == 0 || count($confirm_password) == 0){
+            if(CheckEmail($db, $email)){
+                $email_error[] = "This email is already in our database";
+            }
+            
+            if(count($full_name_error)==0 && count($email_error )==0 && count($password_error) == 0 && count($confrim_password) == 0){
 
 
                 $pass = password_hash($password, PASSWORD_DEFAULT);
@@ -48,12 +53,20 @@
                 $SQL = $db->saving("user", "full_name, email, password, token, user_id", "?,?,?,?,?", $data);
                 if($SQL){
                 $message = "
-                <div stylw=' width:50%; padding:5%;'>
-                <h2 stylw='margin'>Please Verify Your Email</h2>
-                <p>Greetings {$Full_name},
-                </p>
-                <p >We need to verify your email address before activating your  account.</p>
-                <a style='padding:10px;background-color:blue;color:white;' href='http://localhost/projects/Newtonbooks/public_html/account?verification={$token}'>Verify </a>
+               
+                <body style='background-color:#f6f6f6; widht:100%;height:100vh;position:absolute;top:0;left:0;right:0;bottom:0;>
+                <div style='margin:0 auto; width:35%; height:50vh;background-color:white; margin-top:10vh'>
+                <div style='text-align:center; padding:3vh; width:100%; background-color:#0058ab; color:white; box-sizing:border-box; font-size:25px;font-family: Arial, Helvetica, sans-serif;border-bottom:2px solid gray;
+                '>
+                <b>NEWTONBOOKSONLINE</b>
+                </div>
+                <div  style='text-align:center;font-family: Arial, Helvetica, sans-serif;'>
+                <br>
+                <h1>Please verify Your email address</h1>
+                <br>
+                <p style='font-size:23px; width:50%;font-size:17px;margin:0 auto;'>We need to verify your email address before activating your  account.</p>
+                <a href='http://localhost/projects/Newtonbooks/public_html/verify?token={$token}'><button style='margin-top:8vh; width:30%; height:50px; line-height:20px; color:white;background-color:#0058ab; border:none;border-radius:5px;cursor:pointer;'>Verify</button></a>
+                </div>
                 </div>
                 
                 ";

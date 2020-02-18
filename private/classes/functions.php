@@ -83,7 +83,7 @@ return $timemsg;
     // Check if email exist
     function CheckEmail($db, $email){
         $data = array('email' => $email);
-        $result = $db->Fetch("SELECT email FROM users WHERE email = :email", $data);
+        $result = $db->Fetch("SELECT email FROM user WHERE email = :email", $data);
         
         if(empty($result)){
             return false;
@@ -114,7 +114,7 @@ return $timemsg;
     // check login match
     function loginmatch($db, $email){
         $data = ['email'=> $email];
-        $result = $db->Fetch("SELECT * FROM users WHERE email =:email", $data);
+        $result = $db->Fetch("SELECT * FROM user WHERE email =:email", $data);
         return $result;
      }
 

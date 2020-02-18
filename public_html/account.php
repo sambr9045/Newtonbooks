@@ -8,13 +8,11 @@
         
         $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
         $gen_id = $_SESSION["user_id"];
+
         $user = $db->Fetch("SELECT * FROM user WHERE user_id = '$gen_id'", null);
+
         extract($user[0]);
-
-
       
-
-
      }else{
          header("location:login");
      }
@@ -44,57 +42,21 @@
 	<br><br><br>
     <?php 
         if($verify == 0){
-
-            if(isset($_GET['verification'])){
-                $verify_token = $_GET['verification'];
-                if($verify_token == $token){
-                    ?>
-                     <div class="alert alert-success alert-dismissible fade show " role="alert" style="margin-left:20%;margin-right:20%;">
-                <strong>Your Email is not Verified</strong> You have succesfully verified your email address 
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                </div>
-                    <?php
-                }else{
-                    ?>
-                    <div class="alert alert-warning alert-dismissible fade show " role="alert" style="margin-left:20%;margin-right:20%;">
-               <strong>Invalid Token</strong>
-               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                   <span aria-hidden="true">&times;</span>
-               </button>
-               </div>
-                   <?php
-                }
-            }else
-                
+                 
             ?>
                 <div class="alert alert-warning alert-dismissible fade show " role="alert" style="margin-left:20%;margin-right:20%;">
-                <strong>Your Email is not Verify</strong> Please verify Your Email address <form action="account" method="post" style="display:inline"><button class="btn btn-warning ml-5" name="resend_verification_link"><small>Resend Resend Verification link</small></button></form>
+                <strong>We sent your a verification email </strong> Please verify Your Email address <form action="account" method="post" style="display:inline"><button class="btn btn-warning ml-5" name="resend_verification_link"><small>Resend Resend Verification link</small></button></form>
                
                 </div>
             <?php
-            
-
         }
-
-        
      ?>
 <div class="container "  >	
   <div class="row" >
     
     <div class="col-sm-3 " >
             <div class="card p-4">
-               <!-- <ul class="list-group list-group-flush">
-                    <li class="list-group-item active">My account</ class="list-group-item">
-                    <li  class="list-group-item">Orders</li>
-                    <li  class="list-group-item">Pending Reviews</li>
-                    <li  class="list-group-item">Save Items</li>
-                    <hr>
-                    <li  class="list-group-item"> Address book</li>
-                    <li  class="list-group-item"> Change Password</li>
-                    <li  class="list-group-item"> Newletter Preferences</li>
-               </ul> -->
+             
                <ul class="nav flex-column">
                 <li class="nav-item">
                     <a class="nav-link  mb-3" href="#"><i class="fa fa-user-circle mr-2" style="font-size:20px;"></i> My account</a>
@@ -193,23 +155,7 @@
                             </ul>
                             </div>
                         </div>
-                        <!-- <div class="col-sm-6 mt-2">
-                            <div class="card p-2">
-                            <ul class="list-group list-group-flush">
-   
-                                <li class="list-group-item">Account Details</li>
-                            </ul>
-                            
-                                <div class="card-body">
-                                <p>Bukari shamsu</p>
-                                <p>bukarishamsu8@gmail.com</p>
-
-                                </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">change password</li>
-                            </ul>
-                            </div>
-                        </div> -->
+                        
                         </div>
                 </div> 
 
