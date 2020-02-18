@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 	 include("../private/load.php") ;
 ?>
 <!doctype html>
@@ -6,7 +6,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
-<title>Newtonbooks | Cart</title>
+<title>Newtonbooks | Saved items</title>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -19,14 +19,17 @@
 <div class="wrapper" id="wrapper">
 
 <?php include("include/header2.php")?>
+	
 
 <div class="cart-main-area section-padding--lg bg--white">
 	<br><br>
 <div class="container mt-20"  >	
 	<?php
-
-		if(isset($_COOKIE['cartinfo']) ){
-			$cartitem = $_COOKIE['cartinfo'];
+ $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+ if($_SESSION['user_id']){
+     $t_user_id = $_SESSION['user_id'];
+     $cartitem = $db->Fetch("SELECT * FROM wishlist WHERE user_id = '$t_user_id'", null);
+ 
 			
 			?>
 		<div class="row">
@@ -38,10 +41,10 @@
 						<thead>
 							<tr class="title-top">
 								<th class="product-thumbnail">Image</th>
-								<th class="product-name">Product</th>
+								<th class="product-name">book title</th>
 								<th class="product-price">Price</th>
-								<th class="product-quantity">Quantity</th>
-								<th class="product-subtotal">Total</th>
+							
+								<th class="product-subtotal">cart</th>
 								<th class="product-remove">Remove</th>
 							</tr>
 						</thead>
@@ -64,7 +67,7 @@
 								src="<?="uploades/".$cartcontent->image;?>" alt="product img"></a></td>
 								<td class="product-name"><a href="detail?t=<?=$cartcontent->booktitle?>&id=<?=$cartcontent->bookid?>"><?=$cartcontent->booktitle?></a></td>
 								<td class="product-price the_book_real_price" amount="<?=$cartcontent->book_type_price?>" ><span class="amount"><?=$cartcontent->book_type_price?> GHS</span></td>
-								<td class=""><input type="number" min="1" value="<?=$cartcontent->qty?>"  class="book_qty"></td>
+								
 								<td class="product-subtotal theproductsubtotal"><span class="theallbookprice"><?=$cartcontent->qty * $cartcontent->book_type_price?></span>  GHS</td>
 								<td class="product-remove" id="<?=$cartcontent->bookid?>"><a href="#">X</a></td>
 							</tr>

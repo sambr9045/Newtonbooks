@@ -107,7 +107,7 @@ if(isset($_POST['book__id'])){
 												echo nl2br(substr(json_decode($description), 0 , 400))."....";
 											?>
 											<br>
-											<a href="details?t=<?=$title?>&id=<?=$id?>"><button class="btn btn-default">Read more</button></a>
+											<a href="detail?t=<?=$title?>&id=<?=$id?>"><button class="btn btn-default">Read more</button></a>
 										</div>
 										<div class="box-tocart d-flex">
 											<form id="addtocardformid">

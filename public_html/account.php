@@ -1,7 +1,5 @@
 <?php
      include("../private/load.php") ;
-     include("../private/server.php");
-
      
      if(isset($_SESSION['user_id'])){
 
