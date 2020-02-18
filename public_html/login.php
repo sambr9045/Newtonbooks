@@ -1,3 +1,4 @@
+<?php include('../private/server.php') ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,15 +22,25 @@
 
     <!-- Icon -->
     <div class="fadeIn first">
-     <h2>login</h2>
+     <h2>login</h2> 
     </div>
+    <?php if(isset($login_email_error) && !empty($login_email_error)){
+          
+            foreach($login_email_error as $error){
+              ?>
+                  <div class="alert alert-danger ml-4 mr-4" role="alert">
+                    <?=$error?>
+                  </div>
+              <?php
+            }
+        }?>
  <br>
     <!-- Login Form -->
-    <form>
-      <input type="text" id="login" class="fadeIn second " name="login" placeholder="E-mail">
+    <form method="post" action="login">
+      <input type="email" id="login" class="fadeIn second " name="login_email" placeholder="E-mail" required>
 
-      <input type="text" id="password" class="fadeIn third" name="login" placeholder="Password">
-      <input type="submit" class="fadeIn fourth" value="Log In">
+      <input type="password" id="password" class="fadeIn third" name="password" placeholder="Password" required>
+      <input type="submit" class="fadeIn fourth" name="user_login" value="Log In">
     </form>
 
     <!-- Remind Passowrd -->

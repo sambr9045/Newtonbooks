@@ -95,8 +95,39 @@
 
 
                 if(isset($_GET['logout'])){
-                    session_destroy();
-                    header("location:login");
+                session_destroy();
+                header("location:login");
+                 }
+
+
+
+                if(isset($_POST['user_login'])){
+                array_pop($_POST);
+                $expecting_data = ['login_email', 'password'];
+                $login_email_error = [];
+                extract($_POST);
+                if(expecting_data($expecting_data, $_POST)){
+
+                $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+
+                if(!filter_var($login_email, FILTER_VALIDATE_EMAIL)){
+                $login_email_error[] = "Invalid E-mail address";
                 }
+                if(count($login_email_error ) == 0){
+                $email_result = loginmatch($db, $login_email);
+
+                if(!empty($email_result) && password_verify($password, $email_result[0]['password'])){
+                $_SESSION['user_id'] = $email_result[0]['user_id'];
+                header("location:account");
+
+                }else{
+                $login_email_error[] = "Incorrect Email/password";
+                }
+
+                }
+                }
+
+                }
+              
 
 ?>
