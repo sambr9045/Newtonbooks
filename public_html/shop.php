@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<title>Shop | Books Library eCommerce Store</title>
+	<title>Newtonbooks | Shop</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<script src="https://use.fontawesome.com/16fe135af5.js"></script>
@@ -202,18 +202,9 @@
 											<div class="action">
 												<div class="actions_inner">
 													<ul class="add_to_links text-center">
-														<!-- <li><a class="cart cssallview" href="cart.html"><i
-																	class="bi bi-shopping-bag4"></i></a></li>
-														<li><a class="wishlist cssallview" href="wishlist.html"><i
-																	class="bi bi-shopping-cart-full"></i></a></li> -->
-														<li id="<?=$val['id']?>">
-															<a class="compare cssallview" title ="add to wishlist" name="add_to_wish_list" href="#"><i
-																	class="bi bi-heart-beat"></i></a>
-																</li>
-
-														<li id="<?=$val['id']?>"><a data-toggle="modal" title="Quick View"
-																class=" modal-view detail-link cssallview view_quick_click"
-																href="#productmodal"><i class="fa fa-eye "></i></a>
+												
+														<li id="<?=$val['id']?>">			<button href="#productmodal" data-toggle="modal" class="btn btn-info modal-view detail-link  view_quick_click"><i class="fa fa-eye text-white"></i> <small>Quick View</small></button>
+																
 														</li>
 													</ul>
 												</div>
@@ -275,39 +266,5 @@
 	</div>
 	<!-- //Main wrapper -->
 <?php include("include/footer.php") ?>
-
-<script >
-	    $(".view_quick_click").click(function (e) { 
-        e.preventDefault();
-		let id = $(this).closest("li").attr("id");
-
-		$.post({
-			url:'../private/htmlfetch.php',
-			data:'&book__id='+id,
-			success:function(result){
-				$(".modal-body").html(result);
-				
-			}
-		})
-
-		$(".add_to_wish_list").click(function (e) { 
-			e.preventDefault();
-			let wishlist_id = $(this).closest("li").attr("id");
-			$.post({
-				url:'../private/',
-				data:'&wishlist_id='+wishlist_id,
-				success:function(result){
-					$(".modal-body").html(result);
-					
-				}
-			})
-			
-		});
-       
-    });
-    
-</script>
-
-
 </body>
 </html>

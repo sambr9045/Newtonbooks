@@ -37,7 +37,7 @@ $(document).ready(function(){
         var bookname = $("#bookname").val();
         var thevalue = $(".product_qun").html();
         
-        console.log(book_type, book_type_price);
+      
          bookDetails[bookDetails.length] ={book_type: book_type, book_type_price: book_type_price};
 
         console.log(bookDetails);
@@ -50,22 +50,78 @@ $(document).ready(function(){
                     $(".product_qun").empty().append(Number(thevalue)+1);
                     $(".addtocart_error").removeClass("alert alert-warning alert-dismissible fade show")
                    $(".addtocart_error").addClass("alert alert-success alert-dismissible fade show ")
-                   $(".addtocart_error").find("strong").empty().append("")
-                   $(".addtocart_error").find("#mgs").empty().append(bookname+" Added to  Cart ");
+                 
+                   $(".addtocart_error").find("#mgs").empty().append("<b>"+bookname +"</b>"+" Added to  Cart ");
                 //    $("html, body").animate({scrollTop: 0}, 100);
                    var offTop = $('html,body').offset().top - 43;
                     $('html, body').scrollTop(offTop);
                 }else{
                     $(".addtocart_error").removeClass("alert alert-success alert-dismissible fade show");
                     $(".addtocart_error").addClass("alert alert-warning alert-dismissible fade show")
-                    $(".addtocart_error").find("strong").empty().append("")
-                    $(".addtocart_error").find("#mgs").empty().append(bookname+ response);
+                  
+                    $(".addtocart_error").find("#mgs").empty().append("<b>"+bookname +"</b>"+ response);
                     $("html, body").animate({scrollTop: 0}, 1000);
 
                 }
             }
         })
     });
+
+    $(".add_to_wishlist").click(function (e) { 
+        e.preventDefault();
+        let wishlist_book_id = $(this).attr("value");
+        let wishlist_book_title = $(this).attr("book_title");
+        $.post({
+            url:'../private/server.php',
+            data:'&wishlist_book_id='+wishlist_book_id+'&wishlist_book_title='+wishlist_book_title,
+            success:function(response){
+               if(response == "2"){
+                   window.location.replace("login?wp=wish-list");
+               }else if(response == "3"){
+                $(".addtocart_error").removeClass("alert alert-success alert-dismissible fade show");
+                $(".addtocart_error").addClass("alert alert-warning alert-dismissible fade show")
+                  $(".addtocart_error").find("#mgs").empty().append("<b>"+wishlist_book_title +"</b>"+ " is already in your saved items");
+                  $("html, body").animate({scrollTop: 0}, 1000);
+
+               }else if(response == "1"){
+                $(".addtocart_error").removeClass("alert alert-warning alert-dismissible fade show")
+                $(".addtocart_error").addClass("alert alert-success alert-dismissible fade show ")
+                $(".addtocart_error").find("#mgs").empty().append("<b>"+wishlist_book_title +"</b>"+ " Added to your saved items");
+                $("html, body").animate({scrollTop: 0}, 1000);
+               }
+            }
+        })
+        
+    });
+    $(".view_quick_click").click(function (e) { 
+        e.preventDefault();
+		let id = $(this).closest("li").attr("id");
+
+		$.post({
+			url:'../private/htmlfetch.php',
+			data:'&book__id='+id,
+			success:function(result){
+				$(".modal-body").html(result);
+				
+			}
+		})
+
+		$(".add_to_wish_list").click(function (e) { 
+			e.preventDefault();
+			let wishlist_id = $(this).closest("li").attr("id");
+			$.post({
+				url:'../private/',
+				data:'&wishlist_id='+wishlist_id,
+				success:function(result){
+					$(".modal-body").html(result);
+					
+				}
+			})
+			
+		});
+       
+    });
+    
     // $(".quickview").click(function (e) { 
     //     e.preventDefault();
     //     console.log("shamsu")

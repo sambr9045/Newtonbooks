@@ -115,11 +115,18 @@
                 }
                 if(count($login_email_error ) == 0){
                 $email_result = loginmatch($db, $login_email);
-
+                 $header_location = "account";
                 if(!empty($email_result) && password_verify($password, $email_result[0]['password'])){
                 $_SESSION['user_id'] = $email_result[0]['user_id'];
-                header("location:account");
-
+                if(isset($_SESSION['redirect']) && isset($_SESSION['wishlist_book_title'])){
+                        $redirect = $_SESSION['redirect'];
+                        $wishlist_book_title = $_SESSION['wishlist_book_title'];
+                        header("location:detail?t=$wishlist_book_title&id=$redirect");
+                       // $QUERY = $db->Fetch("SELECT * FROM wishlist")
+                }else{
+                    header("location:$header_location");
+                }
+ 
                 }else{
                 $login_email_error[] = "Incorrect Email/password";
                 }
@@ -127,6 +134,41 @@
                 }
                 }
 
+                }
+
+                if(isset($_POST['wishlist_book_id'])){
+
+                extract($_POST);
+
+                if(isset($_SESSION['user_id'])){
+                $user_id = $_SESSION['user_id'];
+                $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+                $book_info = $db->Fetch("SELECT * FROM books WHERE id = '$wishlist_book_id'", null);
+                $book_image = json_decode($book_info[0]["images"]);
+
+                $data =[$book_image[0], $book_info[0]['title'], $book_info[0]['id'],$user_id, $book_info[0]['discount_price']];
+
+                if(!empty($book_info)){
+                $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+                $CHECK = $db->Fetch("SELECT * FROM wishlist WHERE book_id = '$wishlist_book_id'", null);
+
+                if(empty($CHECK)){
+                $QUERY = $db->saving("wishlist", "image, book_title, book_id,user_id,book_price", "?,?,?,?,?", $data);
+                if($QUERY){
+                echo "1";
+                }
+                }else{
+                    echo "3";
+                }
+
+
+                }
+
+                }else{
+                    $_SESSION['redirect'] = $wishlist_book_id;
+                    $_SESSION['wishlist_book_title'] = $wishlist_book_title;
+                    echo "2";
+                }
                 }
               
 

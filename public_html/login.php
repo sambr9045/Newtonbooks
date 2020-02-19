@@ -24,6 +24,18 @@
     <div class="fadeIn first">
      <h2>login</h2> 
     </div>
+
+  <?php 
+    if(isset($_GET['wp'])){
+       if($_GET['wp'] == "wish-list"){
+         ?>
+           <div class="alert alert-warning ml-4 mr-4" role="alert">
+                    Please login to add books to your wish list
+            </div>
+         <?php
+       }
+    }
+  ?>
     <?php if(isset($login_email_error) && !empty($login_email_error)){
           
             foreach($login_email_error as $error){

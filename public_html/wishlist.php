@@ -1,5 +1,5 @@
 <?php
-	 include("../private/load.php") ;
+	 include("../private/load.php") ; 
 ?>
 <!doctype html>
 <html class="no-js" lang="zxx">
@@ -40,8 +40,8 @@
 					<table>
 						<thead>
 							<tr class="title-top">
-								<th class="product-thumbnail">Image</th>
-								<th class="product-name">book title</th>
+								<th class="product-thumbnail">book</th>
+								<th class="product-name"> title</th>
 								<th class="product-price">Price</th>
 							
 								<th class="product-subtotal">cart</th>
@@ -52,30 +52,25 @@
 							<?php
 								if(isset($cartitem)){
 								// echo count(json_decode($cartitem));
-									$subtotal=0;
-									$qt =0;
-									$total=0;
-									$subtotal_array =[];
-									foreach(json_decode($cartitem) as $cartcontent){
+									
+									foreach($cartitem as $cartcontent){
 
-										$subtotal +=$cartcontent->book_type_price;
-										$subtotal_array[]= $cartcontent->book_type_price *$cartcontent->qty;
-
+									
 										?>
 											<tr>
 								<td class="product-thumbnail"><a href="#"><img
-								src="<?="uploades/".$cartcontent->image;?>" alt="product img"></a></td>
-								<td class="product-name"><a href="detail?t=<?=$cartcontent->booktitle?>&id=<?=$cartcontent->bookid?>"><?=$cartcontent->booktitle?></a></td>
-								<td class="product-price the_book_real_price" amount="<?=$cartcontent->book_type_price?>" ><span class="amount"><?=$cartcontent->book_type_price?> GHS</span></td>
+								src="<?="uploades/".$cartcontent['image'];?>" width="80px" height="120px" alt="product img"></a></td>
+								<td class="product-name"><a href="detail?t=<?=$cartcontent['book_title']?>&id=<?=$cartcontent->bookid?>"><?=$cartcontent['book_title']?></a></td>
+								<td class="product-price the_book_real_price" amount="<?=$cartcontent['book_price']?>" ><span class="amount"><?=$cartcontent['book_price']?> GHS</span></td>
 								
-								<td class="product-subtotal theproductsubtotal"><span class="theallbookprice"><?=$cartcontent->qty * $cartcontent->book_type_price?></span>  GHS</td>
+								<td class="product-subtotal theproductsubtotal"><span class="theallbookprice"><button class="btn btn-primary">Add to cart</button></span>  </td>
 								<td class="product-remove" id="<?=$cartcontent->bookid?>"><a href="#">X</a></td>
 							</tr>
 										<?php
 									}
 
 									
-									$total = array_sum($subtotal_array);
+									
 
 							}
 							?>
@@ -83,35 +78,10 @@
 					</table>
 				</div>
 			</form>
-			<div class="cartbox__btn">
-				<ul
-					class="cart__btn__list d-flex flex-wrap flex-md-nowrap flex-lg-nowrap justify-content-between">
-					
-					<li class="text-right"><a href="#" class="btn btn-primary">Check Out</a></li>
-				</ul>
-			</div>
+			
 		</div>
 	</div>
-	<div class="row">
-		<div class="col-lg-6 offset-lg-6">
-			<div class="cartbox__total__area">
-				<div class="cartbox-total d-flex justify-content-between">
-					<ul class="cart__total__list">
-						<li>Cart total</li>
-						<li>Sub Total</li>
-					</ul>
-					<ul class="cart__total__tk">
-						<li ><span class="total-class"><?php echo (isset($subtotal))?  $subtotal : "0"; ?></span> GHS</li>
-						<li ><span class="total-class"><?php echo (isset($total))? $total : "0";?></span> GHS</li>
-					</ul>
-				</div>
-				<div class="cart__total__amount">
-					<span>Grand Total</span>
-					<span ><span class="total-class"><?php  echo (isset($total))? $total : "0";?></span> GHS</span>
-				</div>
-			</div>
-		</div>
-	</div>
+	
 			
 			<?php
 		}else{

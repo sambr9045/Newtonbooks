@@ -195,8 +195,8 @@ include("../private/load.php") ;
 											</div>
 										</form>
 											<div class="product-addto-links clearfix">
-												<a class="wishlist" href="#"></a>
-												<a class="compare" href="#"></a>
+												<a class="wishlist add_to_wishlist" book_title="<?=$title?>" value="<?=$id?>" title="add to wish list" href="#" ></a>
+												
 											</div>
 										</div>
 										<div class="product_meta">
