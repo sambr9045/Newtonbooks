@@ -11,7 +11,7 @@ $(".postcomment").click(function (e) {
      }else{
       
          $.post({
-             url:'../private/admin_be.php',
+             url:'ajax/admin_be.php',
              data:data,
              success:function(result){
                  thib.css('opacity', '1');

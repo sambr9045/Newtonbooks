@@ -42,7 +42,7 @@ $(document).ready(function(){
 
         console.log(bookDetails);
         $.post({
-            url:'../private/fontEnd.php',
+            url:'ajax/fontEnd.php',
             data:bookDetails,
             dataType:'html',
             success:function(response){
@@ -72,7 +72,7 @@ $(document).ready(function(){
         let wishlist_book_id = $(this).attr("value");
         let wishlist_book_title = $(this).attr("book_title");
         $.post({
-            url:'../private/server.php',
+            url:'ajax/wish.php',
             data:'&wishlist_book_id='+wishlist_book_id+'&wishlist_book_title='+wishlist_book_title,
             success:function(response){
                if(response == "2"){
@@ -98,7 +98,7 @@ $(document).ready(function(){
 		let id = $(this).closest("li").attr("id");
 
 		$.post({
-			url:'../private/htmlfetch.php',
+			url:'ajax/htmlfetch.php',
 			data:'&book__id='+id,
 			success:function(result){
 				$(".modal-body").html(result);
@@ -106,19 +106,6 @@ $(document).ready(function(){
 			}
 		})
 
-		$(".add_to_wish_list").click(function (e) { 
-			e.preventDefault();
-			let wishlist_id = $(this).closest("li").attr("id");
-			$.post({
-				url:'../private/',
-				data:'&wishlist_id='+wishlist_id,
-				success:function(result){
-					$(".modal-body").html(result);
-					
-				}
-			})
-			
-		});
        
     });
     

@@ -2,7 +2,8 @@
 
   //$db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
  
-require_once("classes/functions.php");
+require_once("../../private/classes/functions.php");
+
   if(isset($_POST['bookid'])){
       
      $data =[];
@@ -33,7 +34,7 @@ require_once("classes/functions.php");
              $r_value = json_encode($r);
             if( setcookie("cartinfo",$r_value, time() +2592000, '/')){
                
-                echo "1";
+                echo "2";
     
                
             }
@@ -76,5 +77,8 @@ require_once("classes/functions.php");
 
      
   }
+
+  
+
 
 ?>

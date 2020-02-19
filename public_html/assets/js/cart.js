@@ -55,7 +55,7 @@ $(document).ready(function () {
         let retur = false;
         let fad = $(this).closest("tr");
         $.post({
-            url:'../private/fontEnd.php',
+            url:'ajax/fontEnd.php',
             data:"&remove_product="+id,
             dataType:'html',
             success:function(result){

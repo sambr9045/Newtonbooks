@@ -60,7 +60,7 @@ $(document).ready(function () {
                 console.log("this is clcike")
                 e.preventDefault();
                 $.post({
-                    url:'../../private/admin_be.php',
+                    url:'../ajax/admin_be.php',
                     data:'&bookid='+bookid,
                     dataType:'html',
                     success:function(result){
@@ -81,7 +81,7 @@ $(document).ready(function () {
         $(".btn-k").click(function(e){
             e.preventDefault();
             $.post({
-                url:'../../private/admin_be.php',
+                url:'../ajax/admin_be.php',
                 data:'&blogid='+blogid,
                 dataType:'html',
                 success:function(result){
@@ -100,7 +100,7 @@ $(document).ready(function () {
         $comment_id = $(this).attr("commetn_id");
         console.log($comment_id);
         $.post({
-            url:'../../private/admin_be.php',
+            url:'../ajax/admin_be.php',
             data:'&comment_id='+$comment_id,
             dataType:'html',
             success:function(response){
@@ -114,7 +114,7 @@ $(document).ready(function () {
 
     $(".ti-bell").click(function (e) { 
         e.preventDefault();
-     Ajax("../../private/admin_be.php", "notificatio_update="+"notifcation");
+     Ajax("../ajax/admin_be.php", "notificatio_update="+"notifcation");
    
     });
 

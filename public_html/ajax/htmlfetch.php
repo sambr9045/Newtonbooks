@@ -1,5 +1,5 @@
 <?php
-require_once("initialized.php");
+require_once("../../private/initialized.php");
 if(isset($_POST['book__id'])){
     extract($_POST);
     $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);

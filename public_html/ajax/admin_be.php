@@ -1,6 +1,6 @@
 <?php 
 
-require_once("initialized.php");
+require_once("../../private/initialized.php");
 
 if(isset($_POST['addnewblogpost'])){
     $blogpost_error = [];
@@ -181,7 +181,6 @@ if(isset($_POST['notificatio_update'])){
     $notification_updaate = $db->Update("UPDATE notifications SET status = '1'", null);
    
 
-   
 }
 
 ?>

@@ -1097,5 +1097,6 @@ include("../private/load.php") ;
 	<!-- //Main wrapper -->
 	<!-- Footer Area -->
 	 <?php include("include/footer.php") ?>
+	 <script src="assets/js/main.js"></script>
 </body>
 </html>
