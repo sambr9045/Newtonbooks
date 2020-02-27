@@ -183,4 +183,18 @@ if(isset($_POST['notificatio_update'])){
 
 }
 
+if(isset($_POST['send_message_to'])){
+    require_once('../../private/vendor/autoload.php');
+    extract($_POST);
+    $sendMail = new email(stmt_host, stmt_port, "support@newtonbooksonline.com", "support@newtonbooks");
+     $message = "<p>{$reply_message}</p>";
+    $sendMail->subject = $reply_subject;
+    $sendMail->from = ["support@newtonbooksonline.com" => "Newtonbooksonline"];
+    $sendMail->to = [$send_message_to=> $fullname];
+    $sendMail->message = $message;
+    $result = $sendMail->sendEmail();
+    if($result > 0){
+        echo "success";
+    }
+}
 ?>

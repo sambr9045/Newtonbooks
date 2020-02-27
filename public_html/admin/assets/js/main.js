@@ -118,7 +118,33 @@ $(document).ready(function () {
    
     });
 
-console.log($(".thenotifi").hasClass("show"))
+$(".message_reply").click(function (e) { 
+    e.preventDefault();
+    
+  var sen_message_to = $(this).attr("user_email");
+  var sen_name= $(this).attr("fullname");
+   $(".send_message_to").attr("value", sen_message_to);
+   $("#reply_message").click(function(){
+       let thise = $(this);
+        thise.html("sending..");
+        thise.css('opacity', '0.5')
+        var reply_subject = $(".reply_message_subject").val();
+        var reply_message = $(".reply_message_").val();
+         if(reply_message != "" && reply_subject !=""){
+             var data = "&send_message_to="+sen_message_to+
+                    "&reply_subject="+reply_subject+
+                    "&reply_message="+reply_message+
+                    "&fullname="+sen_name;
+                  let result =  Ajax("../ajax/admin_be.php", data);
+                  thise.html("Send Message");
+                  thise.css('opacity', '1')
+                 if(result == "success"){
+                     $(".modal-body").empty().append("<h4 class='text-center text-info'> Message sent </h4>")
+                 }
+         }  
+        
+   })
+});
 
     function Ajax(url, data){
         $.post({

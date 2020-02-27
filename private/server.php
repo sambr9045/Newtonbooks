@@ -136,6 +136,34 @@
 
                 }
 
-              
+               if(isset($_POST['send_email'])){
+                   $contact_us_error = [];
+                   $contact_us_success= [];
+                    array_pop($_POST);
+                    extract($_POST);
+                    if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+                        $contact_us_error[] = "The Email you entered is Invalide";
+                    }
+                    
+                    if(count($contact_us_error) == 0){
+                        $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+                        $fullname = $firstname." ".$lastname;
+                        $data = [$fullname, $email, $subject, $message];
+
+                        $contact_us = $db->saving("contact_us", "fullname, email, subject, message", "?,?,?,?", $data);
+                        if($contact_us){
+
+                            $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+                            $not=["message", "<span class='fw-500'>$fullname</span> <span class='c-grey-600'>Sent a message", " ", " "];
+                            $notification = $db->saving("notifications", "type, message, type_id, type_title", "?,?,?,?", $not);
+
+                            if($notification){
+                            $contact_us_success[]= " Thank you for contacting us we will be in touch soon";
+                            }
+                            
+                        }
+
+                    }
+               }
 
 ?>
