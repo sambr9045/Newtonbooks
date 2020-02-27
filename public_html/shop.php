@@ -150,19 +150,43 @@
 								<div class="row">
 
 							<?php
+							
 									$data = [];
+
+										
+									if(isset($_GET['page'])){
+										$page_no = $_GET['page'];
+									}else{
+										$page_no = 1;
+									}
+									$db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD,DBNAME); 
+
+									$number_of_record_per_pages = 16;
+									$offset = ($page_no - 1) * $number_of_record_per_pages;
+									
+									$total_record =count($db->Fetch("SELECT * FROM books", null));
+									
+
+									$total_pages = ceil($total_record /$number_of_record_per_pages);
+									
+
+
+
 										if(isset($_GET['categorie'])){
 
 											$dats = $_GET['categorie'];
 											$db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD,DBNAME); 
 
-											$query = $db->Fetch("SELECT * FROM books WHERE categorie = '$dats' ORDER BY id DESC", null);
+											$query = $db->Fetch("SELECT * FROM books WHERE categorie = '$dats' limit $offset, $number_of_record_per_pages", null);
 
 											$data = $query;
 										}else{
+
+												
+
 											$db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD,DBNAME); 
-											$dats = null;
-											$query = $db->Fetch("SELECT * FROM books ORDER BY id DESC", null);
+											$dats = [$offset, $number_of_record_per_pages];
+											$query = $db->Fetch("SELECT * FROM books limit $offset, $number_of_record_per_pages", null);
 
 											$data = $query;
 										}
@@ -226,13 +250,36 @@
 										}
 							?>
 								</div>
-								<ul class="wn__pagination">
-									<li class="active"><a href="#">1</a></li>
-									<li><a href="#">2</a></li>
-									<li><a href="#">3</a></li>
-									<li><a href="#">4</a></li>
-									<li><a href="#"><i class="zmdi zmdi-chevron-right"></i></a></li>
-								</ul>
+
+								
+									
+									<nav aria-label="Page navigation example">
+									<ul class="pagination justify-content-center new_pagination">
+
+										<!-- <li class="page-item disabled">
+										<a class="page-link" href="#" tabindex="-1">Previous</a>
+										</li> -->
+
+										<?php
+
+										$link = substr( $_SERVER['REQUEST_URI'], -1);
+
+										for($i = 0; $i <= $total_pages ; $i++){
+											
+											if($i == 0){
+												continue;
+											}
+											?>
+											<li class="page-item  <?=($link == $i)? 'active': '';?>"><a class="page-link" href="shop?page=<?=$i?>"><?=$i?></a></li>
+											<?php
+										}
+								?>
+									<!-- <li class="page-item">
+										<a class="page-link" href="#">Next</a>
+										</li> -->
+									</ul>
+									</nav>
+																
 							</div>
 							
 						</div>
@@ -267,5 +314,8 @@
 	<!-- //Main wrapper -->
 <?php include("include/footer.php") ?>
 <script src="assets/js/main.js"></script>
+<script>
+
+</script>
 </body>
 </html>

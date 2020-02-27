@@ -193,8 +193,13 @@ if(isset($_POST['send_message_to'])){
     $sendMail->to = [$send_message_to=> $fullname];
     $sendMail->message = $message;
     $result = $sendMail->sendEmail();
-    if($result > 0){
-        echo "success";
+    if($result == "1"){
+        $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+        $data = ['1', $message_id];
+        $update_message = $db->Update("UPDATE contact_us  SET status = ? WHERE id = ?", $data);
+        if($update_message){
+            echo "1";
+        }
     }
 }
 ?>

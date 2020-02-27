@@ -105,8 +105,7 @@ foreach($error as $value){
                                                 <td><?=$values['created_at']?></td>
                                                
                                                 <td class="text-center">
-                                                <span class="icon-holder " style="cursor:pointer"><i title="Reply" data-toggle="modal" data-target="#exampleModal1" class="c-brown-500 ti-email message_reply" user_email="<?=$values['email']?>" fullname="<?= $values['fullname']?>"></i> </span> 
-                                                <span class="icon-holder"><i title="view" class="fa fa-eye  text-danger" style="font-size:20px;"></i> </span>
+                                                <span class="icon-holder " style="cursor:pointer"><i title="Reply" data-toggle="modal" data-target="#exampleModal1" class="c-brown-500 ti-email message_reply" user_email="<?=$values['email']?>" message_id="<?=$values['id']?>" fullname="<?= $values['fullname']?>"></i>
                                                  </td>
                                             </tr>
                                             <?php

@@ -123,24 +123,34 @@ $(".message_reply").click(function (e) {
     
   var sen_message_to = $(this).attr("user_email");
   var sen_name= $(this).attr("fullname");
+  var message_id = $(this).attr("message_id");
    $(".send_message_to").attr("value", sen_message_to);
    $("#reply_message").click(function(){
-       let thise = $(this);
-        thise.html("sending..");
-        thise.css('opacity', '0.5')
+      $(this).html("Sending..");
+      $(this).css('opacity', '0.5')
+       
         var reply_subject = $(".reply_message_subject").val();
         var reply_message = $(".reply_message_").val();
          if(reply_message != "" && reply_subject !=""){
              var data = "&send_message_to="+sen_message_to+
                     "&reply_subject="+reply_subject+
                     "&reply_message="+reply_message+
-                    "&fullname="+sen_name;
-                  let result =  Ajax("../ajax/admin_be.php", data);
-                  thise.html("Send Message");
-                  thise.css('opacity', '1')
-                 if(result == "success"){
-                     $(".modal-body").empty().append("<h4 class='text-center text-info'> Message sent </h4>")
-                 }
+                    "&fullname="+sen_name+
+                    "&message_id="+message_id;
+                    $.post({
+                        url:'../ajax/admin_be.php',
+                        data:data,
+                        dataType:'html',
+                        success:function(result){
+                            $("#reply_message").html("Send Message");
+                            $("#reply_message").css('opacity', '1');
+                            if(result == "1"){
+                              
+                                 $(".modal-body").empty().append("<h4 class='text-center text-info'> Message sent </h4>")
+                             }
+                        }
+                    })
+                  
          }  
         
    })
