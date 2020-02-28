@@ -6,7 +6,7 @@
 						<div class="col-lg-12">
 							<div class="footer__widget footer__menu">
 								<div class="ft__logo">
-									<a href="index.html">
+									<a href="newtonbooksonline.com">
 										<img src="assets/images/logo/logo.png" alt="logo">
 									</a>
 									<p>There are many variations of passages of Lorem Ipsum available, but the majority
@@ -21,12 +21,12 @@
 										<li><a href="#"><i class="bi bi-youtube"></i></a></li>
 									</ul>
 									<ul class="mainmenu d-flex justify-content-center">
-										<li><a href="index.html">Trending</a></li>
-										<li><a href="index.html">Best Seller</a></li>
-										<li><a href="index.html">All Product</a></li>
-										<li><a href="index.html">Wishlist</a></li>
-										<li><a href="index.html">Blog</a></li>
-										<li><a href="index.html">Contact</a></li>
+										<li><a href="shop">Trending</a></li>
+										<li><a href="shop">Best Seller</a></li>
+										<li><a href="shop">All Product</a></li>
+										<li><a href="wishlist">Wishlist</a></li>
+										<li><a href="blog">Blog</a></li>
+										<li><a href="contact-us">Contact</a></li>
 									</ul>
 								</div>
 							</div>
@@ -40,7 +40,7 @@
 						<div class="col-lg-6 col-md-6 col-sm-12">
 							<div class="copyright">
 								<div class="copy__right__inner text-left">
-									<p>Copyright <i class="fa fa-copyright"></i> <a href="#">Boighor.</a> All Rights
+									<p>Copyright <i class="fa fa-copyright"></i> <a href="newtonbooksonline.com">Newtonbooksonline.</a> All Rights
 										Reserved</p>
 								</div>
 							</div>

@@ -64,7 +64,7 @@
 								<td class="product-price the_book_real_price" amount="<?=$cartcontent['book_price']?>" ><span class="amount"><?=$cartcontent['book_price']?> GHS</span></td>
 								
 								<td class="product-subtotal theproductsubtotal"><span class="theallbookprice"><button class="btn btn-primary">Add to cart</button></span>  </td>
-								<td class="product-remove" id="<?=$cartcontent->bookid?>"><a href="#">X</a></td>
+								<td class="wishlist_removed" id="<?=$cartcontent->bookid?>"><a href="#">X</a></td>
 							</tr>
 										<?php
 									}

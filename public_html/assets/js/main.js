@@ -108,6 +108,12 @@ $(document).ready(function(){
 
        
     });
+
+    $(".wishlist_removed").click(function (e) { 
+        e.preventDefault();
+        
+    });
+
     
     // $(".quickview").click(function (e) { 
     //     e.preventDefault();

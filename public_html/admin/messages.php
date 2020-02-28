@@ -57,71 +57,71 @@ foreach($error as $value){
 }
 ?>
 
-                    <div class="container-fluid">
+<div class="container-fluid">
+
+    
+    <div id="loader_html" class="fadeOut">
+        <div class="spinner_htmlload"></div>
+    </div>
+    <div class="row book_row_replace">
+    
+        <?php 
+        
+        if(isset($_GET['wp']) && $_GET['wp'] == "reviews"){
+            ?>
+            <?php
+        }else{
+            ?>
+                    <div class="col-md-12">
+            <div class="bgc-white bd bdrs-3 p-20 mB-20">
+                <h4 class="c-grey-900 mB-20">Message</h4>
+                <table id="dataTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th>Full name</th>
+                            <th>email</th>
+                            <th>subject</th>
+                            <th>message</th>
+                            <th>Created at</th>
+                            
+                            <th class="text-center">Action</th>
+                        </tr>
+                    </thead>
                     
-                      
-                        <div id="loader_html" class="fadeOut">
-                            <div class="spinner_htmlload"></div>
-                        </div>
-                        <div class="row book_row_replace">
-                        
-                           <?php 
-                           
-                            if(isset($_GET['wp']) && $_GET['wp'] == "reviews"){
-                                ?>
-                                <?php
-                            }else{
-                                ?>
-                                     <div class="col-md-12">
-                                <div class="bgc-white bd bdrs-3 p-20 mB-20">
-                                    <h4 class="c-grey-900 mB-20">Message</h4>
-                                    <table id="dataTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
-                                        <thead>
-                                            <tr>
-                                                <th>Full name</th>
-                                                <th>email</th>
-                                                <th>subject</th>
-                                                <th>message</th>
-                                                <th>Created at</th>
-                                                
-                                                <th class="text-center">Action</th>
-                                            </tr>
-                                        </thead>
-                                       
-                                        <tbody>
-                                        <?php 
-                                        $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
-                                        $books = $db->Fetch("SELECT * FROM contact_us ORDER BY created_at DESC", null);
-                                        foreach($books as $values){
-                                            ?>
-                                            <tr>
-                                                <td><?=$values['fullname']?></td>
-                                                <td><?=$values['email']?></td>
-                                                <td><?=$values['subject']?></td>
-                                                <td class="<?=($values['status'] == 0)? 'bg-info text-light': ' text-dark bg-light' ;?>"><?php
-                                               echo  $values['message']
-                                                
-                                                ?></td>
-                                                <td><?=$values['created_at']?></td>
-                                               
-                                                <td class="text-center">
-                                                <span class="icon-holder " style="cursor:pointer"><i title="Reply" data-toggle="modal" data-target="#exampleModal1" class="c-brown-500 ti-email message_reply" user_email="<?=$values['email']?>" message_id="<?=$values['id']?>" fullname="<?= $values['fullname']?>"></i>
-                                                 </td>
-                                            </tr>
-                                            <?php
-                                        }
-                                        ?>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                                <?php
-                            }
-                           
-                           ?>
-                        </div>
-                    </div>
-                </div>
+                    <tbody>
+                    <?php 
+                    $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+                    $books = $db->Fetch("SELECT * FROM contact_us ORDER BY created_at DESC", null);
+                    foreach($books as $values){
+                        ?>
+                        <tr>
+                            <td><?=$values['fullname']?></td>
+                            <td><?=$values['email']?></td>
+                            <td><?=$values['subject']?></td>
+                            <td class="<?=($values['status'] == 0)? 'bg-info text-light': ' text-dark bg-light' ;?>"><?php
+                            echo  $values['message']
+                            
+                            ?></td>
+                            <td><?=$values['created_at']?></td>
+                            
+                            <td class="text-center">
+                            <span class="icon-holder " style="cursor:pointer"><i title="Reply" data-toggle="modal" data-target="#exampleModal1" class="c-brown-500 ti-email message_reply" user_email="<?=$values['email']?>" message_id="<?=$values['id']?>" fullname="<?= $values['fullname']?>"></i>
+                                </td>
+                        </tr>
+                        <?php
+                    }
+                    ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+            <?php
+        }
+        
+        ?>
+    </div>
+</div>
+</div>
 
 <!-- Modal -->
 <div class="modal fade bookmodal" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
