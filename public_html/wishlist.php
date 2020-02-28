@@ -1,5 +1,8 @@
 <?php
 	 include("../private/load.php") ; 
+	 if(!$_SESSION['user_id']){
+		header("location:login?wp=wish-list-pg");
+	 }
 ?>
 <!doctype html>
 <html class="no-js" lang="zxx">
@@ -50,7 +53,7 @@
 						</thead>
 						<tbody>
 							<?php
-								if(isset($cartitem)){
+								if(!empty($cartitem)){
 								// echo count(json_decode($cartitem));
 									
 									foreach($cartitem as $cartcontent){
@@ -60,11 +63,11 @@
 											<tr>
 								<td class="product-thumbnail"><a href="#"><img
 								src="<?="uploades/".$cartcontent['image'];?>" width="80px" height="120px" alt="product img"></a></td>
-								<td class="product-name"><a href="detail?t=<?=$cartcontent['book_title']?>&id=<?=$cartcontent->bookid?>"><?=$cartcontent['book_title']?></a></td>
+								<td class="product-name"><a href="detail?t=<?=$cartcontent['book_title']?>&id=<?=$cartcontent['book_id']?>"><?=$cartcontent['book_title']?></a></td>
 								<td class="product-price the_book_real_price" amount="<?=$cartcontent['book_price']?>" ><span class="amount"><?=$cartcontent['book_price']?> GHS</span></td>
 								
 								<td class="product-subtotal theproductsubtotal"><span class="theallbookprice"><button class="btn btn-primary">Add to cart</button></span>  </td>
-								<td class="wishlist_removed" id="<?=$cartcontent->bookid?>"><a href="#">X</a></td>
+								<td class="product-remove remove_wishlist_product" id="<?=$cartcontent['book_id']?>" user_="<?=$cartcontent['user_id']?>"><a href="#">X</a></td>
 							</tr>
 										<?php
 									}
@@ -72,6 +75,32 @@
 									
 									
 
+							}else{
+								?>
+								<div class="container bg-light p-2 pl-4 rounded">
+								<div class="row "> 
+								<h4 class="text-left mb-5 text-secondary">Wish list</h4>
+								<div class="text-center col-lg-12 ">
+								
+								
+										<div class="text-center" style="margin:0 auto ; padding:2%; border-radius:250px; ">
+											<img src="assets/images/index.svg" alt="empty card">
+										</div>
+										<br>
+										<h3 class="text-center text-secondary">You haven’t saved an item yet!</h3>
+										<article class="text-center w-50 pt-3" style="margin:0 auto;">
+										Found something you like? Tap on the heart shaped icon next to the item to add it to your wishlist! All your saved items will appear here.</article>
+										<br>
+										<br>
+										
+										<br>
+										<a href="shop" style="padding-bottom:20px!important;"><button  class="btn btn-primary ">Start Shopping</button></a>
+										<br><br><br><br><br><br>
+								</div>
+								
+								</div>
+								</div>
+						<?php
 							}
 							?>
 						</tbody>
@@ -83,30 +112,6 @@
 	</div>
 	
 			
-			<?php
-		}else{
-			?>
-					<div class="container bg-light p-2 pl-4 rounded">
-					<div class="row "> 
-					<h4 class="text-left mb-5 text-secondary">Cart</h4>
-					<div class="text-center col-lg-12 ">
-					
-					
-							<div class="text-center" style="margin:0 auto ; padding:2%; border-radius:250px; ">
-								<img src="assets/images/empty-cart.png" alt="empty card">
-							</div>
-							<br>
-							<h3 class="text-center text-secondary">Your cart is empty</h3>
-							<br>
-							<br>
-							<p>Already have an Account ? <a href="login" class="text-primary">login</a> to see the books in your cart</p>
-							<br>
-							<a href="shop" style="padding-bottom:20px!important;"><button  class="btn btn-primary ">Start Shopping</button></a>
-							<br><br><br><br><br><br>
-					</div>
-						
-					</div>
-					</div>
 			<?php
 		}
          ?>

@@ -26,14 +26,24 @@
     </div>
 
   <?php 
+ 
     if(isset($_GET['wp'])){
-       if($_GET['wp'] == "wish-list"){
-         ?>
-           <div class="alert alert-warning ml-4 mr-4" role="alert">
-                    Please login to add books to your wish list
+      $message = "";
+      $ms = $_GET['wp'];
+      if($ms== "wish-list"){
+        $message = " Please login to add books to your wish list";
+      }elseif($ms == "wish-list-pg"){
+        $message = "Please login to view your Saved items"; 
+        $header_location = "wishlist";
+      }
+
+      ?>
+         <div class="alert alert-warning ml-4 mr-4" role="alert">
+                   <?= $message?>
             </div>
-         <?php
-       }
+      <?php
+    }else{
+      $header_location = "account";
     }
   ?>
     <?php if(isset($login_email_error) && !empty($login_email_error)){
@@ -50,8 +60,9 @@
     <!-- Login Form -->
     <form method="post" action="login">
       <input type="email" id="login" class="fadeIn second " name="login_email" placeholder="E-mail" required>
-
+        
       <input type="password" id="password" class="fadeIn third" name="password" placeholder="Password" required>
+      <input type="hidden" name="header_location" value="<?=$header_location?>">
       <input type="submit" class="fadeIn fourth" name="user_login" value="Log In">
     </form>
 

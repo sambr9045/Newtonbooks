@@ -101,6 +101,8 @@ if(isset($_POST['addnewbook'])){
               $error[]= "Something went wrong please try again later";
           }
 
+      }else{
+          $electronic_path = "0";
       }
        
         if(count($error) == 0){
@@ -201,5 +203,14 @@ if(isset($_POST['send_message_to'])){
             echo "1";
         }
     }
+}
+if(isset($_POST['user_id_remove_wishlist'])){
+    $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+   extract($_POST);
+    $remove_wishlist_content = $db->Delete("DELETE FROM wishlist WHERE user_id = '$user_id_remove_wishlist' AND book_id = '$book_id'");
+    if($remove_wishlist_content){
+        echo "1";
+    }
+
 }
 ?>

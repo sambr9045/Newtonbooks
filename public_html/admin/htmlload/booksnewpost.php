@@ -110,7 +110,7 @@
 
         <div class="form-group">
                 <label for="exampleFormControlFile1">Electronic File</label>
-                <input type="file" class="form-control-file"  name="electronicfile"  required>
+                <input type="file" class="form-control-file"  name="electronicfile"  >
             </div>
         
         

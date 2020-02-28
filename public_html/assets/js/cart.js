@@ -45,7 +45,7 @@ $(document).ready(function () {
       }
   });
 
-    $(".product-remove").click(function (e) { 
+    $(".cart_remove_product").click(function (e) { 
         e.preventDefault();
         var thevalue = $(".product_qun").html();
         let updat_price = $(".total-class").html();
@@ -70,5 +70,24 @@ $(document).ready(function () {
         })
       
     });
+
+    $(".remove_wishlist_product").click(function (e) { 
+     e.preventDefault();
+     var th = $(this);
+     let user_ = $(this).attr("user_");
+     let book_id = $(this).attr("id");
+     $.post({
+         url:'ajax/admin_be.php',
+         data:'&user_id_remove_wishlist='+user_+'&book_id='+book_id,
+         dataType:'html',
+         success:function(response){
+             console.log(response);
+           if(response == "1"){
+                 th.closest("tr").fadeOut("slow");
+           }
+         }
+     })
+ });
+
 
 });

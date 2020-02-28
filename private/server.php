@@ -103,7 +103,7 @@
 
                 if(isset($_POST['user_login'])){
                 array_pop($_POST);
-                $expecting_data = ['login_email', 'password'];
+                $expecting_data = ['login_email', 'password', 'header_location'];
                 $login_email_error = [];
                 extract($_POST);
                 if(expecting_data($expecting_data, $_POST)){
@@ -115,9 +115,14 @@
                 }
                 if(count($login_email_error ) == 0){
                 $email_result = loginmatch($db, $login_email);
-                 $header_location = "account";
+                
+                   
+
                 if(!empty($email_result) && password_verify($password, $email_result[0]['password'])){
+
+
                 $_SESSION['user_id'] = $email_result[0]['user_id'];
+
                 if(isset($_SESSION['redirect']) && isset($_SESSION['wishlist_book_title'])){
                         $redirect = $_SESSION['redirect'];
                         $wishlist_book_title = $_SESSION['wishlist_book_title'];
@@ -128,7 +133,7 @@
                 }
  
                 }else{
-                $login_email_error[] = "Incorrect Email/password";
+                $login_email_error[] = "Incorrect Email or password";
                 }
 
                 }

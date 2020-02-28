@@ -66,7 +66,7 @@
 								<td class="product-price the_book_real_price" amount="<?=$cartcontent->book_type_price?>" ><span class="amount"><?=$cartcontent->book_type_price?> GHS</span></td>
 								<td class=""><input type="number" min="1" value="<?=$cartcontent->qty?>"  class="book_qty"></td>
 								<td class="product-subtotal theproductsubtotal"><span class="theallbookprice"><?=$cartcontent->qty * $cartcontent->book_type_price?></span>  GHS</td>
-								<td class="product-remove" id="<?=$cartcontent->bookid?>"><a href="#">X</a></td>
+								<td class="product-remove cart_remove_product" id="<?=$cartcontent->bookid?>"><a href="#">X</a></td>
 							</tr>
 										<?php
 									}
