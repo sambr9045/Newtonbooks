@@ -187,8 +187,16 @@ include("../private/load.php") ;
 											<input type="hidden" name="bookid" value="<?=$id?>">
 											<input type="hidden" name="image" value="<?=$img[0]?>">
 											<input type="hidden" name="booktitle" value="<?=$title?>" id="bookname">
+											
 											<input type="hidden" name="booktype" value="default" id="booktype">
 											<input type="hidden" name="book_type_price" value="<?=$discount_price?>"  id="book_type_price">
+											<?php
+												if(isset($_SESSION['user_id'])){
+													?>
+														<input type="hidden" name="user_id" value="<?=$_SESSION['user_id']?>">
+													<?php
+												}
+											?>
 											<div class="addtocart__actions">
 												<button class="tocart" type="submit" title="Add to Cart" id="addtocard">Add to
 													Cart</button>

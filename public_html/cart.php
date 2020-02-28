@@ -13,6 +13,22 @@
 <?php include("include/head.php") ?>
 </head>
 
+<?php
+
+if(isset($_SESSION['user_id'])){
+	$the_user_id = $_SESSION['user_id'];
+	$db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+	$cartitems = $db->Fetch("SELECT * FROM cart WHERE user_id = '$the_user_id'", null);
+	$cartitem = json_encode($cartitems);
+	
+}else{
+	if(isset($_COOKIE['cartinfo'])){
+		$cartitem = $_COOKIE['cartinfo'];
+	}
+}
+
+?>
+
 <body class="bg-light">
 
 <!-- Main wrapper -->
@@ -25,9 +41,7 @@
 <div class="container mt-20"  >	
 	<?php
 
-		if(isset($_COOKIE['cartinfo']) ){
-			$cartitem = $_COOKIE['cartinfo'];
-			
+		if( isset($cartitem)){
 			?>
 		<div class="row">
 		<div class="col-md-12 col-sm-12 ol-lg-12">

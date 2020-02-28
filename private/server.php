@@ -122,6 +122,31 @@
 
 
                 $_SESSION['user_id'] = $email_result[0]['user_id'];
+                $se_id = $email_result[0]['user_id'];
+               if(isset($_COOKIE['cartinfo'])){
+                $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+               
+                //  $all_book_in_cart = [];
+                //  foreach($th_dh as $dh){
+                //      $all_book_in_cart[]= $dh['bookid'];
+                //  }
+
+                  $the_cart_info =json_decode($_COOKIE['cartinfo']);
+                  foreach($the_cart_info as $cart_info){
+                      $_thebook_id = $cart_info->bookid;
+                      $th_dh = $db->Fetch("SELECT * FROM cart WHERE user_id = '$se_id' AND bookid = '$_thebook_id'",null);
+                       if(empty($th_dh)){
+                        $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+                        $the_content = [$cart_info->qty, $cart_info->bookid, $cart_info->image, $cart_info->booktitle, $cart_info->booktype, $cart_info->book_type_price, $se_id];
+                        $save = $db->saving("cart", "qty, bookid, image, booktitle, booktype, book_type_price, user_id", "?,?,?,?,?,?,?", $the_content);
+
+                       }
+                   
+                      
+                  }
+
+
+               }
 
                 if(isset($_SESSION['redirect']) && isset($_SESSION['wishlist_book_title'])){
                         $redirect = $_SESSION['redirect'];

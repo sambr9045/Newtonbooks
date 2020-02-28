@@ -66,7 +66,7 @@
 								<td class="product-name"><a href="detail?t=<?=$cartcontent['book_title']?>&id=<?=$cartcontent['book_id']?>"><?=$cartcontent['book_title']?></a></td>
 								<td class="product-price the_book_real_price" amount="<?=$cartcontent['book_price']?>" ><span class="amount"><?=$cartcontent['book_price']?> GHS</span></td>
 								
-								<td class="product-subtotal theproductsubtotal"><span class="theallbookprice"><button class="btn btn-primary">Add to cart</button></span>  </td>
+								<td class="product-subtotal theproductsubtotal"><span class="theallbookprice"><button class="btn btn-primary add_form_wishist_to_cart ">Add to cart</button></span>  </td>
 								<td class="product-remove remove_wishlist_product" id="<?=$cartcontent['book_id']?>" user_="<?=$cartcontent['user_id']?>"><a href="#">X</a></td>
 							</tr>
 										<?php

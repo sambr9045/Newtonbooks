@@ -18,31 +18,31 @@
 				<li class="drop"><a href="shop">Shop</a>
 				
 				</li>
-				<li class="drop"><a href="shop-grid.html">Books</a>
+				<li class="drop"><a href="">Books</a>
 					<div class="megamenu mega03">
 						<ul class="item item03">
 							<li class="title">Categories</li>
-							<li><a href="shop-grid.html">Biography </a></li>
-							<li><a href="shop-grid.html">Business </a></li>
-							<li><a href="shop-grid.html">Cookbooks </a></li>
-							<li><a href="shop-grid.html">Health & Fitness </a></li>
-							<li><a href="shop-grid.html">History </a></li>
+							<li><a href="">Biography </a></li>
+							<li><a href="">Business </a></li>
+							<li><a href="">Cookbooks </a></li>
+							<li><a href="">Health & Fitness </a></li>
+							<li><a href="">History </a></li>
 						</ul>
 						<ul class="item item03">
 							<li class="title">Customer Favourite</li>
-							<li><a href="shop-grid.html">Mystery</a></li>
-							<li><a href="shop-grid.html">Religion & Inspiration</a></li>
-							<li><a href="shop-grid.html">Romance</a></li>
-							<li><a href="shop-grid.html">Fiction/Fantasy</a></li>
-							<li><a href="shop-grid.html">Sleeveless</a></li>
+							<li><a href="">Mystery</a></li>
+							<li><a href="">Religion & Inspiration</a></li>
+							<li><a href="">Romance</a></li>
+							<li><a href="">Fiction/Fantasy</a></li>
+							<li><a href="">Sleeveless</a></li>
 						</ul>
 						<ul class="item item03">
 							<li class="title">Collections</li>
-							<li><a href="shop-grid.html">Science </a></li>
-							<li><a href="shop-grid.html">Fiction/Fantasy</a></li>
-							<li><a href="shop-grid.html">Self-Improvemen</a></li>
-							<li><a href="shop-grid.html">Home & Garden</a></li>
-							<li><a href="shop-grid.html">Humor Books</a></li>
+							<li><a href="">Science </a></li>
+							<li><a href="">Fiction/Fantasy</a></li>
+							<li><a href="">Self-Improvemen</a></li>
+							<li><a href="">Home & Garden</a></li>
+							<li><a href="">Humor Books</a></li>
 						</ul>
 					</div>
 				</li>
@@ -69,13 +69,19 @@
 						class="product_qun">
 					
 						<?php
-										if(isset($_COOKIE['cartinfo'])){
-											$cartItem = DataType($_COOKIE["cartinfo"]);
-											echo count($cartItem);
-											
-											
+						 $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+										if(isset($_SESSION['user_id'])){
+											$user__ = $_SESSION['user_id'];
+												echo count($db->Fetch("SELECT * FROM cart WHERE user_id = '$user__'", null));
 										}else{
-											echo "0";
+											if(isset($_COOKIE['cartinfo'])){
+												$cartItem = DataType($_COOKIE["cartinfo"]);
+												echo count($cartItem);
+												
+												
+											}else{
+												echo "0";
+											}
 										}
 										?>
 					
@@ -99,8 +105,8 @@
 												<div class="switcher-currency-trigger">
 													<div class="setting__menu">
 														<span><a href="account">My Account</a></span>
-														<span><a href="account">My Wishlist</a></span>
-														<span><a href="account">my orders</a></span>
+														<span><a href="wishlist">My Wishlist</a></span>
+														<span><a href="orders">my orders</a></span>
 														<span><a href="?logout">Logout</a></span>
 													</div>
 												</div>
@@ -116,10 +122,10 @@
 											<div class="switcher-options">
 												<div class="switcher-currency-trigger">
 													<div class="setting__menu">
-														<span><a href="#">My Account</a></span>
-														<span><a href="#">Log in</a></span>
-														<span><a href="#">create account</a></span>
-														<span><a href="#">Support</a></span>
+														<span><a href="account">My Account</a></span>
+														<span><a href="login">Log in</a></span>
+														<span><a href="singup">create account</a></span>
+														<span><a href="contact-us">Support</a></span>
 													</div>
 												</div>
 											</div>
@@ -166,9 +172,9 @@
 						<li><a href="team.html">Team Page</a></li>
 					</ul>
 				</li>
-				<li><a href="shop-grid.html">Shop</a>
+				<li><a href="">Shop</a>
 					<ul>
-						<li><a href="shop-grid.html">Shop Grid</a></li>
+						<li><a href="">Shop Grid</a></li>
 						<li><a href="shop-list.html">Shop List</a></li>
 						<li><a href="shop-left-sidebar.html">Shop Left Sidebar</a></li>
 						<li><a href="shop-right-sidebar.html">Shop Right Sidebar</a></li>

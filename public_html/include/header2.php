@@ -64,12 +64,19 @@
 										class="product_qun">
 									
 										<?php
-										if(isset($_COOKIE['cartinfo'])){
-											$cartItem = DataType($_COOKIE["cartinfo"]);
-										echo count($cartItem);
-											
+						 $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+										if(isset($_SESSION['user_id'])){
+											$user__ = $_SESSION['user_id'];
+												echo count($db->Fetch("SELECT * FROM cart WHERE user_id = '$user__'", null));
 										}else{
-											echo "0";
+											if(isset($_COOKIE['cartinfo'])){
+												$cartItem = DataType($_COOKIE["cartinfo"]);
+												echo count($cartItem);
+												
+												
+											}else{
+												echo "0";
+											}
 										}
 										?>
 									
@@ -112,10 +119,10 @@
 											<div class="switcher-options">
 												<div class="switcher-currency-trigger">
 													<div class="setting__menu">
-														<span><a href="#">My Account</a></span>
-														<span><a href="#">Log in</a></span>
-														<span><a href="#">create account</a></span>
-														<span><a href="#">Support</a></span>
+														<span><a href="account">My Account</a></span>
+														<span><a href="login">Log in</a></span>
+														<span><a href="singup">create account</a></span>
+														<span><a href="contact-us">Support</a></span>
 													</div>
 												</div>
 											</div>
