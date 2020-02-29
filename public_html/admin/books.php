@@ -123,14 +123,14 @@ if(!$_SESSION['username']){
                                             <tr>
                                                 <th>Book Title</th>
                                                 <th>Author</th>
-                                                <th>isbn</th>
+                                             
                                                 <th>publisher</th>
-                                                <th>published</th>
+                                              
                                                 <th>Category</th>
                                                 <th>price</th>
                                                 <th>QT</th>
                                                 <th>Created At</th>
-                                                <th class="text-center">Action</th>
+                                                <th class="text-center " style="width:15%!important">Action</th>
                                             </tr>
                                         </thead>
                                         <!-- <tfoot>
@@ -152,14 +152,17 @@ if(!$_SESSION['username']){
                                             <tr>
                                                 <td><?=$values['title']?></td>
                                                 <td><?=$values['author']?></td>
-                                                <td><?=$values['isbn']?></td>
+                                              
                                                 <td><?=$values['publisher']?></td>
-                                                <td><?=$values['published']?></td>
+                                               
                                                 <td><?=$values['categorie']?></td>
-                                                <td><?=$values['discount_price']?></td>
+                                                <td><?=$values['discount_price']?> GHS</td>
                                                 <td><?=$values['quantity']?></td>
                                                 <td><?=$values['created_at']?></td>
-                                                <td class="text-center"><button style="cursor: pointer;"class="btn btn-danger mR-2 deleteBook" bookid="<?=$values['id']?>" data-toggle="modal" data-target="#exampleModal1"><small>Delete</small></button> </td>
+                                                <td class="text-center"><button style="cursor: pointer;"class="btn btn-danger mR-2 deleteBook" bookid="<?=$values['id']?>" data-toggle="modal" data-target="#exampleModal1" ><small>Delete</small></button>
+                                                
+                                                <small class="btn btn-info text-right book_view" style="cursor:pointer" data-toggle="modal" data-target=".bd-example-modal-lg" boo_view_id= "<?=$values['id']?>">view</small>
+                                                 </td>
                                             </tr>
                                             <?php
                                         }
@@ -173,28 +176,46 @@ if(!$_SESSION['username']){
                 </div>
 
 <!-- Modal -->
-<div class="modal fade bookmodal" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Confirm Delete</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-         <div class="card-body">
-         You are about to delete This Book from the Database, this procedure is irreversible.,<br>
-         Do you want to proceed ?
-         </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default closes" data-dismiss="modal" style="cursor: pointer">No</button>
-        <button type="button" class="btn btn-danger " id="book-ok" style="cursor: pointer;">Yes</button>
-      </div>
-    </div>
-  </div>
-</div>
+            <div class="modal fade bookmodal" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Confirm Delete</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="card-body">
+                    You are about to delete This Book from the Database, this procedure is irreversible.,<br>
+                    Do you want to proceed ?
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default closes" data-dismiss="modal" style="cursor: pointer">No</button>
+                    <button type="button" class="btn btn-danger " id="book-ok" style="cursor: pointer;">Yes</button>
+                </div>
+                </div>
+            </div>
+            </div>
+
+                        <!-- Large modal -->
+           
+
+            <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+            
+                <div class="modal-content view_modal_body_content" >
+                <br>
+                <br>
+                    <p class="text-center "> <img src="../assets/images/ajax-loader.gif" class="m-5" alt=""></p>
+                    <br>
+                    <br>
+                </div>
+            </div>
+            </div>
+
+       
             </main>
 
             

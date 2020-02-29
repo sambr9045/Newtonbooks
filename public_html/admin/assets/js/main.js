@@ -156,13 +156,29 @@ $(".message_reply").click(function (e) {
    })
 });
 
+$(".book_view").click(function (e) { 
+    e.preventDefault();
+    var book_view_id = $(this).attr("boo_view_id");
+     
+      $.post({
+        url:'htmlload/book_view.php',
+        data:'&book_view_id='+book_view_id,
+        dataType:'html',
+        success:function(response){
+          $(".view_modal_body_content").empty().append(response);
+        }
+    })
+    
+});
+
     function Ajax(url, data){
+        
         $.post({
             url:url,
             data:data,
             dataType:'html',
             success:function(response){
-                return response;
+              return response
             }
         })
     }
