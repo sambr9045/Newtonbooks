@@ -113,7 +113,7 @@ if(isset($_POST['book_view_id'])){
        
         <div class="form-group">
                 <label for="exampleFormControlFile1">Add book images</label>
-                <input type="file" class="form-control-file" id="exampleFormControlFile1" name="file[]"  multiple="multiple">
+                <input type="file" class="form-control-file" id="exampleFormControlFile1" name="file[]"  multiple="multiple" required >
         </div>
 
         <div class="form-group">
@@ -123,7 +123,7 @@ if(isset($_POST['book_view_id'])){
         
         
        </div>
-
+        <input type="hidden" name="update" value="<?=$id?>" >
        <div class="images_view form-group">
                 <?php foreach(json_decode($images) as $image){
                     
@@ -133,8 +133,9 @@ if(isset($_POST['book_view_id'])){
                 }?>
         </div>
         <br>
-            
+           
         <button type="submit" class="btn btn-info  text-right book_edit" name="">Edit</button>
+        <button type="submit" class="btn btn-info  text-right  addnewbook" name="addnewbook" style="display:none; cursor:pointer" name="">Update</button>
         <button type="submit" class="btn btn-default text-right" name="" data-dismiss="modal">Cancel</button>
     </form>
 </div>
@@ -154,7 +155,9 @@ if(isset($_POST['book_view_id'])){
    $(".book_edit").click(function (e) { 
        e.preventDefault();
        $("input, select, textarea").removeAttr("disabled");
+       $(this).hide();
        $(".images_view").hide();
+     $(".addnewbook").fadeIn();
        
    });
 

@@ -177,7 +177,7 @@
 											$dats = $_GET['categorie'];
 											$db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD,DBNAME); 
 
-											$query = $db->Fetch("SELECT * FROM books WHERE categorie = '$dats' limit $offset, $number_of_record_per_pages", null);
+											$query = $db->Fetch("SELECT * FROM books WHERE categorie = '$dats' ORDER BY id DESC limit $offset, $number_of_record_per_pages", null);
 
 											$data = $query;
 										}else{
@@ -186,7 +186,7 @@
 
 											$db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD,DBNAME); 
 											$dats = [$offset, $number_of_record_per_pages];
-											$query = $db->Fetch("SELECT * FROM books limit $offset, $number_of_record_per_pages", null);
+											$query = $db->Fetch("SELECT * FROM books ORDER BY id DESC limit $offset, $number_of_record_per_pages", null);
 
 											$data = $query;
 										}

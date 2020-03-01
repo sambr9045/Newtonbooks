@@ -157,7 +157,7 @@ if(!$_SESSION['username']){
                                                 <td><?=$post['comment']?></td>
                                                 <td><?=$post['likes']?></td>
                                                 <td><?=$post['created_at']?></td>
-                                                <td> <button class="btn btn-danger delete_blog" data-toggle="modal" data-target="#exampleModal"  blogid="<?=$post['id'] ?>" style="cursor: pointer"><small>delete</small></button></td>
+                                                <td> <button class="btn btn-danger delete_blog" data-toggle="modal" data-target="#exampleModal"  blogid="<?=$post['id'] ?>" style="cursor: pointer"><small>delete</small></button> <small class="btn btn-info blog_view" data-toggle="modal" data-target=".bd-example-modal-lg" blog_view="<?=$post['id']?>"><i class="fa fa-eye"></i> View</small></td>
                                                 
                                             </tr>
                                                  <?php
@@ -193,6 +193,21 @@ if(!$_SESSION['username']){
     </div>
   </div>
 </div>
+
+
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+            
+                <div class="modal-content blog_view_reponse p-10" >
+                <br>
+                <br>
+                    <p class="text-center "> <img src="../assets/images/ajax-loader.gif" class="m-5" alt=""></p>
+                    <br>
+                    <br>
+                </div>
+            </div>
+            </div>
 
             </main>
 <?php  include("inc/inc_down.php") ?>

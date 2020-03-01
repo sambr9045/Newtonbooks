@@ -105,7 +105,7 @@
      
         <div class="form-group">
                 <label for="exampleFormControlFile1">Add book images</label>
-                <input type="file" class="form-control-file" id="exampleFormControlFile1" name="file[]"  multiple="multiple">
+                <input type="file" class="form-control-file" id="exampleFormControlFile1" name="file[]"  multiple="multiple" required>
         </div>
 
         <div class="form-group">

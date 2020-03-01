@@ -171,6 +171,19 @@ $(".book_view").click(function (e) {
     
 });
 
+$(".blog_view").click(function(e){
+    e.preventDefault();
+    var blog_update_id =$(this).attr("blog_view");
+    $.post({
+        url:'htmlload/blog_view.php',
+        data:'&blog_update_id='+blog_update_id,
+        dataType:'html',
+        success:function(blog_update_response){
+            $(".blog_view_reponse").empty().append(blog_update_response);
+        }
+    })
+})
+
     function Ajax(url, data){
         
         $.post({

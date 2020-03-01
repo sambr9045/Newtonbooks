@@ -4,20 +4,21 @@
 <form class="w-100" id="addnewblogpost" method="post" action="../admin/blog.php" enctype="multipart/form-data">
   <div class="form-group">
     <label for="exampleFormControlInput1">Title</label>
-    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Title" name="title">
+    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Title" name="title" required>
   </div>
 
 
   <div class="form-group">
     <label for="exampleFormControlTextarea1">Article</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="10" name="article" placeholder="type your article here"></textarea>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="10" name="article" placeholder="type your article here" required></textarea>
   </div>
 
   <div class="form-group">
     <label for="exampleFormControlFile1">Add images</label>
-    <input type="file" class="form-control-file" id="exampleFormControlFile1" name="file">
+    <input type="file" class="form-control-file" id="exampleFormControlFile1" name="file" required>
   </div>
 
   <button class="btn btn-info mT-20" name="addnewblogpost" id="">+ post</button>
+  
 </form>
 </div>
