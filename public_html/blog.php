@@ -44,16 +44,42 @@
 					<!-- Start Single Widget -->
 					<aside class="widget search_widget">
 						<h3 class="widget-title">Search</h3>
-						<form action="#">
+						<form action="blog" method="get">
 							<div class="form-input">
-								<input type="text" placeholder="Search...">
-								<button><i class="fa fa-search"></i></button>
+								<input type="text" name="search_query" placeholder="Search...">
+								<button ><i class="fa fa-search"></i></button>
 							</div>
 						</form>
 					</aside>
+				
 					<?php
+					if(isset($_GET['search_query'])){
+						$query = $_GET['search_query'];
+						 $query = str_replace("+", " ", $query);
+						 $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+						 $posts = $db->Fetch("SELECT * FROM blog WHERE title like '%$query%'", null);
+					
+					}else{
+
+					if(isset($_GET['page'])){
+						$page_no = $_GET['page'];
+					}else{
+						$page_no = 1;
+					}
+					
+					$number_of_record_per_pages = 10;
+					$offset = ($page_no - 1) * $number_of_record_per_pages;
+					
+					$total_record =count($db->Fetch("SELECT * FROM blog", null));
+					
+
+					$total_pages = ceil($total_record /$number_of_record_per_pages);
+						
 					$db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
-					$posts = $db->Fetch("SELECT * FROM blog ORDER BY id DESC",null);
+					$posts = $db->Fetch("SELECT * FROM blog ORDER BY id DESC limit $offset, $number_of_record_per_pages",null);
+					}
+					
+					
 					 ?>
 					<!-- End Single Widget -->
 					<!-- Start Single Widget -->
@@ -125,13 +151,49 @@
 					?>
 				
 				</div>
-				<ul class="wn__pagination">
-					<li class="active"><a href="#">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li><a href="#">4</a></li>
-					<li><a href="#"><i class="zmdi zmdi-chevron-right"></i></a></li>
-				</ul>
+				<br>
+				<br>
+				
+				<?php 
+				 if(isset($_GET['search_query'])){
+
+				 }else{
+					 ?>
+					 <nav aria-label="Page navigation example">
+									<ul class="pagination justify-content-center new_pagination">
+									<?php 	$link = substr( $_SERVER['REQUEST_URI'], -1);
+ ;?>
+									<li class="page-item">
+									<a class="page-link" href="blog?page=<?=$link-1?>" aria-label="Previous">
+										<span aria-hidden="true">&laquo;</span>
+										<span class="sr-only">Previous</span>
+									</a>
+									</li>
+
+										<?php
+
+									
+										for($i = 0; $i <= $total_pages ; $i++){
+											
+											if($i == 0){
+												continue;
+											}
+											?>
+											<li class="page-item  <?=($link == $i)? 'active': '';?>"><a class="page-link" href="blog?page=<?=$i?>"><?=$i?></a></li>
+											<?php
+										}
+								?>
+									 <li class="page-item">
+									<a class="page-link" href="blog?page=<?=$link+1?>" aria-label="Next">
+										<span aria-hidden="true">&raquo;</span>
+										<span class="sr-only">Next</span>
+									</a>
+									</li>
+									</ul>
+									</nav>
+					 <?php
+				 }
+				?>
 			</div>
 		</div>
 	</div>

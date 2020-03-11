@@ -206,22 +206,24 @@
 							<ul>
 								<?php
 
-									if(count($posts) >= 5){
-										for($i=0; $i<=5; $i++){
-
+								
+										foreach($posts as $key => $pot){
+												if($key == 5){
+												break;
+												}
 											?>
 												<li>
 												<div class="post-wrapper d-flex">
 												
 													<div class="content">
-														<h4><a style="color:#0058ab;font-weight:bold; line-height:1em!important;font-size:13px;" href="blog-details?wp=<?=$posts[$i]['title']?>&wip=<?=$posts[$i]['id']?>"><?=$posts[$i]['title']?></a></h4>
-														<p>	<?=$posts[$i]['created_at']?></p>
+														<h4><a style="color:#0058ab;font-weight:bold; line-height:1em!important;font-size:13px;" href="blog-details?wp=<?=$pot['title']?>&wip=<?=$pot['id']?>"><?=$pot['title']?></a></h4>
+														<p>	<?=$pot['created_at']?></p>
 													</div>
 										</div>
 									</li>
 											<?php
 										}
-									}
+									
 
 								?>
 								

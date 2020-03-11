@@ -196,4 +196,14 @@
                     }
                }
 
+            //    if(isset($_POST['search_submit'])){
+            //     $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+            //        array_pop($_POST);
+            //        extract($_POST);
+
+            //        $search = $db->Fetch("SELECT * FROM blog WHERE title like '%$search_key%'", null);
+                   
+
+            //    }
+
 ?>
