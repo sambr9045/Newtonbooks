@@ -60,7 +60,7 @@
                     <a class="nav-link  mb-3" href="#"><i class="fa fa-user-circle mr-2" style="font-size:20px;"></i> My account</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link mb-3" href="#"><i class="fa fa-book mr-2" style="font-size:20px;"></i> Orders</a>
+                    <a class="nav-link mb-3 order" href="#"><i class="fa fa-book mr-2" style="font-size:20px;"></i> Orders</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link mb-3" href="#"><i class="fa fa-star mr-2" style="font-size:20px;"></i> Pending Reviews</a>
@@ -96,9 +96,11 @@
             <div class="card p-4">
             
            <h4 class="card-head">Account Overview</h4>
-           <div class="card-body">
-
-                <div class="row">
+           <div class="card-body card_body_replace">
+                <div class="text-center gift_loader" style="margin-top:5vh!important; display:none;">
+                <img src="assets/images/ajax-loader.gif" alt="">
+                </div>
+                <div class="row strows">
                         <div class="col-sm-6 mb-2">
                             <div class="card p-2">
                             <ul class="list-group list-group-flush">
@@ -171,9 +173,12 @@
 </div>
 
 <!-- //Main wrapper -->
-
+<script>
+    let user_id = "<?=$_SESSION['user_id']?>";
+</script>
 <?php include("include/footer.php")?>
 <script src="assets/js/cart.js"></script>
+<script src="assets/js/account.js"></script>
 
 </body>
 </html>

@@ -89,5 +89,36 @@ $(document).ready(function () {
      })
  });
 
+ $(".checkout_ct").click(function(e){
+   e.preventDefault();
+   let appende_date = [];
+   $(".theallbookprice").each(function(){
+     var each_title = $(this).closest("tr").find(".product-name").attr("checkout_title");
+     var each_price =$(this).closest("tr").find(".product-price").attr("amount");
+     var each_image = $(this).closest("tr").find(".product-thumbnail").attr("chekout_image");
+     var each_qty = $(this).closest("tr").find(".book_qty").val();
+     var each_book_id =  $(this).closest("tr").find(".product-remove").attr("checkout_id");
 
+     var all_data = [each_title, each_price, each_image, each_qty, each_book_id];
+    appende_date.push(all_data);
+   
+   })
+   
+   var data = JSON.stringify(appende_date);
+
+   $.post({
+     url:'ajax/fontEnd.php',
+     data:"&checkout_data="+data,
+     dataType:'html',
+     success:function(checkout_response){
+      if(checkout_response == "1"){
+        window.location.replace("checkout");
+      }
+     }
+   })
+ })
+ $(".add_form_wishist_to_cart").click(function (e) { 
+      e.preventDefault();
+      
+ });
 });

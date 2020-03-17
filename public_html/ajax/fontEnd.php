@@ -97,6 +97,13 @@ require_once("../../private/server.php");
   }
 
 
+  if(isset($_POST['checkout_data'])){
+    extract($_POST);
+    $value = $checkout_data;
+    if(setcookie("checkoutInfo", $value, time() +2592000, '/')){
+      echo "1";
+    }
+  }
   
 
 

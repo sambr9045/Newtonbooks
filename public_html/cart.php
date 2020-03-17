@@ -74,13 +74,13 @@ if(isset($_SESSION['user_id'])){
 
 										?>
 											<tr>
-								<td class="product-thumbnail"><a href="#"><img
+								<td class="product-thumbnail"  chekout_image="<?=$cartcontent->image?>"><a href="#"><img
 								src="<?="uploades/".$cartcontent->image;?>" alt="product img"></a></td>
-								<td class="product-name"><a href="detail?t=<?=$cartcontent->booktitle?>&id=<?=$cartcontent->bookid?>"><?=$cartcontent->booktitle?></a></td>
+								<td class="product-name" checkout_title="<?=$cartcontent->booktitle?>"><a href="detail?t=<?=$cartcontent->booktitle?>&id=<?=$cartcontent->bookid?>"><?=$cartcontent->booktitle?></a></td>
 								<td class="product-price the_book_real_price" amount="<?=$cartcontent->book_type_price?>" ><span class="amount"><?=$cartcontent->book_type_price?> GHS</span></td>
 								<td class=""><input type="number" min="1" value="<?=$cartcontent->qty?>"  class="book_qty"></td>
 								<td class="product-subtotal theproductsubtotal"><span class="theallbookprice"><?=$cartcontent->qty * $cartcontent->book_type_price?></span>  GHS</td>
-								<td class="product-remove cart_remove_product" id="<?=$cartcontent->bookid?>"><a href="#">X</a></td>
+								<td class="product-remove cart_remove_product" id="<?=$cartcontent->bookid?>" checkout_id = "<?=$cartcontent->bookid?>"><a href="#">X</a></td>
 							</tr>
 										<?php
 									}
@@ -98,7 +98,7 @@ if(isset($_SESSION['user_id'])){
 				<ul
 					class="cart__btn__list d-flex flex-wrap flex-md-nowrap flex-lg-nowrap justify-content-between">
 					
-					<li class="text-right"><a href="#" class="btn btn-primary">Check Out</a></li>
+					<li class="text-right"><a href="#" class="checkout_ct btn btn-info">Check Out</a></li>
 				</ul>
 			</div>
 		</div>
