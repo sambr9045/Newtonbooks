@@ -27,8 +27,7 @@ if(isset($_COOKIE['checkoutInfo'])){
 	<?php  include("include/header2.php")?>
 	
 	
-		<!-- End Bradcaump area -->
-		<!-- Start Checkout Area -->
+
 		<section class="wn__checkout__area section-padding--lg bg__white">
 			<div class="container">
 				<div class="row">

@@ -21,8 +21,9 @@
 										<li><a href="#"><i class="bi bi-youtube"></i></a></li>
 									</ul>
 									<ul class="mainmenu d-flex justify-content-center">
-										<li><a href="shop">Trending</a></li>
-										<li><a href="shop">Best Seller</a></li>
+										<li><a href="Terms">Terms & Condition</a></li>
+										<li><a href="return-policy">Return Policy</a></li>
+										<li><a href="Privacy-policy">Privacy Policy</a></li>
 										<li><a href="shop">All Product</a></li>
 										<li><a href="wishlist">Wishlist</a></li>
 										<li><a href="blog">Blog</a></li>

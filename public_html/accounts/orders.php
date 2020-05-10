@@ -49,7 +49,7 @@
                             <p class="card-text mb-3"><small class="text-muted">Placed On <?=$data['created_at']?></small></p>
 
                             <p class="">
-                                <a href="" class="text-info">View Details</a>
+                                <a href="account?order=<?=$data['order_number']?>" class="text-info">View Details</a>
                             </p>
                         </div>
                         

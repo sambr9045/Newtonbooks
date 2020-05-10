@@ -95,7 +95,12 @@
     <div class="col-sm-9">
             <div class="card p-4">
             
-           <h4 class="card-head">Account Overview</h4>
+            <?php 
+
+            if(!isset($_GET['order'])){
+              
+                    ?>
+                    <h4 class="card-head">Account Overview</h4>
            <div class="card-body card_body_replace">
                 <div class="text-center gift_loader" style="margin-top:5vh!important; display:none;">
                 <img src="assets/images/ajax-loader.gif" alt="">
@@ -160,6 +165,33 @@
                 </div> 
 
            </div>
+                    <?php
+               
+            }else{
+                $order_number = $_GET['order'];
+                $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+
+                $order_data = $db->FETCH("SELECT * FROM orders WHERE order_number ='$order_number' AND user_id = '$gen_id'", null);
+                 extract($order_data[0]);
+                    ?>
+                    
+                    <h4 class="card-head text-secondary mb-3"><i class="fa fa-arrow-left"></i> Order Details</h4>
+                  
+                    <hr>
+
+                    <div class="card-body card_body_replace">
+                        <ul style="font-size:13px!important;">
+                            <li >Order No : <?=$order_number?></li>
+                            <li><?=$qty?> items</li>
+                            <li>Placed on <?=$created_at?></li>
+                            <li>Total : <?=$total_paid?> GHS</li>
+                        </ul>
+                    </div>
+
+                    <hr>
+                    <?php
+            }
+            ?>
 
 
               

@@ -7,7 +7,7 @@
     define("DBNAME", "newtonbooks");
 
     define("STMT_USERNAME", "no-reply@newtonbooksonline.com");
-    define("STMT_PASSWORD", "no-replynewtonbooksonline");
+    define("STMT_PASSWORD", "#cal509@HTG");
     define("stmt_host", "smtp.hostinger.com");
     define("stmt_port", "587");
 

@@ -73,8 +73,8 @@ include("../private/load.php") ;
 									<h3>Newtonbooks</h3>
 									<h2>The more  you <span>Learn</span></h2>
 									<h2 class="another">The more you <span>Earn </span></h2>
-									<p>Get the best books from the best minds in business, Leadership, Enterpreneurship, Academia, Communication and Marketing to make your life better </p>
-									<a class="shopbtn" href="shop"><button class="btn btn-primary"> <i class="fas fa-shopping-cart"></i>  Shop now </button></a>
+									<p style="font-weight:bold;">Get the best books from the best minds in business, Leadership, Enterpreneurship, Academia, Communication and Marketing to make your life better </p>
+									<a class="shopbtn" href="shop"><button class="btn btn-primary">  Shop now </button></a>
 								</div>
 							</div>
 						</div>

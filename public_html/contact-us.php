@@ -19,8 +19,7 @@
 			<link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i,900" rel="stylesheet">
 			<link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,600,600i,700,700i,800"
 				rel="stylesheet">
-			<link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet"> -->
-
+			<link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
 	<!-- Stylesheets-->
 	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="assets/css/plugins.css">
