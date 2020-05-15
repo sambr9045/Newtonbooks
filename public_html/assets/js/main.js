@@ -54,7 +54,7 @@ $(document).ready(function(){
                 //    $("html, body").animate({scrollTop: 0}, 100);
                    var offTop = $('html,body').offset().top - 43;
                     $('html, body').scrollTop(offTop);
-                }else{
+                }else if(response == "2"){
                     $(".addtocart_error").removeClass("alert alert-success alert-dismissible fade show");
                     $(".addtocart_error").addClass("alert alert-warning alert-dismissible fade show")
                   

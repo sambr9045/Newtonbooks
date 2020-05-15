@@ -19,3 +19,8 @@
 {
 	color:black!important;
 }
+
+.active{
+	background-color:lightgray;
+	border-radius:5px;
+}

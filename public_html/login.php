@@ -43,7 +43,7 @@
             </div>
       <?php
     }else{
-      $header_location = "account";
+      $header_location = "account/index";
     }
   ?>
     <?php if(isset($login_email_error) && !empty($login_email_error)){

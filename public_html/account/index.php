@@ -1,5 +1,5 @@
 <?php
-     include("../private/load.php") ;
+     include("../../private/load.php") ;
      
      if(isset($_SESSION['user_id'])){
 
@@ -12,7 +12,7 @@
         extract($user[0]);
       
      }else{
-         header("location:login");
+         header("location:../login");
      }
 ?>
 <!doctype html>
@@ -24,7 +24,7 @@
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<?php include("include/head.php") ?>
+<?php include("../include/head2.php") ?>
 </head>
 
 <body class="bg-light">
@@ -33,7 +33,7 @@
 <div class="wrapper mt--40 pb--90 bg-light" id="wrapper"> 
 
     
-<?php include("include/header2.php") ?>
+<?php include("../include/header3.php") ?>
 
   
 
@@ -57,19 +57,19 @@
              
                <ul class="nav flex-column">
                 <li class="nav-item">
-                    <a class="nav-link  mb-3" href="#"><i class="fa fa-user-circle mr-2" style="font-size:20px;"></i> My account</a>
+                    <a class="nav-link  mb-3 active" href="index"><i class="fa fa-user-circle mr-2" style="font-size:20px;"></i> My account</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link mb-3 order" href="#"><i class="fa fa-book mr-2" style="font-size:20px;"></i> Orders</a>
+                    <a class="nav-link mb-3 order " href="orders"><i class="fa fa-book mr-2" style="font-size:20px;"></i> Orders</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link mb-3" href="#"><i class="fa fa-star mr-2" style="font-size:20px;"></i> Pending Reviews</a>
+                    <a class="nav-link mb-3" href="reviews"><i class="fa fa-star mr-2" style="font-size:20px;"></i> Pending Reviews</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link mb-3" href="#"><i class="fa fa-heart mr-2" style="font-size:20px;"></i> Saved Items</a>
+                    <a class="nav-link mb-3 saveditems" href="saved-items"><i class="fa fa-heart mr-2" style="font-size:20px;"></i> Saved Items</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link mb-3 " href="#"><i class="fa fa-lock mr-2" style="font-size:20px;"></i> Change Password</a>
+                    <a class="nav-link mb-3 " href="change-password"><i class="fa fa-lock mr-2" style="font-size:20px;"></i> Change Password</a>
                 </li>
                 <div class="dropdown-divider"></div>
                 <li class="nav-item">
@@ -95,12 +95,9 @@
     <div class="col-sm-9">
             <div class="card p-4">
             
-            <?php 
-
-            if(!isset($_GET['order'])){
-              
-                    ?>
-                    <h4 class="card-head">Account Overview</h4>
+        
+        
+            <h4 class="card-head account_overview">Account Overview</h4>
            <div class="card-body card_body_replace">
                 <div class="text-center gift_loader" style="margin-top:5vh!important; display:none;">
                 <img src="assets/images/ajax-loader.gif" alt="">
@@ -165,35 +162,6 @@
                 </div> 
 
            </div>
-                    <?php
-               
-            }else{
-                $order_number = $_GET['order'];
-                $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
-
-                $order_data = $db->FETCH("SELECT * FROM orders WHERE order_number ='$order_number' AND user_id = '$gen_id'", null);
-                 extract($order_data[0]);
-                    ?>
-                    
-                    <h4 class="card-head text-secondary mb-3"><i class="fa fa-arrow-left"></i> Order Details</h4>
-                  
-                    <hr>
-
-                    <div class="card-body card_body_replace">
-                        <ul style="font-size:13px!important;">
-                            <li >Order No : <?=$order_number?></li>
-                            <li><?=$qty?> items</li>
-                            <li>Placed on <?=$created_at?></li>
-                            <li>Total : <?=$total_paid?> GHS</li>
-                        </ul>
-                    </div>
-
-                    <hr>
-                    <?php
-            }
-            ?>
-
-
               
             </div>
     </div>
@@ -208,9 +176,9 @@
 <script>
     let user_id = "<?=$_SESSION['user_id']?>";
 </script>
-<?php include("include/footer.php")?>
-<script src="assets/js/cart.js"></script>
-<script src="assets/js/account.js"></script>
+<?php include("../include/footer2.php")?>
+<script src="../assets/js/cart.js"></script>
+<script src="../assets/js/account.js"></script>
 
 </body>
 </html>

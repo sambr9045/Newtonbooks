@@ -12,7 +12,7 @@ require_once("../../private/server.php");
      $value = json_encode($data);
      
    if(isset($_SESSION['user_id'])){
-  
+    $user_id = $_SESSION['user_id'];
     extract($_POST);
     $dat = array_values($_POST);
     $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
