@@ -9,8 +9,7 @@
 									<a href="newtonbooksonline.com">
 										<img src="assets/images/logo/logo.png" alt="logo">
 									</a>
-									<p>There are many variations of passages of Lorem Ipsum available, but the majority
-										have suffered duskam alteration variations of passages</p>
+
 								</div>
 								<div class="footer__content">
 									<ul class="social__net social__net--2 d-flex justify-content-center">

@@ -142,9 +142,9 @@
 					<div class="col-lg-12 d-none">
 						<nav class="mobilemenu__nav">
 							<ul class="meninmenu">
-								<li><a href="index.html">Home</a>
+								<li><a href="">Home</a>
 									<ul>
-										<li><a href="index.html">Home Style Default</a></li>
+										<li><a href="">Home Style Default</a></li>
 										<li><a href="index-2.html">Home Style Two</a></li>
 										<li><a href="index-3.html">Home Style Three</a></li>
 										<li><a href="index-box.html">Home Box Style</a></li>

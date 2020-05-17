@@ -17,31 +17,31 @@
 								<li class="drop"><a href="shop">Shop</a>
 								
 								</li>
-								<li class="drop"><a href="shop-grid.html">Books</a>
+								<li class="drop"><a href="shop">Books</a>
 									<div class="megamenu mega03">
 										<ul class="item item03">
 											<li class="title">Categories</li>
-											<li><a href="shop-grid.html">Biography </a></li>
-											<li><a href="shop-grid.html">Business </a></li>
-											<li><a href="shop-grid.html">Cookbooks </a></li>
-											<li><a href="shop-grid.html">Health & Fitness </a></li>
-											<li><a href="shop-grid.html">History </a></li>
+											<li><a href="shop">Biography </a></li>
+											<li><a href="shop">Business </a></li>
+											<li><a href="shop">Cookbooks </a></li>
+											<li><a href="shop">Health & Fitness </a></li>
+											<li><a href="shop">History </a></li>
 										</ul>
 										<ul class="item item03">
 											<li class="title">Customer Favourite</li>
-											<li><a href="shop-grid.html">Mystery</a></li>
-											<li><a href="shop-grid.html">Religion & Inspiration</a></li>
-											<li><a href="shop-grid.html">Romance</a></li>
-											<li><a href="shop-grid.html">Fiction/Fantasy</a></li>
-											<li><a href="shop-grid.html">Sleeveless</a></li>
+											<li><a href="shop">Mystery</a></li>
+											<li><a href="shop">Religion & Inspiration</a></li>
+											<li><a href="shop">Romance</a></li>
+											<li><a href="shop">Fiction/Fantasy</a></li>
+											<li><a href="shop">Sleeveless</a></li>
 										</ul>
 										<ul class="item item03">
 											<li class="title">Collections</li>
-											<li><a href="shop-grid.html">Science </a></li>
-											<li><a href="shop-grid.html">Fiction/Fantasy</a></li>
-											<li><a href="shop-grid.html">Self-Improvemen</a></li>
-											<li><a href="shop-grid.html">Home & Garden</a></li>
-											<li><a href="shop-grid.html">Humor Books</a></li>
+											<li><a href="shop">Science </a></li>
+											<li><a href="shop">Fiction/Fantasy</a></li>
+											<li><a href="shop">Self-Improvemen</a></li>
+											<li><a href="shop">Home & Garden</a></li>
+											<li><a href="shop">Humor Books</a></li>
 										</ul>
 									</div>
 								</li>
@@ -169,9 +169,9 @@
 										<li><a href="team.html">Team Page</a></li>
 									</ul>
 								</li>
-								<li><a href="shop-grid.html">Shop</a>
+								<li><a href="shop">Shop</a>
 									<ul>
-										<li><a href="shop-grid.html">Shop Grid</a></li>
+										<li><a href="shop">Shop Grid</a></li>
 										<li><a href="shop-list.html">Shop List</a></li>
 										<li><a href="shop-left-sidebar.html">Shop Left Sidebar</a></li>
 										<li><a href="shop-right-sidebar.html">Shop Right Sidebar</a></li>

@@ -57,7 +57,7 @@
              
                <ul class="nav flex-column">
                 <li class="nav-item">
-                    <a class="nav-link  mb-3 active" href="index"><i class="fa fa-user-circle mr-2" style="font-size:20px;"></i> My account</a>
+                    <a class="nav-link  mb-3 account_active" href="index"><i class="fa fa-user-circle mr-2" style="font-size:20px;"></i> My account</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link mb-3 order " href="orders"><i class="fa fa-book mr-2" style="font-size:20px;"></i> Orders</a>

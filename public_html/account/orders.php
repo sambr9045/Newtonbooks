@@ -60,7 +60,7 @@
                     <a class="nav-link  mb-3 " href="index"><i class="fa fa-user-circle mr-2" style="font-size:20px;"></i> My account</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link mb-3 order active" href="orders"><i class="fa fa-book mr-2" style="font-size:20px;"></i> Orders</a>
+                    <a class="nav-link mb-3 order account_active" href="orders"><i class="fa fa-book mr-2" style="font-size:20px;"></i> Orders</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link mb-3" href="reviews"><i class="fa fa-star mr-2" style="font-size:20px;"></i> Pending Reviews</a>
