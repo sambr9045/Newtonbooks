@@ -667,12 +667,17 @@ a {
   background-image: url(../images/bg/newimages.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center center; }
+  background-position: center center;
+  height:100vh!important;
+}
+ 
 .bg-image--9 {
   background-image: url(../images/bg/9.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center center; }
+  background-position: center center;
+  height:100vh!important;
+ }
 .bg-image--10 {
   background-image: url(../images/bg/10.jpg);
   background-repeat: no-repeat;

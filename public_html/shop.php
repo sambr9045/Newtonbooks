@@ -19,10 +19,10 @@
 	<!-- Main wrapper -->
 	<div class="wrapper" id="wrapper">
 
-	<?php include("include/header.php") ?>
-		
+	<?php include("include/header2.php") ?>
+		<br><br><br>
 		<!-- Start Bradcaump area -->
-		<div class="ht__bradcaump__area bg-image--6">
+		<!-- <div class="ht__bradcaump__area bg-image--6">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12">
@@ -37,7 +37,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> -->
 		<!-- End Bradcaump area -->
 		<!-- Start Shop Page -->
 		<div class="page-shop-sidebar left--sidebar bg--white section-padding--lg">

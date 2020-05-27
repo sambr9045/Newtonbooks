@@ -38,7 +38,8 @@ include("../private/load.php") ;
 	<!-- Main wrapper -->
 	<div class="wrapper" id="wrapper">
 
-	<?php  include("include/header.php")?>
+	<?php  include("include/header2.php")?>
+	<br><br>
 
 		<!-- //Header -->
 		<!-- Start Search Popup -->
@@ -57,7 +58,7 @@ include("../private/load.php") ;
 		</div>
 		<!-- End Search Popup -->
 		<!-- Start Bradcaump area -->
-		<div class="ht__bradcaump__area bg-image--5">
+		<!-- <div class="ht__bradcaump__area bg-image--5">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12">
@@ -72,7 +73,7 @@ include("../private/load.php") ;
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> -->
 		<!-- End Bradcaump area -->
 		<br>
 		<br>

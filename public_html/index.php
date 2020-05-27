@@ -47,7 +47,7 @@ include("../private/load.php") ;
 		<?php include("include/header2.php") ?>
 		<!-- //Header -->
 		<!-- Start Search Popup -->
-		<div class="brown--color box-search-content search_active block-bg close__top">
+		<div class="brown--color box-search-content search_active block-bg close__top" >
 			<form id="search_mini_form" class="minisearch" action="#">
 				<div class="field__search">
 					<input type="text" placeholder="Search entire store here...">
@@ -62,7 +62,7 @@ include("../private/load.php") ;
 		</div>
 		<!-- End Search Popup -->
 		<!-- Start Slider area -->
-		<div class="slider-area brown__nav slider--15 slide__activation slide__arrow01 owl-carousel owl-theme">
+		<div class="slider-area brown__nav slider--15 slide__activation slide__arrow01 owl-carousel owl-theme" style="height:100vh!important;">
 			<!-- Start Single Slide -->
 			<div class="slide animation__style10 bg-image--8 fullscreen align__center--left">
 				<div class="container">
@@ -90,9 +90,9 @@ include("../private/load.php") ;
 							<div class="slider__content">
 								<div class="contentbox">
 									<h3>Newtonbooks</h3>
-									<h2>The more  you <span>Learn</span></h2>
-									<h2 class="another">The more you <span>Earn </span></h2>
-									<p>Get the best books from the best minds in business, Leadership, Enterpreneurship, Academia, Communication and Marketing to make your life better </p>
+									<h2 style="">The more  you <span>Learn</span></h2>
+									<h2 class="another" style="">The more you <span>Earn </span></h2>
+									<p style="">Get the best books from the best minds in business, Leadership, Enterpreneurship, Academia, Communication and Marketing to make your life better </p>
 									<a class="shopbtn" href="shop"><button class="btn btn-primary">Shop now </button></a>
 								</div>
 							</div>
@@ -270,7 +270,7 @@ include("../private/load.php") ;
 							<a class="nav-item nav-link" data-toggle="tab" href="#nav-adventure"
 								role="tab">LEADERSHIP</a>
 							<a class="nav-item nav-link" data-toggle="tab" href="#nav-children" role="tab">FINANCIAL SUCCESS</a>
-							<a class="nav-item nav-link" data-toggle="tab" href="#nav-cook" role="tab">ELECTRINICS</a>
+							
 						</div>
 					</div>
 				</div>
@@ -856,147 +856,9 @@ include("../private/load.php") ;
 						</div>
 					</div>
 					<!-- End Single Tab Content -->
-					<!-- Start Single Tab Content -->
-					<div class="row single__tab tab-pane fade" id="nav-cook" role="tabpanel">
-						<div class="product__indicator--4 arrows_style owl-carousel owl-theme">
-						<?php
-								$db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
-								$allprouct = $db->Fetch("SELECT * FROM books WHERE categorie='ELECTRONICS' ORDER BY id ASC LIMIT 5", null);
-								
-								foreach($allprouct as $value){
-									$img2 = json_decode($value['images']);
-									$url2 = [];
-									if(count($img2) == 1){
-										 $url2[]= $img2[0];
-										 $url2[]= $img2[0];
-									}else{
-										$url2= [];
-										$url2[] = $img2[0];
-										$url2[]= $img2[1];
-
-										
-									}
-									
-									?>
-							<div class="single__product">
-									<!-- Start Single Product -->
-								<div class="col-lg-3 col-md-4 col-sm-6 col-12">
-									<div class="product product__style--3">
-										<div class="product__thumb">
-											<a class="first__img" href="detail?t=<?=$value['title']?>&id=<?=$value['id']?>"><img
-													src="<?="uploades/".$url2[0]?>" width="304" height="384" alt="product image"></a>
-											<a class="second__img animation1" href="detail?t=<?=$value['title']?>&id=<?=$value['id']?>"><img
-													src="<?="uploades/".$url2[1]?>" width="304" height="384" alt="product image"></a>
-											<div class="hot__box">
-												<span class="hot-label">BEST SALLER</span>
-										    </div>
-										</div>
-										<div class="product__content content--center">
-											<h4><a href="detail?t=<?=$value['title']?>&id=<?=$value['id']?>"><?=$value['title']?></a></h4>
-											<ul class="prize d-flex">
-												<li><?=$value['discount_price']?> GHS</li>
-												<li class="old_prize"><?=$value['full_price']+10?> GHS</li>
-											</ul>
-											<div class="action">
-												<div class="actions_inner">
-												<ul class="add_to_links text-center">
-												<li id="<?=$value['id']?>">
-												<button href="#productmodal" data-toggle="modal" class="btn btn-info modal-view detail-link  view_quick_click"><i class="fa fa-eye text-white"></i> <small>Quick View</small></button>
-												</li>
-												</ul>
-												</div>
-											</div>
-											<div class="product__hover--content">
-												<ul class="rating d-flex">
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-												</ul>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-									<?php
-								}
-					?>
-
 					
-							
-					
-							
-							</div>
-						
 <!-- Second row  -->
-						<div class="product__indicator--4 arrows_style owl-carousel owl-theme">
-							
-							<?php
-								$db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
-								$allprouct = $db->Fetch("SELECT * FROM books  WHERE categorie='ELECTRONICS' ORDER BY id ASC LIMIT 5, 10", null);
-								
-								foreach($allprouct as $value){
-									$img2 = json_decode($value['images']);
-									$url2 = [];
-									if(count($img2) == 1){
-										 $url2[]= $img2[0];
-										 $url2[]= $img2[0];
-									}else{
-										$url2= [];
-										$url2[] = $img2[0];
-										$url2[]= $img2[1];
-
-										
-									}
-									
-									?>
-									<div class="single__product">
-									<!-- Start Single Product -->
-								<div class="col-lg-3 col-md-4 col-sm-6 col-12">
-									<div class="product product__style--3">
-										<div class="product__thumb">
-											<a class="first__img" href="detail?t=<?=$value['title']?>&id=<?=$value['id']?>"><img
-													src="<?="uploades/".$url2[0]?>" width="304" height="384" alt="product image"></a>
-											<a class="second__img animation1" href="detail?t=<?=$value['title']?>&id=<?=$value['id']?>"><img
-													src="<?="uploades/".$url2[1]?>" width="304" height="384" alt="product image"></a>
-											<div class="hot__box">
-												<span class="hot-label">BEST SALLER</span>
-											</div>
-										</div>
-										<div class="product__content content--center">
-											<h4><a href="details?t=<?=$value['title']?>&id=<?=$value['id']?>"><?=$value['title']?></a></h4>
-											<ul class="prize d-flex">
-												<li><?=$value['discount_price']?> GHS</li>
-												<li class="old_prize"><?=$value['full_price']+10?> GHS</li>
-											</ul>
-											<div class="action">
-												<div class="actions_inner">
-												<ul class="add_to_links text-center">
-												<li id="<?=$value['id']?>">
-												<button href="#productmodal" data-toggle="modal" class="btn btn-info modal-view detail-link  view_quick_click"><i class="fa fa-eye text-white"></i> <small>Quick View</small></button>
-												</li>
-												</ul>
-												</div>
-											</div>
-											<div class="product__hover--content">
-												<ul class="rating d-flex">
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-												</ul>
-											</div>
-										</div>
-									</div>
-								</div>
-									</div>
-								
-									<?php
-								}
-					?>
-				</div>
+						
 			</div>
 		</section>
 		<!-- Start BEst Seller Area -->
