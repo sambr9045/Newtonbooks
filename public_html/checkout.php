@@ -79,7 +79,7 @@ if(isset($_COOKIE['checkoutInfo'])){
 				<div class="row">
 					<div class="col-lg-6 col-12">
 						<div class="customer_details">
-							<h3>Billing details</h3>
+							<h3>Shipping address</h3>
 							<div class="customar__field">
 								<div class="margin_between">
 									<div class="input_box space_between">
@@ -92,19 +92,27 @@ if(isset($_COOKIE['checkoutInfo'])){
 									</div>
 								</div>
 								<div class="input_box">
-									<label>Company name <span>*</span></label>
-									<input type="text">
+									<label>phone number<span>*</span></label>
+									<input type="number" placeholder="0550513425">
 								</div>
 								<div class="input_box">
-									<label>Country<span>*</span></label>
+									<label>Region<span>*</span></label>
 									<select class="select__option">
-										<option>Select a country…</option>
-										<option>Afghanistan</option>
-										<option>American Samoa</option>
-										<option>Anguilla</option>
-										<option>American Samoa</option>
-										<option>Antarctica</option>
-										<option>Antigua and Barbuda</option>
+									<option value="" disabled="" selected="">Please select</option>
+									<option value="253">Ahafo</option>
+									<option value="242">Ashanti</option>
+									<option value="251">Bono</option>
+									<option value="252">Bono East</option>
+									<option value="244">Central</option>
+									<option value="245">Eastern</option>
+									<option value="241">Greater Accra</option>
+									<option value="254">North East</option>
+									<option value="246">Northern</option>
+									<option value="257">Oti</option><option value="255">Savannah</option>
+									<option value="248">Upper East</option>
+									<option value="247">Volta</option>
+									<option value="250">Western</option>
+									<option value="256">Western North</option>
 									</select>
 								</div>
 								<div class="input_box">
@@ -155,7 +163,10 @@ if(isset($_COOKIE['checkoutInfo'])){
 								</div>
 							</div>
 						</div>
-						<div class="customer_details mt--20">
+
+
+						
+						<!-- <div class="customer_details mt--20">
 							<div class="differt__address">
 								<input name="ship_to_different_address" value="1" type="checkbox">
 								<span>Ship to a different address ?</span>
@@ -221,7 +232,7 @@ if(isset($_COOKIE['checkoutInfo'])){
 									</div>
 								</div>
 							</div>
-						</div>
+						</div> -->
 					</div>
 					<div class="col-lg-6 col-12 md-mt-40 sm-mt-40">
 						<div class="wn__order__box">
@@ -239,7 +250,7 @@ if(isset($_COOKIE['checkoutInfo'])){
 								
 								$sub_to[] = $info[3]*$info[1]
 								?>
-								<li><?=$info[0]?> × <b><?=$info[3]?></b><span>GHS <?=$info[1]*$info[3]?></span></li>
+								<li><?=$info[0]?> <br> Qty: <b><?=$info[3]?></b><span>  GHS <?=$info[1]*$info[3]?></span></li>
 								<?php
 							}
 							
@@ -273,17 +284,18 @@ if(isset($_COOKIE['checkoutInfo'])){
 								<div class="che__header" role="tab" id="headingOne">
 									<a class="checkout__title" data-toggle="collapse" href="#collapseOne"
 										aria-expanded="true" aria-controls="collapseOne">
-										<span>Mobile money payment</span>
+										<span>Pay on Delivery</span>
 									</a>
 								</div>
 								<div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne"
 									data-parent="#accordion">
-									<div class="payment-body">MTN MOMO, VODAFONE CASH , AIRTEL/TIGO</div>
+									<div class="payment-body">Pay on Delivery</div>
 								</div>
+							
 							</div>
 
 							<div class="payment">
-								<div class="che__header" role="tab" id="headingFour">
+								<!-- <div class="che__header" role="tab" id="headingFour">
 									<a class="collapsed checkout__title" data-toggle="collapse" href="#collapseFour"
 										aria-expanded="false" aria-controls="collapseFour">
 										<span><img src="assets/images/icons/payment.png"alt="payment images"> </span>
@@ -292,7 +304,7 @@ if(isset($_COOKIE['checkoutInfo'])){
 								<div id="collapseFour" class="collapse" role="tabpanel" aria-labelledby="headingFour"
 									data-parent="#accordion">
 									<div class="payment-body">Pay with your Credit card/Debit card</div>
-								</div>
+								</div> -->
 							</div>
 						</div>
 

@@ -20,8 +20,10 @@ require_once("../../private/server.php");
     if(empty($fetch)){
       $cart = $db->saving("cart", "qty, bookid, image, booktitle, booktype, book_type_price, user_id", "?,?,?,?,?,?,?", $dat);
       if($cart){
-        echo "2";      }
+        echo "1";      }
+        
     }else{
+    
       die("is already in your shopping cart");
     }
 
@@ -32,7 +34,7 @@ require_once("../../private/server.php");
         echo "1";
       }
     
-  }else if(isset($_COOKIE["cartinfo"])){
+  }elseif(isset($_COOKIE["cartinfo"])){
       $value = $_COOKIE["cartinfo"];
 
       $r = DataType($_COOKIE["cartinfo"]);
@@ -44,7 +46,10 @@ require_once("../../private/server.php");
       extract($_POST);
       
       if(in_array($bookid, $thebookid)){
+        
         die(" is already in your Shopping cart");
+       
+      
       }else{
          
           $r[]= $_POST;
@@ -60,6 +65,7 @@ require_once("../../private/server.php");
   }
    }
   }
+// remove book from cart
 
   if(isset($_POST['remove_product'])){
       extract($_POST);
