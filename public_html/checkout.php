@@ -3,6 +3,7 @@
 if(isset($_COOKIE['checkoutInfo'])){
 	$checkoutinfo = json_decode($_COOKIE['checkoutInfo']);
 
+
 }else{
 	header("location:cart");
 }
@@ -17,7 +18,12 @@ if(isset($_COOKIE['checkoutInfo'])){
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<?php include("include/head.php") ?>
+	<?php include("include/head.php") ?>\
+	<style>
+	  .error{
+		  color:#ff7979!important;
+	  }
+	</style>
 </head>
 
 <body>
@@ -79,25 +85,27 @@ if(isset($_COOKIE['checkoutInfo'])){
 				<div class="row">
 					<div class="col-lg-6 col-12">
 						<div class="customer_details">
-							<h3>Shipping address</h3>
+								<form class="cmxform" id="commentForm" method="post" action="checkout" autocomplete="on">
+
+								<h3>Shipping address</h3>
 							<div class="customar__field">
 								<div class="margin_between">
 									<div class="input_box space_between">
-										<label>First name <span>*</span></label>
-										<input type="text">
+										<label for="firstname">First name <span>*</span></label>
+										<input type="text" id="firstname" minlength="2" required name="firstname" class="input_t_s">
 									</div>
 									<div class="input_box space_between">
 										<label>last name <span>*</span></label>
-										<input type="text">
+										<input type="text" name="lastname" id="lastname" class="input_t_s" required minlength="2" >
 									</div>
 								</div>
-								<div class="input_box">
+								<!-- <div class="input_box">
 									<label>phone number<span>*</span></label>
-									<input type="number" placeholder="0550513425">
-								</div>
+									<input type="number" placeholder="0550513425" max="0">
+								</div> -->
 								<div class="input_box">
 									<label>Region<span>*</span></label>
-									<select class="select__option">
+									<select class="select__option  region_change input_t_s"  id="region" name="region" required>
 									<option value="" disabled="" selected="">Please select</option>
 									<option value="253">Ahafo</option>
 									<option value="242">Ashanti</option>
@@ -116,13 +124,18 @@ if(isset($_COOKIE['checkoutInfo'])){
 									</select>
 								</div>
 								<div class="input_box">
+								<label>City <span>*</span></label>
+									<input type="text" placeholder="Street address" name="address1" class="input_t_s" id="city" required>
+								</div>
+								<div class="input_box">
 									<label>Address <span>*</span></label>
-									<input type="text" placeholder="Street address">
+									<input type="text" placeholder="Street address" name="address1"  id="address" required  >
 								</div>
 								<div class="input_box">
-									<input type="text" placeholder="Apartment, suite, unit etc. (optional)">
+									<input type="text" placeholder="Additional Information"  name="address2" class="input_t_s" id="addition_information">
 								</div>
-								<div class="input_box">
+								
+								<!-- <div class="input_box">
 									<label>District<span>*</span></label>
 									<select class="select__option">
 										<option>Select a country…</option>
@@ -133,35 +146,45 @@ if(isset($_COOKIE['checkoutInfo'])){
 										<option>Antarctica</option>
 										<option>Antigua and Barbuda</option>
 									</select>
-								</div>
-								<div class="input_box">
-									<label>Postcode / ZIP <span>*</span></label>
-									<input type="text">
-								</div>
+								</div> -->
+
 								<div class="margin_between">
 									<div class="input_box space_between">
-										<label>Phone <span>*</span></label>
-										<input type="text">
+										<label>Phone Number <span>*</span></label>
+										<input type="number"  placeholder="0245236582" name="phone" class="input_t_s" id="phone" required minlength="9" >
 									</div>
 
 									<div class="input_box space_between">
 										<label>Email address <span>*</span></label>
-										<input type="email">
+										<input type="email" name="email" placeholder="email@mail.com" class="input_t_s" id="email" required>
 									</div>
+
+									
 								</div>
+
+									<h4>Create account</h4>
+								<div class="input_box">
+								<label>Account password <span>*</span></label>
+										<input type="text" placeholder="password" name="password" id="password" required>
+								</div>
+
+								<input type="hidden" value="" name="hidden_fees" id="hidden_fees">
+								<input type="hidden" name="hidden_total" value="" id="hidden_total">
 							</div>
 							<div class="create__account">
-								<div class="wn__accountbox">
-									<input class="input-checkbox" name="createaccount" value="1" type="checkbox">
+								<!-- <div class="wn__accountbox">
+									<input class="input-checkbox" name="createaccount" value="1" type="checkbox" id="create_account">
 									<span>Create an account ?</span>
-								</div>
-								<div class="account__field">
-									<form action="#">
+								</div> -->
+								<!-- <div class="account__field">
+									
 										<label>Account password <span>*</span></label>
-										<input type="text" placeholder="password">
-									</form>
-								</div>
+										<input type="text" placeholder="password" name="password">
+									
+								</div> -->
 							</div>
+
+							
 						</div>
 
 
@@ -209,7 +232,7 @@ if(isset($_COOKIE['checkoutInfo'])){
 									<label>District<span>*</span></label>
 									<select class="select__option">
 										<option>Select a country…</option>
-										<option>Afghanistan</option>
+										<option>Afghanistan</option>     
 										<option>American Samoa</option>
 										<option>Anguilla</option>
 										<option>American Samoa</option>
@@ -257,24 +280,24 @@ if(isset($_COOKIE['checkoutInfo'])){
 							?>
 							</ul>
 							<ul class="shipping__method">
-								<li>Cart Subtotal <span>GHS <?=array_sum($sub_to)?></span></li>
-								<li>Shipping
+								<li>Cart Subtotal  <span ><b id="subtotal_"><?=array_sum($sub_to)?></b></span></li>
+								<li>Shipping fees
+								
 									<ul>
 										<li>
-											<input name="shipping_method[0]" data-index="0" value="legacy_flat_rate"
-												checked="checked" type="radio">
-											<label style="padding-top:12px!important">Flat Rate: $48.00</label>
+											
+											<label style="padding-top:12px!important" class="">GHS <b class="fees">0</b></label>
 										</li>
-										<li>
-											<input name="shipping_method[0]" data-index="0" value="legacy_flat_rate"
-												checked="checked" type="radio">
-											<label style="padding-top:12px!important">Flat Rate: $48.00</label>
-										</li>
+										
 									</ul>
+								</li>
+
+								<li>
+								 <small>Free delivery on orders above GHS 100 </small>
 								</li>
 							</ul>
 							<ul class="total__amount">
-								<li>Order Total <span>$223.00</span></li>
+								<li>Order Total <span >GHS <b id="total__"><?=array_sum($sub_to)?></b> </span></li>
 							</ul>
 						</div>
 						<p class="p-4 bg-light mt-5 rounded ">Available payment options</p>
@@ -289,7 +312,12 @@ if(isset($_COOKIE['checkoutInfo'])){
 								</div>
 								<div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne"
 									data-parent="#accordion">
-									<div class="payment-body">Pay on Delivery</div>
+									<div class="payment-body">
+									 <ul>
+									   <li><small>Kindly note that you would have to make payment before opening your package</small></li>
+									   <li><small>  Once the seal is broken , the item can only be return if it is wrong, damage, defective, or has missing part</small> </li>
+									 </ul>
+									</div>
 								</div>
 							
 							</div>
@@ -305,6 +333,9 @@ if(isset($_COOKIE['checkoutInfo'])){
 									data-parent="#accordion">
 									<div class="payment-body">Pay with your Credit card/Debit card</div>
 								</div> -->
+								
+								  <input type="submit" class="btn btn-primary"  value="PROCEED TO NEXT STEP">
+								 </form>
 							</div>
 						</div>
 
@@ -317,6 +348,9 @@ if(isset($_COOKIE['checkoutInfo'])){
 
 	</div>
 	<?php include("include/footer.php") ?>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+	<script src="assets/js/checkout.js"></script>
+
 </body>
 
 </html>
