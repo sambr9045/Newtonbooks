@@ -13,9 +13,11 @@ $(document).ready(function(){
           if(val == "241"){
              if(Number(subtotals) >= 100){
               $(".fees").empty().append("0.00");
+              $("#hidden_fees").attr("value", fees_g_a);
              }else{
               $(".fees").empty().append(fees_g_a);
               $("#total__").empty().append( Number(subtotals)+ Number(fees_g_a))
+              $("#hidden_total").attr("value", $("#total__").html())
              }
           }else{
            if(Number(subtotals) >= 100){

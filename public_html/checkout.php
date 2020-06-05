@@ -18,7 +18,8 @@ if(isset($_COOKIE['checkoutInfo'])){
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<?php include("include/head.php") ?>\
+	<?php include("include/head.php") ?>
+	
 	<style>
 	  .error{
 		  color:#ff7979!important;
@@ -67,18 +68,7 @@ if(isset($_COOKIE['checkoutInfo'])){
 									</div>
 								</form>
 							</div>
-							<div class="checkout_info">
-								<span>Have a coupon? </span>
-								<a class="showcoupon" href="#">Click here to enter your code</a>
-							</div>
-							<div class="checkout_coupon">
-								<form action="#">
-									<div class="form__coupon">
-										<input type="text" placeholder="Coupon code">
-										<button>Apply coupon</button>
-									</div>
-								</form>
-							</div>
+							
 						</div>
 					</div>
 				</div>
@@ -161,33 +151,44 @@ if(isset($_COOKIE['checkoutInfo'])){
 
 									
 								</div>
-
+<!-- 
 									<h4>Create account</h4>
 								<div class="input_box">
 								<label>Account password <span>*</span></label>
 										<input type="text" placeholder="password" name="password" id="password" required>
-								</div>
+								</div> -->
 
 								<input type="hidden" value="" name="hidden_fees" id="hidden_fees">
 								<input type="hidden" name="hidden_total" value="" id="hidden_total">
 							</div>
 							<div class="create__account">
-								<!-- <div class="wn__accountbox">
-									<input class="input-checkbox" name="createaccount" value="1" type="checkbox" id="create_account">
-									<span>Create an account ?</span>
-								</div> -->
-								<!-- <div class="account__field">
+								<div class="">
+									<input class="input-checkbox wn__accountbox" name="createaccount" value="1" type="checkbox" id="create_account">
+									<span><b>Create account </b></span>
+								</div> 
+								<div class="account__field">
 									
 										<label>Account password <span>*</span></label>
-										<input type="text" placeholder="password" name="password">
+										<input type="password" placeholder="password" name="password">
 									
-								</div> -->
+								</div>
 							</div>
 
 							
 						</div>
-
-
+	  						<br><br>
+						<div class="checkout_info">
+								<span>Have a coupon? </span>
+								<a class="showcoupon" href="#">Click here to enter your code</a>
+							</div>
+							<div class="checkout_coupon">
+								<form action="#">
+									<div class="form__coupon">
+										<input type="text" placeholder="Coupon code">
+										<button>Apply coupon</button>
+									</div>
+								</form>
+							</div>
 						
 						<!-- <div class="customer_details mt--20">
 							<div class="differt__address">
