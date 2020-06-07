@@ -55,9 +55,9 @@ $(document).ready(function () {
     $(".deleteBook").click(function(e){
             e.preventDefault();
             let bookid = $(this).attr("bookid");
-            console.log('this is working')
+            
             $("#book-ok").click(function(e){
-                console.log("this is clcike")
+                
                 e.preventDefault();
                 $.post({
                     url:'../ajax/admin_be.php',
@@ -184,7 +184,56 @@ $(".blog_view").click(function(e){
     })
 })
 
-    function Ajax(url, data){
+
+$(".deleted_coupon_code").click(function (e) { 
+    e.preventDefault();
+    var coupon_code = $(this).attr("delete-coupon");
+    var thise = $(this)
+    $("#coupon-delete-ok").click(function(e){
+                
+        e.preventDefault();
+        $.post({
+            url:'../ajax/admin_be.php',
+            data:'&coupon_code='+coupon_code,
+            dataType:'html',
+            success:function(coupon_result){
+                if(coupon_result == "1"){
+                    $(".couponmodal .closes").click();
+                    $(".coupon_deleted").addClass("show");
+                   thise.closest("tr").find("td").hide("slow")
+                   thise.closest("tr").find("th").hide("slow")
+                }
+            }
+        })
+
+  
+
+    })
+   
+});
+
+
+$(".delete_categorie").click(function (e) { 
+    e.preventDefault();
+    var thise = $(this);
+    var categorie_id = $(this).attr("delete-categorie");
+    $.post({
+        url:'../ajax/admin_be.php',
+        data:'&categorie_id='+categorie_id,
+        dataType:'html',
+        success:function(categorie_result){
+            if(categorie_result == "1"){
+               $(".coupon_deleted").addClass("show");
+               thise.closest("tr").find("td").hide("slow")
+               thise.closest("tr").find("th").hide("slow")
+            }
+        }
+    })
+});
+
+
+
+function Ajax(url, data){
         
         $.post({
             url:url,

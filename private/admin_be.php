@@ -1,7 +1,7 @@
 <?php 
 
 require_once("../../private/initialized.php");
-
+$success_c = [];
 if(isset($_POST['addnewblogpost'])){
 
     $the_blog_update = false;
@@ -220,5 +220,44 @@ if(isset($_POST['notificatio_update'])){
    
 
 }
+// =============================================
+// generate coupon
+
+if(isset($_POST["generate_coupon"])){
+ 
+    extract($_POST);
+
+    $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+    $discount_success = [];
+ if(!empty($coupon_name)  || $coupon_name !=""){
+     $coupon_code = strtoupper($coupon_name.substr(uniqid(100), -4)) ;
+ }else{
+    $coupon_code = strtoupper(substr(uniqid(100), -6)) ;
+ }
+
+   $value = [$coupon_code, $coupon_name, $Discount, $above, $expiring_date ];
+    $SQl = $db->saving("coupon","coupon_code, coupon_name, coupon_percentage, order_above, expiring_date","?,?,?,?,?",  $value );
+    
+    if($SQl){
+        $success_c[]= "Coupon Successfuly created";
+    }
+}
+
+// ================================================
+// add categorie
+
+
+if(isset($_POST['add_new_categorie'])){
+    $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+
+    extract($_POST);
+    $value = [$categorie_name];
+    $SQL = $db->saving("ccategories", "cat_name", "?", $value );
+    if($SQL){
+        $success_c[]= "New categorie added succesfully";
+    }
+
+}
+
 
 ?>

@@ -213,4 +213,31 @@ if(isset($_POST['user_id_remove_wishlist'])){
     }
 
 }
+// ================================================
+// coupon_delete
+
+if(isset($_POST['coupon_code'])){
+
+      $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+      extract($_POST);
+      $del = $db->Delete("DELETE  FROM coupon WHERE coupon_code ='$coupon_code'", null);
+     
+      if($del){
+           echo "1";
+      }
+  }
+
+//   ======================================================
+// delete categorie
+
+
+
+if(isset($_POST['categorie_id'])){
+    extract($_POST);
+    $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+    $SQL = $db->Delete("DELETE FROM ccategories WHERE id ='$categorie_id'", null);
+    if($SQL){
+        echo "1";
+    }
+}
 ?>
