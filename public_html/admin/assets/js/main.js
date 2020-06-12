@@ -231,7 +231,36 @@ $(".delete_categorie").click(function (e) {
     })
 });
 
+$(".edit_about_us").click(function (e) { 
+    e.preventDefault();
+ var the_value = $(this).attr("the_value");
+ var title = $(this).closest("ul").find(".lst").html();
+ $(".note-editable").empty().append(the_value);
+ $("#staticBackdropLabel").empty().append(title);
 
+ $(".about_us_update").click(function (e) { 
+     e.preventDefault();
+    let dat = $(".note-editable").html();
+     let data = JSON.stringify(dat);
+           
+     $.post({
+        url:"../ajax/admin_be.php",
+        data:"&about_us_edit="+data+"&title="+title,
+        dataType:'html',
+        success:function(response){
+          console.log(response);
+        }
+    })
+    // $(".note-editable").each(function(){
+    //     if($(this).find('> img').length){
+    //         console.log($(this).find('> img').length)
+    //     }
+        
+    // })
+ });
+ 
+    
+});
 
 function Ajax(url, data){
         

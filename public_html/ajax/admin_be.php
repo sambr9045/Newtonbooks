@@ -240,4 +240,21 @@ if(isset($_POST['categorie_id'])){
         echo "1";
     }
 }
+
+
+// ===================================================
+// edit about us 
+
+if(isset($_POST['about_us_edit'])){
+    extract($_POST);
+    $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+    $titles = str_replace(" ", "_", $title);
+    $titless = strtolower($title);
+    
+    $datc = [$about_us_edit, "1"];
+    $SQL = $db->Update("UPDATE about_us SET $titless = ? WHERE id =?", $datc);
+if($SQL){
+    echo "1";
+}
+}
 ?>

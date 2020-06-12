@@ -182,7 +182,7 @@ $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
                             <div class="card p-2">
 
                             <ul class="list-group list-group-flush">
-   
+                            <li class="list-group-item"> <button class="btn btn-info" >About us</button></li>
                               
                             </ul>
                             
@@ -191,11 +191,11 @@ $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
 
                                     <div class="row strows mt-3 ml-1 mr-1">
                                     <!-- Our story -->
-                                    <div class="col-sm-6 mb-2 mt-4"  style="height:40vh!important;overflow:auto;">
-                                        <div class="card p-2">
+                                    <div class="col-sm-6 mb-2 mt-4" >
+                                        <div class="card p-2"  style="height:40vh!important;overflow:auto; box-shadow:1px 1px 0px 0px lightgray;">
                                         <ul class="list-group list-group-flush">
 
-                                        <li class="list-group-item"> <button class="btn btn-primary" >Our story</button>  <button class="btn btn-danger text-right edit_about_us" style="float:right;">Edit</button></li>
+                                        <li class="list-group-item"> <button class="btn btn-primary lst" >Our story</button>  <button class="btn btn-danger text-right edit_about_us" data-toggle="modal" data-target="#staticBackdrop"  the_value="<?=nl2br($our_story)?>" style="float:right;">Edit</button></li>
                                        
                                         </ul>
 
@@ -207,11 +207,11 @@ $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
                                     </div> 
                                   
                                     <!-- Our philosophie -->
-                                    <div class="col-sm-6 mb-2 mt-4"  style="height:40vh!important;overflow:auto;">
-                                        <div class="card p-2">
+                                    <div class="col-sm-6 mb-2 mt-4"  >
+                                        <div class="card p-2"  style="height:40vh!important;overflow:auto; box-shadow:1px 1px 0px 0px lightgray;">
                                         <ul class="list-group list-group-flush">
 
-                                        <li class="list-group-item"> <button class="btn btn-primary" >our Philosophy</button>  <button class="btn btn-danger text-right edit_about_us" style="float:right;">Edit</button></li>
+                                        <li class="list-group-item"> <button class="btn btn-primary lst" >our Philosophy</button>  <button class="btn btn-danger text-right edit_about_us" data-toggle="modal" data-target="#staticBackdrop" the_value="<?=nl2br($our_philosophy)?>"  style="float:right;">Edit</button></li>
                                         </ul>
 
                                         <div class="card-body">
@@ -225,11 +225,11 @@ $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
                                   
                                   <!-- Best or less -->
 
-                                  <div class="col-sm-6 mb-2 mt-4" style="height:40vh!important;overflow:auto;">
-                                        <div class="card p-2">
+                                  <div class="col-sm-6 mb-2 mt-4" >
+                                        <div class="card p-2"  style="height:40vh!important;overflow:auto; box-shadow:1px 1px 0px 0px lightgray;">
                                         <ul class="list-group list-group-flush">
 
-                                        <li class="list-group-item"> <button class="btn btn-primary" >Best for Less</button>  <button class="btn btn-danger text-right edit_about_us" style="float:right;">Edit</button></li>
+                                        <li class="list-group-item"> <button class="btn btn-primary lst" >Best for Less</button>  <button class="btn btn-danger text-right edit_about_us" data-toggle="modal" data-target="#staticBackdrop" the_value="<?=nl2br($best_for_less)?>" style="float:right;">Edit</button></li>
                                         </ul>
 
                                         <div class="card-body">
@@ -241,11 +241,11 @@ $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
 
                                     <!-- Our Mission -->
                                     
-                                    <div class="col-sm-6 mb-2 mt-4" style="height:40vh!important;overflow:auto;">
-                                        <div class="card p-2">
+                                    <div class="col-sm-6 mb-2 mt-4" s>
+                                        <div class="card p-2"  style="height:40vh!important;overflow:auto; box-shadow:1px 1px 0px 0px lightgray;">
                                         <ul class="list-group list-group-flush">
 
-                                        <li class="list-group-item"> <button class="btn btn-primary" >Our Mission</button>  <button class="btn btn-danger text-right edit_about_us" style="float:right;">Edit</button></li>
+                                        <li class="list-group-item"> <button class="btn btn-primary lst" >Our Mission</button>  <button class="btn btn-danger text-right edit_about_us" the_value="<?=nl2br($our_mission)?>" data-toggle="modal" data-target="#staticBackdrop" style="float:right;">Edit</button></li>
                                         </ul>
 
                                         <div class="card-body">
@@ -421,9 +421,46 @@ $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
 
 </section>
 
-
+<!-- ======================================
+about us modqal
+ -->
   
+
+<!-- Button trigger modal -->
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-danger" id="staticBackdropLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" >
+         <div style="overflow:auto!important;">
+              <form method="post" action="cca">
+                                    
+                        <div class="form-group">
+                         <textarea name="editordata" id="summernote" cols="30" rows="50" class="form-control textarea" value="" style="height:80vh!important;">
+                                  
+                         </textarea>
+                        </div>
+              
+            </form>
+         </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary about_us_update" name="about_us_update">Update</button>
+
+      
+      </div>
+    </div>
+  </div>
+</div>
 <script>
+        $('#summernote').summernote();
 (function() {
   'use strict';
   window.addEventListener('load', function() {
@@ -441,5 +478,11 @@ $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
     });
   }, false);
 })();
+
+
+    $(document).ready(function() {
+
+    });
+
 </script>
 <?php include("inc/inc_down.php") ?>

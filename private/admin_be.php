@@ -259,5 +259,9 @@ if(isset($_POST['add_new_categorie'])){
 
 }
 
+// ======================================================
+// update aout us content 
+
+
 
 ?>
