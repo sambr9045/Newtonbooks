@@ -61,7 +61,7 @@ $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
                                 <div class="card-body">
                                     
 
-                               <div class="table-responsive" style="height:50vh!important;overflow:auto;">
+                               <div class="table-responsive" style="height:30vh!important;overflow:auto;">
 
                                 <?php 
 
@@ -130,7 +130,7 @@ $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
                             </ul>
                             
                                 <div class="card-body">
-                                        <div class="table-responsive" style="height:50vh!important;overflow:auto;">
+                                        <div class="table-responsive" style="height:30vh!important;overflow:auto;">
                                           
 
 
@@ -176,6 +176,8 @@ $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
                                 $about_us = $db->Fetch("SELECT * FROM about_us", null);
                                 extract($about_us[0]);
                               
+                                
+                              
                           
                           ?>
                         <div class="col-sm-12 mb-2">
@@ -191,32 +193,35 @@ $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
 
                                     <div class="row strows mt-3 ml-1 mr-1">
                                     <!-- Our story -->
-                                    <div class="col-sm-6 mb-2 mt-4" >
+                                    <div class="col-sm-6 mb-2 mt-4 all_for_all" >
                                         <div class="card p-2"  style="height:40vh!important;overflow:auto; box-shadow:1px 1px 0px 0px lightgray;">
                                         <ul class="list-group list-group-flush">
 
-                                        <li class="list-group-item"> <button class="btn btn-primary lst" >Our story</button>  <button class="btn btn-danger text-right edit_about_us" data-toggle="modal" data-target="#staticBackdrop"  the_value="<?=nl2br($our_story)?>" style="float:right;">Edit</button></li>
+                                        <li class="list-group-item"> <button class="btn btn-primary lst" >Our story</button>  <button class="btn btn-danger text-right edit_about_us" data-toggle="modal" data-target="#staticBackdrop"  style="float:right;">Edit</button></li>
                                        
                                         </ul>
 
-                                        <div class="card-body">
-                                            <?=nl2br($our_story)?>
+                                        <div class="card-body the_body">
+                                            <?php 
+                                          echo json_decode($our_story);
+                                            
+                                            ?>
                                         </div>
 
                                         </div>
                                     </div> 
                                   
                                     <!-- Our philosophie -->
-                                    <div class="col-sm-6 mb-2 mt-4"  >
+                                    <div class="col-sm-6 mb-2 mt-4 all_for_all"  >
                                         <div class="card p-2"  style="height:40vh!important;overflow:auto; box-shadow:1px 1px 0px 0px lightgray;">
                                         <ul class="list-group list-group-flush">
 
-                                        <li class="list-group-item"> <button class="btn btn-primary lst" >our Philosophy</button>  <button class="btn btn-danger text-right edit_about_us" data-toggle="modal" data-target="#staticBackdrop" the_value="<?=nl2br($our_philosophy)?>"  style="float:right;">Edit</button></li>
+                                        <li class="list-group-item"> <button class="btn btn-primary lst" >our Philosophy</button>  <button class="btn btn-danger text-right edit_about_us" data-toggle="modal" data-target="#staticBackdrop"   style="float:right;">Edit</button></li>
                                         </ul>
 
-                                        <div class="card-body">
+                                        <div class="card-body the_body">
                                               <article>
-                                              <?=nl2br($our_philosophy)?>
+                                              <?=json_decode($our_philosophy)?>
                                               </article>
                                         </div>
 
@@ -225,15 +230,15 @@ $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
                                   
                                   <!-- Best or less -->
 
-                                  <div class="col-sm-6 mb-2 mt-4" >
+                                  <div class="col-sm-6 mb-2 mt-4 all_for_all" >
                                         <div class="card p-2"  style="height:40vh!important;overflow:auto; box-shadow:1px 1px 0px 0px lightgray;">
                                         <ul class="list-group list-group-flush">
 
-                                        <li class="list-group-item"> <button class="btn btn-primary lst" >Best for Less</button>  <button class="btn btn-danger text-right edit_about_us" data-toggle="modal" data-target="#staticBackdrop" the_value="<?=nl2br($best_for_less)?>" style="float:right;">Edit</button></li>
+                                        <li class="list-group-item"> <button class="btn btn-primary lst" >Best for Less</button>  <button class="btn btn-danger text-right edit_about_us" data-toggle="modal" data-target="#staticBackdrop" style="float:right;">Edit</button></li>
                                         </ul>
 
-                                        <div class="card-body">
-                                          <?=nl2br($best_for_less)?>
+                                        <div class="card-body the_body">
+                                          <?=json_decode($best_for_less)?>
                                         </div>
 
                                         </div>
@@ -241,15 +246,15 @@ $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
 
                                     <!-- Our Mission -->
                                     
-                                    <div class="col-sm-6 mb-2 mt-4" s>
+                                    <div class="col-sm-6 mb-2 mt-4 all_for_all" >
                                         <div class="card p-2"  style="height:40vh!important;overflow:auto; box-shadow:1px 1px 0px 0px lightgray;">
                                         <ul class="list-group list-group-flush">
 
-                                        <li class="list-group-item"> <button class="btn btn-primary lst" >Our Mission</button>  <button class="btn btn-danger text-right edit_about_us" the_value="<?=nl2br($our_mission)?>" data-toggle="modal" data-target="#staticBackdrop" style="float:right;">Edit</button></li>
+                                        <li class="list-group-item"> <button class="btn btn-primary lst" >Our Mission</button>  <button class="btn btn-danger text-right edit_about_us"  data-toggle="modal" data-target="#staticBackdrop" style="float:right;">Edit</button></li>
                                         </ul>
 
-                                        <div class="card-body">
-                                              <?=nl2br($our_mission)?>
+                                        <div class="card-body the_body">
+                                              <?=json_decode($our_mission)?>
                                         </div>
 
                                         </div>
@@ -437,7 +442,16 @@ about us modqal
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+      
       <div class="modal-body" >
+
+      <div class="alert alert-success alert-dismissible fade  update_about_us" style="display:none;" role="alert">
+                    <strong>Success !</strong> Content Updated succesfully
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+              </div>
+
          <div style="overflow:auto!important;">
               <form method="post" action="cca">
                                     

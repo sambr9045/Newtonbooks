@@ -22,8 +22,12 @@ if(isset($_COOKIE['checkoutInfo'])){
 	
 	<style>
 	  .error{
-		  color:#ff7979!important;
+		  color:red!important;
 	  }
+	  #commentForm input, option{
+		  color:black!important;
+	  }
+
 	</style>
 </head>
 
@@ -103,7 +107,7 @@ if(isset($_COOKIE['checkoutInfo'])){
 									<option value="252">Bono East</option>
 									<option value="244">Central</option>
 									<option value="245">Eastern</option>
-									<option value="241">Greater Accra</option>
+									<option value="241" selected>Greater Accra</option>
 									<option value="254">North East</option>
 									<option value="246">Northern</option>
 									<option value="257">Oti</option><option value="255">Savannah</option>
@@ -168,27 +172,31 @@ if(isset($_COOKIE['checkoutInfo'])){
 								</div> 
 								<div class="account__field">
 									
-										<label>Account password <span>*</span></label>
-										<input type="password" placeholder="password" name="password">
+										<label style="color:black!important;">Account password <span>*</span></label>
+										<input type="password" placeholder="password" name="password" style="border:1px solid lightgray;">
 									
 								</div>
 							</div>
-
-							
-						</div>
-	  						<br><br>
-						<div class="checkout_info">
+<br><br>
+							<div class="checkout_info">
 								<span>Have a coupon? </span>
 								<a class="showcoupon" href="#">Click here to enter your code</a>
 							</div>
 							<div class="checkout_coupon">
-								<form action="#">
+								
 									<div class="form__coupon">
-										<input type="text" placeholder="Coupon code">
-										<button>Apply coupon</button>
+									
+										<input type="text" placeholder="Coupon code" id="coupon_code_match" style="text-transform:uppercase;">
+										<button class="use_coupon">Apply coupon</button>
+										<p id="coupon_result" class="text-danger pt-2 "></p> 
+										<p id="couponInfo" class="pb-2 pt-2"></p>
 									</div>
-								</form>
+									
+							
 							</div>
+						</div>
+	  						<br><br>
+						
 						
 						<!-- <div class="customer_details mt--20">
 							<div class="differt__address">
@@ -296,6 +304,9 @@ if(isset($_COOKIE['checkoutInfo'])){
 								<li>
 								 <small>Free delivery on orders above GHS 100 </small>
 								</li>
+							</ul>
+							<ul class="total__amount coupon_hide" style="display:none;">
+								<li style="font-size:13px!important;text-transform:capitalize!important" class="text-info">Coupon discount <span > - GHS <b id="coupon_discount_update"><?=array_sum($sub_to)?></b> </span></li>
 							</ul>
 							<ul class="total__amount">
 								<li>Order Total <span >GHS <b id="total__"><?=array_sum($sub_to)?></b> </span></li>

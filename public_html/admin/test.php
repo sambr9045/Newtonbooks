@@ -16,14 +16,17 @@ $title = "our story";
 
  $titles = str_replace(" ", "_", $title);
  echo $titles;
+ $d = ["this is the data"];
+ var_dump(isJson($d));
+
+ function isJson($string) {
+  return ((is_string($string) &&
+          (is_object(json_decode($string)) ||
+          is_array(json_decode($string))))) ? true : false;
+}
 
 ?>
-  <div id="summernote"><p>Hello Summernote</p></div>
-  <script>
-    $(document).ready(function() {
-        $('#summernote').summernote();
-    });
-
+ 
 
    
   </script>

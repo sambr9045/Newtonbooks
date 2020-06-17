@@ -249,12 +249,41 @@ if(isset($_POST['about_us_edit'])){
     extract($_POST);
     $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
     $titles = str_replace(" ", "_", $title);
-    $titless = strtolower($title);
+    $titless = strtolower($titles);
+ 
     
-    $datc = [$about_us_edit, "1"];
+    $datc = [json_encode($about_us_edit), "1"];
     $SQL = $db->Update("UPDATE about_us SET $titless = ? WHERE id =?", $datc);
 if($SQL){
     echo "1";
 }
+}
+
+
+// ================================================================
+// =============
+if(isset($_POST['coupon_code_match'])){
+    extract($_POST);
+    
+    $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+    $coupon = $db->Fetch("SELECT * FROM coupon WHERE coupon_code = '$coupon_code_match'", null);
+    
+    $today_date = Date("Y-m-d");
+    if(!empty($coupon)){
+        $result =[];
+        foreach($coupon as $coupons){
+            extract($coupons);
+            if($today_date <= $expiring_date){
+               $result = ["couponPercentage"=>$coupon_percentage, "orderAbove"=>$order_above];
+              echo json_encode($result);
+            }else{
+                echo "expired";
+            }
+        }
+     
+        
+    }else{
+        echo "unknown";
+    }
 }
 ?>

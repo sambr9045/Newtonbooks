@@ -233,22 +233,26 @@ $(".delete_categorie").click(function (e) {
 
 $(".edit_about_us").click(function (e) { 
     e.preventDefault();
- var the_value = $(this).attr("the_value");
+ var the_value = $(this).closest(".all_for_all").find(".the_body").html();
  var title = $(this).closest("ul").find(".lst").html();
+ console.log(title);
  $(".note-editable").empty().append(the_value);
  $("#staticBackdropLabel").empty().append(title);
 
  $(".about_us_update").click(function (e) { 
      e.preventDefault();
-    let dat = $(".note-editable").html();
-     let data = JSON.stringify(dat);
+    let data = $(".note-editable").html();
+     
            
      $.post({
         url:"../ajax/admin_be.php",
         data:"&about_us_edit="+data+"&title="+title,
         dataType:'html',
         success:function(response){
-          console.log(response);
+          if(response == "1"){
+            $(".update_about_us").show();
+              $(".update_about_us").addClass("show");
+          }
         }
     })
     // $(".note-editable").each(function(){
