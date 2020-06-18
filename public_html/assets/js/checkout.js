@@ -32,7 +32,13 @@ $(document).ready(function(){
                     let dec = (discount / 100).toFixed(2);
                     let mult = order_total * dec;
                     let disc = order_total - mult;
-                   
+                    let session_data ="&couponCode="+coupon_code_match+
+                                      "&couponPercentage="+discount+
+                                      "&coupon_discounted_amount="+mult+
+                                      "&coupon_dinal_total="+disc;
+
+                      let data = JSON.stringify(session_data);
+
                     $("#total__").empty().append(disc);
                     $("#coupon_code_match").hide()
                     $("#coupon_result").empty().append("<h4 style='color:white;'><b>Hurray !! "+ discount+"% OFF</b></h4>")
@@ -41,6 +47,13 @@ $(document).ready(function(){
                     $(".checkout_coupon").addClass("bg-info")
                     $(".coupon_hide").fadeIn();
                     $("#coupon_discount_update").empty().append(mult)
+                    
+                    // $("#coupon_code_push").attr("value", coupon_code_match);
+                    // $("#coupon_percentrage_push").attr('value', discount);
+                    // $("#coupon_substracted_price").attr('value', mult);
+                    // $("#coupon_final_total").attr('value', disc)
+                    $.cookie('couponDetails', data, {path: '/' });                    
+
                }else{
                     
                     $("#coupon_result").empty().append("<small >The code you applied is only valid for order above <b>GHS "+resp["orderAbove"] +"</b></small>")
@@ -51,6 +64,10 @@ $(document).ready(function(){
       })
        }
     });
+
+    if($.cookie("couponDetails")){
+      $.removeCookie('couponDetails', {path: '/'});
+    }
 
   if($(".region_change").val() == "241"){
     var val =$(".region_change").val() 

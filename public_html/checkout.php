@@ -1,5 +1,8 @@
 ﻿<?php include("../private/load.php") ;
 
+if(isset($_POST['continue_to_next_step'])){
+	var_dump($_POST);
+}
 if(isset($_COOKIE['checkoutInfo'])){
 	$checkoutinfo = json_decode($_COOKIE['checkoutInfo']);
 
@@ -14,7 +17,7 @@ if(isset($_COOKIE['checkoutInfo'])){
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<title>Checkout | Books Library eCommerce Store</title>
+	<title>Newtonbooksonline | Checkout</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -79,7 +82,8 @@ if(isset($_COOKIE['checkoutInfo'])){
 				<div class="row">
 					<div class="col-lg-6 col-12">
 						<div class="customer_details">
-								<form class="cmxform" id="commentForm" method="post" action="checkout" autocomplete="on">
+
+		<form class="cmxform" id="commentForm" method="post"     action="complete" autocomplete="on">
 
 								<h3>Shipping address</h3>
 							<div class="customar__field">
@@ -89,16 +93,13 @@ if(isset($_COOKIE['checkoutInfo'])){
 										<input type="text" id="firstname" minlength="2" required name="firstname" class="input_t_s">
 									</div>
 									<div class="input_box space_between">
-										<label>last name <span>*</span></label>
+										<label for="lastname">last name <span>*</span></label>
 										<input type="text" name="lastname" id="lastname" class="input_t_s" required minlength="2" >
 									</div>
 								</div>
-								<!-- <div class="input_box">
-									<label>phone number<span>*</span></label>
-									<input type="number" placeholder="0550513425" max="0">
-								</div> -->
+								
 								<div class="input_box">
-									<label>Region<span>*</span></label>
+									<label for="region">Region<span>*</span></label>
 									<select class="select__option  region_change input_t_s"  id="region" name="region" required>
 									<option value="" disabled="" selected="">Please select</option>
 									<option value="253">Ahafo</option>
@@ -118,42 +119,38 @@ if(isset($_COOKIE['checkoutInfo'])){
 									</select>
 								</div>
 								<div class="input_box">
-								<label>City <span>*</span></label>
-									<input type="text" placeholder="Street address" name="address1" class="input_t_s" id="city" required>
+								<label for="city" >City <span>*</span></label>
+									<input type="text" placeholder="city" name="city" class="input_t_s" id="city" required>
 								</div>
 								<div class="input_box">
-									<label>Address <span>*</span></label>
+									<label for="address">Address <span>*</span></label>
 									<input type="text" placeholder="Street address" name="address1"  id="address" required  >
 								</div>
 								<div class="input_box">
 									<input type="text" placeholder="Additional Information"  name="address2" class="input_t_s" id="addition_information">
 								</div>
 								
-								<!-- <div class="input_box">
-									<label>District<span>*</span></label>
-									<select class="select__option">
-										<option>Select a country…</option>
-										<option>Afghanistan</option>
-										<option>American Samoa</option>
-										<option>Anguilla</option>
-										<option>American Samoa</option>
-										<option>Antarctica</option>
-										<option>Antigua and Barbuda</option>
-									</select>
-								</div> -->
-
+							
 								<div class="margin_between">
 									<div class="input_box space_between">
-										<label>Phone Number <span>*</span></label>
+										<label for="phone">Phone Number <span>*</span></label>
 										<input type="number"  placeholder="0245236582" name="phone" class="input_t_s" id="phone" required minlength="9" >
 									</div>
 
 									<div class="input_box space_between">
-										<label>Email address <span>*</span></label>
+										<label for="email">Email address <span>*</span></label>
 										<input type="email" name="email" placeholder="email@mail.com" class="input_t_s" id="email" required>
 									</div>
 
 									
+								</div>
+
+								<div>
+								
+	  									  <input type="hidden" name="coupon_code" value="" id="coupon_code_push">
+										  <input type="hidden" name="coupon_percentage"  value="" id="coupon_percentrage_push">
+										  <input type="hidden" value="" name="coupon_subtracted_price" id="coupon_substracted_price">
+										  <input type="hidden" value="" name="final_total" id="coupon_final_total">
 								</div>
 <!-- 
 									<h4>Create account</h4>
@@ -196,75 +193,7 @@ if(isset($_COOKIE['checkoutInfo'])){
 							</div>
 						</div>
 	  						<br><br>
-						
-						
-						<!-- <div class="customer_details mt--20">
-							<div class="differt__address">
-								<input name="ship_to_different_address" value="1" type="checkbox">
-								<span>Ship to a different address ?</span>
-							</div>
-							<div class="customar__field differt__form mt--40">
-								<div class="margin_between">
-									<div class="input_box space_between">
-										<label>First name <span>*</span></label>
-										<input type="text">
-									</div>
-									<div class="input_box space_between">
-										<label>last name <span>*</span></label>
-										<input type="text">
-									</div>
-								</div>
-								<div class="input_box">
-									<label>Company name <span>*</span></label>
-									<input type="text">
-								</div>
-								<div class="input_box">
-									<label>Country<span>*</span></label>
-									<select class="select__option">
-										<option>Select a country…</option>
-										<option>Afghanistan</option>
-										<option>American Samoa</option>
-										<option>Anguilla</option>
-										<option>American Samoa</option>
-										<option>Antarctica</option>
-										<option>Antigua and Barbuda</option>
-									</select>
-								</div>
-								<div class="input_box">
-									<label>Address <span>*</span></label>
-									<input type="text" placeholder="Street address">
-								</div>
-								<div class="input_box">
-									<input type="text" placeholder="Apartment, suite, unit etc. (optional)">
-								</div>
-								<div class="input_box">
-									<label>District<span>*</span></label>
-									<select class="select__option">
-										<option>Select a country…</option>
-										<option>Afghanistan</option>     
-										<option>American Samoa</option>
-										<option>Anguilla</option>
-										<option>American Samoa</option>
-										<option>Antarctica</option>
-										<option>Antigua and Barbuda</option>
-									</select>
-								</div>
-								<div class="input_box">
-									<label>Postcode / ZIP <span>*</span></label>
-									<input type="text">
-								</div>
-								<div class="margin_between">
-									<div class="input_box space_between">
-										<label>Phone <span>*</span></label>
-										<input type="text">
-									</div>
-									<div class="input_box space_between">
-										<label>Email address <span>*</span></label>
-										<input type="email">
-									</div>
-								</div>
-							</div>
-						</div> -->
+					
 					</div>
 					<div class="col-lg-6 col-12 md-mt-40 sm-mt-40">
 						<div class="wn__order__box">
@@ -319,7 +248,7 @@ if(isset($_COOKIE['checkoutInfo'])){
 								<div class="che__header" role="tab" id="headingOne">
 									<a class="checkout__title" data-toggle="collapse" href="#collapseOne"
 										aria-expanded="true" aria-controls="collapseOne">
-										<span>Pay on Delivery</span>
+										<span><img src="assets/images/payDelivery.png" alt="" style="vertical-align:middle; padding-right:10px;"> Pay on Delivery</span>
 									</a>
 								</div>
 								<div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne"
@@ -346,7 +275,7 @@ if(isset($_COOKIE['checkoutInfo'])){
 									<div class="payment-body">Pay with your Credit card/Debit card</div>
 								</div> -->
 								
-								  <input type="submit" class="btn btn-primary"  value="PROCEED TO NEXT STEP">
+								  <input type="submit" class="btn btn-primary" name="continue_to_next_step" value="PROCEED TO NEXT STEP">
 								 </form>
 							</div>
 						</div>
@@ -360,6 +289,8 @@ if(isset($_COOKIE['checkoutInfo'])){
 
 	</div>
 	<?php include("include/footer.php") ?>
+	<script src="assets/js/jquery.cookie.js"></script>
+
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
 	<script src="assets/js/checkout.js"></script>
 
