@@ -32,13 +32,8 @@ $(document).ready(function(){
                     let dec = (discount / 100).toFixed(2);
                     let mult = order_total * dec;
                     let disc = order_total - mult;
-                    let session_data ="&couponCode="+coupon_code_match+
-                                      "&couponPercentage="+discount+
-                                      "&coupon_discounted_amount="+mult+
-                                      "&coupon_dinal_total="+disc;
-
-                      let data = JSON.stringify(session_data);
-
+                   
+                    let data = coupon_code_match;
                     $("#total__").empty().append(disc);
                     $("#coupon_code_match").hide()
                     $("#coupon_result").empty().append("<h4 style='color:white;'><b>Hurray !! "+ discount+"% OFF</b></h4>")
@@ -52,7 +47,10 @@ $(document).ready(function(){
                     // $("#coupon_percentrage_push").attr('value', discount);
                     // $("#coupon_substracted_price").attr('value', mult);
                     // $("#coupon_final_total").attr('value', disc)
-                    $.cookie('couponDetails', data, {path: '/' });                    
+                    $.cookie.raw = true;
+                    $.cookie.secure - true;
+                    $.cookie('couponDetails', data, {path: '/' }); 
+                     
 
                }else{
                     

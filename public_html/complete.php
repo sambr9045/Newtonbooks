@@ -2,6 +2,8 @@
 
 if(isset($_POST['firstname'])){
     extract($_POST);
+    $shippingInfo = json_encode($_POST);
+    
     
 }else{
     header("location:cart");
@@ -41,7 +43,7 @@ if(isset($_COOKIE['checkoutInfo'])){
 <section>
 
 <br><br><br>
-        <div style="margin:0 auto; width:35%!important;" >
+        <div style="margin:0 auto; width:40%!important;" >
 
             <div class="mb-2">
                 <div class="card">
@@ -122,7 +124,7 @@ if(isset($_COOKIE['checkoutInfo'])){
                             <tr >
                             <th scope="row">Shipping fees</th>
                             <td class="text-right b"> <b>GHS
-                           <span> <?php
+                           <span id="th_shipping_fee"> <?php
                             $sheeping_fee_up = "";
                              if($region == "241" && array_sum($sub_to) < 100){
                                     $sheeping_fee_up = 15;
@@ -139,14 +141,14 @@ if(isset($_COOKIE['checkoutInfo'])){
                             </tr>
                             
                             <tr style="display:none;" id="coupon_reflex">
-                            <th scope="row">Subtotal</th>
-                            <td class="text-right b"> <b>GHS <span><?=array_sum($sub_to)?> </span></b></td>
+                            <th scope="row">Coupon Discount</th>
+                            <td class="text-right b text-danger"> <b> - GHS <span id="th_coupon_discount">0</span></b></td>
                             </tr>
 
                            
                             <tr style="border-top:1px solid lightgray;">
                             <th scope="row">Total</th>
-                            <td class="text-right b "> <b>GHS <span><?=array_sum($sub_to)+$sheeping_fee_up?></span></b> </td>
+                            <td class="text-right b "> <b>GHS <span id="order_tot"><?=array_sum($sub_to)+$sheeping_fee_up?></span></b> </td>
                             </tr>
 
 
@@ -155,7 +157,10 @@ if(isset($_COOKIE['checkoutInfo'])){
                                 
                                 </section>
                                 <br>
-                            <button type="submit" name="confim_order" class="btn btn-primary form-control">CONFIRM ORDER</button>
+                            <form >
+                           <p id="ship" style="display:none"><?=$shippingInfo?></p>
+                            <input type="submit" shipping_info="<?=$shippingInfo?>"  name="confim_order" class="btn btn-primary confim_order form-control" disabled value="CONFIRM ORDER"></input>
+                            </form>
                             <br><br>
                        </div>
 
@@ -172,8 +177,8 @@ if(isset($_COOKIE['checkoutInfo'])){
 <?php include("include/footer.php") ?>
 <script src="assets/js/jquery.cookie.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
-	<script src="assets/js/checkout.js"></script>
 </body>
+
 <script src="assets/js/complete.js"></script>
 
 </html>
