@@ -145,19 +145,6 @@ if(isset($_COOKIE['checkoutInfo'])){
 									
 								</div>
 
-								<div>
-								
-	  									  <input type="hidden" name="coupon_code" value="" id="coupon_code_push">
-										  <input type="hidden" name="coupon_percentage"  value="" id="coupon_percentrage_push">
-										  <input type="hidden" value="" name="coupon_subtracted_price" id="coupon_substracted_price">
-										  <input type="hidden" value="" name="final_total" id="coupon_final_total">
-								</div>
-<!-- 
-									<h4>Create account</h4>
-								<div class="input_box">
-								<label>Account password <span>*</span></label>
-										<input type="text" placeholder="password" name="password" id="password" required>
-								</div> -->
 
 								<input type="hidden" value="" name="hidden_fees" id="hidden_fees">
 								<input type="hidden" name="hidden_total" value="" id="hidden_total">

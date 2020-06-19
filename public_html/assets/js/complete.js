@@ -4,14 +4,11 @@ $(document).ready(function () {
         let coupon = $.cookie("couponDetails");
         $("#coupon_reflex").show();
         let order_tot = $("#order_tot").html();
-    
-
         $.post({
             url:"ajax/admin_be.php",
             data:"&coupon_code_verify="+coupon,
             dataType:'html',
             success:function(coupon_result){
-                
                 coupon__ = JSON.parse(coupon_result)
                    let discount = coupon__["coupon_percentage"];
                    
@@ -31,7 +28,7 @@ $(document).ready(function () {
                                             "&subtrated_coupon_discount="+mult+
                                             "&totalPrice="+disc;
                             let shipping_value = $("#ship").html();
-                            console.log(shipping_value+"shamsu");
+                            
 
                             let data = "&bookInfoPurchase="+bookInfo+
                                         "&shipping_fee="+shipping_fee+

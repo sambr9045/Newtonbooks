@@ -2,7 +2,7 @@
 
 if(isset($_POST['firstname'])){
     extract($_POST);
-    $shippingInfo = json_encode($_POST);
+    $shippingInfo = json_encode(array_values($_POST));
     
     
 }else{

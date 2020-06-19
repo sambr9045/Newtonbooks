@@ -303,6 +303,79 @@ echo json_encode($coupon[0]);
 // ================================================
 // purchase
 if(isset($_POST['bookInfoPurchase'])){
+    require_once('../../private/vendor/autoload.php');
     var_dump($_POST);
+    extract($_POST);
+    if(!isset($couponInfo)){
+            $couponInfo = "none";
+    }
+   var_dump($couponInfo);
+    function FilsterAll($value){
+        $new_value = str_replace("[ ", " ", $value);
+        $new_value1 = mb_substr($new_value, 0, -1);
+        $new_value2 = mb_substr($new_value1, 1);
+        return $new_value2;
+    }
+
+    $bookInformation = json_decode($bookInfoPurchase);
+    $Shipping_Info = mb_substr($shipping_value, 0, -1);
+    $billing_information = explode(',', mb_substr($Shipping_Info, 1));
+    
+    $firstname  = FilsterAll($billing_information[0]);
+    $lastname  = FilsterAll($billing_information[1]);
+    $state = FilsterAll($billing_information[2]);
+    $city = FilsterAll($billing_information[3]);
+    $address = FilsterAll($billing_information[4]);
+    $address2 = FilsterAll($billing_information[5]);
+    $phone_number = FilsterAll($billing_information[6]);
+    $email = FilsterAll($billing_information[7]);
+    $password = FilsterAll($billing_information[11]);
+
+
+    if(isset($_SESSION['user_id'])){
+        $generated_id = $_SESSION['user_id'];
+    }else{
+        if($password != ""){
+     
+            $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+            if(CheckEmail($db, $email)){
+            }else{
+                $password1 = password_hash($password, PASSWORD_DEFAULT);
+                $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+                $token = md5($email).time();
+                $generated_id = md5(time());
+                $register_data = [$firstname." ".$lastname,$email, $password1, $token, $generated_id];
+                $Register = $db->saving("user","full_name, email, password, token, user_id","?,?,?,?,?", $register_data);
+                
+                if($Register){
+                    $full_name = $firstname." ".$lastname;
+                    $result = SendNon("please verify Your email address", $email, $full_name);
+                }
+            }      
+      }else{
+          $generated_id = "Guest";
+      }
+    }
+
+        $counponInformation = json_decode($couponInfo);
+        $totalPaid = $couponInformartion["totalPrice"];
+      
+       $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+       $shipping_info = json_encode([$firstname." ".$lastname,$email, $state, $city, $address, $address1, $phone_number, $email]);
+       $orderNumber = mt_rand(199999, 10000000000);
+       $order_data = [json_encode($bookInfoPurchase), $totalPaid, $generated_id, $email, $shipping_info, $couponInfo];
+       $order = $db->saving("orders", "product_info, total_paid,user_id, user_email, shipping_Info, shipping_status, other_information", "?,?,?,?,?,?,?", $order_data);
+
+       if($order){
+           
+       }
+
+
+    
+    
 }
+
+
+
+
 ?>

@@ -15,6 +15,10 @@ class ComposerStaticInit84184e96d1ab6bbd880176a83ab257e0
     );
 
     public static $prefixLengthsPsr4 = array (
+        'Y' => 
+        array (
+            'Yabacon\\' => 8,
+        ),
         'S' => 
         array (
             'Symfony\\Polyfill\\Php72\\' => 23,
@@ -33,6 +37,10 @@ class ComposerStaticInit84184e96d1ab6bbd880176a83ab257e0
     );
 
     public static $prefixDirsPsr4 = array (
+        'Yabacon\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/yabacon/paystack-php/src',
+        ),
         'Symfony\\Polyfill\\Php72\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-php72',
