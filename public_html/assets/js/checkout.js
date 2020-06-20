@@ -49,7 +49,7 @@ $(document).ready(function(){
                     // $("#coupon_final_total").attr('value', disc)
                     $.cookie.raw = true;
                     $.cookie.secure - true;
-                    $.cookie('couponDetails', data, {path: '/' }); 
+                    $.cookie('couponDetails', data, {expires: 1, path: '/' }); 
                      
 
                }else{

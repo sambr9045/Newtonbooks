@@ -28,7 +28,7 @@ if(isset($_COOKIE['checkoutInfo'])){
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" >
-
+    <link rel="stylesheet" href="assets/css/responsive.css">
 	<?php include("include/head.php") ?>
 
 
@@ -43,7 +43,7 @@ if(isset($_COOKIE['checkoutInfo'])){
 <section>
 
 <br><br><br>
-        <div style="margin:0 auto; width:40%!important;" >
+        <div style="margin:0 auto; width:40%!important;" class="media_confirmed">
 
             <div class="mb-2">
                 <div class="card">

@@ -19,7 +19,8 @@ $(document).ready(function () {
                     $("#order_tot").empty().append(disc);
                     $(".confim_order").removeAttr("disabled");
                     
-                        $(".confim_order").click(function (e) { 
+                        $(".confim_order").click(function (e) {
+                             
                             e.preventDefault();
                             let bookInfo = $.cookie("checkoutInfo");
                             let shipping_fee = $("#th_shipping_fee").html();
@@ -40,7 +41,7 @@ $(document).ready(function () {
                                             data:data,
                                             dataType:'html',
                                             success:function(returning){
-                                                console.log(returning);
+                                                window.location.href=returning;
                                             }
                                         })
                                     

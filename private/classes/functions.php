@@ -51,7 +51,7 @@ function PaymentTrans($url, $secret_key, $fields){
   
     curl_setopt($ch, CURLOPT_HTTPHEADER, array(
   
-      "Authorization: Bearer $SECRET_KEY",
+      "Authorization: Bearer $secret_key",
   
       "Cache-Control: no-cache",
   

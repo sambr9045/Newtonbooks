@@ -304,12 +304,24 @@ echo json_encode($coupon[0]);
 // purchase
 if(isset($_POST['bookInfoPurchase'])){
     require_once('../../private/vendor/autoload.php');
-    var_dump($_POST);
     extract($_POST);
-    if(!isset($couponInfo)){
-            $couponInfo = "none";
+    
+
+    if(!isset($couponCode)){
+            $couponCode = "none";
+            $couponPercentage = "none";
+            $subtrated_coupon_discount = "none";
+            $totalPrice = "";
+            $sub_to = [];
+
+            foreach(json_decode($bookInfoPurchase) as $book){
+                $sub_to[] = $book[3]*$book[1];
+            }
+
+            $totalPrice = array_sum($sub_to)."00";
+            
     }
-   var_dump($couponInfo);
+    
     function FilsterAll($value){
         $new_value = str_replace("[ ", " ", $value);
         $new_value1 = mb_substr($new_value, 0, -1);
@@ -331,7 +343,6 @@ if(isset($_POST['bookInfoPurchase'])){
     $email = FilsterAll($billing_information[7]);
     $password = FilsterAll($billing_information[11]);
 
-
     if(isset($_SESSION['user_id'])){
         $generated_id = $_SESSION['user_id'];
     }else{
@@ -339,6 +350,9 @@ if(isset($_POST['bookInfoPurchase'])){
      
             $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
             if(CheckEmail($db, $email)){
+                $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+                $sc = $db->Fetch("SELECT * FROM user WHERE email = '$email'", null);
+               $generated_id = $sc[0]["user_id"];
             }else{
                 $password1 = password_hash($password, PASSWORD_DEFAULT);
                 $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
@@ -357,17 +371,36 @@ if(isset($_POST['bookInfoPurchase'])){
       }
     }
 
-        $counponInformation = json_decode($couponInfo);
-        $totalPaid = $couponInformartion["totalPrice"];
+        $counponInformation = [$couponCode, $couponPercentage, $subtrated_coupon_discount, $totalPrice];
       
        $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
-       $shipping_info = json_encode([$firstname." ".$lastname,$email, $state, $city, $address, $address1, $phone_number, $email]);
+       $shipping_info = json_encode([$firstname." ".$lastname,$email, $state, $city, $address, $address2, $phone_number, $email]);
        $orderNumber = mt_rand(199999, 10000000000);
-       $order_data = [json_encode($bookInfoPurchase), $totalPaid, $generated_id, $email, $shipping_info, $couponInfo];
-       $order = $db->saving("orders", "product_info, total_paid,user_id, user_email, shipping_Info, shipping_status, other_information", "?,?,?,?,?,?,?", $order_data);
+       $order_data = [$orderNumber, $bookInfoPurchase, $totalPrice, $generated_id, $email, $shipping_info, $shipping_fee, "awaiting confirmation",json_encode($counponInformation)];
+       $order = $db->saving("orders", "order_number, product_info, total_paid,user_id, user_email, shipping_Info, shipping_fees, shipping_status, other_information", "?,?,?,?,?,?,?,?,?", $order_data);
 
        if($order){
-           
+           $field = [
+               'first_name' =>$firstname,
+               'last_name' => $lastname,
+               'email'=>$email,
+               'amount'=>$totalPrice."00"
+           ];
+
+           $response = PaymentTrans(P_URL, ApiSecret, $field );
+            $value = json_decode($response);
+            $response_value =get_object_vars($value);
+            extract(get_object_vars($response_value["data"]));
+            
+            if(isset($reference)){
+                $payment_data = [$reference, $orderNumber, $generated_id, $totalPrice,"New invoice", $access_code];
+                $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+                $transaction = $db->saving("transaction", "reference, order_number, user_id, totalPrice, Status, access_code", "?,?,?,?,?,?", $payment_data);
+                if($transaction){
+                    echo $authorization_url;
+                }
+
+            }
        }
 
 
