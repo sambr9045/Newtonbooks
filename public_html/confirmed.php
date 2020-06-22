@@ -5,6 +5,8 @@ $order_number="";
         setcookie("order_complete", $order_number, time() -2592000, '/');
 
         setcookie("cartinfo", $order_number, time() -2592000, '/');
+    }else{
+        header("location:shop");
     }
 ?>
 <!doctype html>

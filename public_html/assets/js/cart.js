@@ -47,6 +47,7 @@ $(document).ready(function () {
 
     $(".cart_remove_product").click(function (e) { 
         e.preventDefault();
+        let user_id = $(this).attr("user");
         var thevalue = $(".product_qun").html();
         let updat_price = $(".total-class").html();
         let subtotle = $(this).closest("tr").find('.theallbookprice').html();
@@ -56,7 +57,7 @@ $(document).ready(function () {
         let fad = $(this).closest("tr");
         $.post({
             url:'ajax/fontEnd.php',
-            data:"&remove_product="+id,
+            data:"&remove_product="+id+"&user_id="+user_id,
             dataType:'html',
             success:function(result){
                if(result == "2"){

@@ -5590,12 +5590,13 @@ h3.widget-title-modal {
   width: auto;
   border-top-/*color: #ce7852;*/color:#0058AB; }
   .checkout_info::before {
-    /*color: #ce7852;*/color:#0058AB;
+    /*color: #ce7852;*/
+    /* color:#0058AB;
     content: "\f15b";
     font-family: FontAwesome;
     font-size: 13px;
     left: 26px;
-    position: absolute; }
+    position: absolute;  */}
   .checkout_info span {
 	  font-size: 14px;
 	}

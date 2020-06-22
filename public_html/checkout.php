@@ -1,5 +1,6 @@
 ﻿<?php include("../private/load.php") ;
 
+
 if(isset($_POST['continue_to_next_step'])){
 	var_dump($_POST);
 }
@@ -20,6 +21,7 @@ if(isset($_COOKIE['checkoutInfo'])){
 	<title>Newtonbooksonline | Checkout</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" >
 
 	<?php include("include/head.php") ?>
 	
@@ -47,34 +49,15 @@ if(isset($_COOKIE['checkoutInfo'])){
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="wn_checkout_wrap">
-							<div class="checkout_info">
+							<?php if(!isset($_SESSION['user_id'])){
+								?>
+									<div class="checkout_info" > <i class="fas fa-user mr-2"  style="margin-left:-34px!important;"></i>
 								<span>Returning customer ?</span>
-								<a class="showlogin" href="#">Click here to login</a>
+								<a class="small text-primary" href="login?wp=co-ch">Click here to login</a>
 							</div>
-							<div class="checkout_login">
-								<form class="wn__checkout__form" action="#">
-									<p>If you have shopped with us before, please enter your details in the boxes below.
-										If you are a new customer please proceed to the Billing & Shipping section.</p>
-
-									<div class="input__box">
-										<label>Username or email <span>*</span></label>
-										<input type="text">
-									</div>
-
-									<div class="input__box">
-										<label>password <span>*</span></label>
-										<input type="password">
-									</div>
-									<div class="form__btn">
-										<button>Login</button>
-										<label class="label-for-checkbox">
-											<input id="rememberme" name="rememberme" value="forever" type="checkbox">
-											<span>Remember me</span>
-										</label>
-										<a href="#">Lost your password?</a>
-									</div>
-								</form>
-							</div>
+								<?php
+							} ?>
+							
 							
 						</div>
 					</div>
@@ -149,7 +132,9 @@ if(isset($_COOKIE['checkoutInfo'])){
 								<input type="hidden" value="" name="hidden_fees" id="hidden_fees">
 								<input type="hidden" name="hidden_total" value="" id="hidden_total">
 							</div>
-							<div class="create__account">
+							<?php  if(!isset($_SESSION['user_id'])){
+							?>
+									<div class="create__account">
 								<div class="">
 									<input class="input-checkbox wn__accountbox" name="createaccount" value="1" type="checkbox" id="create_account">
 									<span><b>Create account </b></span>
@@ -161,8 +146,12 @@ if(isset($_COOKIE['checkoutInfo'])){
 									
 								</div>
 							</div>
+							<?php
+								
+								
+							}?>
 <br><br>
-							<div class="checkout_info">
+							<div class="checkout_info"><i class="fas fa-tags mr-2" style="margin-left:-33px!important;"></i>
 								<span>Have a coupon? </span>
 								<a class="showcoupon" href="#">Click here to enter your code</a>
 							</div>
@@ -235,15 +224,15 @@ if(isset($_COOKIE['checkoutInfo'])){
 								<div class="che__header" role="tab" id="headingOne">
 									<a class="checkout__title" data-toggle="collapse" href="#collapseOne"
 										aria-expanded="true" aria-controls="collapseOne">
-										<span><img src="assets/images/payDelivery.png" alt="" style="vertical-align:middle; padding-right:10px;"> Pay on Delivery</span>
+										<span><img src="assets/images/momologos.png"  height="50" alt="" style="vertical-align:middle; padding-right:10px;"> Mobile Money</span>
 									</a>
 								</div>
 								<div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne"
 									data-parent="#accordion">
 									<div class="payment-body">
 									 <ul>
-									   <li><small>Kindly note that you would have to make payment before opening your package</small></li>
-									   <li><small>  Once the seal is broken , the item can only be return if it is wrong, damage, defective, or has missing part</small> </li>
+									   <li> Pay with MTN momo , Airtel/tigo, Vodafone Cash</li>
+									  
 									 </ul>
 									</div>
 								</div>
@@ -251,7 +240,7 @@ if(isset($_COOKIE['checkoutInfo'])){
 							</div>
 
 							<div class="payment">
-								<!-- <div class="che__header" role="tab" id="headingFour">
+								<div class="che__header" role="tab" id="headingFour">
 									<a class="collapsed checkout__title" data-toggle="collapse" href="#collapseFour"
 										aria-expanded="false" aria-controls="collapseFour">
 										<span><img src="assets/images/icons/payment.png"alt="payment images"> </span>
@@ -260,7 +249,8 @@ if(isset($_COOKIE['checkoutInfo'])){
 								<div id="collapseFour" class="collapse" role="tabpanel" aria-labelledby="headingFour"
 									data-parent="#accordion">
 									<div class="payment-body">Pay with your Credit card/Debit card</div>
-								</div> -->
+								</div>
+								<br><br>
 								
 								  <input type="submit" class="btn btn-primary" name="continue_to_next_step" value="PROCEED TO NEXT STEP">
 								 </form>

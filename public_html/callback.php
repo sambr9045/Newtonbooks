@@ -1,6 +1,7 @@
 <?php 
 if(isset($_GET["reference"])){
-require_once("../private/initialized.php");
+require_once("../private/load.php");
+
 
 $reference = $_GET["reference"];    
 $secrete_api = ApiSecret;
@@ -63,9 +64,11 @@ if ($err) {
 
       $update_order = $db->Update("UPDATE orders SET payment_status = 'Complete' WHERE order_number = '$order_number'", null);
 
+      
       if($update_order){
         if(setcookie("order_complete", $order_number, time() +2592000, '/')){
-           header("location:confirmed");
+          header("location:confirmed");
+        
         }
       }
     }

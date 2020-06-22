@@ -35,6 +35,9 @@
       }elseif($ms == "wish-list-pg"){
         $message = "Please login to view your Saved items"; 
         $header_location = "wishlist";
+      }elseif($ms=="co-ch"){
+        $message = "Please login to complete your order";
+        $header_location = "checkout";
       }
 
       ?>

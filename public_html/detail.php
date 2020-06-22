@@ -124,8 +124,10 @@ include("../private/load.php") ;
 													
 
 													<?php 
+													$default_book_type = "";
 
 													if($hardcover_price > 0){
+														$default_book_type = "Hard cover";
 														?>
 															<div class="col-sm-4 hardcover">
 														<div class="book_type lst rounded p-1 pl-2 active_book_type">
@@ -140,7 +142,9 @@ include("../private/load.php") ;
 														?>
 
 													<?php
+
 														if($paperbag_price > 0){
+															$default_book_type = "Paperback";
 															?>
 															<div class="col-sm-4 paperbag">
 														<div class=" book_type  rounded p-1 pl-2 lst">
@@ -156,6 +160,7 @@ include("../private/load.php") ;
 
 													<?php
 													if($electronic_price > 0){
+														
 														?>
 														<div class="col-sm-4 electronic">
 														<div class="book_type rounded p-1 pl-2 lst">
@@ -189,7 +194,7 @@ include("../private/load.php") ;
 											<input type="hidden" name="image" value="<?=$img[0]?>">
 											<input type="hidden" name="booktitle" value="<?=$title?>" id="bookname">
 											
-											<input type="hidden" name="booktype" value="default" id="booktype">
+											<input type="hidden" name="booktype" value="<?=$default_book_type?>" id="booktype">
 											<input type="hidden" name="book_type_price" value="<?=$discount_price?>"  id="book_type_price">
 											<?php
 												if(isset($_SESSION['user_id'])){

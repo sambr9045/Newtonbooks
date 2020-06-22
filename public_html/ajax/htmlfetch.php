@@ -1,5 +1,5 @@
 <?php
-require_once("../../private/initialized.php");
+require_once("../../private/load.php");
 if(isset($_POST['book__id'])){
     extract($_POST);
     $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
@@ -54,8 +54,9 @@ if(isset($_POST['book__id'])){
 													
 
 													<?php 
-
+														$default_book_type = "";
 													if($hardcover_price > 0){
+														$default_book_type = "hardcover";
 														?>
 															<div class="col-sm-4 hardcover">
 														<div class="book_type lst rounded p-1 pl-2 active_book_type">
@@ -71,6 +72,7 @@ if(isset($_POST['book__id'])){
 
 													<?php
 														if($paperbag_price > 0){
+															$default_book_type ="paperback";
 															?>
 															<div class="col-sm-4 paperbag">
 														<div class=" book_type  rounded p-1 pl-2 lst">
@@ -86,6 +88,7 @@ if(isset($_POST['book__id'])){
 
 													<?php
 													if($electronic_price > 0){
+														
 														?>
 														<div class="col-sm-4 electronic">
 														<div class="book_type rounded p-1 pl-2 lst">
@@ -118,8 +121,15 @@ if(isset($_POST['book__id'])){
 											<input type="hidden" name="bookid" value="<?=$id?>">
 											<input type="hidden" name="image" value="<?=$img[0]?>">
 											<input type="hidden" name="booktitle" value="<?=$title?>" id="bookname">
-											<input type="hidden" name="booktype" value="default" id="booktype">
+											<input type="hidden" name="booktype" value="<?=$default_book_type?>" id="booktype">
 											<input type="hidden" name="book_type_price" value="<?=$discount_price?>"  id="book_type_price">
+											<?php
+												if(isset($_SESSION['user_id'])){
+													?>
+														<input type="hidden" name="user_id" value="<?=$_SESSION['user_id']?>">
+													<?php
+												}
+											?>
 											<div class="addtocart__actions">
 												<button class="tocart" type="submit" title="Add to Cart" id="addtocard">Add to
 													Cart</button>

@@ -51,6 +51,41 @@ $(document).ready(function () {
             }
 
             })
+    }else{
+        $(".confim_order").removeAttr("disabled");
+        $(".confim_order").click(function (e) {
+                             var coupon="";
+                             var discount = "";
+                             var mult= "";
+                             var disc = "";
+            e.preventDefault();
+            let bookInfo = $.cookie("checkoutInfo");
+            let shipping_fee = $("#th_shipping_fee").html();
+            let couponInfo = "&couponCode="+coupon+
+                            "&couponPercentage="+discount+
+                            "&subtrated_coupon_discount="+mult+
+                            "&totalPrice="+disc;
+            let shipping_value = $("#ship").html();
+            
+
+            let data = "&bookInfoPurchase="+bookInfo+
+                        "&shipping_fee="+shipping_fee+
+                        "&shipping_value="+shipping_value+
+                        "&couponInfo="+couponInfo;
+
+                        $.post({
+                            url:"ajax/admin_be.php",
+                            data:data,
+                            dataType:'html',
+                            success:function(returning){
+                               // console.log(returning)
+                                window.location.replace(returning);
+                            }
+                        })
+                    
+            
+            
+        });
     }
     
 });

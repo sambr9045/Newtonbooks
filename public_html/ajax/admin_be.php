@@ -307,7 +307,7 @@ if(isset($_POST['bookInfoPurchase'])){
     extract($_POST);
     
 
-    if(!isset($couponCode)){
+    if($couponCode ==""){
             $couponCode = "none";
             $couponPercentage = "none";
             $subtrated_coupon_discount = "none";
@@ -318,7 +318,8 @@ if(isset($_POST['bookInfoPurchase'])){
                 $sub_to[] = $book[3]*$book[1];
             }
 
-            $totalPrice = array_sum($sub_to)."00";
+            $totalPrice = array_sum($sub_to)+$shipping_fee;
+            
             
     }
     
@@ -388,9 +389,11 @@ if(isset($_POST['bookInfoPurchase'])){
            ];
 
            $response = PaymentTrans(P_URL, ApiSecret, $field );
+        
             $value = json_decode($response);
             $response_value =get_object_vars($value);
             extract(get_object_vars($response_value["data"]));
+            
             
             if(isset($reference)){
                 $payment_data = [$reference, $orderNumber, $generated_id, $totalPrice,"New invoice", $access_code];
