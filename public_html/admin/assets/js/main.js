@@ -51,8 +51,7 @@ $(document).ready(function () {
     //     e.preventDefault();
     //    var bookDetailes =  $("#form").serialize();
     // });
-
-    $(".deleteBook").click(function(e){
+    $(document).on('click', '.deleteBook', function(e) {
             e.preventDefault();
             let bookid = $(this).attr("bookid");
             
@@ -75,7 +74,7 @@ $(document).ready(function () {
            
     })
 
-    $(".delete_blog").click(function(e){
+    $(document).on('click', '.delete_blog', function(e) {
         e.preventDefault();
         let blogid = $(this).attr("blogid");
         $(".btn-k").click(function(e){
@@ -96,7 +95,7 @@ $(document).ready(function () {
     })
 
 
-    $(".approve_commet").click(function(){
+    $(document).on('click', '.approve_commet', function(e) {
         $comment_id = $(this).attr("commetn_id");
         console.log($comment_id);
         $.post({
@@ -117,8 +116,7 @@ $(document).ready(function () {
      Ajax("../ajax/admin_be.php", "notificatio_update="+"notifcation");
    
     });
-
-$(".message_reply").click(function (e) { 
+$(document).on('click', '.message_reply', function(e) {
     e.preventDefault();
     
   var sen_message_to = $(this).attr("user_email");
@@ -156,7 +154,7 @@ $(".message_reply").click(function (e) {
    })
 });
 
-$(".book_view").click(function (e) { 
+$(document).on('click', '.book_view', function(e) { 
     e.preventDefault();
     var book_view_id = $(this).attr("boo_view_id");
      
@@ -266,12 +264,10 @@ $(".edit_about_us").click(function (e) {
     
 });
 
-
-$(".order_number").click(function(){
+$(document).on('click', '.order_number', function(e) {
+    e.preventDefault();
     let order_number = $(this).attr("order_number");
-    console.log(order_number);
-    let order_numberS = $(this).html();
-    console.log(order_numberS)
+   
     $.post({
         url:"htmlload/order_details.php",
         data:"&order_number="+order_number,
@@ -280,7 +276,22 @@ $(".order_number").click(function(){
          $(".order_modal").empty().append(response);
         }
     })
-})
+});
+
+$(document).on('click', '.order_confirmation', function(e){
+    e.preventDefault();
+    let order_number = $(this).closest("tr").find(".order_number").attr("order_number");
+   
+     
+    $.post({
+        url:"../ajax/admin_be.php",
+        data:"&order_confirmation="+order_number,
+        dataType:'html',
+        success:function(response){
+          return response
+        }
+    })
+});
 
 function Ajax(url, data){
         

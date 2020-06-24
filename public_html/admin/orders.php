@@ -194,12 +194,12 @@ if(!$_SESSION['username']){
                              <td class="text-center">
                                     <?php  if($payment_status == "Complete"){
                                         ?>
-                                       <button style="cursor: pointer;"class="btn btn-primary mR-2 deleteBook cursor_pointer" bookid="<?=$values['id']?>" data-toggle="modal" data-target="#exampleModal1" ><i class='fas fa-clock pr-1'></i> Confirm order</button>
+                                       <button style="cursor: pointer;"class="btn btn-primary order_confirmation mR-2 deleteBook cursor_pointer" bookid="<?=$values['id']?>" data-toggle="modal" data-target="#exampleModal1" ><i class='fas fa-clock pr-1 '></i> Confirm order</button>
                                           
                                         <?php
                                         }else{
                                            ?>
-                                      <button disabled style="cursor: pointer;"class="btn btn-primary mR-2 deleteBook cursor_pointer" bookid="<?=$values['id']?>" data-toggle="modal" data-target="#exampleModal1" ><i class='fas fa-clock pr-1'></i> Confirm order</button>
+                                      <button disabled style="cursor: pointer;"class="btn btn-primary order_confirmation mR-2 deleteBook cursor_pointer" bookid="<?=$values['id']?>" data-toggle="modal" data-target="#exampleModal1" ><i class='fas fa-clock pr-1 '></i> Confirm order</button>
                                            <?php
                                         }?>
 

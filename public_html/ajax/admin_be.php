@@ -413,6 +413,24 @@ if(isset($_POST['bookInfoPurchase'])){
 }
 
 
+//confirm order
+
+if(isset($_POST['order_confirmation'])){
+    extract($_POST);
+   
+    $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+    $order_conf = $db->Fetch("SELECT * FROM orders WHERE order_number = '$order_confirmation'", null);
+    extract($order_conf[0]);
+    $product_number = count(json_decode($product_info));
+    $coupon = json_decode($other_information)[2];
+    
+    
+    $value = [$order_confirmation, $product_number, $shipping_fees, $total_paid];
+
+
+
+}
+
 
 
 ?>
