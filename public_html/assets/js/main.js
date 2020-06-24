@@ -39,6 +39,8 @@ $(document).ready(function(){
         
       
          bookDetails[bookDetails.length] ={book_type: book_type, book_type_price: book_type_price};
+         
+        
 
         $.post({
             url:'ajax/fontEnd.php',

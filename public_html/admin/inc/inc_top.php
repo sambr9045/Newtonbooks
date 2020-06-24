@@ -69,6 +69,8 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" >
+
 </head>
 
 <body class="app">
@@ -120,7 +122,9 @@
 
                     <li class="nav-item"><a class="sidebar-link" href="messages "><span class="icon-holder"><i class="c-brown-500 ti-email"></i> </span><span class="title">messages</span></a></li>
 
-                    <li class="nav-item"><a class="sidebar-link" href="CCA"><span class="icon-holder"><i class="c-deep-orange-500 ti-calendar"></i> </span><span class="title">C.C.A</span></a></li>
+                    <li class="nav-item"><a class="sidebar-link" href="CCA"><span class="icon-holder"><i class="c-deep-orange-500 ti-calendar"></i> </span><span class="title">c.c.a</span></a></li>
+
+                    <li class="nav-item"><a class="sidebar-link" href="orders"><span class="icon-holder"><i class="fas fa-cart-arrow-down text-info"></i> </span><span class="title">orders</span></a></li>
                     <!-- <li class="nav-item"><a class="sidebar-link" href="forms.html"><span class="icon-holder"><i class="c-light-blue-500 ti-pencil"></i> </span><span class="title">Forms</span></a></li>
                     <li class="nav-item dropdown"><a class="sidebar-link" href="ui.html"><span class="icon-holder"><i class="c-pink-500 ti-palette"></i> </span><span class="title">UI Elements</span></a></li> -->
                     <!-- <li class="nav-item dropdown"><a class="dropdown-toggle" href="javascript:void(0);"><span class="icon-holder"><i class="c-orange-500 ti-layout-list-thumb"></i> </span><span class="title">Tables</span> <span class="arrow"><i class="ti-angle-right"></i></span></a>

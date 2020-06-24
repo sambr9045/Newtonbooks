@@ -99,8 +99,10 @@ $(document).ready(function () {
      var each_image = $(this).closest("tr").find(".product-thumbnail").attr("chekout_image");
      var each_qty = $(this).closest("tr").find(".book_qty").val();
      var each_book_id =  $(this).closest("tr").find(".product-remove").attr("checkout_id");
+     var book_type = $(this).closest("tr").find(".product-thumbnail").attr("checkout_book_type")
+    
 
-     var all_data = [each_title, each_price, each_image, each_qty, each_book_id];
+     var all_data = [each_title, each_price, each_image, each_qty, each_book_id, book_type];
     appende_date.push(all_data);
    
    })

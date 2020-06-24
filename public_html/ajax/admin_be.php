@@ -342,13 +342,14 @@ if(isset($_POST['bookInfoPurchase'])){
     $address2 = FilsterAll($billing_information[5]);
     $phone_number = FilsterAll($billing_information[6]);
     $email = FilsterAll($billing_information[7]);
-    $password = FilsterAll($billing_information[11]);
+
+    
 
     if(isset($_SESSION['user_id'])){
         $generated_id = $_SESSION['user_id'];
     }else{
-        if($password != ""){
-     
+        if(isset($billing_information[11])){
+            $password = FilsterAll($billing_information[11]);
             $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
             if(CheckEmail($db, $email)){
                 $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);

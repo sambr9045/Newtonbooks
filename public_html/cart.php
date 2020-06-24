@@ -27,6 +27,7 @@ if(isset($_SESSION['user_id'])){
 	}
 }
 
+
 ?>
 
 <body class="bg-light">
@@ -46,6 +47,7 @@ if(isset($_SESSION['user_id'])){
 	  $user_id = "none";
   }
 		if( isset($cartitem)){
+			
 			?>
 		<div class="row">
 		<div class="col-md-12 col-sm-12 ol-lg-12">
@@ -78,9 +80,9 @@ if(isset($_SESSION['user_id'])){
 
 										?>
 											<tr>
-								<td class="product-thumbnail"  chekout_image="<?=$cartcontent->image?>"><a href="#"><img
+								<td class="product-thumbnail" checkout_book_type="<?=$cartcontent->booktype?>"  chekout_image="<?=$cartcontent->image?>"><a href="#"><img
 								src="<?="uploades/".$cartcontent->image;?>" alt="product img"></a></td>
-								<td class="product-name" checkout_title="<?=$cartcontent->booktitle?>"><a href="detail?t=<?=$cartcontent->booktitle?>&id=<?=$cartcontent->bookid?>"><?=$cartcontent->booktitle?></a></td>
+								<td class="product-name" checkout_title="<?=$cartcontent->booktitle?>"><a href="detail?t=<?=$cartcontent->booktitle?>&id=<?=$cartcontent->bookid?>"><?=$cartcontent->booktitle?></a> <br> Type : <b><?=$cartcontent->booktype?></b></td>
 								<td class="product-price the_book_real_price" amount="<?=$cartcontent->book_type_price?>" ><span class="amount"><?=$cartcontent->book_type_price?> GHS</span></td>
 								<td class=""><input type="number" min="1" value="<?=$cartcontent->qty?>"  class="book_qty"></td>
 								<td class="product-subtotal theproductsubtotal"><span class="theallbookprice"><?=$cartcontent->qty * $cartcontent->book_type_price?></span>  GHS</td>

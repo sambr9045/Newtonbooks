@@ -1,9 +1,7 @@
 ﻿<?php include("../private/load.php") ;
 
 
-if(isset($_POST['continue_to_next_step'])){
-	var_dump($_POST);
-}
+
 if(isset($_COOKIE['checkoutInfo'])){
 	$checkoutinfo = json_decode($_COOKIE['checkoutInfo']);
 
@@ -57,6 +55,7 @@ if(isset($_COOKIE['checkoutInfo'])){
 							</div>
 								<?php
 							} ?>
+							
 							
 							
 						</div>

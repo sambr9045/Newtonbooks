@@ -266,6 +266,22 @@ $(".edit_about_us").click(function (e) {
     
 });
 
+
+$(".order_number").click(function(){
+    let order_number = $(this).attr("order_number");
+    console.log(order_number);
+    let order_numberS = $(this).html();
+    console.log(order_numberS)
+    $.post({
+        url:"htmlload/order_details.php",
+        data:"&order_number="+order_number,
+        dataType:'html',
+        success:function(response){
+         $(".order_modal").empty().append(response);
+        }
+    })
+})
+
 function Ajax(url, data){
         
         $.post({
@@ -277,6 +293,7 @@ function Ajax(url, data){
             }
         })
     }
+
 /**
  * ============================
  * Add new blog post

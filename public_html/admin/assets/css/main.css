@@ -8,7 +8,17 @@
     background: #fff;
     z-index: 90000
 }
+table td li{
+    list-style-type: none;
+}
+.thdthd button{
+    font-size:11px!important;
+}
 
+
+.cursor_pointer{
+    cursor:pointer;
+}
 #loader_html.fadeOut {
     opacity: 0;
     visibility: hidden
@@ -46,4 +56,8 @@
         transform: scale(1);
         opacity: 0
     }
+}
+.book_details_content b{
+    color:#369;
+    padding-left: 10px;
 }
