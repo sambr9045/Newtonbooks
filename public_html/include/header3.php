@@ -101,10 +101,10 @@
 											<div class="switcher-options">
 												<div class="switcher-currency-trigger">
 													<div class="setting__menu">
-														<span><a href="account">My Account</a></span>
-														<span><a href="../saved-items">My Wishlist</a></span>
+														<span><a href="index">My Account</a></span>
+														<span><a href="saved-items">My Wishlist</a></span>
 														<span><a href="orders">my orders</a></span>
-														<span><a href="?logout">Logout</a></span>
+														<span><a href="index?logout">Logout</a></span>
 													</div>
 												</div>
 											</div>

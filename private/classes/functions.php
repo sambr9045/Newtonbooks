@@ -36,6 +36,78 @@ function SendNon($subject, $token, $email, $Full_name){
 }
 //   time function
 
+function SendNewEmail($message, $subject , $email, $Full_name ){
+
+    $sendEmail = new email(stmt_host, stmt_port, STMT_USERNAME, STMT_PASSWORD);
+
+    $sendEmail->subject = $subject;
+    $sendEmail->from  = [STMT_USERNAME=> 'Newtonbooksonline'];
+    $sendEmail->to = [$email =>$Full_name];
+    $sendEmail->message = $message;
+
+    $result = $sendEmail->sendEmail();
+
+    return $result;
+
+}
+
+function Region($value){
+    $region_name = "";
+        switch ($value) {
+            case '253':
+                $region_name = "Ahafo";
+                break;
+
+            case '242':
+                $region_name = "Ashanti";
+                break;
+            case '251':
+                $region_name = "Bono";
+                break;
+            case '252':
+                $region_name = "Bono East";
+                break;
+            case '244':
+                $region_name = "Central";
+                break;
+            case '245':
+                $region_name = "Eastern";
+                break;
+            case '241':
+                $region_name = "Greater accra";
+                break;
+            case '254':
+                    $region_name = "North East";
+                    break;
+            case '246':
+                $region_name = "Nothern";
+                break;
+            case '257':
+                    $region_name = "oti";
+                    break;
+            case '255':
+                $region_name = "Savannah";
+                break;
+            case '248':
+                    $region_name = "Upper East";
+                    break;
+            case '247':
+                $region_name = "Volta";
+                break;
+            case '250':
+                $region_name = "western";
+                break;
+            case '256':
+                $region_name = "Western north";
+                break;
+            
+            default:
+                # code...
+                break;
+        }
+        return $region_name;
+}
+
 function PaymentTrans($url, $secret_key, $fields){
   
     $fields_string = http_build_query($fields);

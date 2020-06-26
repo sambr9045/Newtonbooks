@@ -280,6 +280,8 @@ $(document).on('click', '.order_number', function(e) {
 
 $(document).on('click', '.order_confirmation', function(e){
     e.preventDefault();
+    $(this).css('opaciy', '0.5')
+
     let order_number = $(this).closest("tr").find(".order_number").attr("order_number");
    
      
@@ -287,8 +289,49 @@ $(document).on('click', '.order_confirmation', function(e){
         url:"../ajax/admin_be.php",
         data:"&order_confirmation="+order_number,
         dataType:'html',
+        success:function(respons){
+           if(respons == "1"){
+            window.location.reload()
+           }
+
+        }
+    })
+});
+
+
+$(document).on('click', '.order_delivery', function(e){
+    e.preventDefault();
+    $(this).css('opaciy', '0.5')
+
+    let order_number = $(this).closest("tr").find(".order_number").attr("order_number");
+   
+     
+    $.post({
+        url:"../ajax/admin_be.php",
+        data:"&start_delivery="+order_number,
+        dataType:'html',
         success:function(response){
-          return response
+        if(response == "2"){
+            window.location.reload()
+        }
+        }
+    })
+});
+
+$(document).on('click', '.confirm_delivery', function(e){
+    e.preventDefault();
+    $(this).css('opaciy', '0.5')
+    let order_number = $(this).closest("tr").find(".order_number").attr("order_number");
+   
+     
+    $.post({
+        url:"../ajax/admin_be.php",
+        data:"&confirm_delivery="+order_number,
+        dataType:'html',
+        success:function(response){
+        if(response == "2"){
+            window.location.reload()
+        }
         }
     })
 });

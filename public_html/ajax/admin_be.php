@@ -1,6 +1,7 @@
 <?php 
 
-require_once("../../private/initialized.php");
+require_once("../../private/load.php");
+require_once("../../private/vendor/autoload.php");
 
 if(isset($_POST['addnewblogpost'])){
 $blogpost_error = [];
@@ -417,19 +418,107 @@ if(isset($_POST['bookInfoPurchase'])){
 
 if(isset($_POST['order_confirmation'])){
     extract($_POST);
-   
+  require_once('../../private/emails.php');
     $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
     $order_conf = $db->Fetch("SELECT * FROM orders WHERE order_number = '$order_confirmation'", null);
     extract($order_conf[0]);
     $product_number = count(json_decode($product_info));
     $coupon = json_decode($other_information)[2];
+    $address = json_decode($shipping_Info);
+    $product_pric =[];
+    foreach(json_decode($product_info) as $book){
+        $product_pric[]=  $book[1] * $book[3];
+        
+    }
     
-    
-    $value = [$order_confirmation, $product_number, $shipping_fees, $total_paid];
+    if($coupon == "none"){
+        $coupon = 0.00;
+    }
 
+    $product_price = array_sum($product_pric);
+    $address0 = $address[0];
+    $address1 = $address[1];
+    $address2 = Region($address[2]);
+    $address3 = $address[3];
+    $address4 = $address[4];
+    $address5 = $address[5];
+    $address6 = $address[6];
+
+    $add = "
+    <b>$address0</b><br>
+    <b>$address1</b><br>
+    <b>$address2</b><br>
+    <b>$address3</b><br>
+    <b>$address4</b><br>
+    <b>$address5</b><br>
+    <b>$address6</b><br>
+    ";
+    $value = [
+        "full_name"=>$address0,
+        "order_confirmation"=>$order_confirmation, 
+        "product_number"=>$product_number,
+        "shipping_fees"=> $shipping_fees,
+        "product_price"=>$product_price,
+        "coupon"=> $coupon,
+        "total_paid"=> $total_paid,
+        "address"=> $add];
+    $message = confirmEmail($value);
+    $result = SendNewEmail($message, "your order $order_confirmation has been confirmed",$address[1],$address[0]);
+
+    $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+
+    $update_order = $db->Update("UPDATE orders SET shipping_status = 'start delivery' WHERE order_number = '$order_confirmation'", null);
+    if($update_order){
+     echo "1";
+    }
 
 
 }
+
+    // start delivery
+    if(isset($_POST['start_delivery'])){
+        $order_confirmation = $_POST['start_delivery'];
+        extract($_POST);
+      require_once('../../private/emails.php');
+        $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+        $order_conf = $db->Fetch("SELECT * FROM orders WHERE order_number = '$order_confirmation'", null);
+        extract($order_conf[0]);
+        $address = json_decode($shipping_Info);
+        $the_address = Region($address[2]).", ".$address[4];
+        $addrees6 = substr($address[6], 1);
+        $value = [
+            "full_name"=>$address[0],
+            "the_address"=>$the_address, 
+            "order_confirmation"=>$order_confirmation,
+            "phone_number"=> $addrees6
+        ];
+        $message = StratDelivery($value);
+        $result = SendNewEmail($message, "your package  will be  delivered soon ",$address[1],$address[0]);
+    
+        $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+    
+        $update_order = $db->Update("UPDATE orders SET shipping_status = 'Item(s) being shipped' WHERE order_number = '$order_confirmation'", null);
+        if($update_order){
+            echo "2";
+        }
+    }
+    
+// confirm delivery 
+
+if(isset($_POST['confirm_delivery'])){
+    extract($_POST);
+    $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+    $date = date("Y-m-d");
+    $update_order = $db->Update("UPDATE orders SET shipping_status = 'Delivered on $date' WHERE order_number = '$confirm_delivery'", null);
+    if($update_order){
+        echo "2";
+    }
+}
+ 
+
+
+
+
 
 
 

@@ -21,6 +21,7 @@
 }
 
 .account_active{
-	background-color:lightgray;
+	background-color:#369;
 	border-radius:5px;
+	color:white!important;;
 }

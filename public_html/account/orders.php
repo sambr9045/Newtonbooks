@@ -102,7 +102,7 @@
                 <?php 
                     if(!isset($_GET['No'])){
                         $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
-                        $QUERY = $db->Fetch("SELECT * FROM orders WHERE user_id = '$gen_id'", null);
+                        $QUERY = $db->Fetch("SELECT * FROM orders WHERE user_id = '$gen_id' ORDER BY id DESC" , null);
                         if(empty($QUERY)){
                             ?>
                         <div class="container  p-2 pl-4 rounded">
@@ -132,22 +132,36 @@
                             <?php
                         }else{
                             foreach($QUERY as $data){
+                                extract($data);
+                                $book = json_decode($product_info);
+                                $items = count($book);
+                               
+                                
                                 ?>
                                 <div class="row">
                                     <div class="col-sm-12  m-1">
                                     <div class="card mb-2 p-3" style="width:100%; box-shadow:0px 1px 1px 1px  lightgray;">
                                     <div class="row no-gutters">
                                         <div class="col-md-1.5">
-                                        <img src="../uploades/<?=$data['product_img']?>" class="card-img" width="40px" height="150px" alt="...">
+                                        <img src="../uploades/<?=$book[0][2]?>" class="card-img" width="40px" height="150px" alt="...">
                                         </div>
                                         <div class="col-md-8">
                                         <div class="card-body ">
-                                            <h5 class="card-title"><?=$data['product_name']?></h5>
-                                            <p class="card-text"> <b>Order status  : </b><small  class="text-primary"> <?=$data['status']?></p></small>
-                                            <p class="card-text mb-3"><small class="text-muted">Placed On <?=$data['created_at']?></small></p>
+                                            <p class="card-title text-dark"><?=json_decode($product_info)[0][0]?></p>
+
+                                            <p class="card-text"> <b>Order status  : </b><small  class="text-info ml-3" style="text-transform:uppercase;"> <?php 
+                                            if($shipping_status == "start delivery"){
+                                                echo "waiting to be Shipped";
+                                            }else{
+                                                echo $shipping_status;
+                                            }
+                                            ?></p></small>
+
+                                            <p class="card-text mb-3"><small class="text-muted">Placed On <?=$created_at?></small></p>
+                                            <p>Item(s) : <?=$items?></p>
                 
                                             <p class="">
-                                                <a href="orders?No=<?=$data['order_number']?>" class="text-primary">View Details</a>
+                                                <a href="orders?No=<?=$data['order_number']?>" class="text-danger">View Details</a>
                                             </p>
                                         </div>
                                         
@@ -164,7 +178,7 @@
                       
                         $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
         
-                        $order_data = $db->FETCH("SELECT * FROM orders WHERE order_number ='$order_number' AND user_id = '$gen_id'", null);
+                        $order_data = $db->FETCH("SELECT * FROM orders WHERE order_number ='$order_number' AND user_id = '$gen_id' ORDER BY id DESC" , null);
                          extract($order_data[0]);
                         ?>
              
@@ -175,9 +189,9 @@
                   <div class="card-body card_body_replace">
                       <ul style="font-size:13px!important;">
                           <li >Order No : <?=$order_number?></li>
-                          <li><?=$qty?> items</li>
-                          <li>Placed on <?=$created_at?></li>
-                          <li>Total : <?=$total_paid?> GHS</li>
+                          
+                          <li>Placed on <b><?=$created_at?></b></li>
+                          <li>Total : <b> GHS <?=$total_paid?> </b></li>
                       </ul>
                   </div>
                         <hr>
@@ -188,31 +202,44 @@
                           <div class="card p-2">
                           <ul class="list-group list-group-flush">
  
-                              <li class="list-group-item">STATUS  :  <?=$status?>  <b class="text-right text-primary" style="float:right!important;cursor:pointer;">Deliviry History</b></li>
+                              <li class="list-group-item " >STATUS  :  <span class="text-info pl-2" style="text-transform:uppercase;"><?=($shipping_status  == "start delivery")?"AWAITING TO BE SHIPPED":$shipping_status?> </span> <b class="text-right text-primary" style="float:right!important;cursor:pointer;">Deliviry History</b></li>
                           </ul>
                           
                               <div class="card-body">
                               
 
                               <div class=" mb-2 p-3" style="width:100%; ">
-                                    <div class="row no-gutters">
+                                   
+                                <?php 
+                                
+                                    foreach(json_decode($product_info) as $product){
+                                        ?>
+                                         <div class="row no-gutters">
                                         <div class="col-md-1.5">
-                                        <img src="../uploades/<?=$product_img?>" class="card-img" width="40px" height="150px" alt="...">
+                                        <img src="../uploades/<?=$product[2]?>" class="card-img" width="40px" height="100px" alt="...">
                                         </div>
                                         <div class="col-md-8">
                                         <div class="card-body ">
-                                            <h5 class="card-title"><?=$product_name?></h5>
-                                            <p class="card-text text-secondary">  qty  :  <?=$qty?></p>
-                                            <p class="card-text mb-3"><small class="text-secondary">GHS  <?=$product_price;?></small></p>
+                                            <p class="card-title"><?=$product[0]?></p>
+                                            <p class="card-text text-secondary">  qty  :  <?=$product[3]?></p>
+                                            <p class="card-text text-dark "><small class="text-secondary">Price : GHS  <?=$product[1];?></small></p>
+                                            <p class="card-text"><small class="text-secondary">Type :  <?=$product[5];?></small></p>
+
                                         </div>
                                         
                                         </div>
                                     </div>
-                                    </div>
+                                    
+                                        <?php
+                                    }
+                                
+                                ?>
+
+                              </div>
 
                               </div>
                           <ul class="list-group list-group-flush">
-                              <li class="list-group-item">This item may be eligible to return till next week  <b class="text-right text-primary" style="float:right!important;cursor:pointer;">REQUEST A RETURN</b></li>
+                              <li class="list-group-item">You can not return this item(s)  <b class="text-right text-primary" style="float:right!important;cursor:pointer;"></b></li>
                           </ul>
                           </div>
                       </div>

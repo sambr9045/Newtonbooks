@@ -70,7 +70,9 @@ if(!$_SESSION['username']){
                     <div class="layer w-100">
                         <div class="peers ai-sb fxw-nw">
                             <div class="peer peer-greed"><span id="sparklinedash4"></span></div>
-                            <div class="peer"><span class="d-ib lh-0 va-m fw-600 bdrs-10em pX-15 pY-15 bgc-blue-50 c-blue-500">0</span></div>
+                            <div class="peer"><span class="d-ib lh-0 va-m fw-600 bdrs-10em pX-15 pY-15 bgc-blue-50 c-blue-500"><?php 
+                                                $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+                                               echo count($db->Fetch("SELECT * FROM books ", null))?></span></div>
                         </div>
                     </div>
                 </div>
@@ -87,7 +89,7 @@ if(!$_SESSION['username']){
 
 <div class="container-fluid">
   
-    <button class="btn btn-danger mT-20 mB-30 mL-2  backbs" style="display:none;">Back</button>
+   
     <div id="loader_html" class="fadeOut">
         <div class="spinner_htmlload"></div>
     </div>
@@ -101,28 +103,18 @@ if(!$_SESSION['username']){
                     <thead >
                         <tr>
                             <th>Order No</th>
-                            <th>book</th>
+                            <th>book Name</th>
                             <th>Amount</th>
                             <th>Shipping Fee</th>
                             <th>Shipping Info</th>
-                            <th>Book type</th>
-                            <th>Created At</th>
+                            <th>placed on</th>
                             <th>Order status</th>
                             <th class="text-center " style="width:15%!important">Confirmation</th>
-                            <th class="text-center">action</th>
+                           
                             
                         </tr>
                     </thead>
-                    <!-- <tfoot>
-                        <tr>
-                            <th>Name</th>
-                            <th>Position</th>
-                            <th>Office</th>
-                            <th>Age</th>
-                            <th>Start date</th>
-                            <th>Salary</th>
-                        </tr>
-                    </tfoot> -->
+                 
                     <tbody>
                     <?php 
                     $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
@@ -133,14 +125,17 @@ if(!$_SESSION['username']){
                         ?>
                         <tr>
                             <td class="text-primary cursor_pointer"><b class="order_number" data-toggle="modal" data-target=".bd-example-modal-lg" order_number="<?=$order_number?>"><?=$order_number?></b></td>
-                            <td ><?php
+                            <td >
+                            
+                            
+                            <?php
                               foreach(json_decode($product_info) as $product){
                                   ?>
-                                  <ul style="display:inline-block;">
+                                  
 
                                   
-                                    <p ><img src="../uploades/<?=$product[2]?>"  width="50px" height="100px;"alt="" ></p>
-                                  </ul>
+                                 <li>* <b class="h6"><?=$product[0]?></b></li>
+                                  
                                   <?php
                               }
                             ?></td>
@@ -153,26 +148,14 @@ if(!$_SESSION['username']){
                               
                                 ?>
                                     
-                                        <li>Full name : <span class="text-info"><?=$shippin_info[0]?></span></li>
-                                        <li>No : <span class="text-info "><?=$shippin_info[6]?></span></li>
-                                        <li>Address:  <span class="text-info"><?=$shippin_info[4]?></span></li>
-                                        <li>Email:  <span class="text-info"><?=$shippin_info[1]?></span></li>
+                                        <li>Full name : <b class="text-default"><?=$shippin_info[0]?></b></li>
+                                        <li>No : <b class="text-default "><?=$shippin_info[6]?></b></li>
+                                        <li>Address:  <b class="text-default"><?=$shippin_info[4]?></b></li>
+                                        <li>Email:  <b class="text-default"><?=$shippin_info[1]?></b></li>
                                         
                                 
                             </td>
-                            <td>
-                            <?php 
-                            
-                            foreach(json_decode($product_info) as $books){
-                                ?>
-                                Type : <b><?=$books[5]?></b><br>
-                                <?php
-                            }
-                            
-                              
-                              ?>
-
-                            </td>
+                           
                             <td><?=$created_at?></td>
                             <td><?php
                             
@@ -192,18 +175,34 @@ if(!$_SESSION['username']){
                             
                             ?></td>
                              <td class="text-center">
-                                    <?php  if($payment_status == "Complete"){
+                                    <?php  if($payment_status == "Complete" && $shipping_status == "awaiting confirmation"){
                                         ?>
-                                       <button style="cursor: pointer;"class="btn btn-primary order_confirmation mR-2 deleteBook cursor_pointer" bookid="<?=$values['id']?>" data-toggle="modal" data-target="#exampleModal1" ><i class='fas fa-clock pr-1 '></i> Confirm order</button>
+                                       <button style="cursor: pointer;"class="btn btn-primary order_confirmation mR-2 deleteBook cursor_pointer" bookid="<?=$values['id']?>"  ><i class='fas fa-clock pr-1 '></i> Confirm order</button>
                                           
                                         <?php
+                                        }elseif($shipping_status == "start delivery"){
+                                            ?>
+                                                 <button style="cursor: pointer;"class="btn btn-warning order_delivery mR-2 deleteBook cursor_pointer" bookid="<?=$values['id']?>"  ><i class="fas fa-truck mr-1"></i> start Delivery</button>
+                                            <?php
+
+                                        }elseif($shipping_status == "Item(s) being shipped"){
+                                            ?>
+                                             <b class="text-info"><?=$shipping_status?></b> <br>
+                                             <small><button class="btn btn-info h6 cursor_pointer confirm_delivery" bookid="<?=$values['id']?>"  ><i class="fas fa-truck mr-1"></i> Confirm delivery</button></small>
+                                            <?php
+                                        }elseif(strpos($shipping_status,"Delivered on") !== false){
+                                            ?>
+                                            <b class="text-success"><?=$shipping_status?></b>
+                                            <?php
+ 
                                         }else{
-                                           ?>
-                                      <button disabled style="cursor: pointer;"class="btn btn-primary order_confirmation mR-2 deleteBook cursor_pointer" bookid="<?=$values['id']?>" data-toggle="modal" data-target="#exampleModal1" ><i class='fas fa-clock pr-1 '></i> Confirm order</button>
-                                           <?php
+                                           
+                                            ?>
+                                            <button disabled style="cursor: pointer;"class="btn btn-primary order_confirmation mR-2 deleteBook cursor_pointer" bookid="<?=$values['id']?>"  ><i class='fas fa-clock pr-1 '></i> Confirm order</button>
+                                                <?php
                                         }?>
 
-                            <td  class="text-center"><button class="btn btn-danger  cursor_pointer"> Cancel</button> </td>
+                            
                             
                         </tr>
                         <?php

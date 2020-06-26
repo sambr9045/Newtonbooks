@@ -48,7 +48,7 @@ if(isset($_POST['order_number'])){
   <?php $shipping_nfo = json_decode($shipping_Info)?>
                <li>Full Name :<b><?=$shipping_nfo[0]?></b></li>
                <li>Email :<b> <?=$shipping_nfo[1]?></b></li>
-               <li>Region :<b><?=$shipping_nfo[2]?></b></li>
+               <li>Region :<b><?=Region($shipping_nfo[2])?></b></li>
                <li>City :<b><?=$shipping_nfo[3]?></b></li>
                <li>address1 :<b><?=$shipping_nfo[4]?></b></li>
                <li>address2 :<b><?=$shipping_nfo[5]?></b></li>

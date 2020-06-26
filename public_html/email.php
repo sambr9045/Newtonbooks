@@ -67,7 +67,7 @@
             margin: 0 !important;
         }
     </style>
-
+</head>
 <body style='margin: 0 !important; padding: 0 !important; background-color: #eeeeee;' bgcolor='#eeeeee'>
     <div style='display: none; font-size: 1px; color: #fefefe; line-height: 1px; font-family: Open Sans, Helvetica, Arial, sans-serif; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden;'>
        
@@ -117,7 +117,7 @@
                                     <td align='left' style='font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding-top: 10px;'>
                                         <p style='font-size: 16px; font-weight: 400; line-height: 24px; color: #777777;'>
                                                 <b> Dear Bukari,</b>
-                                           <p> Thank you for shopping on newtonbooksonline! Your order 309527457 has been successfully confirmed.</p>
+                                           <p> Thank you for shopping on newtonbooksonline! Your order $order_confirmation has been successfully confirmed.</p>
 
                                            <p> It will be packaged and shipped as soon as possible. Once the item(s) is out for delivery or available for pick-up you will receive a notification from us.</p>
 
@@ -129,19 +129,19 @@
                                         <table cellspacing='0' cellpadding='0' border='0' width='100%'>
                                             <tr>
                                                 <td width='75%' align='left' bgcolor='#eeeeee' style='font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;'> Order Confirmation # </td>
-                                                <td width='25%' align='left' bgcolor='#eeeeee' style='font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;'> 2345678 </td>
+                                                <td width='25%' align='left' bgcolor='#eeeeee' style='font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;'> $order_confirmation </td>
                                             </tr>
                                             <tr>
-                                                <td width='75%' align='left' style='font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 15px 10px 5px 10px;'> Purchased Item (1) </td>
-                                                <td width='25%' align='left' style='font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 15px 10px 5px 10px;'> $100.00 </td>
+                                                <td width='75%' align='left' style='font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 15px 10px 5px 10px;'> Purchased Item ($product_number) </td>
+                                                <td width='25%' align='left' style='font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 15px 10px 5px 10px;'>GHS  $product_price </td>
                                             </tr>
                                             <tr>
                                                 <td width='75%' align='left' style='font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 10px;'> Shipping + Handling </td>
-                                                <td width='25%' align='left' style='font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 10px;'> $10.00 </td>
+                                                <td width='25%' align='left' style='font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 10px;'>GHS  $shipping_fees </td>
                                             </tr>
                                             <tr>
                                                 <td width='75%' align='left' style='font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 10px;'> Coupon </td>
-                                                <td width='25%' align='left' style='font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 10px;'> $5.00 </td>
+                                                <td width='25%' align='left' style='font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 10px;'>GHS $coupon </td>
                                             </tr>
                                         </table>
                                     </td>
@@ -151,7 +151,7 @@
                                         <table cellspacing='0' cellpadding='0' border='0' width='100%'>
                                             <tr>
                                                 <td width='75%' align='left' style='font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px; border-top: 3px solid #eeeeee; border-bottom: 3px solid #eeeeee;'> TOTAL </td>
-                                                <td width='25%' align='left' style='font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px; border-top: 3px solid #eeeeee; border-bottom: 3px solid #eeeeee;'> $115.00 </td>
+                                                <td width='25%' align='left' style='font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px; border-top: 3px solid #eeeeee; border-bottom: 3px solid #eeeeee;'> GHS $total_paid </td>
                                             </tr>
                                         </table>
                                     </td>
@@ -169,7 +169,11 @@
                                                 <tr>
                                                     <td align='left' valign='top' style='font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px;'>
                                                         <p style='font-weight: 800;'>Delivery Address</p>
-                                                        <p>675 Massachusetts Avenue<br>11th Floor<br>Cambridge, MA 02139</p>
+                                                        <p>json_decode($address)[0]</p>
+                                                        <p>json_decode($address)[2]</p>
+                                                        <p>json_decode($address)[3]</p>
+                                                        <p>json_decode($address)[4]</p>
+                                                        <p>json_decode($address)[5]</p>
                                                     </td>
                                                 </tr>
                                             </table>
