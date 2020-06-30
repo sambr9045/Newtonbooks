@@ -107,7 +107,7 @@
                             <div class="card p-2">
                             <ul class="list-group list-group-flush">
    
-                                <li class="list-group-item">Account Details  <i class="fa fa-pen text-right text-danger" style="font-size:20px;vertical-align:middle"></i></li>
+                                <li class="list-group-item">Account Details  <i class="fas fa-pencil-alt text-right text-danger cursor_pointer account_detail" account_detail="<?=$gen_id?>" data-toggle="modal" data-target="#exampleModal"style="font-size:15px;vertical-align:middle; float:right;"></i></li>
                             </ul>
                             
                                 <div class="card-body">
@@ -125,7 +125,9 @@
                             <div class="card p-2">
                             <ul class="list-group list-group-flush">
    
-                                <li class="list-group-item">Address book</li>
+                                <li class="list-group-item">Address book
+                                <i class="fas fa-pencil-alt text-right text-danger cursor_pointer" data-toggle="modal" address_book="<?=$gen_id?>" data-target="#exampleModal" style="font-size:15px;vertical-align:middle; float:right;"></i>
+                                </li>
                             </ul>
                             
                                 <div class="card-body">
@@ -133,9 +135,7 @@
                                 <p><small>No default shipping address available.</small></p>
 
                                 </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Add address</li>
-                            </ul>
+                            
                             </div>
                         </div>
 
@@ -144,7 +144,10 @@
                             <div class="card p-2">
                             <ul class="list-group list-group-flush">
    
-                                <li class="list-group-item">Newsletter preferences</li>
+                                <li class="list-group-item">Newsletter preferences
+                                <i class="fas fa-pencil-alt text-right text-danger cursor_pointer" 
+                                Newsletterpreference = "<?=$gen_id?>" data-toggle="modal" data-target="#exampleModal" style="font-size:15px;vertical-align:middle; float:right;"></i>
+                                </li>
                             </ul>
                             
                                 <div class="card-body">
@@ -172,11 +175,38 @@
 
 </div>
 
+<section>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body account_body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>-
+
+</section>
+
 <!-- //Main wrapper -->
 <script>
     let user_id = "<?=$_SESSION['user_id']?>";
 </script>
 <?php include("../include/footer2.php")?>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
 <script src="../assets/js/cart.js"></script>
 <script src="../assets/js/account.js"></script>
 

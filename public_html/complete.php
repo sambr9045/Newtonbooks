@@ -136,7 +136,7 @@ if(isset($_COOKIE['checkoutInfo'])){
                              echo $sheeping_fee_up;
                             ?></span></b>
                             <br>
-                            <small class="text-success">free shipping</small>
+                            <small class="text-success"> <?=($sheeping_fee_up >= "100")?"free shipping":"";?></small>
                             </td>
                             </tr>
                             

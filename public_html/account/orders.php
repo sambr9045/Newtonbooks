@@ -11,6 +11,7 @@
 
         extract($user[0]);
       
+       
      }else{
          header("location:../login");
      }
@@ -103,11 +104,14 @@
                     if(!isset($_GET['No'])){
                         $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
                         $QUERY = $db->Fetch("SELECT * FROM orders WHERE user_id = '$gen_id' ORDER BY id DESC" , null);
+
+                    
+
                         if(empty($QUERY)){
                             ?>
                         <div class="container  p-2 pl-4 rounded">
                         <div class="row "> 
-                        <h4 class="text-left mb-5 text-secondary">Orders</h4>
+                        <p class="text-left mb-5 text-secondary">Orders</p>
                         <div class="text-center col-lg-12 ">
                 
                 
@@ -128,9 +132,13 @@
                 
                         </div>
                         </div>
-                
+                        
                             <?php
                         }else{
+                            ?>
+                                <p class="text-default mb-3">Orders(<?=count($QUERY)?>)</p>
+                                <br>
+                            <?php
                             foreach($QUERY as $data){
                                 extract($data);
                                 $book = json_decode($product_info);
@@ -138,18 +146,19 @@
                                
                                 
                                 ?>
-                                <div class="row">
+
+<div class="row">
                                     <div class="col-sm-12  m-1">
-                                    <div class="card mb-2 p-3" style="width:100%; box-shadow:0px 1px 1px 1px  lightgray;">
+                                    <div class="card mb-2 p-2" style="width:100%; box-shadow:0px 1px 1px o.5px  lightgray;">
                                     <div class="row no-gutters">
                                         <div class="col-md-1.5">
                                         <img src="../uploades/<?=$book[0][2]?>" class="card-img" width="40px" height="150px" alt="...">
                                         </div>
                                         <div class="col-md-8">
                                         <div class="card-body ">
-                                            <p class="card-title text-dark"><?=json_decode($product_info)[0][0]?></p>
+                                            <p class="card-title text-dark" style="margin-top:-20px!important;font-size:12px;"><?=json_decode($product_info)[0][0]?></p>
 
-                                            <p class="card-text"> <b>Order status  : </b><small  class="text-info ml-3" style="text-transform:uppercase;"> <?php 
+                                            <p class="card-text"> Order status  : <small  class="text-info ml-3" style="text-transform:uppercase;"> <?php 
                                             if($shipping_status == "start delivery"){
                                                 echo "waiting to be Shipped";
                                             }else{
@@ -157,11 +166,11 @@
                                             }
                                             ?></p></small>
 
-                                            <p class="card-text mb-3"><small class="text-muted">Placed On <?=$created_at?></small></p>
+                                            <p class="card-text mb-1"><small class="text-muted">Placed On <?=$created_at?></small></p>
                                             <p>Item(s) : <?=$items?></p>
                 
                                             <p class="">
-                                                <a href="orders?No=<?=$data['order_number']?>" class="text-danger">View Details</a>
+                                                <a href="orders?No=<?=$data['order_number']?>" class="text-danger">SEE DETAILS</a>
                                             </p>
                                         </div>
                                         
@@ -180,9 +189,13 @@
         
                         $order_data = $db->FETCH("SELECT * FROM orders WHERE order_number ='$order_number' AND user_id = '$gen_id' ORDER BY id DESC" , null);
                          extract($order_data[0]);
+
+                        $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+                        $payment_method = $db->Fetch("SELECT payment_method FROM transaction WHERE order_number ='$order_number'", null);
+                        
                         ?>
              
-             <h4 class="card-head text-secondary mb-3"><a href="orders"><i class="fa fa-arrow-left"></i></a> Order Details</h4>
+             <p class="card-head text-secondary mb-3"><a href="orders"><i class="fa fa-arrow-left"></i></a> Order Details</p>
                   
                   <hr>
 
@@ -190,19 +203,22 @@
                       <ul style="font-size:13px!important;">
                           <li >Order No : <?=$order_number?></li>
                           
-                          <li>Placed on <b><?=$created_at?></b></li>
-                          <li>Total : <b> GHS <?=$total_paid?> </b></li>
+                          <li>Placed on  <?=$created_at?></li>
+                          <li>Total :  GHS <?=$total_paid?> </li>
                       </ul>
                   </div>
                         <hr>
-                  <h5 class="text-muted m-3">ITEMS IN YOUR ORDER</h5>
+                  <p class="text-muted m-3">ITEMS IN YOUR ORDER</p>
               <div class="order_details">
               
               <div class="col-sm-12 mt-2">
                           <div class="card p-2">
                           <ul class="list-group list-group-flush">
  
-                              <li class="list-group-item " >STATUS  :  <span class="text-info pl-2" style="text-transform:uppercase;"><?=($shipping_status  == "start delivery")?"AWAITING TO BE SHIPPED":$shipping_status?> </span> <b class="text-right text-primary" style="float:right!important;cursor:pointer;">Deliviry History</b></li>
+                              <li class="list-group-item " >ORDER STATUS  :  <span class="text-primary pl-2" style="text-transform:uppercase;">
+                              <?=($shipping_status  == "start delivery")?" AWAITING TO BE SHIPPED":$shipping_status?>
+                              
+                               </span> <b class="text-right text-primary" style="float:right!important;cursor:pointer;"></b></li>
                           </ul>
                           
                               <div class="card-body">
@@ -212,18 +228,20 @@
                                    
                                 <?php 
                                 
+                                 $total_product_amount= [];
                                     foreach(json_decode($product_info) as $product){
+                                        $total_product_amount[] = $product[1]*$product[3];
                                         ?>
                                          <div class="row no-gutters">
-                                        <div class="col-md-1.5">
-                                        <img src="../uploades/<?=$product[2]?>" class="card-img" width="40px" height="100px" alt="...">
+                                        <div class="col-md-1.5 mb-2">
+                                        <img src="../uploades/<?=$product[2]?>" class="card-img" width="40px" height="120px" alt="...">
                                         </div>
-                                        <div class="col-md-8">
+                                        <div class="col-md-8 " style="margin-top:-25px!important;">
                                         <div class="card-body ">
-                                            <p class="card-title"><?=$product[0]?></p>
-                                            <p class="card-text text-secondary">  qty  :  <?=$product[3]?></p>
-                                            <p class="card-text text-dark "><small class="text-secondary">Price : GHS  <?=$product[1];?></small></p>
-                                            <p class="card-text"><small class="text-secondary">Type :  <?=$product[5];?></small></p>
+                                            <p class="card-title text-default"><?=$product[0]?></p>
+                                            <p class="card-text text-muted">  qty  :  <?=$product[3]?></p>
+                                            <p class="card-text text-dark "><small class="text-muted">Price : GHS  <?=$product[1];?></small></p>
+                                            <p class="card-text"><small class="text-muted">Type :  <?=$product[5];?></small></p>
 
                                         </div>
                                         
@@ -250,16 +268,18 @@
                             <div class="card p-2">
                             <ul class="list-group list-group-flush">
    
-                                <li class="list-group-item">Payment information  <i class="fa fa-pen text-right text-danger" style="font-size:20px;vertical-align:middle"></i></li>
+                                <li class="list-group-item text-info">Payment information </li>
                             </ul>
                             
                                 <div class="card-body">
-                                <p><b>Payment Method </b></p>
-                                <p><?=$paymentz_option?></p>
+                                <p>Payment Method </p>
+                                <p><?=$payment_method[0]["payment_method"]?></p>
                                 <br>
-                                <p><b>Payment Details </b></p>
-                                <p><small>Items total :  GHS <?=$product_price?></small></p>
-                                <p><small>Shipping Fees: GHS <?=$shipping_fee?></small></p>
+
+                                <p>Payment Details </p>
+                                <p><small> Item(s) total :  GHS <?=array_sum($total_product_amount)?></small></p>
+                                <p><small>Shipping Fee: GHS <?=$shipping_fees?></small></p>
+                                <p><small>Coupon: - GHS <?=(json_decode($other_information)[2] == "none")?"0.00":json_decode($other_information)[2]?></small></p>
                                 <p><small>Total: GHS <?=$total_paid?></small></p>
 
                                 </div>
@@ -272,15 +292,23 @@
                             <div class="card p-2">
                             <ul class="list-group list-group-flush">
    
-                                <li class="list-group-item">Delivery Information <i class="fa fa-pen text-right text-danger" style="font-size:20px;vertical-align:middle"></i></li>
+                                <li class="list-group-item text-info">Delivery Information </li>
                             </ul>
                             
                                 <div class="card-body">
-                                <p><b>Delivery Method </b></p>
+                                <p>Delivery Method </p>
                                 <p>Standard Door Delivery</p>
                                 <br>
-                                <p><b>Shipping Address </b></p>
-                                 <p><small> <?=$shipping_address?></small></p>
+                                <p>Shipping Address </p>
+                                 <p><small><address>
+                                    <span><?=json_decode($shipping_Info)[0]?></span><br>
+                                    <span><?=Region(json_decode($shipping_Info)[2])?></span><br>
+                                    
+                                    <span><?=json_decode($shipping_Info)[4]?></span>,
+                                    <span><?=json_decode($shipping_Info)[5]?></span>
+                                    
+                                    
+                                 </address></small></p>
                                 
                                 </div>
                            

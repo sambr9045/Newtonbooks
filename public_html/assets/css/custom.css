@@ -25,3 +25,12 @@
 	border-radius:5px;
 	color:white!important;;
 }
+.cursor_pointer{
+	cursor: pointer;
+}
+#rating-ability-wrapper button{
+	font-size:10px;
+}
+#rating-ability-wrapper i{
+	font-size:25px;
+}

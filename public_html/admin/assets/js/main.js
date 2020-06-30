@@ -336,6 +336,8 @@ $(document).on('click', '.confirm_delivery', function(e){
     })
 });
 
+
+
 function Ajax(url, data){
         
         $.post({

@@ -1,31 +1,75 @@
 $(document).ready(function () {
 
-    // $(".order").click(function (e) { 
-    //     e.preventDefault();
-    //     $(".account_overview").empty().append("Order")
-    //     $(".strows").empty();
-    //     $(".gift_loader").show();
-    //     GetData("accounts/orders.php", "post", "&order_usr_id="+user_id);
-      
-    // });
+    let selected_review_numbee ="";
+	$(".btnrating").on('click',(function(e) {
+	
+        var previous_value = $("#selected_rating").val();
+        
+        var selected_value = $(this).attr("data-attr");
+        $("#selected_rating").val(selected_value);
+        
+        $(".selected-rating").empty();
+        $(".selected-rating").html(selected_value);
+        
+        for (i = 1; i <= selected_value; ++i) {
+        $("#rating-star-"+i).toggleClass('btn-warning');
+        $("#rating-star-"+i).toggleClass('btn-default');
+        }
+        
+        for (ix = 1; ix <= previous_value; ++ix) {
+        $("#rating-star-"+ix).toggleClass('btn-warning');
+        $("#rating-star-"+ix).toggleClass('btn-default');
+        }
+        
+       selected_review_numbee = selected_value
+       $("#number_of_start").val(selected_value)
+       if(selected_value !=""){
+        $(".review_alert").fadeOut();
+       }
+        }));
 
-    // $(".saveditems").click(function (e) { 
-    //     $(".account_overview").empty().append("Wishlist")
-    //     e.preventDefault();
-    //     $(".strows").empty();
-    //     $(".gift_loader").show();
-    //     GetData("accounts/wishlist.php", "post", "&wishlist_user_id="+user_id);
-    // });
-    // function GetData(url, type, data){
-    
-    //     $.ajax({
-    //         url:url,
-    //         type:type,
-    //         data:data,
-    //         dataType:'html',
-    //         success: function(response){
-    //             $(".card_body_replace").empty().append(response);
-    //         }
-    //     })
-    // }
+
+        $("#submit_review").click(function (e) { 
+            e.preventDefault();
+            if(selected_review_numbee ==""){
+                $(".review_alert").fadeIn();
+             $(".review_alert").html("Required field")
+            }else{
+                $(".review_alert").fadeOut();
+                var reviewData = $("#book_review").serialize();
+                $.post({
+                    url:"../ajax/admin_be.php",
+                    data:reviewData,
+                    dataType:'html',
+                    success:function(response){
+                       if(response == "1"){
+                           $(".review_error").fadeIn("slow")
+                           setTimeout(() => {
+                            $(".review_error").fadeOut("slow")
+                           }, 5000);
+                       }
+                    }
+                })
+                
+               
+            }
+        
+        });
+
+
+    $(".account_detail").click(function (e) { 
+        e.preventDefault();
+        userId = $(this).attr("account_detail");
+    //   Ajax("../account/htmlLoad/update_user_details.php", "&account_detail="+userId);
+       var data = "&account_detail="+userId
+     $.post("../account/htmlLoad/update_user_details.php", data,
+         function (response) {
+            $(".account_body").empty().append(response);
+           
+         },
+         "html"
+     );
+        
+    });
+
 });

@@ -78,8 +78,8 @@ $(document).ready(function () {
                             data:data,
                             dataType:'html',
                             success:function(returning){
-                               // console.log(returning)
-                                window.location.replace(returning);
+                                console.log(returning)
+                               // window.location.replace(returning);
                             }
                         })
                     

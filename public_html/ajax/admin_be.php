@@ -1,5 +1,6 @@
 <?php 
-
+header('Access-Control-Allow-Origin: https://paystack.com', false);
+header('Access-Control-Allow-Origin: *');
 require_once("../../private/load.php");
 require_once("../../private/vendor/autoload.php");
 
@@ -403,6 +404,7 @@ if(isset($_POST['bookInfoPurchase'])){
                 $transaction = $db->saving("transaction", "reference, order_number, user_id, totalPrice, Status, access_code", "?,?,?,?,?,?", $payment_data);
                 if($transaction){
                     echo $authorization_url;
+                    header("location:$authorization_url");
                 }
 
             }
@@ -513,6 +515,39 @@ if(isset($_POST['confirm_delivery'])){
     if($update_order){
         echo "2";
     }
+}
+
+// review_update
+
+if(isset($_POST["product_review_name"])){
+    extract($_POST);
+
+    $data= [$book_id, $order_number, $product_review_name,$summary, $detailed_review, $user_id, $number_of_start];
+
+
+    $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+    $checkt_data = $db->Fetch("SELECT * FROM reviews WHERE book_id = '$book_id'", null);
+    if(empty($checkt_data)){
+    $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+    $SQL = $db->saving("reviews", "book_id, order_number, reviewName, reviewSummary, reviewDetailed, user_id, starts", "?,?,?,?,?,?,?", $data);
+    if($SQL){
+        echo "1";
+     
+    }
+
+    }else{
+
+        $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+
+        $update = $db->Update("UPDATE reviews SET book_id ='$book_id', order_number= '$order_number', reviewName='$product_review_name', reviewSummary='$summary', reviewDetailed='$detailed_review', user_id ='$user_id', starts = '$number_of_start'", null);
+
+       if($update){
+           echo "1";
+       }
+
+
+     }
+
 }
  
 
