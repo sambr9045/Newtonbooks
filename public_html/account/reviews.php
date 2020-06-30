@@ -167,7 +167,7 @@
                                 $book = json_decode($product_info);
                                 $items = count($book);
                             
-                                if(count(json_decode($product_info)) === 0){
+                                if(count(json_decode($product_info)) >= 1){
 
                                         foreach(json_decode($product_info) as $products){
 
@@ -279,24 +279,18 @@
                         $order_data = $db->FETCH("SELECT * FROM orders WHERE order_number ='$order_number' AND user_id = '$gen_id' ORDER BY id DESC" , null);
                          extract($order_data[0]);
 
-                        // $single_product_array = array_search($book_id, json_decode($product_info));
-                        // var_dump($single_product_array);
-                        $arry_one = [1,2,3,4,5,6];
-                       // var_dump(json_decode($product_info)[0]);
-                        $array_two = json_decode($product_info)[0];
-                        $producTINFP  = array_combine($arry_one, $array_two);
-                       // var_dump($producTINFP);
-                       var_dump($producTINFP);
-                        
-                        $booksid= array_column($producTINFP, 5);
-                        var_dump($booksid);
-                       
+                        $array_two = json_decode($product_info);
+                        $purchased_book_ids =[];
+
+                        foreach(json_decode($product_info) as $key => $product_information){
+                           $purchased_book_ids[]=$product_information[4];
+                        }
+                                                                   
                             $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
                             
+                         if(in_array($book_id , array_values($purchased_book_ids))){
                             $bookInfo = $db->Fetch("SELECT * FROM books WHERE id = '$book_id'", null);
-                            var_dump($bookInfo);
-
-                            
+                         }
                         
                          
                         

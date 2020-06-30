@@ -146,8 +146,8 @@
                                
                                 
                                 ?>
-
-<div class="row">
+                                       
+                                    <div class="row">
                                     <div class="col-sm-12  m-1">
                                     <div class="card mb-2 p-2" style="width:100%; box-shadow:0px 1px 1px o.5px  lightgray;">
                                     <div class="row no-gutters">
@@ -224,7 +224,7 @@
                               <div class="card-body">
                               
 
-                              <div class=" mb-2 p-3" style="width:100%; ">
+                              <div class=" mb-2 p-3" style="width:100%;">
                                    
                                 <?php 
                                 

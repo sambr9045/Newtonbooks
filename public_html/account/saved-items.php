@@ -119,12 +119,12 @@
                         </div>
                         <div class="col-md-8">
                         <div class="card-body ">
-                            <h5 class="card-title"><?=$wishlist['book_title']?></h5>
+                            <p class="card-title"><?=$wishlist['book_title']?></p>
                             <p class="card-text"><?="GHS " .$wishlist['book_price']?></p>
-                            <p class="card-text mb-3"><small class="text-muted">Placed On <?=$wishlist['created_at']?></small></p>
+<br>
 
-                            <p class="">
-                              <button class="btn btn-info"><small>Buy Now</small></button> &nbsp;  <b class="text-danger">Remove</b>
+                            <p class="pb-2">
+                              <button class="btn btn-primary"><small><i class="fas fa-cart-plus mr-2"></i>Buy Now</small></button> &nbsp;  <b class="text-danger ml-4 cursor_pointer"><i class="fas fa-trash-alt pr-1"></i> Remove</b>
                             </p>
                         </div>
                         
@@ -143,14 +143,15 @@
         }else{
             ?>
 
-            <div class="container bg-light p-2 pl-4 rounded" style="margin-top:-5%!important;">
+            <div class="container  p-2 pl-4 rounded" >
+            <br><br><br><br>
             <div class="row "> 
-
+           
             <div class="text-center col-lg-12 ">
 
 
-                    <div class="text-center" style="margin:0 auto ; padding:2%; border-radius:250px; ">
-                        <img src="assets/images/index.svg" alt="empty card">
+                    <div class="text-center " style="margin:0 auto ; padding:2%; border-radius:250px; ">
+                        <img src="../assets/images/saved-item.svg" alt="empty card">
                     </div>
                     <br>
                     <h3 class="text-center text-secondary">You haven’t saved an item yet!</h3>

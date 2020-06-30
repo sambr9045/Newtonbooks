@@ -133,8 +133,12 @@ function PaymentTrans($url, $secret_key, $fields){
   
     //execute post
     $result = curl_exec($ch);
+
+   if(curl_errno($ch)){
+       die("couldn't send request");
+   }
   
-  return $result;
+    return $result;
 
 }
 

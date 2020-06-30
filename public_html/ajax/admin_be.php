@@ -1,5 +1,5 @@
 <?php 
-header('Access-Control-Allow-Origin: https://paystack.com', false);
+header('Access-Control-Allow-Origin: https://checkout.paystack.com', false);
 header('Access-Control-Allow-Origin: *');
 require_once("../../private/load.php");
 require_once("../../private/vendor/autoload.php");
@@ -305,6 +305,7 @@ echo json_encode($coupon[0]);
 // ================================================
 // purchase
 if(isset($_POST['bookInfoPurchase'])){
+
     require_once('../../private/vendor/autoload.php');
     extract($_POST);
     
@@ -381,9 +382,7 @@ if(isset($_POST['bookInfoPurchase'])){
        $shipping_info = json_encode([$firstname." ".$lastname,$email, $state, $city, $address, $address2, $phone_number, $email]);
        $orderNumber = mt_rand(199999, 10000000000);
        $order_data = [$orderNumber, $bookInfoPurchase, $totalPrice, $generated_id, $email, $shipping_info, $shipping_fee, "awaiting confirmation",json_encode($counponInformation)];
-       $order = $db->saving("orders", "order_number, product_info, total_paid,user_id, user_email, shipping_Info, shipping_fees, shipping_status, other_information", "?,?,?,?,?,?,?,?,?", $order_data);
 
-       if($order){
            $field = [
                'first_name' =>$firstname,
                'last_name' => $lastname,
@@ -392,26 +391,32 @@ if(isset($_POST['bookInfoPurchase'])){
            ];
 
            $response = PaymentTrans(P_URL, ApiSecret, $field );
-        
-            $value = json_decode($response);
-            $response_value =get_object_vars($value);
-            extract(get_object_vars($response_value["data"]));
-            
-            
-            if(isset($reference)){
-                $payment_data = [$reference, $orderNumber, $generated_id, $totalPrice,"New invoice", $access_code];
-                $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
-                $transaction = $db->saving("transaction", "reference, order_number, user_id, totalPrice, Status, access_code", "?,?,?,?,?,?", $payment_data);
-                if($transaction){
+           
+
+            if($response == "couldn't send request"){
+                echo "error1";
+            }else{
+                $order = $db->saving("orders", "order_number, product_info, total_paid,user_id, user_email, shipping_Info, shipping_fees, shipping_status, other_information", "?,?,?,?,?,?,?,?,?", $order_data);
+
+                $value = json_decode($response);
+                $response_value =get_object_vars($value);
+                extract(get_object_vars($response_value["data"]));
+                
+                if(isset($reference)){
+                    $payment_data = [$reference, $orderNumber, $generated_id, $totalPrice,"New invoice", $access_code];
+                    $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+                    $transaction = $db->saving("transaction", "reference, order_number, user_id, totalPrice, Status, access_code", "?,?,?,?,?,?", $payment_data);
+                    if($transaction){
+                      
                     echo $authorization_url;
-                    header("location:$authorization_url");
-                }
+                    }
+            }
+          
 
             }
-       }
+       
 
 
-    
     
 }
 

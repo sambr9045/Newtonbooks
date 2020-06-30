@@ -121,7 +121,7 @@
 													<div class="setting__menu">
 														<span><a href="account/index">My Account</a></span>
 														<span><a href="login">Log in</a></span>
-														<span><a href="singup">create account</a></span>
+														<span><a href="signup">create account</a></span>
 														<span><a href="contact-us">Support</a></span>
 													</div>
 												</div>

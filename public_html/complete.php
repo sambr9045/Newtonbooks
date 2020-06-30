@@ -45,6 +45,12 @@ if(isset($_COOKIE['checkoutInfo'])){
 <br><br><br>
         <div style="margin:0 auto; width:40%!important;" class="media_confirmed">
 
+        <div  class='alert internet_ws alert-warning alert-dismissible fade ' role='alert ' >
+  <strong>Something went wrong !</strong> Please check your internet connection and try again 
+  <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+    <span aria-hidden='true'>&times;</span>
+  </button>
+</div>
             <div class="mb-2">
                 <div class="card">
                     <div class="card-header"> <i class="fas fa-check-circle" style="color:green; font-size:20px;margin-right:10px;vertical-align:middle;"></i>
@@ -159,9 +165,17 @@ if(isset($_COOKIE['checkoutInfo'])){
                                 <br>
                             <form >
                            <p id="ship" style="display:none"><?=$shippingInfo?></p>
-                            <input type="submit" shipping_info="<?=$shippingInfo?>"  name="confim_order" class="btn btn-primary confim_order form-control" disabled value="CONFIRM ORDER"></input>
+                            <button type="submit" shipping_info="<?=$shippingInfo?>"  name="confim_order" class="btn btn-primary confim_order form-control" disabled >
+                          
+                                <span class="text_ht"> CONFIRM ORDER</span>                            
+                            <div class="spinner-grow spinner-grow-sm loader_pur" style="display:none" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                             
+                            </button>
                             </form>
                             <br><br>
+                           
                        </div>
 
                     </div>
@@ -172,6 +186,8 @@ if(isset($_COOKIE['checkoutInfo'])){
 
         </div>
 </section>
+
+
 
 </div>
 <?php include("include/footer.php") ?>
