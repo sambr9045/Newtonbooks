@@ -261,6 +261,9 @@ if(isset($_POST['add_new_categorie'])){
 
 // ======================================================
 
+//add to cart from wishlist
+
+
 
 
 ?>

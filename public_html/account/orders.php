@@ -77,7 +77,7 @@
                     <a class="nav-link mb-3" href="#">Address book</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link mb-3 " href="#">Change Password</a>
+                    <a class="nav-link mb-3 " href="change-password">Change Password</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link mb-3" href="#">Newletter Preferrence</a>

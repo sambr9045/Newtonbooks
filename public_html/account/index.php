@@ -76,7 +76,7 @@
                     <a class="nav-link mb-3" href="#">Address book</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link mb-3 " href="#">Change Password</a>
+                    <a class="nav-link mb-3 " href="change-password">Change Password</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link mb-3" href="#">Newletter Preferrence</a>
@@ -107,7 +107,9 @@
                             <div class="card p-2">
                             <ul class="list-group list-group-flush">
    
-                                <li class="list-group-item">Account Details  <i class="fas fa-pencil-alt text-right text-danger cursor_pointer account_detail" account_detail="<?=$gen_id?>" data-toggle="modal" data-target="#exampleModal"style="font-size:15px;vertical-align:middle; float:right;"></i></li>
+                                <li class="list-group-item">Account Details  <a href="">
+                                <i class="fas fa-user-alt text-right text-danger cursor_pointer account_detail" account_detail="<?=$gen_id?>" style="font-size:15px;vertical-align:middle; float:right;"></i>
+                                </a></li>
                             </ul>
                             
                                 <div class="card-body">
@@ -116,7 +118,7 @@
 
                                 </div>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item text-danger" style="cursor:pointer">change password</li>
+                                <li class="list-group-item text-danger" style="cursor:pointer"><a class="text-info" href="update?content=account-details">Update info</a></li>
                             </ul>
                             </div>
                         </div>
@@ -124,17 +126,37 @@
                         <div class="col-sm-6 mb-2">
                             <div class="card p-2">
                             <ul class="list-group list-group-flush">
-   
+                      
                                 <li class="list-group-item">Address book
-                                <i class="fas fa-pencil-alt text-right text-danger cursor_pointer" data-toggle="modal" address_book="<?=$gen_id?>" data-target="#exampleModal" style="font-size:15px;vertical-align:middle; float:right;"></i>
+                               
                                 </li>
                             </ul>
                             
-                                <div class="card-body">
-                                <p>Your default shipping address:</p>
-                                <p><small>No default shipping address available.</small></p>
+                            <?php
 
-                                </div>
+                            $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+                            $default_address = $db->Fetch("SELECT * FROM orders WHERE user_id = '$gen_id'", null);
+                            if(empty($default_address)){
+                                ?>
+                                    <div class="card-body">
+                                    <p>Your default shipping address:</p>
+                                    <p><small>No default shipping address available.</small></p>
+
+                                    </div>
+                                <?php
+                            }else{
+                            
+                                ?>
+                                    <div class="card-body">
+                                    <p>Your default shipping address:</p>
+                                    <p><small><address><?=json_decode($default_address[0]["shipping_Info"])[4]?></address></small></p>
+                                    </div>
+                                <?php
+                                
+                            
+                            }
+
+                            ?>
                             
                             </div>
                         </div>

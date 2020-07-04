@@ -4,6 +4,7 @@
     require_once('initialized.php');
     require_once('vendor/autoload.php');
 
+    $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
 
     if(isset($_POST["signup"])){
     $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
@@ -180,5 +181,104 @@
                    
 
             //    }
+
+
+            if(isset($_POST['wishlist_add_to_cart'])){
+               extract($_POST);
+               $success_add_cart = [];
+               $erro_add_cart = [];
+
+               $search = $db->Fetch("SELECT * FROM cart WHERE bookid = '$book_id'", null);
+
+               if(empty($search)){
+                
+    $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+                $SQL = $db->Fetch("SELECT * FROM books WHERE id = '$book_id'", null);
+                extract($SQL[0]);
+                $booktype ="";
+                $booktype_price= "";
+                if($hardcover_price ==0){
+                    $booktype = "paperbag";
+                    $booktype_price = $paperbag_price;
+                }else{
+                    $booktype = "hardcover";
+                    $booktype_price = $hardcover_price;
+                }
+                $user_id = $_SESSION['user_id'];
+                $data = ["1", $book_id, json_decode($images)[0],$title, $booktype , $booktype_price,$user_id];
+                
+                $Save = $db->saving("cart", "qty, bookid, image,booktitle, booktype, book_type_price, user_id", "?,?,?,?,?,?,?", $data);
+            
+                 if($Save){
+                    $DEL = $db->Delete("DELETE FROM wishlist WHERE book_id = '$book_id'", null);
+                    if($DEL){
+                        $success_add_cart[] = "book added to cart";
+                    }
+                 }
+               }else{
+                    $erro_add_cart[]= "this book is already in your cart";
+               }
+           
+
+                
+               
+            }
+
+
+            // delete wishlist book
+
+            if(isset($_POST['remove_wishlist_book'])){
+                
+                $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+                extract($_POST);
+
+                $DELETE = $db->Delete("DELETE FROM wishlist WHERE book_id = '$book_id'");
+                if($DELETE){
+                    $success_add_cart = ["book Delete Succesfully"];
+                }
+            }
+
+            // account change password 
+
+            if(isset($_POST["account_change_password"])){
+                extract($_POST);
+                if(password_verify($old_password, $user_old_password)){
+                    if(empty($new_password)){
+                        $error_password_change = ["New password can't be empty"];
+
+                    }elseif(strlen($new_password) < 8){
+                        $error_password_change = ["New password is too short: your password must consiste of at least 8 characters"];
+
+                    }elseif($new_password != $confirm_new_password){
+                        $error_password_change = ["Password do not match"];
+
+                    }else{
+                           
+                $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+                extract($_POST);
+                $new_password = password_hash($new_password, PASSWORD_DEFAULT);
+                $SAVE = $db->Update("UPDATE user SET password = '$new_password' WHERE user_id = '$user_id'", null);
+                if($SAVE){
+                    $success_change_password = ['Password updated successfully'];
+                }
+                    }
+                }else{
+                    $error_password_change = ["old password is incorrect"];
+                }
+            }
+
+            // update account details
+
+            if(isset($_POST['update_account_details'])){
+                extract($_POST);
+                $full_names = $firstname." ".$lastname;
+                $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+                $user_id = $_SESSION['user_id'];
+                $update_account_details = $db->Update("UPDATE user SET full_name = '$full_names', email = '$email', phone_number='$phone_number' WHERE user_id = '$user_id'", null);
+                if($update_account_details){
+                    $success_add_cart = ["account details updated succesfully"];
+                }
+                
+            }
 
 ?>
