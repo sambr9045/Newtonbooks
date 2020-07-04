@@ -9,7 +9,7 @@
     define("STMT_USERNAME", "no-reply@newtonbooksonline.com");
     define("STMT_PASSWORD", "#cal509@HTG");
     define("stmt_host", "smtp.hostinger.com");
-    define("stmt_port", "587");
+    define("stmt_port", "465");
 
     define("ApiSecret", "sk_test_24dd462cb8831fb888dddcd6d707563e2bc29663");
     define("apiPublic", "pk_test_904b365620edb9108c20dadb73c98bf204f1b70a");

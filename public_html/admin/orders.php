@@ -177,18 +177,35 @@ if(!$_SESSION['username']){
                              <td class="text-center">
                                     <?php  if($payment_status == "Complete" && $shipping_status == "awaiting confirmation"){
                                         ?>
-                                       <button style="cursor: pointer;"class="btn btn-primary order_confirmation mR-2 deleteBook cursor_pointer" bookid="<?=$values['id']?>"  ><i class='fas fa-clock pr-1 '></i> Confirm order</button>
+                                       <button style="cursor: pointer;"class="btn btn-primary order_confirmation mR-2 deleteBook cursor_pointer" bookid="<?=$values['id']?>"  ><i class='fas fa-clock pr-1 '></i>  <span class="text_ht"> Confirm order</span>                            
+                                        <div class="spinner-grow spinner-grow-sm loader_pur" style="display:none" role="status">
+                                            <span class="sr-only">Loading...</span>
+                                        </div>
+                                        </button>
                                           
                                         <?php
                                         }elseif($shipping_status == "start delivery"){
                                             ?>
-                                                 <button style="cursor: pointer;"class="btn btn-warning order_delivery mR-2 deleteBook cursor_pointer" bookid="<?=$values['id']?>"  ><i class="fas fa-truck mr-1"></i> start Delivery</button>
+                                                 <button style="cursor: pointer;"class="btn btn-warning order_delivery mR-2 deleteBook cursor_pointer" bookid="<?=$values['id']?>"  ><i class="fas fa-truck mr-1"></i> 
+                                                 
+                                                 <span class="text_ht"> start Delivery</span>                            
+                                                <div class="spinner-grow spinner-grow-sm loader_pur" style="display:none" role="status">
+                                                    <span class="sr-only">Loading...</span>
+                                                </div>
+
+                                                 </button>
                                             <?php
 
                                         }elseif($shipping_status == "Item(s) being shipped"){
                                             ?>
                                              <b class="text-info"><?=$shipping_status?></b> <br>
-                                             <small><button class="btn btn-info h6 cursor_pointer confirm_delivery" bookid="<?=$values['id']?>"  ><i class="fas fa-truck mr-1"></i> Confirm delivery</button></small>
+                                             <small><button class="btn btn-info h6 cursor_pointer confirm_delivery" bookid="<?=$values['id']?>"  ><i class="fas fa-truck mr-1"></i>
+                                             <span class="text_ht">  Cornfirm delivery</span>                            
+                                            <div class="spinner-grow spinner-grow-sm loader_pur" style="display:none" role="status">
+                                                <span class="sr-only">Please wait...</span>
+                                            </div>
+                                             
+                                             </button></small>
                                             <?php
                                         }elseif(strpos($shipping_status,"Delivered on") !== false){
                                             ?>

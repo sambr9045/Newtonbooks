@@ -1,4 +1,10 @@
 $(document).ready(function () {
+  
+    $('.nav-item a[href]').filter(function() {
+        return this.pathname === window.location.pathname;
+    }).addClass("account_active");
+  
+
     $(".blognewpost").click(function (e) { 
         e.preventDefault();
          $("#loader_html").removeClass("fadeOut");
@@ -280,8 +286,9 @@ $(document).on('click', '.order_number', function(e) {
 
 $(document).on('click', '.order_confirmation', function(e){
     e.preventDefault();
+    var ths = $(this);
     $(this).css('opaciy', '0.5')
-
+    Loader(ths);
     let order_number = $(this).closest("tr").find(".order_number").attr("order_number");
    
      
@@ -290,7 +297,9 @@ $(document).on('click', '.order_confirmation', function(e){
         data:"&order_confirmation="+order_number,
         dataType:'html',
         success:function(respons){
+            Rel("Reloading...")
            if(respons == "1"){
+            Rel(ths);
             window.location.reload()
            }
 
@@ -301,6 +310,8 @@ $(document).on('click', '.order_confirmation', function(e){
 
 $(document).on('click', '.order_delivery', function(e){
     e.preventDefault();
+    var ths = $(this);
+    Loader(ths);
     $(this).css('opaciy', '0.5')
 
     let order_number = $(this).closest("tr").find(".order_number").attr("order_number");
@@ -312,6 +323,7 @@ $(document).on('click', '.order_delivery', function(e){
         dataType:'html',
         success:function(response){
         if(response == "2"){
+            Rel(ths)
             window.location.reload()
         }
         }
@@ -320,6 +332,8 @@ $(document).on('click', '.order_delivery', function(e){
 
 $(document).on('click', '.confirm_delivery', function(e){
     e.preventDefault();
+    var ths = $(this);
+   Loader(ths);
     $(this).css('opaciy', '0.5')
     let order_number = $(this).closest("tr").find(".order_number").attr("order_number");
    
@@ -330,6 +344,7 @@ $(document).on('click', '.confirm_delivery', function(e){
         dataType:'html',
         success:function(response){
         if(response == "2"){
+            Rel(ths)
             window.location.reload()
         }
         }
@@ -350,6 +365,17 @@ function Ajax(url, data){
         })
     }
 
+    function Loader(ths){
+    
+       ths.find(".loader_pur").show()
+        $(this).css('opacity', '0.5')
+        ths.find(".text_ht").empty().append('Processing Pleass wait..')
+    }
+    function Rel(ths){
+       
+        ths.find(".text_ht").html("Reloading...")
+        $(".loader_pur").hide();
+    }
 /**
  * ============================
  * Add new blog post

@@ -54,11 +54,14 @@
                 $SQL = $db->saving("user", "full_name, email, password, token, user_id", "?,?,?,?,?", $data);
                 if($SQL){
                     $result = SendNon("please verify Your email address", $token, $email, $Full_name);
-                if($result > 0){
+
+                    $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+                    $newsletter_content= [$generated_id];
+                    $newsletter  = $db->saving("newslatter", "user_id", "?", $newsletter_content);
+
                         $_SESSION["user_id"] = $generated_id;
-                        header("location:account");
+                        header("location:account/index");
                          
-                }
                 }
 
             }
@@ -66,6 +69,17 @@
     }
 
                 if(isset($_POST['resend_verification_link'])){
+
+                    extract($_POST);
+
+                    $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+
+                    $response = SendNon("please verify Your email address", $token, $email, $full_name);
+                    
+                    $vefication_error = ["verification link sent"];
+
+
+
 
                 }
 
@@ -280,5 +294,28 @@
                 }
                 
             }
+
+            // update newslatter 
+
+            if(isset($_POST["save_preference"])){
+                extract($_POST);
+                $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+                $data = [];
+
+                if($gridRadios == "daily_news"){
+                    $data = ["1", "0"];
+                }else{
+                    $data = ["0", "1"];
+                }
+
+                $update_newletter = $db->Update("UPDATE newslatter SET daily_news = ?, unsubscribe= ?", $data);
+                if($update_newletter){
+                    $success_add_cart = ["newsletter preference updated "];
+                }
+
+
+            }
+
+
 
 ?>

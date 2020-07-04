@@ -11,19 +11,10 @@
 <body>
 <?php 
 
+echo  date("Y-m-d")."<br>";
+echo date("d-m-Y h:i:s");
 
-$title = "our story";
 
- $titles = str_replace(" ", "_", $title);
- echo $titles;
- $d = ["this is the data"];
- var_dump(isJson($d));
-
- function isJson($string) {
-  return ((is_string($string) &&
-          (is_object(json_decode($string)) ||
-          is_array(json_decode($string))))) ? true : false;
-}
 
 ?>
  

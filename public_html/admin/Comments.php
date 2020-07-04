@@ -114,12 +114,7 @@ foreach($error as $value){
 }
 ?>
 
-                    <div class="container-fluid">
-                       <select name="select" id="choose_review" class="w-50 form-control">
-                           <option value="comment" selected>COMMENTS</option>
-                           <option value="reviews">BOOKS REVIEW</option>
-                       </select>
-                       <br>
+                   
                       
                         <div id="loader_html" class="fadeOut">
                             <div class="spinner_htmlload"></div>

@@ -1,5 +1,12 @@
 
+<?php
+require_once("../../../private/initialized.php");
 
+$db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+
+$categorie = $db->Fetch("SELECT * FROM ccategories ORDER BY id DESC", null);
+
+?>
 <div class="bgc-white p-20 bd w-100  pL-100 pR-100">
 <h6 class="c-grey-900 ">Add New book</h6>
 <div class="mT-30">
@@ -44,29 +51,14 @@
                 <label for="inputState">Categorie</label>
                 <select id="inputState" class="form-control" name="categories" required>
                     <option selected="selected">Choose...</option>
-                    <option>INFORMATION & TECHNOLOGY</option>
-                    <option>HUMAN RESOURCES</option>
-                    <option>CAREER STRATEGIES</option>
-                    <option>MANAGEMENT</option>
-                    <option>ENTREPRENEURSHIP</option>
-                    <option>FINANCIAL SUCCESS</option>
-                    <option>MARKETING</option>
-                    <option>LEADERSHIP</option>
-                    <option>MOTIVATION / SELF-DEVELOPMENT</option>
-                    <option>REFERENCE</option>
-                    <option>MEDIA</option>
-                    <option>BIOGRAPHY & AUTOBIOGRAPHY</option>
-                    <option>POLITICAL ECONOMICS</option>
-                    <option>FICTION</option>
-                    <option>BUSINESS</option>
-                    <option>PROPHETIC</option>
-                    <option>CHURCH GROWTH</option>
-                    <option>MARRIAGE AND RELATIONSHIP</option>
-                    <option>BIBLES</option>
-                    <option>eBOOKS</option>
-                    <option>STUDY BIBLES</option>
-                    <option>BIBLES DICTIONARIE</option>
-                    <option>BIBLES COMMENTARIES</option>
+                    <?php 
+                     foreach($categorie as $cat){
+                         ?>
+                          <option style="text-transform:uppercase!important;"><?=$cat["cat_name"]?></option>
+                   
+                         <?php
+                     }
+                    ?>
                 </select>
             </div>
             

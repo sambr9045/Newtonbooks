@@ -42,10 +42,19 @@
         if($verify == 0){
                  
             ?>
-                <div class="alert alert-warning alert-dismissible fade show " role="alert" style="margin-left:20%;margin-right:20%;">
-                <strong>We sent you a verification email </strong> Please verify Your Email address <form action="account" method="post" style="display:inline"><button class="btn btn-warning ml-5" name="resend_verification_link"><small>Resend Verification link</small></button></form>
+                 <form action="saved-items" method="post">
+               <div class="alert alert-warning alert-dismissible fade show " role="alert" style="margin-left:20%;margin-right:20%;">
+                <strong>We sent you a verification email </strong> Please verify Your Email address <form action="account" method="post" style="display:inline">
+                <input type="hidden" name="email" value="<?=$email?>">
+                <input type="hidden" name="user_id" value="<?=$gen_id?>">
+                <input type="hidden" name="token" value="<?=$token?>">
+                <input type="hidden" name="full_name" value="<?=$full_name?>">
+                <button class="btn btn-warning ml-5" name="resend_verification_link"><small>Resend Verification link</small> </button>
+                <b class="text-success"><?=(isset($vefication_error))?$vefication_error[0]:""?></b>
+               
                
                 </div>
+               </form>
             <?php
         }
      ?>
@@ -104,7 +113,7 @@
                     <a class="nav-link mb-3 " href="change-password">Change Password</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link mb-3" href="#">Newletter Preferrence</a>
+                    <a class="nav-link mb-3" href="update?content=newsletter-preferences">Newletter Preferrence</a>
                 </li>
                 <div class="dropdown-divider"></div>
                 <li class="nav-item">

@@ -13,6 +13,9 @@ $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
 
 $coupons = $db->Fetch("SELECT * FROM coupon ORDER BY id DESC", null);
 
+$db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+$date_s = date("Y-m-d");
+$delet_coupon = $db->Update("UPDATE coupon SET status ='expired' WHERE expiring_date <= CURDATE()", null);
 
 $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
  $categor = $db->Fetch("SELECT * FROM ccategories ORDER BY id DESC", null);

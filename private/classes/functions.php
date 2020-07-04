@@ -16,7 +16,7 @@ function SendNon($subject, $token, $email, $Full_name){
     <h1>Please verify Your email address</h1>
     <br>
     <p style='font-size:23px; width:50%;font-size:17px;margin:0 auto;'>We need to verify your email address before activating your  account.</p>
-    <a href='http://localhost/projects/Newtonbooks/public_html/verify?token={$token}'><button style='margin-top:8vh; width:30%; height:50px; line-height:20px; color:white;background-color:#0058ab; border:none;border-radius:5px;cursor:pointer;'>Verify</button></a>
+    <a href='https://newtonbooksonline.com/verify?token={$token}'><button style='margin-top:8vh; width:30%; height:50px; line-height:20px; color:white;background-color:#0058ab; border:none;border-radius:5px;cursor:pointer;'>Verify</button></a>
     </div>
     </div>
     

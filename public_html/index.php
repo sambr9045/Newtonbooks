@@ -139,16 +139,16 @@ include("../private/load.php") ;
 					<!-- Start Single Product -->
 					<div class="product product__style--3">
 						<div class="product__thumb">
-							<a class="first__img" href="detail?t=<?=$value['title']?>&id=<?=$value['id']?>"><img src="<?="uploades/".$url[0]?>"
+							<a class="first__img" href="detail?id=<?=$value['id']?>t=<?=$value['title']?>"><img src="<?="uploades/".$url[0]?>"
 									width="304" height="384" alt="product image"></a>
-							<a class="second__img animation1" href="detail?t=<?=$value['title']?>&id=<?=$value['id']?>"><img
+							<a class="second__img animation1" href="detail?id=<?=$value['id']?>t=<?=$value['title']?>"><img
 									src="<?="uploades/".$url[1]?>" width="304" height="384" alt="product image"></a>
 							<div class="hot__box color--2">
 								<span class="hot-label">HOT</span>
 							</div>
 						</div>
 						<div class="product__content content--center">
-							<h4><a href="detail?t=<?=$value['title']?>&id=<?=$value['id']?>"><?=$value['title']?></a></h4>
+							<h4><a href="detail?id=<?=$value['id']?>t=<?=$value['title']?>"><?=$value['title']?></a></h4>
 							<ul class="prize d-flex">
 								<li><?=$value['discount_price']?> GHS</li>
 								<li class="old_prize"><?=$value['full_price']?> GHS</li>
@@ -304,16 +304,16 @@ include("../private/load.php") ;
 								<div class="col-lg-3 col-md-4 col-sm-6 col-12">
 									<div class="product product__style--3">
 										<div class="product__thumb">
-											<a class="first__img" href="detail?t=<?=$value['title']?>&id=<?=$value['id']?>"><img
+											<a class="first__img" href="detail?id=<?=$value['id']?>t=<?=$value['title']?>"><img
 													src="<?="uploades/".$url2[0]?>" width="304" height="384" alt="product image"></a>
-											<a class="second__img animation1" href="detail?t=<?=$value['title']?>&id=<?=$value['id']?>"><img
+											<a class="second__img animation1" href="detail?id=<?=$value['id']?>t=<?=$value['title']?>"><img
 													src="<?="uploades/".$url2[1]?>" width="304" height="384" alt="product image"></a>
 											<div class="hot__box">
 												<span class="hot-label">BEST SALLER</span>
 										    </div>
 										</div>
 										<div class="product__content content--center">
-											<h4><a href="detail?t=<?=$value['title']?>&id=<?=$value['id']?>"><?=$value['title']?></a></h4>
+											<h4><a href="detail?id=<?=$value['id']?>t=<?=$value['title']?>"><?=$value['title']?></a></h4>
 											<ul class="prize d-flex">
 												<li><?=$value['discount_price']?> GHS</li>
 												<li class="old_prize"><?=$value['full_price']+10?> GHS</li>
@@ -377,16 +377,16 @@ include("../private/load.php") ;
 								<div class="col-lg-3 col-md-4 col-sm-6 col-12">
 									<div class="product product__style--3">
 										<div class="product__thumb">
-											<a class="first__img" href="detail?t=<?=$value['title']?>&id=<?=$value['id']?>"><img
+											<a class="first__img" href="detail?id=<?=$value['id']?>t=<?=$value['title']?>"><img
 													src="<?="uploades/".$url2[0]?>" width="304" height="384" alt="product image"></a>
-											<a class="second__img animation1" href="detail?t=<?=$value['title']?>&id=<?=$value['id']?>"><img
+											<a class="second__img animation1" href="detail?id=<?=$value['id']?>t=<?=$value['title']?>"><img
 													src="<?="uploades/".$url2[1]?>" width="304" height="384" alt="product image"></a>
 											<div class="hot__box">
 												<span class="hot-label">BEST SALLER</span>
 											</div>
 										</div>
 										<div class="product__content content--center">
-											<h4><a href="detail?t=<?=$value['title']?>&id=<?=$value['id']?>"><?=$value['title']?></a></h4>
+											<h4><a href="detail?id=<?=$value['id']?>t=<?=$value['title']?>"><?=$value['title']?></a></h4>
 											<ul class="prize d-flex">
 												<li><?=$value['discount_price']?> GHS</li>
 												<li class="old_prize"><?=$value['full_price']+10?> GHS</li>
@@ -454,16 +454,16 @@ include("../private/load.php") ;
 								<div class="col-lg-3 col-md-4 col-sm-6 col-12">
 									<div class="product product__style--3">
 										<div class="product__thumb">
-											<a class="first__img" href="detail?t=<?=$value['title']?>&id=<?=$value['id']?>"><img
+											<a class="first__img" href="detail?id=<?=$value['id']?>t=<?=$value['title']?>"><img
 													src="<?="uploades/".$url2[0]?>" width="304" height="384" alt="product image"></a>
-											<a class="second__img animation1" href="detail?t=<?=$value['title']?>&id=<?=$value['id']?>"><img
+											<a class="second__img animation1" href="detail?id=<?=$value['id']?>t=<?=$value['title']?>"><img
 													src="<?="uploades/".$url2[1]?>" width="304" height="384" alt="product image"></a>
 											<div class="hot__box">
 												<span class="hot-label">BEST SALLER</span>
 										    </div>
 										</div>
 										<div class="product__content content--center">
-											<h4><a href="detail?t=<?=$value['title']?>&id=<?=$value['id']?>"><?=$value['title']?></a></h4>
+											<h4><a href="detail?id=<?=$value['id']?>t=<?=$value['title']?>"><?=$value['title']?></a></h4>
 											<ul class="prize d-flex">
 												<li><?=$value['discount_price']?> GHS</li>
 												<li class="old_prize"><?=$value['full_price']+10?> GHS</li>
@@ -527,16 +527,16 @@ include("../private/load.php") ;
 								<div class="col-lg-3 col-md-4 col-sm-6 col-12">
 									<div class="product product__style--3">
 										<div class="product__thumb">
-											<a class="first__img" href="detail?t=<?=$value['title']?>&id=<?=$value['id']?>"><img
+											<a class="first__img" href="detail?id=<?=$value['id']?>t=<?=$value['title']?>"><img
 													src="<?="uploades/".$url2[0]?>" width="304" height="384" alt="product image"></a>
-											<a class="second__img animation1" href="detail?t=<?=$value['title']?>&id=<?=$value['id']?>"><img
+											<a class="second__img animation1" href="detail?id=<?=$value['id']?>t=<?=$value['title']?>"><img
 													src="<?="uploades/".$url2[1]?>" width="304" height="384" alt="product image"></a>
 											<div class="hot__box">
 												<span class="hot-label">BEST SALLER</span>
 											</div>
 										</div>
 										<div class="product__content content--center">
-											<h4><a href="detail?t=<?=$value['title']?>&id=<?=$value['id']?>"><?=$value['title']?></a></h4>
+											<h4><a href="detail?id=<?=$value['id']?>t=<?=$value['title']?>"><?=$value['title']?></a></h4>
 											<ul class="prize d-flex">
 												<li><?=$value['discount_price']?> GHS</li>
 												<li class="old_prize"><?=$value['full_price']+10?> GHS</li>
@@ -597,16 +597,16 @@ include("../private/load.php") ;
 								<div class="col-lg-3 col-md-4 col-sm-6 col-12">
 									<div class="product product__style--3">
 										<div class="product__thumb">
-											<a class="first__img" href="detail?t=<?=$value['title']?>&id=<?=$value['id']?>"><img
+											<a class="first__img" href="detail?id=<?=$value['id']?>t=<?=$value['title']?>"><img
 													src="<?="uploades/".$url2[0]?>" width="304" height="384" alt="product image"></a>
-											<a class="second__img animation1" href="detail?t=<?=$value['title']?>&id=<?=$value['id']?>"><img
+											<a class="second__img animation1" href="detail?id=<?=$value['id']?>t=<?=$value['title']?>"><img
 													src="<?="uploades/".$url2[1]?>" width="304" height="384" alt="product image"></a>
 											<div class="hot__box">
 												<span class="hot-label">BEST SALLER</span>
 										    </div>
 										</div>
 										<div class="product__content content--center">
-											<h4><a href="detail?t=<?=$value['title']?>&id=<?=$value['id']?>"><?=$value['title']?></a></h4>
+											<h4><a href="detail?id=<?=$value['id']?>t=<?=$value['title']?>"><?=$value['title']?></a></h4>
 											<ul class="prize d-flex">
 												<li><?=$value['discount_price']?> GHS</li>
 												<li class="old_prize"><?=$value['full_price']+10?> GHS</li>
@@ -670,16 +670,16 @@ include("../private/load.php") ;
 								<div class="col-lg-3 col-md-4 col-sm-6 col-12">
 									<div class="product product__style--3">
 										<div class="product__thumb">
-											<a class="first__img" href="detail?t=<?=$value['title']?>&id=<?=$value['id']?>"><img
+											<a class="first__img" href="detail?id=<?=$value['id']?>t=<?=$value['title']?>"><img
 													src="<?="uploades/".$url2[0]?>" width="304" height="384" alt="product image"></a>
-											<a class="second__img animation1" href="detail?t=<?=$value['title']?>&id=<?=$value['id']?>"><img
+											<a class="second__img animation1" href="detail?id=<?=$value['id']?>t=<?=$value['title']?>"><img
 													src="<?="uploades/".$url2[1]?>" width="304" height="384" alt="product image"></a>
 											<div class="hot__box">
 												<span class="hot-label">BEST SALLER</span>
 											</div>
 										</div>
 										<div class="product__content content--center">
-											<h4><a href="details?t=<?=$value['title']?>&id=<?=$value['id']?>"><?=$value['title']?></a></h4>
+											<h4><a href="details?id=<?=$value['id']?>t=<?=$value['title']?>"><?=$value['title']?></a></h4>
 											<ul class="prize d-flex">
 												<li><?=$value['discount_price']?> GHS</li>
 												<li class="old_prize"><?=$value['full_price']+10?> GHS</li>
@@ -740,16 +740,16 @@ include("../private/load.php") ;
 								<div class="col-lg-3 col-md-4 col-sm-6 col-12">
 									<div class="product product__style--3">
 										<div class="product__thumb">
-											<a class="first__img" href="detail?t=<?=$value['title']?>&id=<?=$value['id']?>"><img
+											<a class="first__img" href="detail?id=<?=$value['id']?>t=<?=$value['title']?>"><img
 													src="<?="uploades/".$url2[0]?>" width="304" height="384" alt="product image"></a>
-											<a class="second__img animation1" href="detail?t=<?=$value['title']?>&id=<?=$value['id']?>"><img
+											<a class="second__img animation1" href="detail?id=<?=$value['id']?>t=<?=$value['title']?>"><img
 													src="<?="uploades/".$url2[1]?>" width="304" height="384" alt="product image"></a>
 											<div class="hot__box">
 												<span class="hot-label">BEST SALLER</span>
 										    </div>
 										</div>
 										<div class="product__content content--center">
-											<h4><a href="detail?t=<?=$value['title']?>&id=<?=$value['id']?>"><?=$value['title']?></a></h4>
+											<h4><a href="detail?id=<?=$value['id']?>t=<?=$value['title']?>"><?=$value['title']?></a></h4>
 											<ul class="prize d-flex">
 												<li><?=$value['discount_price']?> GHS</li>
 												<li class="old_prize"><?=$value['full_price']+10?> GHS</li>
@@ -813,16 +813,16 @@ include("../private/load.php") ;
 								<div class="col-lg-3 col-md-4 col-sm-6 col-12">
 									<div class="product product__style--3">
 										<div class="product__thumb">
-											<a class="first__img" href="detail?t=<?=$value['title']?>&id=<?=$value['id']?>"><img
+											<a class="first__img" href="detail?id=<?=$value['id']?>t=<?=$value['title']?>"><img
 													src="<?="uploades/".$url2[0]?>" width="304" height="384" alt="product image"></a>
-											<a class="second__img animation1" href="detail?t=<?=$value['title']?>&id=<?=$value['id']?>"><img
+											<a class="second__img animation1" href="detail?id=<?=$value['id']?>t=<?=$value['title']?>"><img
 													src="<?="uploades/".$url2[1]?>" width="304" height="384" alt="product image"></a>
 											<div class="hot__box">
 												<span class="hot-label">BEST SALLER</span>
 											</div>
 										</div>
 										<div class="product__content content--center">
-											<h4><a href="details?t=<?=$value['title']?>&id=<?=$value['id']?>"><?=$value['title']?></a></h4>
+											<h4><a href="details?id=<?=$value['id']?>t=<?=$value['title']?>"><?=$value['title']?></a></h4>
 											<ul class="prize d-flex">
 												<li><?=$value['discount_price']?> GHS</li>
 												<li class="old_prize"><?=$value['full_price']+10?> GHS</li>

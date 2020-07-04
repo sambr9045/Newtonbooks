@@ -209,16 +209,16 @@
 									<!-- Start Single Product -->
 									<div class="product product__style--6 col-lg-3 col-md-3 col-sm-6 col-12">
 										<div class="product__thumb">
-											<a class="first__img" href="detail?t=<?=$val['title']?>&id=<?=$val['id']?>"><img
+											<a class="first__img" href="detail?id=<?=$val['id']?>&t=<?=$val['title']?>"><img
 													src="<?="uploades/".$url2[0]?>" width="304" height="304" style="border-radius:5px;" alt="product image"></a>
-											<a class="second__img animation1" href="detail?t=<?=$val['title']?>&id=<?=$val['id']?>"><img
+											<a class="second__img animation1" href="detail?id=<?=$val['id']?>&t=<?=$val['title']?>"><img
 													src="<?="uploades/".$url2[1]?>" width="304" height="304" alt="product image"></a>
 											<div class="hot__box">
 												<span class="hot-label">BEST SALLER</span>
 											</div>
 										</div>
 										<div class="product__content content--center">
-											<h4><a href="detail?t=<?=$val['title']?>&id=<?=$val['id']?>"><?=$val['title']?></a></h4>
+											<h4><a href="detail?id=<?=$val['id']?>&t=<?=$val['title']?>"><?=$val['title']?></a></h4>
 											<ul class="prize d-flex">
 												<li style="color:#0058AB;font-weight:bold;"><?=$val['discount_price']?> GHS </li>&nbsp;
 												<li class="old_prize text-secondary b"> &nbsp;<del><?=$val['full_price']?> GHS</del></li>

@@ -56,10 +56,19 @@ header("location:../login");
 if($verify == 0){
 
 ?>
-<div class="alert alert-warning alert-dismissible fade show " role="alert" >
-<strong>We sent you a verification email </strong> Please verify Your Email address <form action="account" method="post" style="display:inline"><button class="btn btn-warning ml-5" name="resend_verification_link"><small>Resend Verification link</small></button></form>
-
-</div>
+  <form action="index" method="post">
+               <div class="alert alert-warning alert-dismissible fade show " role="alert" >
+                <strong>We sent you a verification email </strong> Please verify Your Email address <form action="account" method="post" style="display:inline">
+                <input type="hidden" name="email" value="<?=$email?>">
+                <input type="hidden" name="user_id" value="<?=$gen_id?>">
+                <input type="hidden" name="token" value="<?=$token?>">
+                <input type="hidden" name="full_name" value="<?=$full_name?>">
+                <button class="btn btn-warning ml-5" name="resend_verification_link"><small>Resend Verification link</small> </button>
+                <b class="text-success"><?=(isset($vefication_error))?$vefication_error[0]:""?></b>
+               
+               
+                </div>
+               </form>
 <?php
 }
 ?>
@@ -100,7 +109,7 @@ if($verify == 0){
 <a class="nav-link mb-3 " href="change-password">Change Password</a>
 </li>
 <li class="nav-item">
-<a class="nav-link mb-3" href="#">Newletter Preferrence</a>
+<a class="nav-link mb-3" href="update?content=newsletter-preferences">Newletter Preferrence</a>
 </li>
 <div class="dropdown-divider"></div>
 <li class="nav-item">
@@ -184,6 +193,60 @@ $full_names  = explode(" ", $full_name);
                 <button type="submit" class="btn btn-danger form-control" name="update_account_details">Update</button>
                 </form>
             <?php 
+        }elseif($content == "newsletter-preferences"){
+
+            $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+
+            $preference = $db->Fetch("SELECT * FROM newslatter WHERE user_id = '$gen_id'", null);
+            extract($preference[0]);
+            ?>
+
+<div class="col-sm-6 mt-5">
+                            <div class="card p-2">
+                            <ul class="list-group list-group-flush">
+   
+                                <li class="list-group-item">SUBSCRIBE TO
+                                 
+                                </li>
+                            </ul>
+                            
+                                <div class="card-body">
+                                <form action="update?content=newsletter-preferences" method="post">
+
+                                <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                                    <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="daily_news" <?=($daily_news == 1)?"checked":"";?>>
+                                    <label class="form-check-label" for="gridRadios1">
+                                     Daily newsletter
+                                    </label>
+                                    </div>
+                                    
+                                </div>
+                                <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                                    <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="unsubscrib"  <?=($unsubscribe == 1)?"checked":"";?>>
+                                    <label class="form-check-label" for="gridRadios1">
+                                     <small>i don't want to receive daily newsletters</small>
+                                    </label>
+                                    </div>
+                                    <br><br>
+                                </div>
+
+
+                                  
+                             
+                                
+                                </div>
+                            
+                            </div>
+<br>
+                           
+                        </div>
+                        <button class="form-control btn btn-primary" name="save_preference">SAVE</button>
+                                </form>
+                                
+                        </div>
+            <?php
         }
 }
 ?>
