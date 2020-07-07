@@ -82,9 +82,7 @@
                     <a class="nav-link mb-3 " href="#"><i class="fa fa-lock mr-2" style="font-size:20px;"></i> Change Password</a>
                 </li>
                 <div class="dropdown-divider"></div>
-                <li class="nav-item">
-                    <a class="nav-link mb-3" href="#">Address book</a>
-                </li>
+                
                 <li class="nav-item">
                     <a class="nav-link mb-3 " href="change-password">Change Password</a>
                 </li>
@@ -93,7 +91,7 @@
                 </li>
                 <div class="dropdown-divider"></div>
                 <li class="nav-item">
-                    <a class="nav-link text-center pt-3 text-danger" href="account?logout"><i class="fa fa-sign-out mr-2" style="font-size:20px;vertical-align:middle"></i> Logout</a>
+                    <a class="nav-link text-center pt-3 text-danger" href="index?logout"><i class="fa fa-sign-out mr-2" style="font-size:20px;vertical-align:middle"></i> Logout</a>
                 </li>
                
                 </ul>

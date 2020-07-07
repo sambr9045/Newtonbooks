@@ -672,7 +672,7 @@ a {
 }
  
 .bg-image--9 {
-  background-image: url(../images/bg/9.jpg);
+  background-image: url(../images/bg/9.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -2167,7 +2167,7 @@ Header Styles
 .sticky__header.is-sticky {
   -webkit-animation: 0.4s ease-in-out 0s normal both 1 running fadeInDown;
   animation: 0.4s ease-in-out 0s normal both 1 running fadeInDown;
-  background: rgba(0, 0, 0, 0.9) none repeat scroll 0 0;
+  background: rgba(149, 142, 142, 0.9) none repeat scroll 0 0;
   box-shadow: 0 0 5px #bdbdbd;
   left: 0;
   position: fixed;
@@ -2189,7 +2189,8 @@ Header Styles
   padding-left: 80px;
   padding-right: 80px; }
 .sticky__bg--black.sticky__header.is-sticky {
-  background: rgba(0, 0, 0, 0.9) none repeat scroll 0 0; }
+  background: rgba(149, 142, 142, 0.9) none repeat scroll 0 0;
+ }
 .sticky__header.is-sticky .mainmenu__nav {
   height: 55px; }
 .header__area .sticky__header.is-sticky .header__sidebar__right {

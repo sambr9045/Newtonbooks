@@ -3,7 +3,7 @@ if(!$_SESSION['username']){
     header("location:login");
     
 }
-
+Update_details("user");
 ?>
 <?php include("inc/inc_top.php") ?>
 

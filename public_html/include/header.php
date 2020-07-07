@@ -5,7 +5,7 @@
 	<div class="col-md-4 col-sm-4 col-7 col-lg-2">
 		<div class="logo">
 			<a href="index">
-				<img src="assets/images/logo/logo.png" alt="logo images">
+				<img src="assets/images/logo/logo.png" width="110px" height="40px" alt="logo images">
 			</a>
 		</div>
 	</div>

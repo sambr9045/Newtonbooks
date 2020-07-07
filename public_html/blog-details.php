@@ -27,7 +27,8 @@
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<title><?=$title?></title>
-	<meta name="description" content="">
+	<meta name="description" content="Newton Books Online | #1 Online Bookstore and Publishing House in Ghana | Christian Literature | Business Books | Leadership Books">
+	<meta name="keyworlds" content="bookstore , bookshop, buy books in ghana ">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<?php include("include/head.php") ?>
 </head>

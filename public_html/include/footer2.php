@@ -7,16 +7,16 @@
 							<div class="footer__widget footer__menu">
 								<div class="ft__logo">
 									<a href="newtonbooksonline.com">
-										<img src="../assets/images/logo/logo.png" alt="logo">
+										<img src="../assets/images/logo/logo.png" alt="logo" width="270px" height="100px" >
 									</a>
 									
 								</div>
 								<div class="footer__content">
 									<ul class="social__net social__net--2 d-flex justify-content-center">
-										<li><a href="#"><i class="bi bi-facebook"></i></a></li>
+										<li><a href="https://web.facebook.com/newtonbooksonline"><i class="bi bi-facebook"></i></a></li>
 										<li><a href="#"><i class="bi bi-google"></i></a></li>
-										<li><a href="#"><i class="bi bi-twitter"></i></a></li>
-										<li><a href="#"><i class="bi bi-linkedin"></i></a></li>
+										<li><a href="https://twitter.com/NewtonBooks"><i class="bi bi-twitter"></i></a></li>
+										<li><a href="https://www.linkedin.com/company/newtonbooks"><i class="bi bi-linkedin"></i></a></li>
 										<li><a href="#"><i class="bi bi-youtube"></i></a></li>
 									</ul>
 									<ul class="mainmenu d-flex justify-content-center">

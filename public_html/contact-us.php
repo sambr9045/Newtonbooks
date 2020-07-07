@@ -7,8 +7,9 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<title>Contact | Books Library eCommerce Store</title>
-	<meta name="description" content="">
+	<title>Contact-us| Books Library eCommerce Store</title>
+	<meta name="description" content="Newton Books Online | #1 Online Bookstore and Publishing House in Ghana | Christian Literature | Business Books | Leadership Books">
+	<meta name="keyworlds" content="bookstore , bookshop, buy books in ghana ">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<!-- Favicons -->
@@ -131,9 +132,20 @@
 
 								<div class="single__address">
 									<i class="icon-location-pin icons"></i>
-									<div class="content">
+									<div class="content ">
 										<span>address:</span>
-										<p>Ghana, Greater-accra </p>
+										<address>
+										Asafoatse Nettey Rd <br>
+										Accra, Ghana, Greater-accra
+										<br><br>
+										P.O.Box MP 4624 <br>
+										Mamprobi <br>
+										Accra, Ghana <br>
+										</address>
+										<br>
+										
+
+
 									</div>
 								</div>
 
@@ -141,7 +153,7 @@
 									<i class="icon-phone icons"></i>
 									<div class="content">
 										<span>Phone Number:</span>
-										<p>0246791678</p>
+										<p>+233-244-49-8467</p>
 									</div>
 								</div>
 

@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Newton Books Online | #1 Online Bookstore and Publishing House in Ghana | Christian Literature | Business Books | Leadership Books">
+	<meta name="keyworlds" content="bookstore , bookshop, buy books in ghana ">
     <title>Newtonbooks | Sign Up</title>
    <?php include("include/head.php")?>
    <link rel="stylesheet" href="assets/css/registration.css">
@@ -14,7 +16,7 @@
 <div class="wrapper fadeInDown">
 
 <div class="logo">
-    <img src="assets/images/logo/logo.png" alt="">
+    <img src="assets/images/logo/logo.png" alt="" width="260px" height="100px">
 </div>
 
   <div id="formContent">

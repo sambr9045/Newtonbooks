@@ -4,7 +4,7 @@
 					<div class="col-md-6 col-sm-6 col-6 col-lg-2">
 						<div class="logo">
 							<a href="index">
-								<img src="assets/images/logo/logo.png" alt="logo images">
+								<img src="assets/images/logo/logo.png" alt="logo images" width="110px" height="40px">
 							</a>
 						</div>
 					</div>
@@ -20,28 +20,56 @@
 								<li class="drop"><a href="shop">Books</a>
 									<div class="megamenu mega03">
 										<ul class="item item03">
-											<li class="title">Categories</li>
-											<li><a href="shop">Biography </a></li>
-											<li><a href="shop">Business </a></li>
-											<li><a href="shop">Cookbooks </a></li>
-											<li><a href="shop">Health & Fitness </a></li>
-											<li><a href="shop">History </a></li>
+										<li class="title">Categories</li>
+
+											<?php
+
+											$db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+
+											$cat1 = $db->Fetch("SELECT * FROM ccategories ORDER BY id DESC limit 0, 5", null);
+											foreach($cat1 as $cats1){
+												?>
+													<li><a href="shop?categorie=<?=$cats1['cat_name']?>"><?=$cats1["cat_name"]?> </a></li>
+												<?php
+											}
+											
+											
+											?>
+											
 										</ul>
 										<ul class="item item03">
-											<li class="title">Customer Favourite</li>
-											<li><a href="shop">Mystery</a></li>
-											<li><a href="shop">Religion & Inspiration</a></li>
-											<li><a href="shop">Romance</a></li>
-											<li><a href="shop">Fiction/Fantasy</a></li>
-											<li><a href="shop">Sleeveless</a></li>
+										<li class="title">Customer Favourite</li>
+										<?php
+
+										$db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+
+										$cat2 = $db->Fetch("SELECT * FROM ccategories ORDER BY id DESC limit 6, 5", null);
+										foreach($cat2 as $cats2){
+											?>
+												<li><a href="shop?categorie=<?=$cats2['cat_name']?>"><?=$cats2["cat_name"]?> </a></li>
+											<?php
+										}
+
+
+										?>
+
+										
 										</ul>
 										<ul class="item item03">
 											<li class="title">Collections</li>
-											<li><a href="shop">Science </a></li>
-											<li><a href="shop">Fiction/Fantasy</a></li>
-											<li><a href="shop">Self-Improvemen</a></li>
-											<li><a href="shop">Home & Garden</a></li>
-											<li><a href="shop">Humor Books</a></li>
+											<?php
+
+											$db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+
+											$cat3 = $db->Fetch("SELECT * FROM ccategories ORDER BY id DESC limit 11, 5", null);
+											foreach($cat3 as $cats3){
+												?>
+													<li><a href="shop?categorie=<?=$cats3['cat_name']?>"><?=$cats3["cat_name"]?> </a></li>
+												<?php
+											}
+
+
+											?>
 										</ul>
 									</div>
 								</li>

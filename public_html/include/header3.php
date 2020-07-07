@@ -4,14 +4,14 @@
 <div class="col-md-6 col-sm-6 col-6 col-lg-2">
 	<div class="logo">
 		<a href="index">
-			<img src="../assets/images/logo/logo.png" alt="logo images">
+			<img src="../assets/images/logo/logo.png" width="110px" height="40px" alt="logo images">
 		</a>
 	</div>
 </div>
 <div class="col-lg-8 d-none d-lg-block">
 	<nav class="mainmenu__nav">
 		<ul class="meninmenu d-flex justify-content-start">
-			<li class="drop with--one--item"><a href="index">Home</a>
+			<li class="drop with--one--item"><a href="../index">Home</a>
 				
 			</li>
 			<li class="drop"><a href="../shop">Shop</a>

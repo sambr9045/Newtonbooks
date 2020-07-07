@@ -5,7 +5,8 @@
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<title>Newtonbooks | Shop</title>
-	<meta name="description" content="">
+	<meta name="description" content="Newton Books Online | #1 Online Bookstore and Publishing House in Ghana | Christian Literature | Business Books | Leadership Books">
+	<meta name="keyworlds" content="bookstore , bookshop, buy books in ghana ">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<script src="https://use.fontawesome.com/16fe135af5.js"></script>
 
@@ -132,15 +133,7 @@
 									</div>
 									<!-- <p>Showing 1–12 of 40 results</p> -->
 									<div class="orderby__wrapper">
-										<span>Sort By</span>
-										<select class="shot__byselect">
-											<option>Default sorting</option>
-											<option>HeadPhone</option>
-											<option>Furniture</option>
-											<option>Jewellery</option>
-											<option>Handmade</option>
-											<option>Kids</option>
-										</select>
+
 									</div>
 								</div>
 							</div>
@@ -220,8 +213,8 @@
 										<div class="product__content content--center">
 											<h4><a href="detail?id=<?=$val['id']?>&t=<?=$val['title']?>"><?=$val['title']?></a></h4>
 											<ul class="prize d-flex">
-												<li style="color:#0058AB;font-weight:bold;"><?=$val['discount_price']?> GHS </li>&nbsp;
-												<li class="old_prize text-secondary b"> &nbsp;<del><?=$val['full_price']?> GHS</del></li>
+												<li style="color:#0058AB;font-weight:bold;">GHS  <?=$val['discount_price']?> </li>&nbsp;
+												<li class="old_prize text-secondary b"> &nbsp;<del><?=($val['full_price'] > "GHS ".$val['discount_price'])?$val['full_price']: "";?> </del></li>
 											</ul>
 											<div class="action">
 												<div class="actions_inner">

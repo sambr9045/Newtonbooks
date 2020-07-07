@@ -1,6 +1,5 @@
 <?php 
-header('Access-Control-Allow-Origin: https://checkout.paystack.com', false);
-header('Access-Control-Allow-Origin: *');
+
 require_once("../../private/load.php");
 require_once("../../private/vendor/autoload.php");
 
@@ -555,6 +554,31 @@ if(isset($_POST["product_review_name"])){
 
 }
  
+
+if(isset($_POST['newsletter_email'])){
+    
+
+    extract($_POST);
+
+    if(!filter_var($newsletter_email, FILTER_VALIDATE_EMAIL)){
+        die("Please make sure the email you entered is a valid email address");
+    }
+
+    $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+    $SQL = $db->Fetch("SELECT * FROM newsletter WHERE email = '$newsletter_email'", null);
+    if(!empty($SQL)){
+        die("You are already subscribe to our newsletter");
+    }else{
+        $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+        $data = [$newsletter_email];
+        $SQ = $db->saving("newsletter", "email", "?", $data);
+        if($SQ){
+            echo "1";
+        }
+
+        
+    }
+}
 
 
 

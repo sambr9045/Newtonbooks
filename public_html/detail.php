@@ -278,11 +278,15 @@ header("Location:404");
 								<div class="rating-summary d-flex">
 									<span><b>stares</b></span>
 									<ul class="rating d-flex">
-										<li><i class="zmdi zmdi-star"></i></li>
-										<li><i class="zmdi zmdi-star"></i></li>
-										<li><i class="zmdi zmdi-star"></i></li>
-										<li class="off"><i class="zmdi zmdi-star"></i></li>
-										<li class="off"><i class="zmdi zmdi-star"></i></li>
+									<?php 
+                                            for($i=0;$i < $starts; $i++){
+                                                ?>
+                                                   <li><i class="zmdi zmdi-star"></i></li>
+                                                <?php
+                                            }
+                                           
+                                            ?> 
+										
 									</ul>
 								</div>
 							<div style="width:40%!important;" class="rating d-flex">

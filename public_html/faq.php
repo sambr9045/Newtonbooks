@@ -1,4 +1,7 @@
-﻿<!doctype html>
+﻿<?php
+	 include("../private/load.php") ;
+?>
+<!doctype html>
 <html class="no-js" lang="zxx">
 
 <head>
@@ -13,10 +16,10 @@
 	<link rel="apple-touch-icon" href="assets/images/icon.png">
 
 	<!-- Google font (font-family: 'Roboto', sans-serif; Poppins ; Satisfy) -->
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+
 	<link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,600,600i,700,700i,800"
 		rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+
 
 	<!-- Stylesheets -->
 	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -31,61 +34,53 @@
 </head>
 
 <body>
-	<!--[if lte IE 9]>
-		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-	<![endif]-->
 
 	<!-- Main wrapper -->
 	<div class="wrapper" id="wrapper">
 
-			 <?php include("include/header.php") ?>
+			 <?php include("include/header2.php") ?>
 		
 		<!-- Start Bradcaump area -->
-		<div class="ht__bradcaump__area bg-image--4">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="bradcaump__inner text-center">
-							<h2 class="bradcaump-title">Faq</h2>
-							<nav class="bradcaump-content">
-								<a class="breadcrumb_item" href="index.html">Home</a>
-								<span class="brd-separetor">/</span>
-								<span class="breadcrumb_item active">Faq</span>
-							</nav>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+		
 		<!-- End Bradcaump area -->
 		<!-- Start Faq Area -->
+		<br><br><br><br>
 		<section class="wn__faq__area bg--white pt--80 pb--60">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="wn__accordeion__content">
-							<h2>Below are frequently asked questions, you may find the answer for yourself</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id erat sagittis, faucibus
-								metus malesuada, eleifend turpis. Mauris semper augue id nisl aliquet, a porta lectus
-								mattis. Nulla at tortor augue. In eget enim diam. Donec gravida tortor sem, ac fermentum
-								nibh rutrum sit amet. Nulla convallis mauris vitae congue consequat. Donec interdum nunc
-								purus, vitae vulputate arcu fringilla quis. Vivamus iaculis euismod dui.</p>
+							
+							<br>
+							<div class="card">
+								<div class="card-body">
+								Below are frequently asked questions, you may find the answer for yourself
+
+								<p>Not finding what you're looking for?
+
+								Whatever your question, we can help!
+
+								Contact us!</p>
+								</div>
+								</div>
+
+
 						</div>
 						<div id="accordion" class="wn_accordion" role="tablist">
 							<div class="card">
 								<div class="acc-header" role="tab" id="headingOne">
 									<h5>
 										<a data-toggle="collapse" href="#collapseOne" role="button" aria-expanded="true"
-											aria-controls="collapseOne">Mauris congue euismod purus at semper. Morbi et
-											vulputate massa?</a>
+											aria-controls="collapseOne">How do I place an order ?</a>
 									</h5>
 								</div>
 								<div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne"
 									data-parent="#accordion">
-									<div class="card-body">Donec mattis finibus elit ut tristique. Nullam tempus nunc
-										eget arcu vulputate, eu porttitor tellus commodo. Aliquam erat volutpat. Aliquam
-										consectetur lorem eu viverra lobortis. Morbi gravida, nisi id fringilla
-										ultricies, elit lorem eleifend lorem</div>
+									<div class="card-body"> The simplest way to place an order is to search the extensive catalogue on our website and go through our secure checkout process.
+
+									If you cannot locate the desired title(s) or you need assistance placing an order, you may also place an order by emailing <b>order@newtonbooksonline.com</b> or calling <b>+233-244-49-8467</b>.
+
+</div>
 								</div>
 							</div>
 							<div class="card">
@@ -93,16 +88,14 @@
 									<h5>
 										<a class="collapsed" data-toggle="collapse" href="#collapseTwo" role="button"
 											aria-expanded="false" aria-controls="collapseTwo">
-											Djanj sit amet, consectetur adipisicing elit, sed do eiusmod tem pororem ?.
+											Is there a FREE delivery ?
 										</a>
 									</h5>
 								</div>
 								<div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo"
 									data-parent="#accordion">
-									<div class="card-body">Donec mattis finibus elit ut tristique. Nullam tempus nunc
-										eget arcu vulputate, eu porttitor tellus commodo. Aliquam erat volutpat. Aliquam
-										consectetur lorem eu viverra lobortis. Morbi gravida, nisi id fringilla
-										ultricies, elit lorem eleifend lorem</div>
+									<div class="card-body">Yes, there is a FREE delivery on orders above <b> GHC120</b>. If you have any questions, please email help@newtonbooksonline.com or call +233-244-49-8467 and we will do our best to accommodate your order.
+									</div>
 								</div>
 							</div>
 							<div class="card">
@@ -110,15 +103,13 @@
 									<h5>
 										<a class="collapsed" data-toggle="collapse" href="#collapseThree" role="button"
 											aria-expanded="false" aria-controls="collapseThree">
-											Vestibulum a lorem placerat, porttitor urna vel?</a>
+											When will my order be delivered ?</a>
 									</h5>
 								</div>
 								<div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree"
 									data-parent="#accordion">
-									<div class="card-body">Donec mattis finibus elit ut tristique. Nullam tempus nunc
-										eget arcu vulputate, eu porttitor tellus commodo. Aliquam erat volutpat. Aliquam
-										consectetur lorem eu viverra lobortis. Morbi gravida, nisi id fringilla
-										ultricies, elit lorem eleifend lorem</div>
+									<div class="card-body">General orders received before 3 PM GMT are delivered same day to customers within Ghana and some receive their items the same day or the following day. International customers who place orders before 12 PM GMT will be delivered within 10-14 business days. Please view our shipping page for complete details.
+</div>
 								</div>
 							</div>
 							<div class="card">
@@ -126,15 +117,12 @@
 									<h5>
 										<a class="collapsed" data-toggle="collapse" href="#collapseFour" role="button"
 											aria-expanded="false" aria-controls="collapseFour">
-											Aenean elit orci, efficitur quis nisl at, accumsan? </a>
+											May I return my order ? </a>
 									</h5>
 								</div>
 								<div id="collapseFour" class="collapse" role="tabpanel" aria-labelledby="headingFour"
 									data-parent="#accordion">
-									<div class="card-body">Donec mattis finibus elit ut tristique. Nullam tempus nunc
-										eget arcu vulputate, eu porttitor tellus commodo. Aliquam erat volutpat. Aliquam
-										consectetur lorem eu viverra lobortis. Morbi gravida, nisi id fringilla
-										ultricies, elit lorem eleifend lorem</div>
+									<div class="card-body"> The quoted prices on our website is a reflection of a non-returnable rate. Therefore, fulfilled orders are final and may not be returned.</div>
 								</div>
 							</div>
 							<div class="card">
@@ -142,15 +130,14 @@
 									<h5>
 										<a class="collapsed" data-toggle="collapse" href="#collapseFive" role="button"
 											aria-expanded="false" aria-controls="collapseFive">
-											Pellentesque habitant morbi tristique senectus et netus?</a>
+											What forms of payment are accepted ?</a>
 									</h5>
 								</div>
 								<div id="collapseFive" class="collapse" role="tabpanel" aria-labelledby="headingFive"
 									data-parent="#accordion">
-									<div class="card-body">Donec mattis finibus elit ut tristique. Nullam tempus nunc
-										eget arcu vulputate, eu porttitor tellus commodo. Aliquam erat volutpat. Aliquam
-										consectetur lorem eu viverra lobortis. Morbi gravida, nisi id fringilla
-										ultricies, elit lorem eleifend lorem</div>
+									<div class="card-body"> As a generational bookstore, and one that is committed to making shopping online for Africans secure, efficient, effective and hustle free. We accept all major credit and debit cards and more special mobile money. 
+
+</div>
 								</div>
 							</div>
 							<div class="card">
@@ -158,49 +145,16 @@
 									<h5>
 										<a class="collapsed" data-toggle="collapse" href="#collapseSix" role="button"
 											aria-expanded="false" aria-controls="collapseSix">
-											Aenean elit orci, efficitur quis nisl at?</a>
+											Do orders report to bestseller lists ?</a>
 									</h5>
 								</div>
 								<div id="collapseSix" class="collapse" role="tabpanel" aria-labelledby="headingSix"
 									data-parent="#accordion">
-									<div class="card-body">Donec mattis finibus elit ut tristique. Nullam tempus nunc
-										eget arcu vulputate, eu porttitor tellus commodo. Aliquam erat volutpat. Aliquam
-										consectetur lorem eu viverra lobortis. Morbi gravida, nisi id fringilla
-										ultricies, elit lorem eleifend lorem</div>
+									<div class="card-body">For now, our application is under review by the New York Times and if approved, we will be doing order reporting of bestseller lists to them.
+									</div>
 								</div>
 							</div>
-							<div class="card">
-								<div class="acc-header" role="tab" id="headingSeven">
-									<h5>
-										<a class="collapsed" data-toggle="collapse" href="#collapseSeven" role="button"
-											aria-expanded="false" aria-controls="collapseSeven">
-											Morbi gravida, nisi id fringilla ultricies, elit lorem?</a>
-									</h5>
-								</div>
-								<div id="collapseSeven" class="collapse" role="tabpanel" aria-labelledby="headingSeven"
-									data-parent="#accordion">
-									<div class="card-body">Donec mattis finibus elit ut tristique. Nullam tempus nunc
-										eget arcu vulputate, eu porttitor tellus commodo. Aliquam erat volutpat. Aliquam
-										consectetur lorem eu viverra lobortis. Morbi gravida, nisi id fringilla
-										ultricies, elit lorem eleifend lorem</div>
-								</div>
-							</div>
-							<div class="card">
-								<div class="acc-header" role="tab" id="headingEight">
-									<h5>
-										<a class="collapsed" data-toggle="collapse" href="#collapseEight" role="button"
-											aria-expanded="false" aria-controls="collapseEight">
-											Djanj sit amet, consectetur adipisicing elit, sed do eiusmod tem pororem ?.
-										</a>
-									</h5>
-								</div>
-								<div id="collapseEight" class="collapse" role="tabpanel" aria-labelledby="headingEight"
-									data-parent="#accordion">
-									<div class="card-body">Donec mattis finibus elit ut tristique. Nullam tempus nunc
-										eget arcu vulputate, eu porttitor tellus commodo. Aliquam erat volutpat. Aliquam
-										consectetur lorem eu viverra lobortis. Morbi gravida, nisi id fringilla
-										ultricies, elit lorem eleifend lorem</div>
-								</div>
+						
 							</div>
 						</div>
 					</div>

@@ -15,16 +15,17 @@ include("../private/load.php") ;
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<!-- Favicons -->
-	<link rel="shortcut icon" href="assets/images/fav.png">
-	<link rel="apple-touch-icon" href="assets/images/fav.png">
+	<link rel="shortcut icon" href="assets/images/favicon.ico">
+	<link rel="apple-touch-icon" href="assets/images/icon.png">
 
-
-	<!-- Google font (font-family: 'Roboto', sans-serif; Poppins ; Satisfy) -->
+	
 
 	<link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,600,600i,700,700i,800"
 		rel="stylesheet">
 	
-
+ <style>
+    
+ </style>
 	<script src="https://use.fontawesome.com/16fe135af5.js"></script>
 
 
@@ -46,7 +47,7 @@ include("../private/load.php") ;
 	<!-- Main wrapper -->
 	<div class="wrapper" id="wrapper">
 		<!-- Header -->
-		<?php include("include/header2.php") ?>
+		<?php include("include/header.php") ?>
 		<!-- //Header -->
 		<!-- Start Search Popup -->
 		<div class="brown--color box-search-content search_active block-bg close__top" >
@@ -64,20 +65,23 @@ include("../private/load.php") ;
 		</div>
 		<!-- End Search Popup -->
 		<!-- Start Slider area -->
-		<div class="slider-area brown__nav slider--15 slide__activation slide__arrow01 owl-carousel owl-theme" style="height:100vh!important;">
+		<div class="slider-area brown__nav slider--15 slide__activation slide__arrow01 owl-carousel owl-theme bg-info" style="height:70vh!important;">
 			<!-- Start Single Slide -->
-			<div class="slide animation__style10 bg-image--8 fullscreen align__center--left">
+			<div class="slide animation__style10  bg-info fullscreen align__center--left" style="height:70vh!important;">
 				<div class="container">
 					<div class="row">
-						<div class="col-lg-12">
+						<div class="col-lg-12 text-center">
 							<div class="slider__content">
-								<div class="contentbox">
+								<div class="contentbox text-center " >
 									<h3>Newtonbooks</h3>
 									<h2>The more  you <span>Learn</span></h2>
 									<h2 class="another">The more you <span>Earn </span></h2>
-									<p style="font-weight:bold;">Get the best books from the best minds in business, Leadership, Enterpreneurship, Academia, Communication and Marketing to make your life better </p>
-									<a class="shopbtn" href="shop"><button class="btn btn-primary">  Shop now </button></a>
-								</div>
+									<p style="margin:0 auto;" class="p-4">Get the best books from the best minds in business, Leadership, Enterpreneurship, Academia, Communication and Marketing to make your life better </p>
+                                    <a class="shopbtn" href="shop"><button class="btn btn-primary">  Shop now </button></a>
+                                   
+                                </div>
+                                 
+                             
 							</div>
 						</div>
 					</div>
@@ -85,16 +89,16 @@ include("../private/load.php") ;
 			</div>
 			<!-- End Single Slide -->
 			<!-- Start Single Slide -->
-			<div class="slide animation__style10 bg-image--9 fullscreen align__center--left">
+			<div class="slide animation__style10 bg-info  fullscreen align__center--left"  style="height:70vh!important;">
 				<div class="container">
 					<div class="row">
 						<div class="col-lg-12">
 							<div class="slider__content">
-								<div class="contentbox">
+								<div class="contentbox text-left">
 									<h3>Newtonbooks</h3>
 									<h2 style="">The more  you <span>Learn</span></h2>
 									<h2 class="another" style="">The more you <span>Earn </span></h2>
-									<p style="">Get the best books from the best minds in business, Leadership, Enterpreneurship, Academia, Communication and Marketing to make your life better </p>
+									<p class="p-5">Get the best books from the best minds in business, Leadership, Enterpreneurship, Academia, Communication and Marketing to make your life better </p>
 									<a class="shopbtn" href="shop"><button class="btn btn-primary">Shop now </button></a>
 								</div>
 							</div>
@@ -152,8 +156,8 @@ include("../private/load.php") ;
 						<div class="product__content content--center">
 							<h4><a href="detail?id=<?=$value['id']?>t=<?=$value['title']?>"><?=$value['title']?></a></h4>
 							<ul class="prize d-flex">
-								<li>GHS <?=$value['discount_price']?></li>
-								<li class="old_prize"> <?=($value['full_price'] > $value['discount_price'])? "GHS ".$value['full_price'] : ""?></li>
+								<li><?=$value['discount_price']?> GHS</li>
+								<li class="old_prize"><?=$value['full_price']?> GHS</li>
 							</ul>
 							<div class="action">
 								<div class="actions_inner">
@@ -194,24 +198,54 @@ include("../private/load.php") ;
 					<div class="col-lg-12 col-12">
 						<div class="testimonial__container text-center">
 							<div class="tes__img__slide thumb_active">
-								
-								<div class="testimonial__img text-center" style="margin-left:-350px!important;">
-									<span><img img src="assets/images/testimonial/1.jpg" alt="testimonial image" width="100px" height="100px"></span>
+								<div class="testimonial__img">
+									<span><img src="assets/images/testimonial/1.png" alt="testimonial image"></span>
+								</div>
+								<div class="testimonial__img">
+									<span><img src="assets/images/testimonial/2.png" alt="testimonial image"></span>
+								</div>
+								<div class="testimonial__img">
+									<span><img src="assets/images/testimonial/3.png" alt="testimonial image"></span>
+								</div>
+								<div class="testimonial__img">
+									<span><img src="assets/images/testimonial/2.png" alt="testimonial image"></span>
 								</div>
 							</div>
 							<div class="testimonial__text__slide testext_active">
-								
 								<div class="clint__info">
-											<p>This simple philosophy has set us on a course to eradicate illiteracy in every form by
-											saving books and making them accessible for individuals who are willing to make
-											meaning with their lives by the power of information, which intend to shapes their minds, share them a story, give them a bit of wisdom.
-											<br><br>
-											
-
-											Go ahead and get yourself some good reads and let the reading begins, our customer success team is on stand by to give you superior customer service.</p>
+									<p>absolutely outstanding. When I needed them they came through in a big way! I know
+										that if you buy this theme, you'll get the one thing we all look for when we buy
+										on.</p>
 									<div class="name__post">
-										<span>Isaac M. Newton</span>
-										<h6>CEO</h6>
+										<span>Ra Munne</span>
+										<h6>Head Of Project</h6>
+									</div>
+								</div>
+								<div class="clint__info">
+									<p>absolutely outstanding. When I needed them they came through in a big way! I know
+										that if you buy this theme, you'll get the one thing we all look for when we buy
+										on.</p>
+									<div class="name__post">
+										<span>Np Nipa</span>
+										<h6>Head Of Project</h6>
+									</div>
+								</div>
+								<div class="clint__info">
+									<p>absolutely outstanding. When I needed them they came through in a big way! I know
+										that if you buy this theme, you'll get the one thing we all look for when we buy
+										on.</p>
+									<div class="name__post">
+										<span>Kanak Lata</span>
+										<h6>Head Of Project</h6>
+									</div>
+								</div>
+								<div class="clint__info">
+									<p>absolutely outstanding. When I needed them they came through in a big way! I know
+										that if you buy this theme, you'll get the one thing we all look for when we buy
+										on.</p>
+									<div class="name__post">
+										<span>orando BLoom</span>
+										<h6>Head Of Project</h6>
 									</div>
 								</div>
 							</div>
@@ -287,8 +321,8 @@ include("../private/load.php") ;
 										<div class="product__content content--center">
 											<h4><a href="detail?id=<?=$value['id']?>t=<?=$value['title']?>"><?=$value['title']?></a></h4>
 											<ul class="prize d-flex">
-											<li>GHS <?=$value['discount_price']?></li>
-								<li class="old_prize"> <?=($value['full_price'] > $value['discount_price'])? "GHS ".$value['full_price'] : ""?></li>
+												<li><?=$value['discount_price']?> GHS</li>
+												<li class="old_prize"><?=$value['full_price']+10?> GHS</li>
 											</ul>
 											<div class="action">
 												<div class="actions_inner">
@@ -360,8 +394,8 @@ include("../private/load.php") ;
 										<div class="product__content content--center">
 											<h4><a href="detail?id=<?=$value['id']?>t=<?=$value['title']?>"><?=$value['title']?></a></h4>
 											<ul class="prize d-flex">
-											<li>GHS <?=$value['discount_price']?></li>
-								<li class="old_prize"> <?=($value['full_price'] > $value['discount_price'])? "GHS ".$value['full_price'] : ""?></li>
+												<li><?=$value['discount_price']?> GHS</li>
+												<li class="old_prize"><?=$value['full_price']+10?> GHS</li>
 											</ul>
 											<div class="action">
 												<div class="actions_inner">
@@ -437,8 +471,8 @@ include("../private/load.php") ;
 										<div class="product__content content--center">
 											<h4><a href="detail?id=<?=$value['id']?>t=<?=$value['title']?>"><?=$value['title']?></a></h4>
 											<ul class="prize d-flex">
-											<li>GHS <?=$value['discount_price']?></li>
-								<li class="old_prize"><?=($value['full_price'] > $value['discount_price'])? "GHS ".$value['full_price'] : ""?></li>
+												<li><?=$value['discount_price']?> GHS</li>
+												<li class="old_prize"><?=$value['full_price']+10?> GHS</li>
 											</ul>
 											<div class="action">
 												<div class="actions_inner">
@@ -510,8 +544,8 @@ include("../private/load.php") ;
 										<div class="product__content content--center">
 											<h4><a href="detail?id=<?=$value['id']?>t=<?=$value['title']?>"><?=$value['title']?></a></h4>
 											<ul class="prize d-flex">
-											<li>GHS <?=$value['discount_price']?></li>
-								<li class="old_prize"> <?=($value['full_price'] > $value['discount_price'])? "GHS ".$value['full_price'] : ""?></li>
+												<li><?=$value['discount_price']?> GHS</li>
+												<li class="old_prize"><?=$value['full_price']+10?> GHS</li>
 											</ul>
 											<div class="action">
 												<div class="actions_inner">
@@ -580,8 +614,8 @@ include("../private/load.php") ;
 										<div class="product__content content--center">
 											<h4><a href="detail?id=<?=$value['id']?>t=<?=$value['title']?>"><?=$value['title']?></a></h4>
 											<ul class="prize d-flex">
-											<li>GHS <?=$value['discount_price']?></li>
-								<li class="old_prize"> <?=($value['full_price'] > $value['discount_price'])? "GHS ".$value['full_price'] : ""?></li>
+												<li><?=$value['discount_price']?> GHS</li>
+												<li class="old_prize"><?=$value['full_price']+10?> GHS</li>
 											</ul>
 											<div class="action">
 												<div class="actions_inner">
@@ -653,8 +687,8 @@ include("../private/load.php") ;
 										<div class="product__content content--center">
 											<h4><a href="details?id=<?=$value['id']?>t=<?=$value['title']?>"><?=$value['title']?></a></h4>
 											<ul class="prize d-flex">
-											<li>GHS <?=$value['discount_price']?></li>
-								<li class="old_prize"> <?=($value['full_price'] > $value['discount_price'])?"GHS ".$value['full_price'] : ""?></li>
+												<li><?=$value['discount_price']?> GHS</li>
+												<li class="old_prize"><?=$value['full_price']+10?> GHS</li>
 											</ul>
 											<div class="action">
 												<div class="actions_inner">
@@ -723,8 +757,8 @@ include("../private/load.php") ;
 										<div class="product__content content--center">
 											<h4><a href="detail?id=<?=$value['id']?>t=<?=$value['title']?>"><?=$value['title']?></a></h4>
 											<ul class="prize d-flex">
-											<li>GHS <?=$value['discount_price']?></li>
-								<li class="old_prize"> <?=($value['full_price'] > $value['discount_price'])?"GHS ".$value['full_price'] : ""?></li>
+												<li><?=$value['discount_price']?> GHS</li>
+												<li class="old_prize"><?=$value['full_price']+10?> GHS</li>
 											</ul>
 											<div class="action">
 												<div class="actions_inner">
@@ -796,8 +830,8 @@ include("../private/load.php") ;
 										<div class="product__content content--center">
 											<h4><a href="details?id=<?=$value['id']?>t=<?=$value['title']?>"><?=$value['title']?></a></h4>
 											<ul class="prize d-flex">
-											<li>GHS <?=$value['discount_price']?></li>
-								<li class="old_prize"> <?=($value['full_price'] > $value['discount_price'])?"GHS ".$value['full_price'] : ""?></li>
+												<li><?=$value['discount_price']?> GHS</li>
+												<li class="old_prize"><?=$value['full_price']+10?> GHS</li>
 											</ul>
 											<div class="action">
 												<div class="actions_inner">
@@ -845,19 +879,10 @@ include("../private/load.php") ;
 						<div class="newsletter__block text-center">
 							<p>Subscribe to our newsletters now and stay up-to-date with new collections, the latest
 								lookbooks and exclusive offers.</p>
-
-
-								<div class="alert alert-warning alert-dismissible fade show mbs" style="display:none;" role="alert">
-							<strong></strong> <span class="tst">exp</span>
-							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-							</button>
-								</div>
-
 							<form action="#">
 								<div class="newsletter__box">
-									<input type="email" placeholder="Enter your e-mail" id="newsletter_email" required>
-									<button data-toggle="modal" class="subscribe_to_newletter">Subscribe</button>
+									<input type="email" placeholder="Enter your e-mail">
+									<button>Subscribe</button>
 								</div>
 							</form>
 						</div>
@@ -865,8 +890,6 @@ include("../private/load.php") ;
 				</div>
 			</div>
 		</section>
-		
-	
 		<!-- End NEwsletter Area -->
 		<!-- Start Recent Post Area -->
 		<section class="wn__recent__post style-two ptb--80">

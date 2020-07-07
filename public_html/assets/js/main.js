@@ -110,6 +110,40 @@ $(document).ready(function(){
        
     });
 
+    $(".subscribe_to_newletter").click(function (e) { 
+        e.preventDefault();
+       var email =  $("#newsletter_email").val();
+        ths = $(this)
+
+        $()
+
+       $.post({
+        url:'ajax/admin_be.php',
+        data:'&newsletter_email='+email,
+        success:function(response){
+            
+            $(".mds").css('display', 'block')
+             if(response == "1"){
+                $(".mbs").show();
+                 $(".mbs").removeClass("alert-warning");
+                 $(".mbs").addClass("alert-success");
+              $(".tst").empty().append(" Thank you for suscribing to our newsletter")
+            }else{
+                $(".mbs").show();
+                $(".mbs").addClass("shows");
+                $(".mbs").removeClass("alert-success");
+                 $(".mbs").addClass("alert-warning");
+                $(".tst").empty().append(response)
+            }
+            
+        }
+    })
+    });
+
+    $(".search__active").click(function(e){
+        e.preventDefault();
+        
+    })
 
     
     // $(".quickview").click(function (e) { 

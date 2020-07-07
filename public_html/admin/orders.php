@@ -4,6 +4,8 @@ if(!$_SESSION['username']){
     
 }
 
+Update_details("orders");
+
 ?>
 <?php include("inc/inc_top.php") ?>
 
@@ -134,7 +136,9 @@ if(!$_SESSION['username']){
                                   
 
                                   
-                                 <li>* <b class="h6"><?=$product[0]?></b></li>
+                                 <li>
+                                 <span class="badge bgc-deep-purple-50 c-deep-purple-700 p-10 lh-0 tt-c badge-pill">* <?=$product[0]?></span>
+                                </li>
                                   
                                   <?php
                               }
@@ -162,14 +166,15 @@ if(!$_SESSION['username']){
                              if($payment_status == "pending"){
                                  ?>
                               
-                                 <button class="btn btn-danger "><small><i class='fas fa-clock pr-1'></i> Pending</small></button>
+                               
+                                 <span class="badge bgc-red-50 c-red-700 p-10 lh-0 tt-c badge-pill"><i class='fas fa-clock pr-1'></i> Pending</span>
                                  <?php
                              }else{
                                 ?>
                                 
 
-                                <button class="btn btn-success "><i class="fas fa-check-circle"></i> <?=$payment_status?></button>
-                                
+                                <!-- <button class="btn btn-success "><i class="fas fa-check-circle"></i> </button> -->
+                                <span class="badge bgc-green-50 c-green-700 p-10 lh-0 tt-c badge-pill"><i class="fas fa-check-circle"></i> <?=$payment_status?></span>
                                 <?php
                              }
                             
@@ -209,7 +214,9 @@ if(!$_SESSION['username']){
                                             <?php
                                         }elseif(strpos($shipping_status,"Delivered on") !== false){
                                             ?>
-                                            <b class="text-success"><?=$shipping_status?></b>
+                                          
+
+                                            <span class="badge bgc-green-50 c-green-700 p-10 lh-0 tt-c badge-pill"><i class="fas fa-check-circle"></i> <?=$shipping_status?></span>
                                             <?php
  
                                         }else{

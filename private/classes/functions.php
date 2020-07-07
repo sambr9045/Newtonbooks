@@ -1,6 +1,18 @@
 <?php
 
 
+function Update_details($table){
+    $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+    $db->Update("UPDATE $table SET admin_view = 1 WHERE admin_view = 0", null);
+}
+
+
+function Count_row($table_name){
+    $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+    return count($db->Fetch("SELECT * FROM $table_name WHERE admin_view = 0", null));
+
+}
+
 function SendNon($subject, $token, $email, $Full_name){
     
     $message = "
