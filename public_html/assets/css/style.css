@@ -73,6 +73,52 @@ Reset Styles
 * {
   box-sizing: border-box; }
 
+.mobile_rating i{
+  font-size: 20px!important;
+}
+
+.active_book_type{
+	background-color: #f8d7da;
+	border:1px solid red!important;
+
+}
+.active_book_type .first{
+	color: black;
+}
+
+.active_book_type .second{
+	color: red;
+}
+.lst{
+	border: 1px solid lightgray ; 
+	cursor: pointer;
+}
+.cssallview:hover
+{
+	color:black!important;
+}
+
+.account_active{
+	background-color:#369;
+	border-radius:5px;
+	color:white!important;;
+}
+.cursor_pointer{
+	cursor: pointer;
+}
+#rating-ability-wrapper button{
+	font-size:10px;
+}
+#rating-ability-wrapper i{
+	font-size:25px;
+}
+.search{
+	margin: 0 auto;
+	padding-top: 20vh;
+	z-index: 50;
+	
+}
+
 article,
 aside,
 details,
@@ -672,7 +718,7 @@ a {
 }
  
 .bg-image--9 {
-  background-image: url(../images/bg/9.png);
+  background-image: url(../images/bg/9.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -878,6 +924,7 @@ a {
   padding: 80px 0; }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
+
   .section-padding--xlg {
     padding: 80px 0; }
   .section-padding--lg {
@@ -901,6 +948,7 @@ a {
   .md-mb-40 {
     margin-bottom: 40px; } }
 @media only screen and (max-width: 767px) {
+  
   .section-padding--xlg {
     padding: 80px 0; }
   .section-padding--lg {
@@ -1034,6 +1082,7 @@ Elements Styles
   text-transform: uppercase;
 }
 @media (max-width: 991px){
+  
   .section__title h2{
     font-size: 25px;
   }
@@ -1460,7 +1509,9 @@ Elements Styles
   padding: 0 5px;
   position: fixed;
   right: 0;
-  top: 50%; }
+  top: 50%; 
+  z-index: 99;
+}
   .minisearch .field__search input {
     -moz-border-bottom-colors: none;
     -moz-border-left-colors: none;
@@ -2911,8 +2962,13 @@ h3.widget-title-modal {
   color: #fff; }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
+
   .wn__bestseller__area.page-content {
-    padding: 130px 37px; } }
+    padding: 130px 37px; } 
+   
+
+  
+  }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .wn__bestseller__area.page-content {
     padding: 130px 30px; }
@@ -2923,7 +2979,9 @@ h3.widget-title-modal {
   .addtocart-btn {
     margin-top: 26px; }
   .margin--lr--60 {
-    margin: 0 40px; } }
+    margin: 0 40px; }
+  
+  }
 @media only screen and (max-width: 767px) {
   .wn__bestseller__area.page-content {
     padding: 130px 0px; }
@@ -2975,7 +3033,10 @@ h3.widget-title-modal {
     padding: 0 18px; } 
 	.product__info__main .product-addto-links a.compare, .product__info__main .product-addto-links a.wishlist {
 	  display: none;
-	}
+  }
+  
+
+
 }
 
 /*--------------------------
@@ -3772,6 +3833,7 @@ h3.widget-title-modal {
 	}
 	}
 @media only screen and (max-width: 767px) {
+  
   .post__itam .content p {
     padding: 0 0 15px; }
 		.blog-page .blog__post .thumb {

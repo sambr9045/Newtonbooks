@@ -81,7 +81,7 @@ $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
                                     <th scope="col">Name</th>
                                     <th scope="col">Percentages</th>
                                     <th scope="col">Min O</th>
-                                    <th scope="col">Status</th>
+                                    <th scope="col" class="text-center">Status</th>
                                     <th scope="col">Exp</th>
                                     <th scope="col">action</th>
                                     </tr>
@@ -92,9 +92,9 @@ $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
                                     foreach($coupons as $COUPON ){
                                         extract($COUPON);
                                         if($status == "active"){
-                                          $color = "#2ecc71";
+                                          $color = "success";
                                        }else{
-                                         $color = "#e74c3c";
+                                         $color = "danger";
                                        }
                                         ?>
                                                      <tr>
@@ -102,7 +102,7 @@ $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
                                     <td><?=$coupon_name?></td>
                                     <td><?=$coupon_percentage?>%</td>
                                     <td>GHS <?=$order_above?></td>
-                                    <td > <b style="color:white;padding:0px 3px; background-color:<?=$color;?>;border-radius:3px;"><?=$status?></b></td>
+                                    <td class="text-center"> <span class="badge badge-pill fl-r badge-<?=$color?> lh-0 p-10"><?=$status?></span></td>
                                     <td><?=$expiring_date?></td>
                                     <td><small><span class="text-white pl-2 pr-2 bg-danger rounded pb-1 deleted_coupon_code" style="cursor:pointer;" data-toggle="modal" data-target="#exampleModal1" delete-coupon="<?=$coupon_code?>">x</span></small></td>
                                     </tr>

@@ -38,34 +38,33 @@
 	<!-- Main wrapper -->
 	<div class="wrapper" id="wrapper">
 
-	<?php include("include/header.php") ?>
+	<?php include("include/header2.php") ?>
 		<!-- Start Bradcaump area -->
-		<div class="ht__bradcaump__area bg-image--6">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="bradcaump__inner text-center">
-							<h2 class="bradcaump-title">Blog</h2>
-							<nav class="bradcaump-content">
-								<a class="breadcrumb_item" href="index.html">Home</a>
-								<span class="brd-separetor">/</span>
-								<span class="breadcrumb_item active">Blog</span>
-							</nav>
+			<!-- <div class="ht__bradcaump__area bg-image--6">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="bradcaump__inner text-center">
+								<h2 class="bradcaump-title">Blog</h2>
+								<nav class="bradcaump-content">
+									<a class="breadcrumb_item" href="index.html">Home</a>
+									<span class="brd-separetor">/</span>
+									<span class="breadcrumb_item active">Blog</span>
+								</nav>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-		</div>
+			</div> -->
 		<!-- End Bradcaump area -->
-		<div class="page-blog-details section-padding--lg bg--white">
+		<br>
+		<div class="page-blog-details section-padding--lg bg--white mt-5">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-9 col-12">
 						<div class="blog-details content">
 							<article class="blog-post-details">
-								<div class="post-thumbnail">
-									<img src="<?="uploades/".$img?>" alt="blog images">
-								</div>
+								
 								<div class="post_wrapper">
 									<div class="post_header">
 										<h2><?=$title?></h2>
@@ -184,7 +183,7 @@
 					<div class="col-lg-3 col-12 md-mt-40 sm-mt-40">
 						<div class="wn__sidebar">
 							<!-- Start Single Widget -->
-							<aside class="widget search_widget">
+							<!-- <aside class="widget search_widget">
 								<h3 class="widget-title">Search</h3>
 								<form action="#">
 									<div class="form-input">
@@ -192,7 +191,7 @@
 										<button><i class="fa fa-search"></i></button>
 									</div>
 								</form>
-							</aside>
+							</aside> -->
 							<!-- End Single Widget -->
 							<!-- Start Single Widget -->
 							<?php

@@ -7,42 +7,24 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<title>About | Books Library eCommerce Store</title>
-	<meta name="description" content="">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Newtonbooksonline | about us</title>
+	<meta name="description" content="Newton Books Online | #1 Online Bookstore and Publishing House in Ghana | Christian Literature | Business Books | Leadership Books">
+	<meta name="keyworlds" content="bookstore , bookshop, buy books in ghana ">
 
-	<!-- Favicons -->
-	<link rel="shortcut icon" href="assets/images/favicon.ico">
-	<link rel="apple-touch-icon" href="assets/images/icon.png">
-
-	<!-- Google font (font-family: 'Roboto', sans-serif; Poppins ; Satisfy) -->
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,600,600i,700,700i,800"
-		rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
-
-	<!-- Stylesheets -->
-
-	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-	<link rel="stylesheet" href="assets/css/plugins.css">
-	<link rel="stylesheet" href="assets/css/style.css">
-	<link rel="stylesheet" href="assets/css/custom.css">
-	<script src="assets/js/vendor/modernizr-3.5.0.min.js"></script>
+	<?php  include("include/head.php"); ?>
 
 </head>
 
 <body>
-	<!--[if lte IE 9]>
-		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-	<![endif]-->
+
 
 	<!-- Main wrapper -->
 	<div class="wrapper" id="wrapper">
 		
-			<?php include("include/header.php") ?>
+			<?php include("include/header2.php") ?>
 	   
 		<!-- Start Bradcaump area -->
-		<div class="ht__bradcaump__area bg-image--6">
+		<!-- <div class="ht__bradcaump__area bg-image--6">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12">
@@ -57,10 +39,11 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> -->
 		<!-- End Bradcaump area -->
 		<!-- Start About Area -->
-		<div class="page-about about_area bg--white section-padding--lg">
+		<br><br><br><br>
+		<div class="page-about about_area bg--white section-padding--lg mb-5">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12">

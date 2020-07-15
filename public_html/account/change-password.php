@@ -43,7 +43,7 @@
                  
             ?>
                  <form action="change-password" method="post">
-               <div class="alert alert-warning alert-dismissible fade show " role="alert" style="margin-left:20%;margin-right:20%;">
+               <div class="alert alert-warning alert-dismissible fade show mobile-size-text" role="alert" style="margin-left:20%;margin-right:20%;">
                 <strong>We sent you a verification email </strong> Please verify Your Email address <form action="account" method="post" style="display:inline">
                 <input type="hidden" name="email" value="<?=$email?>">
                 <input type="hidden" name="user_id" value="<?=$gen_id?>">
@@ -86,34 +86,34 @@
  ?>
   <div class="row" >
     
-    <div class="col-sm-3 " >
+    <div class="col-sm-3 mobile-size1" >
             <div class="card p-4">
              
-               <ul class="nav flex-column">
+            <ul class="nav flex-column">
                 <li class="nav-item">
-                    <a class="nav-link  mb-3 " href="index"><i class="fa fa-user-circle mr-2" style="font-size:20px;"></i> My account</a>
+                    <a class="nav-link index_mobile mb-3 " href="index"><i class="fa fa-user-circle mr-2" style="font-size:20px;"></i> <span>My account</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link mb-3 order " href="orders"><i class="fa fa-book mr-2" style="font-size:20px;"></i> Orders</a>
+                <li class="nav-item index_mobile">
+                    <a class="nav-link mb-3 order " href="orders"><i class="fa fa-book mr-2" style="font-size:20px;"></i> <span>Orders</span> </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link mb-3" href="reviews"><i class="fa fa-star mr-2" style="font-size:20px;"></i> Pending Reviews</a>
+                <li class="nav-item index_mobile">
+                    <a class="nav-link mb-3" href="reviews"><i class="fa fa-star mr-2" style="font-size:20px;"></i> <span>Pending Reviews</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link mb-3 saveditems " href="saved-items"><i class="fa fa-heart mr-2" style="font-size:20px;"></i> Saved Items</a>
+                <li class="nav-item index_mobile">
+                    <a class="nav-link mb-3 saveditems" href="saved-items"><i class="fa fa-heart mr-2" style="font-size:20px;"></i><span>Saved Items</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link mb-3 account_active" href="change-password"><i class="fa fa-lock mr-2" style="font-size:20px;"></i> Change Password</a>
+                <li class="nav-item index_mobile ">
+                    <a class="nav-link mb-3 account_active" href="change-password"><i class="fa fa-lock mr-2" style="font-size:20px;"></i> <span> Change Password </span></a>
                 </li>
                 <div class="dropdown-divider"></div>
                 <!-- <li class="nav-item">
                     <a class="nav-link mb-3" href="#">Address book</a>
                 </li> -->
-                <li class="nav-item">
-                    <a class="nav-link mb-3 " href="change-password">Change Password</a>
+                <li class="nav-item index_mobile">
+                    <a class="nav-link mb-3 " href="change-password"><span> Change Password</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link mb-3" href="update?content=newsletter-preferences">Newletter Preferrence</a>
+                <li class="nav-item index_mobile">
+                    <a class="nav-link mb-3" href="update?content=newsletter-preferences"><span>Newsletter Preferrence</span></a>
                 </li>
                 <div class="dropdown-divider"></div>
                 <li class="nav-item">
@@ -126,14 +126,14 @@
             </div>
     </div>
 
-    <div class="col-sm-9">
+    <div class="col-sm-9 mobile-size2">
 
 
                     <div class="card p-4">
                     
                     <div class="mb-2">
                         <div class="card">
-                            <div class="card-header"> <i class="fas fa-lock" style="color:green; font-size:20px;margin-right:10px;vertical-align:middle;"></i>
+                            <div class="card-header"> 
                             CHANGE PASSWORD
                             </div>
                             <div class="card-body pl-5">
@@ -156,7 +156,7 @@
                             </div>
 
 
-                            <button type="submit" name="account_change_password" class="btn btn-primary form-control"><i class="fas fa-lock" style="color:white; font-size:18px;margin-right:10px;vertical-align:middle;"></i> Update</button>
+                            <button type="submit" name="account_change_password" class="btn btn-primary form-control"> Update</button>
                             </form>
 
                             </div>

@@ -140,12 +140,27 @@ $(document).ready(function(){
     })
     });
 
-    $(".search__active").click(function(e){
+    $(".search_books").click(function(e){
         e.preventDefault();
         
     })
 
+    $(".search_key").keyup(function (e) { 
+    var key = $(".search_key").val();
+    if(key.length > 0 ){
+        $(".minisearch .field__search").css('margin-top', '-45vh')
     
+        $.post({
+			url:'htmlload/search.php',
+			data:'&search_key='+key,
+			success:function(result){
+			 $(".search").empty().append(result);
+				
+			}
+		})
+    }
+
+});
     // $(".quickview").click(function (e) { 
     //     e.preventDefault();
     //     console.log("shamsu")

@@ -17,9 +17,9 @@
 
 <!-- Main wrapper -->
 <div class="wrapper" id="wrapper">
-<?php include("include/header.php") ?>
+<?php include("include/header2.php") ?>
 <!-- Start Bradcaump area -->
-<div class="ht__bradcaump__area bg-image--5">
+<!-- <div class="ht__bradcaump__area bg-image--5">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12">
@@ -34,16 +34,19 @@
 			</div>
 		</div>
 	</div>
-</div>
+</div> -->
 <!-- End Bradcaump area -->
 <!-- Start Blog Area -->
-<div class="page-blog bg--white section-padding--lg blog-sidebar right-sidebar">
+<br>
+
+
+<div class="page-blog bg--white section-padding--lg blog-sidebar right-sidebar mt-5">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-3 col-12 order-2 order-lg-1 md-mt-40 sm-mt-40">
 				<div class="wn__sidebar">
 					<!-- Start Single Widget -->
-					<aside class="widget search_widget">
+					<!-- <aside class="widget search_widget">
 						<h3 class="widget-title">Search</h3>
 						<form action="blog" method="get">
 							<div class="form-input">
@@ -51,7 +54,7 @@
 								<button ><i class="fa fa-search"></i></button>
 							</div>
 						</form>
-					</aside>
+					</aside> -->
 				
 					<?php
 					if(isset($_GET['search_query'])){
@@ -70,7 +73,7 @@
 					
 					$number_of_record_per_pages = 10;
 					$offset = ($page_no - 1) * $number_of_record_per_pages;
-					
+					$db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
 					$total_record =count($db->Fetch("SELECT * FROM blog", null));
 					
 

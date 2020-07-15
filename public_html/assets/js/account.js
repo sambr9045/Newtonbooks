@@ -1,5 +1,64 @@
 $(document).ready(function () {
+ let width_size = $( window ).width();
 
+ if(width_size <= 980 && width_size > 900){
+        $(".mobile-size1").addClass("col-sm-4").removeClass("col-sm-3");
+        $(".mobile-size2").removeClass("col-sm-9").addClass("col-sm-8");       
+ }
+ 
+
+ 
+ if(width_size < 900 && width_size > 560){
+    
+    $(".mobile-size1").removeClass("col-sm-4").addClass("col-sm-14");
+    $(".mobile-size1").removeClass("col-sm-3").addClass("col-sm-14");
+    $(".mobile-size2").hide();
+    let x = document.getElementsByClassName("account_active");
+    if(x.length > 0) { x[0].classList.remove("account_active"); }
+   
+ }
+
+ if(width_size < 560){
+    let x = document.getElementsByClassName("account_active");
+    if(x.length > 0) { x[0].classList.remove("account_active"); }
+ }
+
+
+ if(width_size < 900){
+     $(".index_mobile").click(function(e){
+         e.preventDefault();
+         let tab = $(this).find("span").html();
+         console.log("shamsu")
+         console.log(tab);
+         switch (tab) {
+            case 'My account':
+            
+                window.location.replace("mv/index")
+                 break;
+            case 'Orders':
+                window.location.replace("mv/orders")
+                break;
+            case 'Pending Reviews':
+                window.location.replace("mv/reviews")
+                break;
+            case 'Saved Items':
+                window.location.replace("mv/saved-items")
+                break;
+            case 'Change Password':
+                
+                window.location.replace("mv/change-password")
+                break;
+            case 'Newsletter Preferrence':
+                window.location.replace("mv/update?content=newsletter-preferences")
+                break;
+             default:
+                 break;
+         }
+         
+     })
+
+     
+ }
     let selected_review_numbee ="";
 	$(".btnrating").on('click',(function(e) {
 	

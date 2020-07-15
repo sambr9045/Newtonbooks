@@ -83,9 +83,10 @@ foreach($error as $value){
                             <th>email</th>
                             <th>subject</th>
                             <th>message</th>
-                            <th>Created at</th>
+                           
                             
                             <th class="text-center">Action</th>
+                            <th>Created at</th>
                         </tr>
                     </thead>
                     
@@ -103,11 +104,12 @@ foreach($error as $value){
                             echo  $values['message']
                             
                             ?></td>
-                            <td><?=$values['created_at']?></td>
+                           
                             
                             <td class="text-center">
                             <span class="icon-holder " style="cursor:pointer"><i title="Reply" data-toggle="modal" data-target="#exampleModal1" class="c-brown-500 ti-email message_reply" user_email="<?=$values['email']?>" message_id="<?=$values['id']?>" fullname="<?= $values['fullname']?>"></i>
                                 </td>
+                                <td><?=$values['created_at']?></td>
                         </tr>
                         <?php
                     }

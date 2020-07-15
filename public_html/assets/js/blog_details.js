@@ -6,8 +6,10 @@ $(".postcomment").click(function (e) {
     thib.css('opacity', '0.5');
 
     if(data.indexOf('=&') > -1 || data.substr(data.length - 1) == '='){
-        $(".comment__form").find("input, textarea").css("border", '1px solid red');
+        // $(".comment__form").find("input, textarea").css("border", '1px solid red');
         $("#comment_error").fadeIn();
+        thib.html('post comment');
+        thib.css('opacity', '1');
      }else{
       
          $.post({

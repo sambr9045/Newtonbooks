@@ -11,26 +11,7 @@
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<!-- Favicons -->
-	<link rel="shortcut icon" href="assets/images/favicon.ico">
-	<link rel="apple-touch-icon" href="assets/images/icon.png">
-
-	<!-- Google font (font-family: 'Roboto', sans-serif; Poppins ; Satisfy) -->
-
-	<link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,600,600i,700,700i,800"
-		rel="stylesheet">
-
-
-	<!-- Stylesheets -->
-	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-	<link rel="stylesheet" href="assets/css/plugins.css">
-	<link rel="stylesheet" href="assets/css/style.css">
-
-	<!-- Cusom css -->
-	<link rel="stylesheet" href="assets/css/custom.css">
-
-	<!-- Modernizer js -->
-	<script src="assets/js/vendor/modernizr-3.5.0.min.js"></script>
+	<?php  include("include/head.php"); ?>
 </head>
 
 <body>
@@ -108,7 +89,7 @@
 								</div>
 								<div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree"
 									data-parent="#accordion">
-									<div class="card-body">General orders received before 3 PM GMT are delivered same day to customers within Ghana and some receive their items the same day or the following day. International customers who place orders before 12 PM GMT will be delivered within 10-14 business days. Please view our shipping page for complete details.
+									<div class="card-body">Generally, orders received before 3 pm GMT are delivered to customers within Accra and Tema metropolis the same day and three days to customers in other parts of Ghana. 
 </div>
 								</div>
 							</div>

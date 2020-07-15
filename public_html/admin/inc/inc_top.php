@@ -114,7 +114,7 @@
                     </div>
                 </div>
                 <ul class="sidebar-menu scrollable pos-r">
-                    <li class="nav-item mT-30 active"><a class="sidebar-link" href="dashboard" default><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Dashboard</span></a></li>
+                    <!-- <li class="nav-item mT-30 active"><a class="sidebar-link" href="dashboard" default><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Dashboard</span></a></li> -->
 
                     <li class="nav-item"><a class="sidebar-link" href="Blog"><span class="icon-holder"><i class="c-light-blue-500 ti-pencil"></i> </span><span class="title">Blog</span></a></li>
 

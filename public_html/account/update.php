@@ -16,7 +16,7 @@ if(!isset($_GET["content"])){
 }else{
     $conte = $_GET["content"];
     if($conte !== "account-details" || $conte !== "address-book" ||$conte !== "newslatter-preference"){
-   //     header("location:index");
+    //    header("location:index");
     }
 }
 
@@ -34,6 +34,8 @@ header("location:../login");
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <?php include("../include/head2.php") ?>
+
+
 </head>
 
 <body class="bg-light">
@@ -57,7 +59,7 @@ if($verify == 0){
 
 ?>
   <form action="index" method="post">
-               <div class="alert alert-warning alert-dismissible fade show " role="alert" >
+               <div class="alert alert-warning alert-dismissible fade show mobile-size-text" role="alert" >
                 <strong>We sent you a verification email </strong> Please verify Your Email address <form action="account" method="post" style="display:inline">
                 <input type="hidden" name="email" value="<?=$email?>">
                 <input type="hidden" name="user_id" value="<?=$gen_id?>">
@@ -82,47 +84,47 @@ if($verify == 0){
 
 <div class="row" >
 
-<div class="col-sm-3 " >
+<div class="col-sm-3 mobile-size1" >
 <div class="card p-4">
 
 <ul class="nav flex-column">
-<li class="nav-item">
-<a class="nav-link  mb-3 account_active" href="index"><i class="fa fa-user-circle mr-2" style="font-size:20px;"></i> My account</a>
-</li>
-<li class="nav-item">
-<a class="nav-link mb-3 order " href="orders"><i class="fa fa-book mr-2" style="font-size:20px;"></i> Orders</a>
-</li>
-<li class="nav-item">
-<a class="nav-link mb-3 " href="reviews"><i class="fa fa-star mr-2" style="font-size:20px;"></i> Pending Reviews</a>
-</li>
-<li class="nav-item">
-<a class="nav-link mb-3 saveditems" href="saved-items"><i class="fa fa-heart mr-2" style="font-size:20px;"></i> Saved Items</a>
-</li>
-<li class="nav-item">
-<a class="nav-link mb-3 " href="#"><i class="fa fa-lock mr-2" style="font-size:20px;"></i> Change Password</a>
-</li>
-<div class="dropdown-divider"></div>
-<!-- <li class="nav-item">
-<a class="nav-link mb-3" href="#">Address book</a>
-</li> -->
-<li class="nav-item">
-<a class="nav-link mb-3 " href="change-password">Change Password</a>
-</li>
-<li class="nav-item">
-<a class="nav-link mb-3" href="update?content=newsletter-preferences">Newletter Preferrence</a>
-</li>
-<div class="dropdown-divider"></div>
-<li class="nav-item">
-<a class="nav-link text-center pt-3 text-danger" href="index?logout"><i class="fa fa-sign-out mr-2" style="font-size:20px;vertical-align:middle"></i> Logout</a>
-</li>
-
-</ul>
+                <li class="nav-item">
+                    <a class="nav-link index_mobile mb-3 account_active" href="index"><i class="fa fa-user-circle mr-2" style="font-size:20px;"></i> <span>My account</span></a>
+                </li>
+                <li class="nav-item index_mobile">
+                    <a class="nav-link mb-3 order " href="orders"><i class="fa fa-book mr-2" style="font-size:20px;"></i> <span>Orders</span> </a>
+                </li>
+                <li class="nav-item index_mobile">
+                    <a class="nav-link mb-3" href="reviews"><i class="fa fa-star mr-2" style="font-size:20px;"></i> <span>Pending Reviews</span></a>
+                </li>
+                <li class="nav-item index_mobile">
+                    <a class="nav-link mb-3 saveditems" href="saved-items"><i class="fa fa-heart mr-2" style="font-size:20px;"></i><span>Saved Items</span></a>
+                </li>
+                <li class="nav-item index_mobile">
+                    <a class="nav-link mb-3 " href="change-password"><i class="fa fa-lock mr-2" style="font-size:20px;"></i> <span> Change Password </span></a>
+                </li>
+                <div class="dropdown-divider"></div>
+                <!-- <li class="nav-item">
+                    <a class="nav-link mb-3" href="#">Address book</a>
+                </li> -->
+                <li class="nav-item index_mobile">
+                    <a class="nav-link mb-3 " href="change-password"><span> Change Password</span></a>
+                </li>
+                <li class="nav-item index_mobile">
+                    <a class="nav-link mb-3" href="update?content=newsletter-preferences"><span>Newsletter Preferrence</span></a>
+                </li>
+                <div class="dropdown-divider"></div>
+                <li class="nav-item">
+                    <a class="nav-link text-center pt-3 text-danger" href="index?logout"><i class="fa fa-sign-out mr-2" style="font-size:20px;vertical-align:middle"></i> Logout</a>
+                </li>
+               
+                </ul>
 
 
 </div>
 </div>
 
-<div class="col-sm-9">
+<div class="col-sm-9 mobile-size2">
 <div class="card p-4">
 
 

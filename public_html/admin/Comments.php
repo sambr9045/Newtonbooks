@@ -139,8 +139,9 @@ foreach($error as $value){
                                                 <th>Name</th>
                                                 <th>Email</th>
                                                 <th>Comment</th>
-                                                <th>Created at</th>
+                                                
                                                 <th>status</th>
+                                                <th>Created at</th>
                                                 <th class="text-center">Action</th>
                                             </tr>
                                         </thead>
@@ -148,7 +149,7 @@ foreach($error as $value){
                                         <tbody>
                                         <?php 
                                         $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
-                                        $books = $db->Fetch("SELECT * FROM comment ORDER BY created_at DESC", null);
+                                        $books = $db->Fetch("SELECT * FROM comment ORDER BY id DESC", null);
                                         foreach($books as $values){
                                             ?>
                                             <tr>
@@ -156,20 +157,21 @@ foreach($error as $value){
                                                 <td><?=$values['name']?></td>
                                                 <td><?=$values['email']?></td>
                                                 <td class="bg-info text-white"><?=$values['comment']?></td>
-                                                <td><?=$values['created_at']?></td>
                                                 <td> 
 
-                                                <?php
-                                                    if($values['status'] == 0){
-                                                        ?>
-                                                        <button class="btn btn-danger  approve_commet" commetn_id="<?=$values['id']?>"><small>Approve</small></button>
-                                                        <?php
-                                                    }else{
-                                                        echo "<span class='text-white p-3 rounded bg-info'>Approved</span>";
-                                                    }
-                                                ?>
+                                            <?php
+                                                if($values['status'] == 0){
+                                                    ?>
+                                                    <button class="btn btn-danger  approve_commet" commetn_id="<?=$values['id']?>"><small>Approve</small></button>
+                                                    <?php
+                                                }else{
+                                                    echo "<span class='text-white p-3 rounded bg-info'>Approved</span>";
+                                                }
+                                            ?>
 
-                                                </td>
+                                            </td>
+                                                <td><?=$values['created_at']?></td>
+                                               
                                                 
                                                 <td class="text-center">
                                                 <span class="icon-holder"><i title="send Email" class="c-brown-500 ti-email"></i> </span> </td>

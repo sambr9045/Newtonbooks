@@ -60,6 +60,7 @@ $(document).ready(function () {
     $(document).on('click', '.deleteBook', function(e) {
             e.preventDefault();
             let bookid = $(this).attr("bookid");
+            ths = $(this);
             
             $("#book-ok").click(function(e){
                 
@@ -72,6 +73,7 @@ $(document).ready(function () {
                         if(result == "1"){
                             $(".bookmodal .closes").click();
                             $(".bts").addClass("show");
+                            ths.closest("tr").fadeOut("slow");
                         }
                     }
                 })

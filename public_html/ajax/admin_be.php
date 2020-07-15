@@ -515,7 +515,7 @@ if(isset($_POST['confirm_delivery'])){
     extract($_POST);
     $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
     $date = date("Y-m-d");
-    $update_order = $db->Update("UPDATE orders SET shipping_status = 'Delivered on $date' WHERE order_number = '$confirm_delivery'", null);
+    $update_order = $db->Update("UPDATE orders SET shipping_status = 'Delivered on $date', OrderDelivered = 1 WHERE order_number = '$confirm_delivery'", null);
     if($update_order){
         echo "2";
     }

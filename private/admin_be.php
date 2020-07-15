@@ -34,10 +34,11 @@ if(isset($_POST['addnewblogpost'])){
             $blogpost_error[]= "Files type not allowed . (allowed files: jpg, png, jpeg)";   
          }
 
-        if(move_uploaded_file($filetmp_name, $directory."$name")){
+        if(compressImage($filetmp_name, $directory."$name", -1)){
         $imagepath= $name;
         }else{
             $blogpost_error[]="Something went wrong Please try again later";
+            
         }
  }else{
      $imagepath = $blog_image;
@@ -98,12 +99,17 @@ if(isset($_POST['addnewbook'])){
            $name = md5($filename).time().$filename;
            
            $upload_file = $directory.$name;
+           $quality = 15;
+           $image_size = getimagesize($filetmp_name);
+           if($image_size["bits"]  > 100000){
+               $quality = 10;
+           }
            if(!in_array($filetype, $acceptable_files)){
                 $error[]= "Files type not allowed . (allowed files: jpg, png, jpeg)";   
             
              }
            
-           if(move_uploaded_file($filetmp_name, $directory."$name")){
+           if(compressImage($filetmp_name, $directory."$name", $quality)){
               $imagepath[]= $name;
            }else{
                $error[]="Something went wrong Please try again later";

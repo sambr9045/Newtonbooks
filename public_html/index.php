@@ -9,7 +9,7 @@ include("../private/load.php") ;
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<title>Newtonbook | Buy any book online</title>
+	<title>Newtonbookonline | Buy any book online</title>
 	<meta name="description" content="Newton Books Online | #1 Online Bookstore and Publishing House in Ghana | Christian Literature | Business Books | Leadership Books">
 	<meta name="keyworlds" content="bookstore , bookshop, buy books in ghana ">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,11 +25,10 @@ include("../private/load.php") ;
 		rel="stylesheet">
 	
 
-	<script src="https://use.fontawesome.com/16fe135af5.js"></script>
-
-
+	<?php include("include/pixel.php") ?>
 	<!-- Stylesheets -->
-	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
 	<link rel="stylesheet" href="assets/css/plugins.css">
 	<link rel="stylesheet" href="assets/css/style.css">
 
@@ -38,6 +37,7 @@ include("../private/load.php") ;
 
 	<!-- Modernizer js -->
 	<script src="assets/js/vendor/modernizr-3.5.0.min.js"></script>
+	
 </head>
 
 <body>
@@ -48,20 +48,7 @@ include("../private/load.php") ;
 		<!-- Header -->
 		<?php include("include/header2.php") ?>
 		<!-- //Header -->
-		<!-- Start Search Popup -->
-		<div class="brown--color box-search-content search_active block-bg close__top" >
-			<form id="search_mini_form" class="minisearch" action="#">
-				<div class="field__search">
-					<input type="text" placeholder="Search entire store here...">
-					<div class="action">
-						<a href="#"><i class="zmdi zmdi-search"></i></a>
-					</div>
-				</div>
-			</form>
-			<div class="close__wrap">
-				<span>close</span>
-			</div>
-		</div>
+	
 		<!-- End Search Popup -->
 		<!-- Start Slider area -->
 		<div class="slider-area brown__nav slider--15 slide__activation slide__arrow01 owl-carousel owl-theme" style="height:100vh!important;">
@@ -109,7 +96,7 @@ include("../private/load.php") ;
 		<section class="wn__product__area brown--color pt--80  pb--30">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-12">
+					<div class="col-lg-8">
 						<div class="section__title text-center">
 							<h2 class="title__be--2">New <span class="color--theme">Products</span></h2>
 							<!-- <p>There are many variations of passages of Lorem Ipsum available, but the majority have
@@ -118,7 +105,7 @@ include("../private/load.php") ;
 					</div>
 				</div>
 				<!-- Start Single Tab Content -->
-				<div class="furniture--4 border--round arrows_style owl-carousel owl-theme mt--50">
+				<div class="furniture--4 border--round arrows_style owl-carousel owl-theme mt--50" >
 						<?php
 						 $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
 								$SQL = $db->Fetch("SELECT * FROM books ORDER BY id DESC LIMIT 6", null);
@@ -139,12 +126,12 @@ include("../private/load.php") ;
 									?>
 									
 					<!-- Start Single Product -->
-					<div class="product product__style--3">
+					<div class="product product__style--3" >
 						<div class="product__thumb">
 							<a class="first__img" href="detail?id=<?=$value['id']?>t=<?=$value['title']?>"><img src="<?="uploades/".$url[0]?>"
-									width="304" height="384" alt="product image"></a>
+									width="100px" height="384" alt="product image"></a>
 							<a class="second__img animation1" href="detail?id=<?=$value['id']?>t=<?=$value['title']?>"><img
-									src="<?="uploades/".$url[1]?>" width="304" height="384" alt="product image"></a>
+									src="<?="uploades/".$url[1]?>" width="100px" height="384" alt="product image"></a>
 							<div class="hot__box color--2">
 								<span class="hot-label">HOT</span>
 							</div>
@@ -165,13 +152,14 @@ include("../private/load.php") ;
 								</div>
 							</div>
 							<div class="product__hover--content">
-								<ul class="rating d-flex">
+								<br>
+								<!-- <ul class="rating d-flex">
 									<li class="on"><i class="fa fa-star-o"></i></li>
 									<li class="on"><i class="fa fa-star-o"></i></li>
 									<li class="on"><i class="fa fa-star-o"></i></li>
 									<li><i class="fa fa-star-o"></i></li>
 									<li><i class="fa fa-star-o"></i></li>
-								</ul>
+								</ul> -->
 							</div>
 						</div>
 					</div>
@@ -277,9 +265,9 @@ include("../private/load.php") ;
 									<div class="product product__style--3">
 										<div class="product__thumb">
 											<a class="first__img" href="detail?id=<?=$value['id']?>t=<?=$value['title']?>"><img
-													src="<?="uploades/".$url2[0]?>" width="304" height="384" alt="product image"></a>
+													src="<?="uploades/".$url2[0]?>" width="100px" height="384" alt="product image"></a>
 											<a class="second__img animation1" href="detail?id=<?=$value['id']?>t=<?=$value['title']?>"><img
-													src="<?="uploades/".$url2[1]?>" width="304" height="384" alt="product image"></a>
+													src="<?="uploades/".$url2[1]?>" width="100px" height="384" alt="product image"></a>
 											<div class="hot__box">
 												<span class="hot-label">BEST SALLER</span>
 										    </div>
@@ -300,13 +288,14 @@ include("../private/load.php") ;
 												</div>
 											</div>
 											<div class="product__hover--content">
-												<ul class="rating d-flex">
+											<br>	
+											<!-- <ul class="rating d-flex">
 													<li class="on"><i class="fa fa-star-o"></i></li>
 													<li class="on"><i class="fa fa-star-o"></i></li>
 													<li class="on"><i class="fa fa-star-o"></i></li>
 													<li><i class="fa fa-star-o"></i></li>
 													<li><i class="fa fa-star-o"></i></li>
-												</ul>
+												</ul> -->
 											</div>
 										</div>
 									</div>
@@ -350,9 +339,9 @@ include("../private/load.php") ;
 									<div class="product product__style--3">
 										<div class="product__thumb">
 											<a class="first__img" href="detail?id=<?=$value['id']?>t=<?=$value['title']?>"><img
-													src="<?="uploades/".$url2[0]?>" width="304" height="384" alt="product image"></a>
+													src="<?="uploades/".$url2[0]?>" width="100px" height="384" alt="product image"></a>
 											<a class="second__img animation1" href="detail?id=<?=$value['id']?>t=<?=$value['title']?>"><img
-													src="<?="uploades/".$url2[1]?>" width="304" height="384" alt="product image"></a>
+													src="<?="uploades/".$url2[1]?>" width="100px" height="384" alt="product image"></a>
 											<div class="hot__box">
 												<span class="hot-label">BEST SALLER</span>
 											</div>
@@ -373,13 +362,14 @@ include("../private/load.php") ;
 												</div>
 											</div>
 											<div class="product__hover--content">
-												<ul class="rating d-flex">
+											<br>	
+											<!-- <ul class="rating d-flex">
 													<li class="on"><i class="fa fa-star-o"></i></li>
 													<li class="on"><i class="fa fa-star-o"></i></li>
 													<li class="on"><i class="fa fa-star-o"></i></li>
 													<li><i class="fa fa-star-o"></i></li>
 													<li><i class="fa fa-star-o"></i></li>
-												</ul>
+												</ul> -->
 											</div>
 										</div>
 									</div>
@@ -427,9 +417,9 @@ include("../private/load.php") ;
 									<div class="product product__style--3">
 										<div class="product__thumb">
 											<a class="first__img" href="detail?id=<?=$value['id']?>t=<?=$value['title']?>"><img
-													src="<?="uploades/".$url2[0]?>" width="304" height="384" alt="product image"></a>
+													src="<?="uploades/".$url2[0]?>" width="100px" height="384" alt="product image"></a>
 											<a class="second__img animation1" href="detail?id=<?=$value['id']?>t=<?=$value['title']?>"><img
-													src="<?="uploades/".$url2[1]?>" width="304" height="384" alt="product image"></a>
+													src="<?="uploades/".$url2[1]?>" width="100px" height="384" alt="product image"></a>
 											<div class="hot__box">
 												<span class="hot-label">BEST SALLER</span>
 										    </div>
@@ -450,13 +440,14 @@ include("../private/load.php") ;
 												</div>
 											</div>
 											<div class="product__hover--content">
-												<ul class="rating d-flex">
+											<br>	
+											<!-- <ul class="rating d-flex">
 													<li class="on"><i class="fa fa-star-o"></i></li>
 													<li class="on"><i class="fa fa-star-o"></i></li>
 													<li class="on"><i class="fa fa-star-o"></i></li>
 													<li><i class="fa fa-star-o"></i></li>
 													<li><i class="fa fa-star-o"></i></li>
-												</ul>
+												</ul> -->
 											</div>
 										</div>
 									</div>
@@ -500,9 +491,9 @@ include("../private/load.php") ;
 									<div class="product product__style--3">
 										<div class="product__thumb">
 											<a class="first__img" href="detail?id=<?=$value['id']?>t=<?=$value['title']?>"><img
-													src="<?="uploades/".$url2[0]?>" width="304" height="384" alt="product image"></a>
+													src="<?="uploades/".$url2[0]?>" width="100px" height="384" alt="product image"></a>
 											<a class="second__img animation1" href="detail?id=<?=$value['id']?>t=<?=$value['title']?>"><img
-													src="<?="uploades/".$url2[1]?>" width="304" height="384" alt="product image"></a>
+													src="<?="uploades/".$url2[1]?>" width="100px" height="384" alt="product image"></a>
 											<div class="hot__box">
 												<span class="hot-label">BEST SALLER</span>
 											</div>
@@ -523,13 +514,14 @@ include("../private/load.php") ;
 												</div>
 											</div>
 											<div class="product__hover--content">
-												<ul class="rating d-flex">
+											<br>	
+											<!-- <ul class="rating d-flex">
 													<li class="on"><i class="fa fa-star-o"></i></li>
 													<li class="on"><i class="fa fa-star-o"></i></li>
 													<li class="on"><i class="fa fa-star-o"></i></li>
 													<li><i class="fa fa-star-o"></i></li>
 													<li><i class="fa fa-star-o"></i></li>
-												</ul>
+												</ul> -->
 											</div>
 										</div>
 									</div>
@@ -570,9 +562,9 @@ include("../private/load.php") ;
 									<div class="product product__style--3">
 										<div class="product__thumb">
 											<a class="first__img" href="detail?id=<?=$value['id']?>t=<?=$value['title']?>"><img
-													src="<?="uploades/".$url2[0]?>" width="304" height="384" alt="product image"></a>
+													src="<?="uploades/".$url2[0]?>" width="100px" height="384" alt="product image"></a>
 											<a class="second__img animation1" href="detail?id=<?=$value['id']?>t=<?=$value['title']?>"><img
-													src="<?="uploades/".$url2[1]?>" width="304" height="384" alt="product image"></a>
+													src="<?="uploades/".$url2[1]?>" width="100px" height="384" alt="product image"></a>
 											<div class="hot__box">
 												<span class="hot-label">BEST SALLER</span>
 										    </div>
@@ -593,13 +585,14 @@ include("../private/load.php") ;
 												</div>
 											</div>
 											<div class="product__hover--content">
-												<ul class="rating d-flex">
+											<br>	
+											<!-- <ul class="rating d-flex">
 													<li class="on"><i class="fa fa-star-o"></i></li>
 													<li class="on"><i class="fa fa-star-o"></i></li>
 													<li class="on"><i class="fa fa-star-o"></i></li>
 													<li><i class="fa fa-star-o"></i></li>
 													<li><i class="fa fa-star-o"></i></li>
-												</ul>
+												</ul> -->
 											</div>
 										</div>
 									</div>
@@ -643,9 +636,9 @@ include("../private/load.php") ;
 									<div class="product product__style--3">
 										<div class="product__thumb">
 											<a class="first__img" href="detail?id=<?=$value['id']?>t=<?=$value['title']?>"><img
-													src="<?="uploades/".$url2[0]?>" width="304" height="384" alt="product image"></a>
+													src="<?="uploades/".$url2[0]?>" width="100px" height="384" alt="product image"></a>
 											<a class="second__img animation1" href="detail?id=<?=$value['id']?>t=<?=$value['title']?>"><img
-													src="<?="uploades/".$url2[1]?>" width="304" height="384" alt="product image"></a>
+													src="<?="uploades/".$url2[1]?>" width="100px" height="384" alt="product image"></a>
 											<div class="hot__box">
 												<span class="hot-label">BEST SALLER</span>
 											</div>
@@ -666,13 +659,14 @@ include("../private/load.php") ;
 												</div>
 											</div>
 											<div class="product__hover--content">
-												<ul class="rating d-flex">
+											<br>	
+											<!-- <ul class="rating d-flex">
 													<li class="on"><i class="fa fa-star-o"></i></li>
 													<li class="on"><i class="fa fa-star-o"></i></li>
 													<li class="on"><i class="fa fa-star-o"></i></li>
 													<li><i class="fa fa-star-o"></i></li>
 													<li><i class="fa fa-star-o"></i></li>
-												</ul>
+												</ul> -->
 											</div>
 										</div>
 									</div>
@@ -713,9 +707,9 @@ include("../private/load.php") ;
 									<div class="product product__style--3">
 										<div class="product__thumb">
 											<a class="first__img" href="detail?id=<?=$value['id']?>t=<?=$value['title']?>"><img
-													src="<?="uploades/".$url2[0]?>" width="304" height="384" alt="product image"></a>
+													src="<?="uploades/".$url2[0]?>" width="100px" height="384" alt="product image"></a>
 											<a class="second__img animation1" href="detail?id=<?=$value['id']?>t=<?=$value['title']?>"><img
-													src="<?="uploades/".$url2[1]?>" width="304" height="384" alt="product image"></a>
+													src="<?="uploades/".$url2[1]?>" width="100px" height="384" alt="product image"></a>
 											<div class="hot__box">
 												<span class="hot-label">BEST SALLER</span>
 										    </div>
@@ -736,13 +730,14 @@ include("../private/load.php") ;
 												</div>
 											</div>
 											<div class="product__hover--content">
-												<ul class="rating d-flex">
+											<br>	
+											<!-- <ul class="rating d-flex">
 													<li class="on"><i class="fa fa-star-o"></i></li>
 													<li class="on"><i class="fa fa-star-o"></i></li>
 													<li class="on"><i class="fa fa-star-o"></i></li>
 													<li><i class="fa fa-star-o"></i></li>
 													<li><i class="fa fa-star-o"></i></li>
-												</ul>
+												</ul> -->
 											</div>
 										</div>
 									</div>
@@ -786,9 +781,9 @@ include("../private/load.php") ;
 									<div class="product product__style--3">
 										<div class="product__thumb">
 											<a class="first__img" href="detail?id=<?=$value['id']?>t=<?=$value['title']?>"><img
-													src="<?="uploades/".$url2[0]?>" width="304" height="384" alt="product image"></a>
+													src="<?="uploades/".$url2[0]?>" width="100px" height="384" alt="product image"></a>
 											<a class="second__img animation1" href="detail?id=<?=$value['id']?>t=<?=$value['title']?>"><img
-													src="<?="uploades/".$url2[1]?>" width="304" height="384" alt="product image"></a>
+													src="<?="uploades/".$url2[1]?>" width="100px" height="384" alt="product image"></a>
 											<div class="hot__box">
 												<span class="hot-label">BEST SALLER</span>
 											</div>
@@ -809,13 +804,14 @@ include("../private/load.php") ;
 												</div>
 											</div>
 											<div class="product__hover--content">
-												<ul class="rating d-flex">
+											<br>	
+											<!-- <ul class="rating d-flex">
 													<li class="on"><i class="fa fa-star-o"></i></li>
 													<li class="on"><i class="fa fa-star-o"></i></li>
 													<li class="on"><i class="fa fa-star-o"></i></li>
 													<li><i class="fa fa-star-o"></i></li>
 													<li><i class="fa fa-star-o"></i></li>
-												</ul>
+												</ul> -->
 											</div>
 										</div>
 									</div>

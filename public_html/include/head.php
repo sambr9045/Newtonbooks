@@ -7,13 +7,16 @@
 
 
 	<!-- Stylesheets -->
-	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-	<link rel="stylesheet" href="assets/css/bootstrap.css">
+<!-- CSS only -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+
 	<link rel="stylesheet" href="assets/css/plugins.css">
 	<link rel="stylesheet" href="assets/css/style.css">
 
 	<!-- Cusom css -->
-	<link rel="stylesheet" href="assets/css/custom.css">
+
+	<?php include("pixel.php") ?>
 
 	<!-- Modernizer js -->
 	<script src="assets/js/vendor/modernizr-3.5.0.min.js"></script>

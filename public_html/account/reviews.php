@@ -26,6 +26,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <?php include("../include/head2.php") ?>
+
 </head>
 
 <body class="bg-light">
@@ -49,7 +50,7 @@
                  
             ?>
                 <form action="reviews" method="post">
-               <div class="alert alert-warning alert-dismissible fade show " role="alert" >
+               <div class="alert alert-warning alert-dismissible fade show mobile-size-text" role="alert" >
                 <strong>We sent you a verification email </strong> Please verify Your Email address <form action="account" method="post" style="display:inline">
                 <input type="hidden" name="email" value="<?=$email?>">
                 <input type="hidden" name="user_id" value="<?=$gen_id?>">
@@ -74,32 +75,34 @@
 
   <div class="row" >
     
-    <div class="col-sm-3 " >
+    <div class="col-sm-3 mobile-size1" >
             <div class="card p-4">
              
-               <ul class="nav flex-column">
+            <ul class="nav flex-column">
                 <li class="nav-item">
-                    <a class="nav-link  mb-3 " href="index"><i class="fa fa-user-circle mr-2" style="font-size:20px;"></i> My account</a>
+                    <a class="nav-link index_mobile mb-3 " href="index"><i class="fa fa-user-circle mr-2" style="font-size:20px;"></i> <span>My account</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link mb-3 order " href="orders"><i class="fa fa-book mr-2" style="font-size:20px;"></i> Orders</a>
+                <li class="nav-item index_mobile">
+                    <a class="nav-link mb-3 order " href="orders"><i class="fa fa-book mr-2" style="font-size:20px;"></i> <span>Orders</span> </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link mb-3 account_active" href="reviews"><i class="fa fa-star mr-2" style="font-size:20px;"></i> Pending Reviews</a>
+                <li class="nav-item index_mobile ">
+                    <a class="nav-link mb-3 account_active" href="reviews"><i class="fa fa-star mr-2" style="font-size:20px;"></i> <span>Pending Reviews</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link mb-3 saveditems" href="saved-items"><i class="fa fa-heart mr-2" style="font-size:20px;"></i> Saved Items</a>
+                <li class="nav-item index_mobile">
+                    <a class="nav-link mb-3 saveditems" href="saved-items"><i class="fa fa-heart mr-2" style="font-size:20px;"></i><span>Saved Items</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link mb-3 " href="#"><i class="fa fa-lock mr-2" style="font-size:20px;"></i> Change Password</a>
+                <li class="nav-item index_mobile">
+                    <a class="nav-link mb-3 " href="change-password"><i class="fa fa-lock mr-2" style="font-size:20px;"></i> <span> Change Password </span></a>
                 </li>
                 <div class="dropdown-divider"></div>
-               
-                <li class="nav-item">
-                    <a class="nav-link mb-3 " href="change-password">Change Password</a>
+                <!-- <li class="nav-item">
+                    <a class="nav-link mb-3" href="#">Address book</a>
+                </li> -->
+                <li class="nav-item index_mobile">
+                    <a class="nav-link mb-3 " href="change-password"><span> Change Password</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link mb-3" href="update?content=newsletter-preferences">Newletter Preferrence</a>
+                <li class="nav-item index_mobile">
+                    <a class="nav-link mb-3" href="update?content=newsletter-preferences"><span>Newsletter Preferrence</span></a>
                 </li>
                 <div class="dropdown-divider"></div>
                 <li class="nav-item">
@@ -112,7 +115,7 @@
             </div>
     </div>
 
-    <div class="col-sm-9">
+    <div class="col-sm-9 mobile-size2">
             <div class="card p-4">
             
         
@@ -132,7 +135,7 @@
                       
 
                         $db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
-                        $QUERY = $db->Fetch("SELECT * FROM orders WHERE user_id = '$gen_id'  ORDER BY id DESC" , null);
+                        $QUERY = $db->Fetch("SELECT * FROM orders WHERE user_id = '$gen_id' AND OrderDelivered = 1 ORDER BY id DESC" , null);
 
                     
 

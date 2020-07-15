@@ -206,7 +206,7 @@ if(isset($_COOKIE['checkoutInfo'])){
 								</li>
 
 								<li>
-								 <small>Free delivery on orders above GHS 100 </small>
+								 <small class="free_delivery_on"> </small>
 								</li>
 							</ul>
 							<ul class="total__amount coupon_hide" style="display:none;">

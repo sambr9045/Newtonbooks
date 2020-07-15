@@ -1,7 +1,25 @@
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 900px) {
     .media_confirmed{
         width: 90%!important;
+    }
+    .mobile-size-text{
+        font-size:10px;
+        margin-left: 2%!important;
+        margin-right: 2%!important;
+        margin-top: -10px;
+    }
+
+    .mobile-size-text button{
+        font-size: 10px;
+    }
+    .mobile-size1{
+        width: 100%!important;
+        margin: 0% 2%;
+    }
+  
+    .mobile-size2{
+        display:none;
     }
    
   }

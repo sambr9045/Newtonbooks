@@ -28,7 +28,7 @@ $success = [];
         if(in_array( $username , $admin_login_username) && in_array( $password , $admin_login_password)){
             
             $_SESSION['username'] = $username;
-            header("location:dashboard");
+            header("location:books");
 
         }else{
             $error[] = "Incorrect username or Password";
