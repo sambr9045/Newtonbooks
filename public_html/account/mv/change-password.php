@@ -48,88 +48,71 @@
 	<br><br><br>
 
 <div class="container "  >	
+<a href="../index"><i class="fa fa-arrow-left"></i></a> 
+    <?php
+    if(isset($success_change_password) && !empty($success_change_password)){
+        ?>
+           
+           <div class="alert alert-success alert-dismissible fade show" role="alert">
+           <strong><i class="far fa-check-circle   mr-2" style="font-size:20px"></i></strong><?=$success_change_password[0]?>
+           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+           </button>
+           </div>
+        <?php
+    }elseif(isset($error_password_change)){
+        ?>
+           
+           <div class="alert alert-warning alert-dismissible fade show" role="alert">
+           <strong><i class="fas fa-exclamation-triangle   mr-2" style="font-size:20px"></i></strong><?=$error_password_change[0]?>
+           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+           </button>
+           </div>
+        <?php
+    }
+    
+    ?>
+    
+    
 <div class="row" >
 
 
-<div class="col-sm-14">
+<div class="col-sm-14 w-100">
 
 
 <div class="card p-2 bg-light border-0">
 
-<?php
-$db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+<div class="mb-2">
+    <div class="card">
+        <div class="card-header"> 
+        CHANGE PASSWORD
+        </div>
+        <div class="card-body pl-5">
+        
+        <form method="post" action="change-password">
+        <div class="form-group">
+            <label for="old_password">old password</label>
+            <input type="password" class="form-control" id="old_password" placeholder="old password" name="old_password" required>
+            
+        </div>
+        <div class="form-group">
+            <label for="new_password">New Password</label>
+            <input type="password" class="form-control" name="new_password" id="new_password" placeholder="New Password" required>
+        </div>
+        <input type="hidden" name="user_id" value="<?=$gen_id?>">
+        <input type="hidden" name="user_old_password" value="<?=$password?>">
+        <div class="form-group">
+            <label for="Confirm_new_password">Confirm New Password</label>
+            <input type="password" class="form-control" id="Confirm_new_password" name="confirm_new_password" placeholder="Confirm New Password" required>
+        </div>
 
 
-$cartitem = $db->Fetch("SELECT * FROM wishlist WHERE user_id = '$gen_id'", null);
-
-if(!empty($cartitem)){
-
-foreach($cartitem as $wishlist){
-?>
-<div class="row">
-<div class="col-sm-12  m-1">
-<div class="card mb-3 p-2" style="width:100%;">
-<div class="row no-gutters">
-    <div class="col-md-1.5" >
-    <img src="../../uploades/<?=$wishlist['image']?>"  width="100px" height="150px" alt="...">
-    </div>
-    <div class="col-md-8">
-    <div class="card-body ">
-        <p class="card-title"><?=$wishlist['book_title']?></p>
-        <p class="card-text"><?="GHS " .$wishlist['book_price']?></p>
-<br>
-
-        <p class="pb-2">
-        <form action="saved-items" method="post">
-        <input type="hidden" name="book_id" value="<?=$wishlist["book_id"]?>">
-        <button class="btn btn-primary" name="wishlist_add_to_cart"><small><i class="fas fa-cart-plus mr-2"></i>Add to Cart</small></button> &nbsp;  <button class="text-white ml-4 cursor_pointer btn btn-danger" name="remove_wishlist_book"><i class="fas fa-trash-alt pr-1"></i> Remove</button>
+        <button type="submit" name="account_change_password" class="btn btn-primary form-control"> Update</button>
         </form>
-        </p>
+
+        </div>
     </div>
-    
-    </div>
-</div>
-</div>
-</div>
-</div>
-<?php
-}
-?>
-
-
-
-<?php
-}else{
-?>
-
-<div class="container  p-2 pl-4 rounded" >
-<br><br><br><br>
-<div class="row "> 
-
-<div class="text-center col-lg-12 ">
-
-
-<div class="text-center " style="margin:0 auto ; padding:2%; border-radius:250px; ">
-    <img src="../../assets/images/saved-item.svg" alt="empty card">
-</div>
-<br>
-<h3 class="text-center text-secondary">You haven’t saved an item yet!</h3>
-<article class="text-center w-100 pt-3" style="margin:0 auto;">
-Found something you like? Tap on the heart shaped icon next to the item to add it to your wishlist! All your saved items will appear here.</article>
-<br>
-<br>
-
-<br>
-<a href="../../shop" style="padding-bottom:20px!important;"><button  class="btn btn-primary ">Start Shopping</button></a>
-<br><br><br><br><br><br>
-</div>
-
-</div>
-</div>
-<?php
-}
-
-?>
 
 
 </div>
@@ -137,7 +120,6 @@ Found something you like? Tap on the heart shaped icon next to the item to add i
 
 </div>
 </div>
-
 
 </div>
 

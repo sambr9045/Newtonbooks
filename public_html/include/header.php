@@ -18,35 +18,64 @@
 				<li class="drop"><a href="shop">Shop</a>
 				
 				</li>
-				<li class="drop"><a href="">Books</a>
+			<li class="drop"><a href="shop">Books</a>
 					<div class="megamenu mega03">
 						<ul class="item item03">
-							<li class="title">Categories</li>
-							<li><a href="">Biography </a></li>
-							<li><a href="">Business </a></li>
-							<li><a href="">Cookbooks </a></li>
-							<li><a href="">Health & Fitness </a></li>
-							<li><a href="">History </a></li>
+						<li class="title">Categories</li>
+
+							<?php
+
+							$db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+
+							$cat1 = $db->Fetch("SELECT * FROM ccategories ORDER BY id DESC limit 0, 5", null);
+							foreach($cat1 as $cats1){
+								?>
+									<li><a href="shop?categorie=<?=$cats1['cat_name']?>"><?=$cats1["cat_name"]?> </a></li>
+								<?php
+							}
+							
+							
+							?>
+							
 						</ul>
 						<ul class="item item03">
-							<li class="title">Customer Favourite</li>
-							<li><a href="">Mystery</a></li>
-							<li><a href="">Religion & Inspiration</a></li>
-							<li><a href="">Romance</a></li>
-							<li><a href="">Fiction/Fantasy</a></li>
-							<li><a href="">Sleeveless</a></li>
+						<li class="title">Customer Favourite</li>
+						<?php
+
+						$db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+
+						$cat2 = $db->Fetch("SELECT * FROM ccategories ORDER BY id DESC limit 6, 5", null);
+						foreach($cat2 as $cats2){
+							?>
+								<li><a href="shop?categorie=<?=$cats2['cat_name']?>"><?=$cats2["cat_name"]?> </a></li>
+							<?php
+						}
+
+
+						?>
+
+						
 						</ul>
 						<ul class="item item03">
 							<li class="title">Collections</li>
-							<li><a href="">Science </a></li>
-							<li><a href="">Fiction/Fantasy</a></li>
-							<li><a href="">Self-Improvemen</a></li>
-							<li><a href="">Home & Garden</a></li>
-							<li><a href="">Humor Books</a></li>
+							<?php
+
+							$db = new main_db(HOSTNAME, HOSTUSERNAME, HOSTPASSWORD, DBNAME);
+
+							$cat3 = $db->Fetch("SELECT * FROM ccategories ORDER BY id DESC limit 11, 5", null);
+							foreach($cat3 as $cats3){
+								?>
+									<li><a href="shop?categorie=<?=$cats3['cat_name']?>"><?=$cats3["cat_name"]?> </a></li>
+								<?php
+							}
+
+
+							?>
 						</ul>
 					</div>
 				</li>
 				
+
 				<li class="drop"><a href="about-us">About us</a>
 				
 				</li>

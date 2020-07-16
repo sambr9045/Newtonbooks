@@ -1,5 +1,10 @@
 $(document).ready(function(){
-
+    let width_size = $( window ).width();
+    if(width_size <= 500){
+     
+    $(".product").removeClass("col-12").addClass("col-8")
+    }
+    $(".product").css("margin", "0 auto")
     $(".paperbag").click(function(){
         $(".hardcover").find(".book_type").removeClass("active_book_type");
         $(".electronic").find(".book_type").removeClass("active_book_type");

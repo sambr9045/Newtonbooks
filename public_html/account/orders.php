@@ -86,9 +86,9 @@
                 <!-- <li class="nav-item">
                     <a class="nav-link mb-3" href="#">Address book</a>
                 </li> -->
-                <li class="nav-item index_mobile">
+                <!-- <li class="nav-item index_mobile">
                     <a class="nav-link mb-3 " href="change-password"><span> Change Password</span></a>
-                </li>
+                </li> -->
                 <li class="nav-item index_mobile">
                     <a class="nav-link mb-3" href="update?content=newsletter-preferences"><span>Newsletter Preferrence</span></a>
                 </li>

@@ -173,7 +173,7 @@
 							<li><a href="index">Home</a>
 								
 							</li>
-							<li><a href="about-us">Pages</a>
+							<li><a href="about-us">about-us</a>
 								
 							</li>
 							<li><a href="shop">Shop</a>

@@ -17,7 +17,7 @@
 										<li><a href="#"><i class="bi bi-google"></i></a></li>
 										<li><a href="https://twitter.com/NewtonBooks"><i class="bi bi-twitter"></i></a></li>
 										<li><a href="https://www.linkedin.com/company/newtonbooks"><i class="bi bi-linkedin"></i></a></li>
-										<li><a href="#"><i class="bi bi-youtube"></i></a></li>
+										<li><a href="https://www.youtube.com/channel/UCWQvP9zUUxyDSj5sWA3QSqw/featured"><i class="bi bi-youtube"></i></a></li>
 									</ul>
 									<ul class="mainmenu d-flex justify-content-center">
 										<li><a href="Terms">Terms & Condition</a></li>

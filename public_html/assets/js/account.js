@@ -44,7 +44,7 @@ $(document).ready(function () {
             case 'Saved Items':
                 window.location.replace("mv/saved-items")
                 break;
-            case 'Change Password':
+            case ' Change Password':
                 
                 window.location.replace("mv/change-password")
                 break;
