@@ -15,8 +15,8 @@
     define("apiPublic", "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
     define("P_URL", "https://api.paystack.co/transaction/initialize");
 
-    $admin_login_username = ['theissacnewton', 'boukari'];
-    $admin_login_password = ['theissacnewton', '90454544'];
+    $admin_login_username = ['xxxxxxxxxxxxxxxxxx', 'xxxxxxxxxxxxxxxxx'];
+    $admin_login_password = ['xxxxxxxxxxxxxxxxx', 'xxxxxxxxxxxxxxxxxxxx'];
 
 
 
