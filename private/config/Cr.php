@@ -7,12 +7,12 @@
     define("DBNAME", "newtonbooks");
 
     define("STMT_USERNAME", "no-reply@newtonbooksonline.com");
-    define("STMT_PASSWORD", "#cal509@HTG");
-    define("stmt_host", "smtp.hostinger.com");
+    define("STMT_PASSWORD", "xxxxxxxxxxxxxxxxx");
+    define("stmt_host", "xxxxxxxxxxxxxxxx");
     define("stmt_port", "465");
 
-    define("ApiSecret", "sk_test_24dd462cb8831fb888dddcd6d707563e2bc29663");
-    define("apiPublic", "pk_test_904b365620edb9108c20dadb73c98bf204f1b70a");
+    define("ApiSecret", "xxxxxxxxxxxxxxxxxxxxxxxxxx");
+    define("apiPublic", "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
     define("P_URL", "https://api.paystack.co/transaction/initialize");
 
     $admin_login_username = ['theissacnewton', 'boukari'];
