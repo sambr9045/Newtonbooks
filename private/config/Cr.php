@@ -6,7 +6,7 @@
     define("HOSTPASSWORD", "");
     define("DBNAME", "newtonbooks");
 
-    define("STMT_USERNAME", "no-reply@newtonbooksonline.com");
+    define("STMT_USERNAME", "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
     define("STMT_PASSWORD", "xxxxxxxxxxxxxxxxx");
     define("stmt_host", "xxxxxxxxxxxxxxxx");
     define("stmt_port", "465");
